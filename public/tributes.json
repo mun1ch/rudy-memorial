@@ -4,20 +4,23 @@
     "message": "This is a test memory about Rudy.",
     "contributorName": "John Doe",
     "submittedAt": "2025-09-29T19:41:10.065Z",
-    "approved": true
+    "approved": true,
+    "hidden": true
   },
   {
     "id": "5a85723c-4912-4299-b781-250b896dee0d",
     "message": "This is a test memory about Rudy.",
     "contributorName": "John Doe",
     "submittedAt": "2025-09-29T19:41:41.938Z",
-    "approved": true
+    "approved": true,
+    "hidden": true
   },
   {
     "id": "86b04e77-93cc-434c-9661-bec2054dd5a6",
     "message": "Please share at least 10 characters. Tell us about your memories with Rudy.\r\n\r\n",
     "submittedAt": "2025-09-29T19:41:46.398Z",
-    "approved": true
+    "approved": true,
+    "hidden": true
   },
   {
     "id": "de06e60d-3121-4b93-a9a6-ad41ce2e99eb",

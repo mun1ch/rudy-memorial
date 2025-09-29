@@ -9,7 +9,7 @@
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T19:48:48.424Z",
     "approved": true,
-    "hidden": false
+    "hidden": true
   },
   {
     "id": "photo_1759176676583",
@@ -20,7 +20,8 @@
     "fileSize": 19556,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T20:11:16.587Z",
-    "approved": true
+    "approved": true,
+    "hidden": true
   },
   {
     "id": "photo_1759180051538",
@@ -31,7 +32,8 @@
     "fileSize": 36296,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T21:07:31.539Z",
-    "approved": true
+    "approved": true,
+    "hidden": true
   },
   {
     "id": "photo_1759180069301",
