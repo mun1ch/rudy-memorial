@@ -29,21 +29,32 @@ export default function GalleryPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+      const [isFullscreen, setIsFullscreen] = useState(false);
+      const [isPlaying, setIsPlaying] = useState(false);
+      const [isTransitioning, setIsTransitioning] = useState(false);
+      const [showFullscreenInfo, setShowFullscreenInfo] = useState(false);
+      const [slideshowPhotos, setSlideshowPhotos] = useState<Photo[]>([]);
 
   useEffect(() => {
     // Fetch photos from the API endpoint
-    fetch('/api/photos')
-      .then(res => res.json())
-      .then(data => {
+    const fetchPhotos = async () => {
+      try {
+        const res = await fetch('/api/photos');
+        const data = await res.json();
         setPhotos(data);
         setLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
+        console.error('Error fetching photos:', error);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchPhotos();
+
+    // Poll for new photos every 10 seconds during events
+    const pollInterval = setInterval(fetchPhotos, 10000);
+
+    return () => clearInterval(pollInterval);
   }, []);
 
   const formatDate = (dateString: string) => {
@@ -59,37 +70,41 @@ export default function GalleryPage() {
     return heights[Math.floor(Math.random() * heights.length)];
   };
 
-  const goToPreviousPhoto = () => {
-    if (!selectedPhoto) return;
-    const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
-    const previousIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
-    setSelectedPhoto(photos[previousIndex]);
-    // Don't stop auto-play when navigating programmatically
-  };
+      const goToPreviousPhoto = () => {
+        if (!selectedPhoto) return;
+        const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+        const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
+        const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
+        setSelectedPhoto(currentPhotos[previousIndex]);
+        // Don't stop auto-play when navigating programmatically
+      };
 
   const goToPreviousPhotoManual = () => {
-    stopAutoPlay(); // Stop auto-play on manual navigation
-    if (!selectedPhoto) return;
-    const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
-    const previousIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
-    smoothTransitionToPhoto(photos[previousIndex]);
-    currentPhotoIndex = previousIndex;
-  };
+        stopAutoPlay(); // Stop auto-play on manual navigation
+        if (!selectedPhoto) return;
+        const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+        const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
+        const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
+        smoothTransitionToPhoto(currentPhotos[previousIndex]);
+        currentPhotoIndex = previousIndex;
+      };
 
   const goToNextPhotoManual = () => {
     stopAutoPlay(); // Stop auto-play on manual navigation
     if (!selectedPhoto) return;
-    const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
-    const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
-    smoothTransitionToPhoto(photos[nextIndex]);
+    const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+    const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
+    const nextIndex = currentIndex < currentPhotos.length - 1 ? currentIndex + 1 : 0;
+    smoothTransitionToPhoto(currentPhotos[nextIndex]);
     currentPhotoIndex = nextIndex;
   };
 
   const goToNextPhoto = () => {
     if (!selectedPhoto) return;
-    const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
-    const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
-    setSelectedPhoto(photos[nextIndex]);
+    const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+    const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
+    const nextIndex = currentIndex < currentPhotos.length - 1 ? currentIndex + 1 : 0;
+    setSelectedPhoto(currentPhotos[nextIndex]);
     // Don't stop auto-play when navigating programmatically
   };
 
@@ -106,33 +121,34 @@ export default function GalleryPage() {
     }, 25);
   };
 
-  const startAutoPlay = () => {
-    if (photos.length <= 1) return;
-    
-    isAutoPlaying = true;
-    setIsPlaying(true);
-    
-    // Store photos and current index globally
-    currentPhotos = [...photos];
-    currentPhotoIndex = photos.findIndex(photo => photo.id === selectedPhoto?.id);
-    if (currentPhotoIndex === -1) currentPhotoIndex = 0;
-    
-    // Clear any existing interval
-    if (playInterval) {
-      clearInterval(playInterval);
-    }
-    
-    // Start new interval - completely independent of React
-    playInterval = setInterval(() => {
-      if (isAutoPlaying && currentPhotos.length > 0) {
-        // Move to next photo
-        currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
-        
-        // Use smooth transition for auto-play
-        smoothTransitionToPhoto(currentPhotos[currentPhotoIndex]);
-      }
-    }, 3000); // 3 seconds between photos
-  };
+      const startAutoPlay = () => {
+        const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+        if (currentPhotos.length <= 1) return;
+
+        isAutoPlaying = true;
+        setIsPlaying(true);
+
+        // Store photos and current index globally
+        currentPhotos.splice(0, currentPhotos.length, ...currentPhotos);
+        currentPhotoIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto?.id);
+        if (currentPhotoIndex === -1) currentPhotoIndex = 0;
+
+        // Clear any existing interval
+        if (playInterval) {
+          clearInterval(playInterval);
+        }
+
+        // Start new interval - completely independent of React
+        playInterval = setInterval(() => {
+          if (isAutoPlaying && currentPhotos.length > 0) {
+            // Move to next photo
+            currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
+
+            // Use smooth transition for auto-play
+            smoothTransitionToPhoto(currentPhotos[currentPhotoIndex]);
+          }
+        }, 3000); // 3 seconds between photos
+      };
 
   const stopAutoPlay = () => {
     isAutoPlaying = false;
@@ -151,15 +167,41 @@ export default function GalleryPage() {
     }
   };
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen();
-      setIsFullscreen(false);
-    }
-  };
+      const toggleFullscreen = () => {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+          setIsFullscreen(true);
+          // Show info briefly when entering fullscreen, then hide it
+          setShowFullscreenInfo(true);
+          setTimeout(() => setShowFullscreenInfo(false), 3000);
+        } else {
+          document.exitFullscreen();
+          setIsFullscreen(false);
+          setShowFullscreenInfo(false);
+        }
+      };
+
+      const startSlideshow = () => {
+        if (photos.length === 0) return;
+        
+        // Create a randomized copy of photos for slideshow
+        const randomizedPhotos = [...photos].sort(() => Math.random() - 0.5);
+        setSlideshowPhotos(randomizedPhotos);
+        
+        // Select the first photo from randomized list and open lightbox
+        setSelectedPhoto(randomizedPhotos[0]);
+        
+        // Enter fullscreen
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+          setIsFullscreen(true);
+        }
+        
+        // Start auto-play after a short delay
+        setTimeout(() => {
+          startAutoPlay();
+        }, 1000);
+      };
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (!selectedPhoto) return;
@@ -206,14 +248,52 @@ export default function GalleryPage() {
   }, [selectedPhoto]);
 
   // Handle fullscreen change events
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
+      useEffect(() => {
+        const handleFullscreenChange = () => {
+          setIsFullscreen(!!document.fullscreenElement);
+        };
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      }, []);
+
+      // Handle mouse movement in fullscreen to show/hide info
+      useEffect(() => {
+        if (!isFullscreen || !selectedPhoto) return;
+
+        let hideTimeout: NodeJS.Timeout;
+
+        const handleMouseMove = () => {
+          setShowFullscreenInfo(true);
+          clearTimeout(hideTimeout);
+          hideTimeout = setTimeout(() => setShowFullscreenInfo(false), 2000);
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        return () => {
+          document.removeEventListener('mousemove', handleMouseMove);
+          clearTimeout(hideTimeout);
+        };
+      }, [isFullscreen, selectedPhoto]);
+
+      // Handle new photos being added during slideshow
+      useEffect(() => {
+        if (slideshowPhotos.length > 0 && photos.length > slideshowPhotos.length) {
+          // New photos detected! Add them to the beginning of the slideshow queue
+          const newPhotos = photos.filter(photo => 
+            !slideshowPhotos.some(slideshowPhoto => slideshowPhoto.id === photo.id)
+          );
+          
+          if (newPhotos.length > 0) {
+            // Add new photos to the beginning of the slideshow queue
+            const updatedSlideshowPhotos = [...newPhotos, ...slideshowPhotos];
+            setSlideshowPhotos(updatedSlideshowPhotos);
+            
+            // Update global currentPhotos for auto-play
+            currentPhotos.splice(0, currentPhotos.length, ...updatedSlideshowPhotos);
+          }
+        }
+      }, [photos, slideshowPhotos]);
 
   if (loading) {
     return (
@@ -245,12 +325,23 @@ export default function GalleryPage() {
               A beautiful collection of moments that capture Rudy's spirit, 
               shared by those who loved him most.
             </p>
-                <Button asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3">
-              <Link href="/memories">
-                <Upload className="mr-2 h-5 w-5" />
-                Share Your Photos
-              </Link>
-            </Button>
+            <div className="flex flex-col gap-4 justify-center items-center">
+              <Button asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3">
+                <Link href="/memories">
+                  <Upload className="mr-2 h-5 w-5" />
+                  Share Your Photos
+                </Link>
+              </Button>
+              {photos.length > 0 && (
+                <Button 
+                  onClick={startSlideshow}
+                  className="bg-gradient-to-r from-primary/80 to-primary/60 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3"
+                >
+                  <Play className="mr-2 h-5 w-5" />
+                  Start Slideshow
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -376,8 +467,8 @@ export default function GalleryPage() {
           <div className={`relative z-10 ${isFullscreen ? 'w-full h-full' : 'max-w-4xl max-h-full'}`}>
             {/* Control Buttons */}
             <div className="absolute -top-12 right-0 flex items-center gap-2 z-10">
-              {/* Auto-play Button */}
-              {photos.length > 1 && (
+                  {/* Auto-play Button */}
+                  {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).length > 1 && (
                 <button
                   onClick={toggleAutoPlay}
                   className="text-white/80 hover:text-white transition-colors"
@@ -407,13 +498,13 @@ export default function GalleryPage() {
             </div>
 
             {/* Photo Counter */}
-            <div className="absolute -top-12 left-0 text-white/80 text-sm z-10">
-              {photos.findIndex(photo => photo.id === selectedPhoto.id) + 1} of {photos.length}
-              {isPlaying && <span className="ml-2 text-xs">• Auto-playing</span>}
-            </div>
+                <div className="absolute -top-12 left-0 text-white/80 text-sm z-10">
+                  {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).findIndex(photo => photo.id === selectedPhoto.id) + 1} of {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).length}
+                  {isPlaying && <span className="ml-2 text-xs">• Auto-playing</span>}
+                </div>
             
             {/* Navigation Arrows - Outside the photo */}
-            {photos.length > 1 && (
+            {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).length > 1 && (
               <>
                     <button
                       onClick={goToPreviousPhotoManual}
@@ -446,9 +537,40 @@ export default function GalleryPage() {
                     priority
                   />
             </div>
+
+            {/* Fullscreen Info Overlay */}
+            {isFullscreen && (selectedPhoto.caption || selectedPhoto.contributorName) && (
+              <div className={`fixed bottom-0 left-0 right-0 z-20 transition-all duration-500 ease-in-out ${
+                showFullscreenInfo 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-full opacity-0'
+              }`}>
+                <div className="bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8">
+                  <div className="max-w-4xl mx-auto">
+                    {selectedPhoto.caption && (
+                      <p className="text-white text-xl font-medium mb-3 leading-relaxed">
+                        {selectedPhoto.caption}
+                      </p>
+                    )}
+                    <div className="flex items-center gap-6 text-white/80">
+                      {selectedPhoto.contributorName && (
+                        <div className="flex items-center gap-2">
+                          <User className="h-4 w-4" />
+                          <span className="text-sm">Shared by {selectedPhoto.contributorName}</span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        <span className="text-sm">{formatDate(selectedPhoto.uploadedAt)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
             
-            {/* Photo Info */}
-            {(selectedPhoto.caption || selectedPhoto.contributorName) && (
+            {/* Photo Info - Only show when not in fullscreen */}
+            {!isFullscreen && (selectedPhoto.caption || selectedPhoto.contributorName) && (
               <div className={`mt-4 bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50 transition-opacity duration-75 ease-in-out ${
                 isTransitioning ? 'opacity-70' : 'opacity-100'
               }`}>
@@ -475,6 +597,11 @@ export default function GalleryPage() {
             {/* Keyboard Navigation Hint */}
             <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-white/60 text-xs text-center">
               ← → navigate • SPACE play/pause • F fullscreen • ESC close
+              {isFullscreen && (selectedPhoto.caption || selectedPhoto.contributorName) && (
+                <div className="mt-1 text-white/40">
+                  Move mouse to see photo info
+                </div>
+              )}
             </div>
           </div>
         </div>

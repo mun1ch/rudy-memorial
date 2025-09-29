@@ -405,5 +405,60 @@
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T21:10:27.936Z",
     "approved": true
+  },
+  {
+    "id": "photo_1759182249204",
+    "fileName": "photo_1759182249204.jpg",
+    "url": "/uploads/photo_1759182249204.jpg",
+    "caption": "I love you dad",
+    "contributorName": "Alex A",
+    "fileSize": 4608702,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T21:44:09.212Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759183128361",
+    "fileName": "photo_1759183128361.jpg",
+    "url": "/uploads/photo_1759183128361.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 76083,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T21:58:48.363Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759183182407",
+    "fileName": "photo_1759183182407.jpg",
+    "url": "/uploads/photo_1759183182407.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 584095,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T21:59:42.409Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759183207406",
+    "fileName": "photo_1759183207406.png",
+    "url": "/uploads/photo_1759183207406.png",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 421607,
+    "mimeType": "image/png",
+    "uploadedAt": "2025-09-29T22:00:07.407Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759183233887",
+    "fileName": "photo_1759183233887.png",
+    "url": "/uploads/photo_1759183233887.png",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 248841,
+    "mimeType": "image/png",
+    "uploadedAt": "2025-09-29T22:00:33.888Z",
+    "approved": true
   }
 ]
