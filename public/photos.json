@@ -42,5 +42,16 @@
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T19:48:48.424Z",
     "approved": true
+  },
+  {
+    "id": "photo_1759176676583",
+    "fileName": "photo_1759176676583.jpg",
+    "url": "/uploads/photo_1759176676583.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 19556,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T20:11:16.587Z",
+    "approved": true
   }
 ]

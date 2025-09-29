@@ -78,6 +78,17 @@ export async function submitPhoto(formData: FormData) {
   console.log("🚀 submitPhoto called!");
   
   try {
+    // Rate limiting
+    const headersList = await headers();
+    const request = new Request("http://localhost", {
+      headers: headersList,
+    });
+    
+    const rateLimitResult = rateLimit(request);
+    if (!rateLimitResult.success) {
+      throw new Error("Too many requests. Please try again later.");
+    }
+
     // Get form data
     const file = formData.get("photo") as File;
     const caption = formData.get("caption") as string;
@@ -95,19 +106,24 @@ export async function submitPhoto(formData: FormData) {
       throw new Error("The selected file is empty. Please choose a different photo.");
     }
 
+    // Validate input using schema
+    const validatedData = photoUploadSchema.parse({
+      file,
+      caption,
+      name,
+    });
+
     // Store photos locally until Supabase is configured
-    const fs = await import('fs/promises');
-    const path = await import('path');
     
     console.log("💾 Starting file operations...");
     
     // Convert file to buffer
-    const fileBuffer = Buffer.from(await file.arrayBuffer());
+    const fileBuffer = Buffer.from(await validatedData.file.arrayBuffer());
     console.log("📦 File converted to buffer, size:", fileBuffer.length);
     
     // Generate a unique filename
     const timestamp = Date.now();
-    const fileExtension = file.name.split('.').pop() || 'jpg';
+    const fileExtension = validatedData.file.name.split('.').pop() || 'jpg';
     const fileName = `photo_${timestamp}.${fileExtension}`;
     console.log("📝 Generated filename:", fileName);
     
@@ -152,10 +168,10 @@ export async function submitPhoto(formData: FormData) {
       id: `photo_${timestamp}`,
       fileName,
       url: publicUrl,
-      caption: caption || null,
-      contributorName: name || null,
-      fileSize: file.size,
-      mimeType: file.type,
+      caption: validatedData.caption || null,
+      contributorName: validatedData.name || null,
+      fileSize: validatedData.file.size,
+      mimeType: validatedData.file.type,
       uploadedAt: new Date().toISOString(),
       approved: true
     };

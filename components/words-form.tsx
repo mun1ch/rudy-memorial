@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,55 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { MessageCircle, Send } from "lucide-react";
 import { submitTribute } from "@/lib/actions";
 
-interface FormErrors {
-  message?: string;
-  name?: string;
-}
-
 export function WordsForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<FormErrors>({});
-
-  const validateForm = (formData: FormData): FormErrors => {
-    const errors: FormErrors = {};
-    
-    const message = formData.get("message") as string;
-    const name = formData.get("name") as string;
-
-    if (!message || message.trim().length < 10) {
-      errors.message = "Please share at least 10 characters about your memory with Rudy.";
-    }
-
-    if (name && name.trim().length > 100) {
-      errors.name = "Name must be less than 100 characters.";
-    }
-
-    return errors;
-  };
-
-  const handleSubmit = async (formData: FormData) => {
-    setIsSubmitting(true);
-    setErrors({});
-
-    // Client-side validation
-    const validationErrors = validateForm(formData);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      setIsSubmitting(false);
-      return;
-    }
-
-    try {
-      await submitTribute(formData);
-      // If successful, the server action will redirect
-    } catch (error) {
-      console.error("Error submitting tribute:", error);
-      setErrors({
-        message: "Failed to submit your memory. Please try again."
-      });
-      setIsSubmitting(false);
-    }
-  };
+  // Server action handles all validation and submission
 
   return (
     <Card>
@@ -81,9 +33,6 @@ export function WordsForm() {
               placeholder="Enter your name"
               className="w-full"
             />
-            {errors.name && (
-              <p className="mt-2 text-sm text-destructive">{errors.name}</p>
-            )}
             <p className="mt-2 text-sm text-muted-foreground">
               Your name will be displayed with your memory if provided
             </p>
@@ -100,9 +49,6 @@ export function WordsForm() {
               className="min-h-[150px] w-full"
               required
             />
-            {errors.message && (
-              <p className="mt-2 text-sm text-destructive">{errors.message}</p>
-            )}
             <p className="mt-2 text-sm text-muted-foreground">
               Please share at least 10 characters. Tell us about your memories with Rudy.
             </p>
@@ -112,9 +58,9 @@ export function WordsForm() {
                 <p className="text-sm text-muted-foreground">
                   By submitting, you agree that your memory will be published on this memorial site
                 </p>
-            <Button type="submit" size="lg" disabled={isSubmitting}>
+            <Button type="submit" className="text-lg px-6 py-3">
               <Send className="mr-2 h-4 w-4" />
-              {isSubmitting ? "Sharing..." : "Share Memory"}
+              Share Memory
             </Button>
           </div>
         </CardContent>

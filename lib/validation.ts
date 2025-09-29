@@ -11,7 +11,8 @@ export type TributeInput = z.infer<typeof tributeSchema>;
 
 // Photo upload validation
 export const photoUploadSchema = z.object({
-  caption: z.string().max(500).optional(),
+  caption: z.string().max(500).optional().transform(val => val === "" ? undefined : val),
+  name: z.string().max(100).optional().transform(val => val === "" ? undefined : val),
   file: z.instanceof(File).refine(
     (file) => file.size <= 10 * 1024 * 1024, // 10MB max
     "File size must be less than 10MB"
