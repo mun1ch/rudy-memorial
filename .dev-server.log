@@ -906,3 +906,220 @@ Error submitting tribute: Error: NEXT_REDIRECT
  GET /api/photos 200 in 289ms
  GET /api/photos 200 in 273ms
  GET /api/photos 200 in 270ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 290ms
+ GET /gallery 200 in 128ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 259ms
+ GET /api/photos 200 in 440ms
+ GET /api/photos 200 in 293ms
+ GET /memorial-wall 200 in 469ms
+ GET /api/photos 200 in 269ms
+ GET /admin 307 in 284ms
+ GET /admin/dashboard 200 in 235ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 135ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 58ms
+ GET /admin/dashboard 200 in 102ms
+ GET /admin/memories 200 in 166ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 78ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 76ms
+ GET /admin/photos 200 in 115ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 96ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 49ms
+ GET /admin/dashboard 200 in 99ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 80ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 53ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 220ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 181ms
+ GET /memorial-wall 200 in 359ms
+ GET /api/photos 200 in 249ms
+ GET /gallery 200 in 209ms
+ GET /api/photos 200 in 369ms
+ GET /api/photos 200 in 267ms
+ GET /api/photos 200 in 268ms
+ GET /api/photos 200 in 282ms
+ GET /api/photos 200 in 246ms
+ GET /memorial-wall 200 in 349ms
+ GET /api/photos 200 in 453ms
+ GET /memorial-wall 200 in 274ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 284ms
+ GET /admin 307 in 123ms
+ GET /admin/dashboard 200 in 92ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 117ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 47ms
+ GET /admin/memories 200 in 51ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 72ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 52ms
+ GET /api/photos 200 in 270ms
+ POST /admin/memories 200 in 112ms
+ POST /admin/memories 200 in 92ms
+ GET /memorial-wall 200 in 400ms
+ GET /api/photos 200 in 312ms
+ GET /admin/memories 200 in 224ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 195ms
+ GET /admin/memories 200 in 62ms
+ GET /api/photos 200 in 255ms
+ POST /admin/memories 200 in 89ms
+ POST /admin/memories 200 in 74ms
+ POST /admin/memories 200 in 63ms
+ GET /admin/memories 200 in 84ms
+ GET /api/photos 200 in 263ms
+ GET /memorial-wall 200 in 267ms
+ GET /admin 307 in 98ms
+ GET /admin/dashboard 200 in 104ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 241ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 90ms
+ GET /api/photos 200 in 253ms
+ POST /admin/dashboard 200 in 103ms
+ GET / 200 in 197ms
+ GET /api/photos 200 in 247ms
+ GET /api/photos 200 in 294ms
+ GET /gallery 200 in 531ms
+ GET /api/photos 200 in 994ms
+ GET /api/photos 200 in 596ms
+ GET /api/photos 200 in 267ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 460ms
+ GET /api/photos 200 in 389ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 301ms
+ ✓ Compiled in 338ms
+ GET /gallery 200 in 282ms
+ GET /api/photos 200 in 351ms
+ GET /api/photos 200 in 254ms
+ GET /api/photos 200 in 280ms
+ GET /api/photos 200 in 278ms
+ ✓ Compiled in 298ms
+ GET /gallery 200 in 387ms
+ GET /api/photos 200 in 721ms
+ GET /api/photos 200 in 301ms
+ ✓ Compiled / in 129ms
+ HEAD / 200 in 441ms
+ GET /api/photos 200 in 267ms
+ GET /api/photos 200 in 353ms
+ GET /api/photos 200 in 458ms
+ GET /api/photos 200 in 501ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 506ms
+ GET /gallery 200 in 528ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 734ms
+ GET /api/photos 200 in 663ms
+ GET /api/photos 200 in 413ms
+ GET /api/photos 200 in 331ms
+ GET /gallery 200 in 193ms
+ GET /api/photos 200 in 505ms
+ GET /memorial-wall 200 in 436ms
+ GET /api/photos 200 in 500ms
+ GET /admin 307 in 576ms
+ GET /admin/dashboard 200 in 308ms
+ GET /api/photos 200 in 461ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 795ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 539ms
+ GET /admin/memories 200 in 69ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 88ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 86ms
+ POST /admin/memories 200 in 79ms
+ POST /admin/memories 200 in 418ms
+ POST /admin/memories 200 in 185ms
+ POST /admin/memories 200 in 85ms
+ POST /admin/memories 200 in 331ms
+ POST /admin/memories 200 in 205ms
+ POST /admin/memories 200 in 121ms
+ POST /admin/memories 200 in 61ms
+ POST /admin/memories 200 in 175ms
+ GET /api/photos 200 in 340ms
+ POST /admin/memories 200 in 255ms
+ POST /admin/memories 200 in 90ms
+ GET /memorial-wall 200 in 260ms
+ ⨯ [Error: aborted] { code: 'ECONNRESET', digest: '4115862311' }
+ GET /memorial-wall 200 in 406ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 424ms
+ GET /admin 307 in 274ms
+ GET /admin/dashboard 200 in 139ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 165ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 371ms
+ GET /admin/memories 200 in 243ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 68ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 95ms
+ POST /admin/memories 200 in 83ms
+ POST /admin/memories 200 in 126ms
+ POST /admin/memories 200 in 156ms
+ POST /admin/memories 200 in 130ms
+ POST /admin/memories 200 in 242ms
+ POST /admin/memories 200 in 153ms
+ POST /admin/memories 200 in 57ms
+ POST /admin/memories 200 in 57ms
+ POST /admin/memories 200 in 234ms
+ POST /admin/memories 200 in 156ms
+ POST /admin/memories 200 in 89ms
+ POST /admin/memories 200 in 342ms
+ POST /admin/memories 200 in 158ms
+ POST /admin/memories 200 in 173ms
+ POST /admin/memories 200 in 94ms
+ POST /admin/memories 200 in 94ms
+ GET /memorial-wall 200 in 159ms
+ GET /api/photos 200 in 257ms
+ GET /memories/words 200 in 393ms
+ GET /api/photos 200 in 265ms
+Raw form data: { displayName: '', message: 'I love and I miss you so much Dad.' }
+Tribute submitted successfully: 0baa5f5d-2244-423c-a685-c7369a4c317d
+Error submitting tribute: Error: NEXT_REDIRECT
+    at submitTribute (lib/actions.ts:70:13)
+  68 |     
+  69 |     // Redirect to success page
+> 70 |     redirect("/memories?success=tribute");
+     |             ^
+  71 |   } catch (error) {
+  72 |     console.error("Error submitting tribute:", error);
+  73 |     throw error; {
+  digest: 'NEXT_REDIRECT;push;/memories?success=tribute;307;'
+}
+ GET /memories?success=tribute 200 in 306ms
+ POST /memories/words 303 in 803ms
+ GET /memorial-wall 200 in 125ms
+ GET / 200 in 98ms
+ GET /api/photos 200 in 343ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 284ms
+ GET /gallery 200 in 137ms
+ GET /api/photos 200 in 439ms
+ GET /memories 200 in 108ms
+ GET /gallery 200 in 83ms
+ GET /api/photos 200 in 298ms
+ GET /memorial-wall 200 in 134ms
+ GET /admin 307 in 317ms
+ GET /admin/dashboard 200 in 142ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 75ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 43ms
+ GET /api/photos 200 in 241ms

@@ -223,12 +223,12 @@ export default function AdminMemoriesPage() {
               Back to Dashboard
             </Link>
           </Button>
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Memories Management</h1>
-            <p className="text-muted-foreground">
-              Manage all shared memories - hide, unhide, or delete content
-            </p>
-          </div>
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight">Memories Management</h1>
+              <p className="text-muted-foreground">
+                {memories.length} precious memories shared
+              </p>
+            </div>
         </div>
 
         {/* Stats */}

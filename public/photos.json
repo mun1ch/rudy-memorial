@@ -88,7 +88,8 @@
     "fileSize": 37375,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T21:08:52.058Z",
-    "approved": true
+    "approved": true,
+    "hidden": true
   },
   {
     "id": "photo_1759180132058",
