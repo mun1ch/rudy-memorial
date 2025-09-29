@@ -6,9 +6,33 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Upload, Send } from "lucide-react";
 import { submitPhoto } from "@/lib/actions";
+import { useState } from "react";
 
 export function PhotoForm() {
-  // Server action handles all validation and submission
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
+
+  const handleSubmit = async (formData: FormData) => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(null);
+    
+    try {
+      const result = await submitPhoto(formData);
+      if (result?.success) {
+        setSubmitSuccess(result.message);
+        // Reset form
+        const form = document.querySelector('form') as HTMLFormElement;
+        if (form) form.reset();
+      }
+      setIsSubmitting(false);
+    } catch (error) {
+      console.error("Upload error:", error);
+      setSubmitError(error instanceof Error ? error.message : "Failed to upload photos. Please try again.");
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <Card>
@@ -21,27 +45,38 @@ export function PhotoForm() {
           Your photo will be added directly to the gallery
         </CardDescription>
       </CardHeader>
-      <form action={submitPhoto} className="space-y-6">
+      <form action={handleSubmit} className="space-y-6">
         <CardContent className="space-y-6">
+          {submitError && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <p className="text-red-700 text-sm">{submitError}</p>
+            </div>
+          )}
+          {submitSuccess && (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <p className="text-green-700 text-sm">{submitSuccess}</p>
+            </div>
+          )}
           <div>
             <label htmlFor="photo" className="block text-sm font-medium text-foreground mb-2">
-              Photo <span className="text-destructive">*</span>
+              Photos <span className="text-destructive">*</span>
             </label>
-            <Input
-              id="photo"
-              name="photo"
-              type="file"
-              accept="image/*"
-              required
-              className="block w-full text-sm text-muted-foreground
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-primary file:text-primary-foreground
-                hover:file:bg-primary/90"
-            />
+                <Input
+                  id="photo"
+                  name="photo"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  required
+                  className="block w-full text-sm text-muted-foreground
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-md file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-primary file:text-primary-foreground
+                    hover:file:bg-primary/90"
+                />
             <p className="mt-2 text-sm text-muted-foreground">
-              Max file size: 5MB. Supported formats: JPG, PNG, HEIC.
+              Select multiple photos at once! Max file size: 5MB each. Supported formats: JPG, PNG, HEIC.
             </p>
           </div>
 
@@ -80,9 +115,9 @@ export function PhotoForm() {
             <p className="text-sm text-muted-foreground">
               By uploading, you agree that your photo will be added to the gallery
             </p>
-            <Button type="submit" className="text-lg px-6 py-3">
+            <Button type="submit" className="text-lg px-6 py-3" disabled={isSubmitting}>
               <Send className="mr-2 h-4 w-4" />
-              Upload Photo
+              {isSubmitting ? "Uploading..." : "Upload Photos"}
             </Button>
           </div>
         </CardContent>

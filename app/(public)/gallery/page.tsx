@@ -31,6 +31,7 @@ export default function GalleryPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     // Fetch photos from the API endpoint
@@ -68,20 +69,20 @@ export default function GalleryPage() {
 
   const goToPreviousPhotoManual = () => {
     stopAutoPlay(); // Stop auto-play on manual navigation
-    goToPreviousPhoto();
-    // Update global index
-    if (selectedPhoto) {
-      currentPhotoIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
-    }
+    if (!selectedPhoto) return;
+    const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
+    const previousIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
+    smoothTransitionToPhoto(photos[previousIndex]);
+    currentPhotoIndex = previousIndex;
   };
 
   const goToNextPhotoManual = () => {
     stopAutoPlay(); // Stop auto-play on manual navigation
-    goToNextPhoto();
-    // Update global index
-    if (selectedPhoto) {
-      currentPhotoIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
-    }
+    if (!selectedPhoto) return;
+    const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
+    const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+    smoothTransitionToPhoto(photos[nextIndex]);
+    currentPhotoIndex = nextIndex;
   };
 
   const goToNextPhoto = () => {
@@ -90,6 +91,19 @@ export default function GalleryPage() {
     const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
     setSelectedPhoto(photos[nextIndex]);
     // Don't stop auto-play when navigating programmatically
+  };
+
+  const smoothTransitionToPhoto = (newPhoto: Photo) => {
+    setIsTransitioning(true);
+    
+    // Very subtle crossfade
+    setTimeout(() => {
+      setSelectedPhoto(newPhoto);
+      // Quick fade back in
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 25);
+    }, 25);
   };
 
   const startAutoPlay = () => {
@@ -114,8 +128,8 @@ export default function GalleryPage() {
         // Move to next photo
         currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
         
-        // Update React state
-        setSelectedPhoto(currentPhotos[currentPhotoIndex]);
+        // Use smooth transition for auto-play
+        smoothTransitionToPhoto(currentPhotos[currentPhotoIndex]);
       }
     }, 3000); // 3 seconds between photos
   };
@@ -394,21 +408,21 @@ export default function GalleryPage() {
             {/* Navigation Arrows - Outside the photo */}
             {photos.length > 1 && (
               <>
-                <button
-                  onClick={goToPreviousPhotoManual}
-                  className="absolute -left-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-200 z-10"
-                  aria-label="Previous photo"
-                >
-                  <ChevronLeft className="w-8 h-8" />
-                </button>
-                
-                <button
-                  onClick={goToNextPhotoManual}
-                  className="absolute -right-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-200 z-10"
-                  aria-label="Next photo"
-                >
-                  <ChevronRight className="w-8 h-8" />
-                </button>
+                    <button
+                      onClick={goToPreviousPhotoManual}
+                      className="absolute -left-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-10 group"
+                      aria-label="Previous photo"
+                    >
+                      <ChevronLeft className="w-8 h-8 group-hover:drop-shadow-lg transition-all duration-300" />
+                    </button>
+
+                    <button
+                      onClick={goToNextPhotoManual}
+                      className="absolute -right-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-10 group"
+                      aria-label="Next photo"
+                    >
+                      <ChevronRight className="w-8 h-8 group-hover:drop-shadow-lg transition-all duration-300" />
+                    </button>
               </>
             )}
             
@@ -418,14 +432,18 @@ export default function GalleryPage() {
                 alt={selectedPhoto.caption || "Photo of Rudy"}
                 width={1000}
                 height={800}
-                className={`${isFullscreen ? 'max-h-[90vh]' : 'max-h-[75vh]'} max-w-full w-auto mx-auto object-contain rounded-lg shadow-2xl`}
+                className={`${isFullscreen ? 'max-h-[90vh]' : 'max-h-[75vh]'} max-w-full w-auto mx-auto object-contain rounded-lg shadow-2xl transition-opacity duration-75 ease-in-out ${
+                  isTransitioning ? 'opacity-70' : 'opacity-100'
+                }`}
                 priority
               />
             </div>
             
             {/* Photo Info */}
             {(selectedPhoto.caption || selectedPhoto.contributorName) && (
-              <div className="mt-4 bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50">
+              <div className={`mt-4 bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50 transition-opacity duration-75 ease-in-out ${
+                isTransitioning ? 'opacity-70' : 'opacity-100'
+              }`}>
                 {selectedPhoto.caption && (
                   <p className="text-foreground mb-3 font-medium text-lg">
                     {selectedPhoto.caption}

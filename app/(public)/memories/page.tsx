@@ -30,12 +30,12 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
                 <CheckCircle className="h-6 w-6 text-green-600" />
                 <div>
                   <h3 className="font-semibold text-green-800">
-                    {success === "tribute" ? "Memory Submitted!" : "Photo Uploaded!"}
+                    {success === "tribute" ? "Memory Submitted!" : "Photos Uploaded!"}
                   </h3>
                       <p className="text-green-700">
                         {success === "tribute"
                           ? "Thank you for sharing your memory. It has been added to the memorial wall!"
-                          : "Thank you for sharing your photo. It has been added to the gallery!"
+                          : "Thank you for sharing your photos. They have been added to the gallery!"
                         }
                       </p>
                 </div>
