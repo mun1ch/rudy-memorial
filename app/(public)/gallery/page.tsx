@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Camera, Upload, Heart, Eye, Calendar, User, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Camera, Upload, Heart, Eye, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 interface Photo {
   id: string;
@@ -19,10 +19,18 @@ interface Photo {
   approved: boolean;
 }
 
+// Global auto-play state - completely independent of React
+let isAutoPlaying = false;
+let playInterval: NodeJS.Timeout | null = null;
+let currentPhotos: Photo[] = [];
+let currentPhotoIndex = 0;
+
 export default function GalleryPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     // Fetch photos from the API endpoint
@@ -55,6 +63,25 @@ export default function GalleryPage() {
     const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
     const previousIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
     setSelectedPhoto(photos[previousIndex]);
+    // Don't stop auto-play when navigating programmatically
+  };
+
+  const goToPreviousPhotoManual = () => {
+    stopAutoPlay(); // Stop auto-play on manual navigation
+    goToPreviousPhoto();
+    // Update global index
+    if (selectedPhoto) {
+      currentPhotoIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
+    }
+  };
+
+  const goToNextPhotoManual = () => {
+    stopAutoPlay(); // Stop auto-play on manual navigation
+    goToNextPhoto();
+    // Update global index
+    if (selectedPhoto) {
+      currentPhotoIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
+    }
   };
 
   const goToNextPhoto = () => {
@@ -62,6 +89,62 @@ export default function GalleryPage() {
     const currentIndex = photos.findIndex(photo => photo.id === selectedPhoto.id);
     const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
     setSelectedPhoto(photos[nextIndex]);
+    // Don't stop auto-play when navigating programmatically
+  };
+
+  const startAutoPlay = () => {
+    if (photos.length <= 1) return;
+    
+    isAutoPlaying = true;
+    setIsPlaying(true);
+    
+    // Store photos and current index globally
+    currentPhotos = [...photos];
+    currentPhotoIndex = photos.findIndex(photo => photo.id === selectedPhoto?.id);
+    if (currentPhotoIndex === -1) currentPhotoIndex = 0;
+    
+    // Clear any existing interval
+    if (playInterval) {
+      clearInterval(playInterval);
+    }
+    
+    // Start new interval - completely independent of React
+    playInterval = setInterval(() => {
+      if (isAutoPlaying && currentPhotos.length > 0) {
+        // Move to next photo
+        currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
+        
+        // Update React state
+        setSelectedPhoto(currentPhotos[currentPhotoIndex]);
+      }
+    }, 3000); // 3 seconds between photos
+  };
+
+  const stopAutoPlay = () => {
+    isAutoPlaying = false;
+    setIsPlaying(false);
+    if (playInterval) {
+      clearInterval(playInterval);
+      playInterval = null;
+    }
+  };
+
+  const toggleAutoPlay = () => {
+    if (isAutoPlaying) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -70,15 +153,24 @@ export default function GalleryPage() {
     switch (event.key) {
       case 'ArrowLeft':
         event.preventDefault();
-        goToPreviousPhoto();
+        goToPreviousPhotoManual();
         break;
       case 'ArrowRight':
         event.preventDefault();
-        goToNextPhoto();
+        goToNextPhotoManual();
         break;
       case 'Escape':
         event.preventDefault();
+        stopAutoPlay();
         setSelectedPhoto(null);
+        break;
+      case ' ':
+        event.preventDefault();
+        toggleAutoPlay();
+        break;
+      case 'f':
+        event.preventDefault();
+        toggleFullscreen();
         break;
     }
   };
@@ -89,13 +181,25 @@ export default function GalleryPage() {
       document.body.style.overflow = 'hidden'; // Prevent background scrolling
     } else {
       document.body.style.overflow = 'unset';
+      stopAutoPlay(); // Stop auto-play when closing lightbox
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
+      // DON'T stop auto-play here - it was stopping every time selectedPhoto changed!
     };
   }, [selectedPhoto]);
+
+  // Handle fullscreen change events
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   if (loading) {
     return (
@@ -243,30 +347,55 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedPhoto && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+          className={`fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 ${isFullscreen ? 'p-0' : ''}`}
           onClick={(e) => {
             if (e.target === e.currentTarget) setSelectedPhoto(null);
           }}
         >
-          <div className="relative max-w-4xl max-h-full">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute -top-12 right-0 text-white hover:text-white/80 transition-colors z-10"
-            >
-              <X className="w-8 h-8" />
-            </button>
+          <div className={`relative ${isFullscreen ? 'w-full h-full' : 'max-w-4xl max-h-full'}`}>
+            {/* Control Buttons */}
+            <div className="absolute -top-12 right-0 flex items-center gap-2 z-10">
+              {/* Auto-play Button */}
+              {photos.length > 1 && (
+                <button
+                  onClick={toggleAutoPlay}
+                  className="text-white/80 hover:text-white transition-colors"
+                  title={isPlaying ? "Pause slideshow" : "Play slideshow"}
+                >
+                  {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+                </button>
+              )}
+              
+              {/* Fullscreen Button */}
+              <button
+                onClick={toggleFullscreen}
+                className="text-white/80 hover:text-white transition-colors"
+                title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+              >
+                {isFullscreen ? <Minimize2 className="w-6 h-6" /> : <Maximize2 className="w-6 h-6" />}
+              </button>
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedPhoto(null)}
+                className="text-white/80 hover:text-white transition-colors"
+                title="Close"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
 
             {/* Photo Counter */}
             <div className="absolute -top-12 left-0 text-white/80 text-sm z-10">
               {photos.findIndex(photo => photo.id === selectedPhoto.id) + 1} of {photos.length}
+              {isPlaying && <span className="ml-2 text-xs">• Auto-playing</span>}
             </div>
             
             {/* Navigation Arrows - Outside the photo */}
             {photos.length > 1 && (
               <>
                 <button
-                  onClick={goToPreviousPhoto}
+                  onClick={goToPreviousPhotoManual}
                   className="absolute -left-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-200 z-10"
                   aria-label="Previous photo"
                 >
@@ -274,7 +403,7 @@ export default function GalleryPage() {
                 </button>
                 
                 <button
-                  onClick={goToNextPhoto}
+                  onClick={goToNextPhotoManual}
                   className="absolute -right-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-200 z-10"
                   aria-label="Next photo"
                 >
@@ -283,13 +412,13 @@ export default function GalleryPage() {
               </>
             )}
             
-            <div className="relative">
+            <div className="relative flex items-center justify-center h-full">
               <Image
                 src={selectedPhoto.url}
                 alt={selectedPhoto.caption || "Photo of Rudy"}
                 width={1000}
                 height={800}
-                className="max-h-[75vh] max-w-full w-auto mx-auto object-contain rounded-lg shadow-2xl"
+                className={`${isFullscreen ? 'max-h-[90vh]' : 'max-h-[75vh]'} max-w-full w-auto mx-auto object-contain rounded-lg shadow-2xl`}
                 priority
               />
             </div>
@@ -319,7 +448,7 @@ export default function GalleryPage() {
 
             {/* Keyboard Navigation Hint */}
             <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-white/60 text-xs text-center">
-              Use ← → arrow keys to navigate • ESC to close
+              ← → navigate • SPACE play/pause • F fullscreen • ESC close
             </div>
           </div>
         </div>
