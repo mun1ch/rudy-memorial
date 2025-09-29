@@ -8,7 +8,8 @@
     "fileSize": 31018,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-29T19:48:48.424Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759176676583",
@@ -415,6 +416,94 @@
     "fileSize": 248841,
     "mimeType": "image/png",
     "uploadedAt": "2025-09-29T22:00:33.888Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400233",
+    "fileName": "photo_1759188400233.jpg",
+    "url": "/uploads/photo_1759188400233.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 6114385,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.242Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400234",
+    "fileName": "photo_1759188400234.jpg",
+    "url": "/uploads/photo_1759188400234.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 3684489,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.250Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400235",
+    "fileName": "photo_1759188400235.jpg",
+    "url": "/uploads/photo_1759188400235.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 4608702,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.260Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400236",
+    "fileName": "photo_1759188400236.jpg",
+    "url": "/uploads/photo_1759188400236.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 2980306,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.270Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400237",
+    "fileName": "photo_1759188400237.jpg",
+    "url": "/uploads/photo_1759188400237.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 4303658,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.284Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400238",
+    "fileName": "photo_1759188400238.jpg",
+    "url": "/uploads/photo_1759188400238.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 4079796,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.300Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188400239",
+    "fileName": "photo_1759188400239.jpg",
+    "url": "/uploads/photo_1759188400239.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 4605065,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:26:40.315Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759188514098",
+    "fileName": "photo_1759188514098.jpg",
+    "url": "/uploads/photo_1759188514098.jpg",
+    "caption": "Hello hello",
+    "contributorName": "Alex A",
+    "fileSize": 4608702,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T23:28:34.104Z",
     "approved": true
   }
 ]

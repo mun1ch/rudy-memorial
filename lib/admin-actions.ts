@@ -90,6 +90,41 @@ export async function hidePhoto(photoId: string) {
   }
 }
 
+export async function unhidePhoto(photoId: string) {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    
+    const photosFile = path.join(process.cwd(), 'public', 'photos.json');
+    let photos = [];
+    
+    try {
+      const data = await fs.readFile(photosFile, 'utf-8');
+      photos = JSON.parse(data);
+    } catch (error) {
+      return { success: false, error: "No photos file found" };
+    }
+    
+    // Find and unhide the photo
+    const photoIndex = photos.findIndex((photo: any) => photo.id === photoId);
+    if (photoIndex === -1) {
+      return { success: false, error: "Photo not found" };
+    }
+    
+    photos[photoIndex].hidden = false;
+    
+    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+    
+    revalidatePath("/gallery");
+    revalidatePath("/admin/dashboard");
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Error unhiding photo:", error);
+    return { success: false, error: "Failed to unhide photo" };
+  }
+}
+
 export async function deletePhoto(photoId: string) {
   try {
     const fs = await import('fs/promises');
@@ -168,6 +203,41 @@ export async function hideMemory(memoryId: string) {
   } catch (error) {
     console.error("Error hiding memory:", error);
     return { success: false, error: "Failed to hide memory" };
+  }
+}
+
+export async function unhideMemory(memoryId: string) {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    
+    const tributesFile = path.join(process.cwd(), 'public', 'tributes.json');
+    let tributes = [];
+    
+    try {
+      const data = await fs.readFile(tributesFile, 'utf-8');
+      tributes = JSON.parse(data);
+    } catch (error) {
+      return { success: false, error: "No memories file found" };
+    }
+    
+    // Find and unhide the memory
+    const memoryIndex = tributes.findIndex((tribute: any) => tribute.id === memoryId);
+    if (memoryIndex === -1) {
+      return { success: false, error: "Memory not found" };
+    }
+    
+    tributes[memoryIndex].hidden = false;
+    
+    await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+    
+    revalidatePath("/memorial-wall");
+    revalidatePath("/admin/dashboard");
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Error unhiding memory:", error);
+    return { success: false, error: "Failed to unhide memory" };
   }
 }
 

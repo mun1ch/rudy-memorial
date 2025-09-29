@@ -12,7 +12,7 @@ import {
   User
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getPhotos, getMemories, hidePhoto, deletePhoto, hideMemory, deleteMemory } from "@/lib/admin-actions";
+import { getPhotos, getMemories, hidePhoto, unhidePhoto, deletePhoto, hideMemory, unhideMemory, deleteMemory } from "@/lib/admin-actions";
 import Image from "next/image";
 
 interface Photo {
@@ -85,6 +85,22 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleUnhidePhoto = async (photoId: string) => {
+    setActionLoading(photoId);
+    try {
+      const result = await unhidePhoto(photoId);
+      if (result.success) {
+        setPhotos(prev => prev.map(photo => 
+          photo.id === photoId ? { ...photo, hidden: false } : photo
+        ));
+      }
+    } catch (error) {
+      console.error("Error unhiding photo:", error);
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
   const handleDeletePhoto = async (photoId: string) => {
     if (!confirm("Are you sure you want to permanently delete this photo?")) {
       return;
@@ -114,6 +130,22 @@ export default function AdminDashboard() {
       }
     } catch (error) {
       console.error("Error hiding memory:", error);
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
+  const handleUnhideMemory = async (memoryId: string) => {
+    setActionLoading(memoryId);
+    try {
+      const result = await unhideMemory(memoryId);
+      if (result.success) {
+        setMemories(prev => prev.map(memory => 
+          memory.id === memoryId ? { ...memory, hidden: false } : memory
+        ));
+      }
+    } catch (error) {
+      console.error("Error unhiding memory:", error);
     } finally {
       setActionLoading(null);
     }
@@ -283,7 +315,17 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                     <div className="flex space-x-2">
-                      {!photo.hidden && (
+                      {photo.hidden ? (
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => handleUnhidePhoto(photo.id)}
+                          disabled={actionLoading === photo.id}
+                          className="text-green-600 hover:text-green-700"
+                        >
+                          <Eye className="h-4 w-4" />
+                        </Button>
+                      ) : (
                         <Button 
                           size="sm" 
                           variant="outline"
@@ -353,7 +395,17 @@ export default function AdminDashboard() {
                         </div>
                       </div>
                       <div className="flex space-x-2 ml-4">
-                        {!memory.hidden && (
+                        {memory.hidden ? (
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => handleUnhideMemory(memory.id)}
+                            disabled={actionLoading === memory.id}
+                            className="text-green-600 hover:text-green-700"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        ) : (
                           <Button 
                             size="sm" 
                             variant="outline"

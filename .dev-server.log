@@ -420,3 +420,281 @@ Import traces:
  GET /api/photos 200 in 278ms
  GET /api/photos 200 in 276ms
  GET /api/photos 200 in 263ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 250ms
+ GET /admin 307 in 304ms
+ GET /admin/dashboard 200 in 120ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 82ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 71ms
+ POST /admin/dashboard 200 in 78ms
+ GET /api/photos 200 in 404ms
+ GET /gallery 200 in 154ms
+ GET /api/photos 200 in 348ms
+ GET /admin/dashboard 200 in 89ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 100ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 49ms
+ GET /api/photos 200 in 321ms
+ GET /admin/dashboard 200 in 101ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 144ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 54ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 338ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 361ms
+ GET /admin/dashboard 200 in 104ms
+ GET /api/photos 200 in 258ms
+ ✓ Compiled in 161ms
+ ✓ Compiled /admin/dashboard in 95ms
+ GET /admin/dashboard 200 in 515ms
+ GET / 200 in 136ms
+ GET /api/photos 200 in 324ms
+ GET /gallery 200 in 105ms
+ GET /api/photos 200 in 366ms
+ ✓ Compiled in 72ms
+ GET /gallery 200 in 85ms
+ ✓ Compiled /memorial-wall in 463ms
+ GET /memorial-wall 200 in 924ms
+ GET /api/photos 200 in 251ms
+ ✓ Compiled in 98ms
+ GET /memorial-wall 200 in 265ms
+ GET / 200 in 84ms
+ ✓ Compiled in 367ms
+ GET / 200 in 58ms
+ GET /api/photos 200 in 472ms
+ ✓ Compiled in 387ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 267ms
+ ✓ Compiled /admin/dashboard in 237ms
+ HEAD /admin/dashboard 200 in 551ms
+ GET /api/photos 200 in 264ms
+ GET /api/photos 200 in 264ms
+ ✓ Compiled /memories in 383ms
+ GET /memories 200 in 471ms
+ ✓ Compiled /memories/photo in 436ms
+ GET /memories/photo 200 in 514ms
+ GET /api/photos 200 in 254ms
+ GET /api/photos 200 in 287ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20240726_193255.jpg, 6114385 bytes)
+  photo: File(20241015_144315.jpg, 3684489 bytes)
+  photo: File(20240904_171041.jpg, 4608702 bytes)
+  photo: File(20230709_153921.jpg, 2980306 bytes)
+  photo: File(20240907_094205.jpg, 4303658 bytes)
+  photo: File(20230514_113123.jpg, 4079796 bytes)
+  photo: File(20250514_201655.jpg, 4605065 bytes)
+  caption: 
+  name: 
+📁 Files received: 7 files
+📁 File 1: 20240726_193255.jpg 6114385 image/jpeg
+📁 File 2: 20241015_144315.jpg 3684489 image/jpeg
+📁 File 3: 20240904_171041.jpg 4608702 image/jpeg
+📁 File 4: 20230709_153921.jpg 2980306 image/jpeg
+📁 File 5: 20240907_094205.jpg 4303658 image/jpeg
+📁 File 6: 20230514_113123.jpg 4079796 image/jpeg
+📁 File 7: 20250514_201655.jpg 4605065 image/jpeg
+📝 Caption: 
+👤 Name: 
+✅ Processing 7 valid files
+💾 Starting file operations...
+📁 Uploads directory: /Users/aaugsbur/rudy_site/public/uploads
+✅ Uploads directory created/verified
+📄 Photos JSON file: /Users/aaugsbur/rudy_site/public/photos.json
+📖 Loaded existing photos: 38
+🔄 Processing file 1/7: 20240726_193255.jpg
+📦 File 1 converted to buffer, size: 6114385
+📝 Generated filename for file 1: photo_1759188400233.jpg
+💾 Saving file 1 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400233.jpg
+✅ File 1 saved successfully
+🔗 Public URL for file 1: /uploads/photo_1759188400233.jpg
+➕ Added new photo 1 to array: photo_1759188400233
+🔄 Processing file 2/7: 20241015_144315.jpg
+📦 File 2 converted to buffer, size: 3684489
+📝 Generated filename for file 2: photo_1759188400234.jpg
+💾 Saving file 2 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400234.jpg
+✅ File 2 saved successfully
+🔗 Public URL for file 2: /uploads/photo_1759188400234.jpg
+➕ Added new photo 2 to array: photo_1759188400234
+🔄 Processing file 3/7: 20240904_171041.jpg
+📦 File 3 converted to buffer, size: 4608702
+📝 Generated filename for file 3: photo_1759188400235.jpg
+💾 Saving file 3 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400235.jpg
+✅ File 3 saved successfully
+🔗 Public URL for file 3: /uploads/photo_1759188400235.jpg
+➕ Added new photo 3 to array: photo_1759188400235
+🔄 Processing file 4/7: 20230709_153921.jpg
+📦 File 4 converted to buffer, size: 2980306
+📝 Generated filename for file 4: photo_1759188400236.jpg
+💾 Saving file 4 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400236.jpg
+✅ File 4 saved successfully
+🔗 Public URL for file 4: /uploads/photo_1759188400236.jpg
+➕ Added new photo 4 to array: photo_1759188400236
+🔄 Processing file 5/7: 20240907_094205.jpg
+📦 File 5 converted to buffer, size: 4303658
+📝 Generated filename for file 5: photo_1759188400237.jpg
+💾 Saving file 5 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400237.jpg
+✅ File 5 saved successfully
+🔗 Public URL for file 5: /uploads/photo_1759188400237.jpg
+➕ Added new photo 5 to array: photo_1759188400237
+🔄 Processing file 6/7: 20230514_113123.jpg
+📦 File 6 converted to buffer, size: 4079796
+📝 Generated filename for file 6: photo_1759188400238.jpg
+💾 Saving file 6 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400238.jpg
+✅ File 6 saved successfully
+🔗 Public URL for file 6: /uploads/photo_1759188400238.jpg
+➕ Added new photo 6 to array: photo_1759188400238
+🔄 Processing file 7/7: 20250514_201655.jpg
+📦 File 7 converted to buffer, size: 4605065
+📝 Generated filename for file 7: photo_1759188400239.jpg
+💾 Saving file 7 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188400239.jpg
+✅ File 7 saved successfully
+🔗 Public URL for file 7: /uploads/photo_1759188400239.jpg
+➕ Added new photo 7 to array: photo_1759188400239
+✅ Added 7 photos to gallery
+💾 Photos JSON updated successfully
+✅ 7 photo(s) upload completed successfully!
+ POST /memories/photo 200 in 278ms
+ GET /api/photos 200 in 264ms
+ GET /gallery 200 in 120ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 251ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 246ms
+ GET /api/photos 200 in 271ms
+ GET /api/photos 200 in 247ms
+ GET /api/photos 200 in 253ms
+ GET /api/photos 200 in 247ms
+ GET /api/photos 200 in 249ms
+ GET /api/photos 200 in 364ms
+ GET /memories 200 in 290ms
+ ✓ Compiled /memories/words in 305ms
+ GET /memories/words 200 in 378ms
+ GET /api/photos 200 in 281ms
+Raw form data: { displayName: '', message: 'I love you and I miss you, love alex' }
+Tribute submitted successfully: 44171f81-de05-43c9-9ffb-f84467ebe777
+Error submitting tribute: Error: NEXT_REDIRECT
+    at submitTribute (lib/actions.ts:70:13)
+  68 |     
+  69 |     // Redirect to success page
+> 70 |     redirect("/memories?success=tribute");
+     |             ^
+  71 |   } catch (error) {
+  72 |     console.error("Error submitting tribute:", error);
+  73 |     throw error; {
+  digest: 'NEXT_REDIRECT;push;/memories?success=tribute;307;'
+}
+ GET /memories?success=tribute 200 in 77ms
+ POST /memories/words 303 in 438ms
+ GET /memorial-wall 200 in 267ms
+ GET /api/photos 200 in 248ms
+ GET /memories 200 in 151ms
+ GET /memories/photo 200 in 129ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 277ms
+ GET /api/photos 200 in 254ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20240904_171041.jpg, 4608702 bytes)
+  caption: Hello hello
+  name: Alex A
+📁 Files received: 1 files
+📁 File 1: 20240904_171041.jpg 4608702 image/jpeg
+📝 Caption: Hello hello
+👤 Name: Alex A
+✅ Processing 1 valid files
+💾 Starting file operations...
+📁 Uploads directory: /Users/aaugsbur/rudy_site/public/uploads
+✅ Uploads directory created/verified
+📄 Photos JSON file: /Users/aaugsbur/rudy_site/public/photos.json
+📖 Loaded existing photos: 45
+🔄 Processing file 1/1: 20240904_171041.jpg
+📦 File 1 converted to buffer, size: 4608702
+📝 Generated filename for file 1: photo_1759188514098.jpg
+💾 Saving file 1 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759188514098.jpg
+✅ File 1 saved successfully
+🔗 Public URL for file 1: /uploads/photo_1759188514098.jpg
+➕ Added new photo 1 to array: photo_1759188514098
+✅ Added 1 photos to gallery
+💾 Photos JSON updated successfully
+✅ 1 photo(s) upload completed successfully!
+ POST /memories/photo 200 in 101ms
+ GET /gallery 200 in 155ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 247ms
+ GET /api/photos 200 in 507ms
+ GET /api/photos 200 in 277ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 265ms
+ GET /api/photos 200 in 253ms
+ GET /api/photos 200 in 424ms
+ GET /memories/photo 200 in 220ms
+ GET / 200 in 137ms
+ GET /memories 200 in 67ms
+ GET /memories/photo 200 in 85ms
+ GET /api/photos 200 in 269ms
+ GET /memorial-wall 200 in 363ms
+ GET /memories 200 in 129ms
+ GET /api/photos 200 in 408ms
+ GET /api/photos 200 in 284ms
+ GET / 200 in 421ms
+ GET /api/photos 200 in 255ms
+ GET /gallery 200 in 106ms
+ GET /api/photos 200 in 282ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 250ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 262ms
+ GET /api/photos 200 in 271ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 266ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 262ms
+ GET /api/photos 200 in 328ms
+ GET / 200 in 269ms
+ GET /api/photos 200 in 250ms
+ GET /gallery 200 in 114ms
+ GET /api/photos 200 in 321ms
+ GET / 200 in 227ms
+ GET /api/photos 200 in 271ms
+ GET /api/photos 200 in 267ms
+ GET /admin 307 in 274ms
+ GET /admin/dashboard 200 in 188ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 119ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 214ms
+ POST /admin/dashboard 200 in 150ms
+ GET /api/photos 200 in 341ms
+ POST /admin/dashboard 200 in 61ms
+ POST /admin/dashboard 200 in 91ms
+ GET /admin/memories 404 in 141ms
+ GET /admin/memories 404 in 64ms
+ GET /admin/dashboard 200 in 169ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 88ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 76ms
+ GET /api/photos 200 in 322ms
+ POST /admin/dashboard 200 in 86ms
+ GET /gallery 200 in 99ms
+ GET /api/photos 200 in 387ms
+ GET /admin 307 in 137ms
+ GET /admin/dashboard 200 in 93ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 153ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 59ms
+ POST /admin/dashboard 200 in 160ms
+ GET /api/photos 200 in 421ms
+ GET /gallery 200 in 171ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 271ms
