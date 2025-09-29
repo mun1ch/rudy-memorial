@@ -11,6 +11,7 @@ interface Tribute {
   contributorName: string | null;
   submittedAt: string;
   approved: boolean;
+  hidden?: boolean;
 }
 
 export default async function MemorialWallPage() {
@@ -68,7 +69,7 @@ export default async function MemorialWallPage() {
           <>
             {/* Tributes Grid */}
             <div className="space-y-6">
-              {tributes.reverse().map((tribute) => (
+              {tributes.filter(tribute => !tribute.hidden).reverse().map((tribute) => (
                 <Card key={tribute.id} className="overflow-hidden">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">

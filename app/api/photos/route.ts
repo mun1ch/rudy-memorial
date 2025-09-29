@@ -8,7 +8,10 @@ export async function GET() {
     const data = await fs.readFile(photosFilePath, 'utf-8');
     const photos = JSON.parse(data);
     
-    return NextResponse.json(photos);
+    // Filter out hidden photos for public gallery
+    const visiblePhotos = photos.filter((photo: any) => !photo.hidden);
+    
+    return NextResponse.json(visiblePhotos);
   } catch (error: any) {
     if (error.code === 'ENOENT') {
       // File doesn't exist yet, return empty array
