@@ -76,7 +76,7 @@ export function PhotoForm() {
                     hover:file:bg-primary/90"
                 />
             <p className="mt-2 text-sm text-muted-foreground">
-              Select multiple photos at once! Max file size: 5MB each. Supported formats: JPG, PNG, HEIC.
+              Select multiple photos at once! Max file size: 50MB each. Supported formats: JPG, PNG, HEIC, WebP, TIFF. Original quality preserved.
             </p>
           </div>
 

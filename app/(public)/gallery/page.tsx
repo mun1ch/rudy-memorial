@@ -245,7 +245,7 @@ export default function GalleryPage() {
               A beautiful collection of moments that capture Rudy's spirit, 
               shared by those who loved him most.
             </p>
-            <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3">
               <Link href="/memories">
                 <Upload className="mr-2 h-5 w-5" />
                 Share Your Photos
@@ -286,6 +286,7 @@ export default function GalleryPage() {
                           src={photo.url}
                           alt={photo.caption || "Photo of Rudy"}
                           fill
+                          quality={100}
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
@@ -348,7 +349,7 @@ export default function GalleryPage() {
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Be the first to share a beautiful memory of Rudy. Your photos will help create a lasting tribute.
             </p>
-            <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+                <Button asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-lg px-6 py-3">
               <Link href="/memories">
                 <Upload className="mr-2 h-5 w-5" />
                 Upload First Photo
@@ -361,12 +362,18 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedPhoto && (
         <div 
-          className={`fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 ${isFullscreen ? 'p-0' : ''}`}
+          className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-4'}`}
+          style={{
+            backgroundImage: 'url(/static/pexels-roseleon-4564366.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
           onClick={(e) => {
             if (e.target === e.currentTarget) setSelectedPhoto(null);
           }}
         >
-          <div className={`relative ${isFullscreen ? 'w-full h-full' : 'max-w-4xl max-h-full'}`}>
+          <div className={`relative z-10 ${isFullscreen ? 'w-full h-full' : 'max-w-4xl max-h-full'}`}>
             {/* Control Buttons */}
             <div className="absolute -top-12 right-0 flex items-center gap-2 z-10">
               {/* Auto-play Button */}
@@ -426,17 +433,18 @@ export default function GalleryPage() {
               </>
             )}
             
-            <div className="relative flex items-center justify-center h-full">
-              <Image
-                src={selectedPhoto.url}
-                alt={selectedPhoto.caption || "Photo of Rudy"}
-                width={1000}
-                height={800}
-                className={`${isFullscreen ? 'max-h-[90vh]' : 'max-h-[75vh]'} max-w-full w-auto mx-auto object-contain rounded-lg shadow-2xl transition-opacity duration-75 ease-in-out ${
-                  isTransitioning ? 'opacity-70' : 'opacity-100'
-                }`}
-                priority
-              />
+            <div className={`relative flex items-center justify-center ${isFullscreen ? 'h-screen w-screen' : 'h-full'}`}>
+                  <Image
+                    src={selectedPhoto.url}
+                    alt={selectedPhoto.caption || "Photo of Rudy"}
+                    width={1000}
+                    height={800}
+                    quality={100}
+                    className={`${isFullscreen ? 'w-full h-full max-w-none max-h-none' : 'max-h-[75vh] max-w-full w-auto'} mx-auto object-contain rounded-lg shadow-2xl transition-opacity duration-75 ease-in-out ${
+                      isTransitioning ? 'opacity-70' : 'opacity-100'
+                    }`}
+                    priority
+                  />
             </div>
             
             {/* Photo Info */}

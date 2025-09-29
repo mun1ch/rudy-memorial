@@ -14,11 +14,11 @@ export const photoUploadSchema = z.object({
   caption: z.string().max(500).optional().transform(val => val === "" ? undefined : val),
   name: z.string().max(100).optional().transform(val => val === "" ? undefined : val),
   file: z.instanceof(File).refine(
-    (file) => file.size <= 10 * 1024 * 1024, // 10MB max
-    "File size must be less than 10MB"
+    (file) => file.size <= 50 * 1024 * 1024, // 50MB max
+    "File size must be less than 50MB"
   ).refine(
-    (file) => ["image/jpeg", "image/png", "image/heic", "image/heif"].includes(file.type),
-    "Only JPEG, PNG, HEIC, and HEIF files are allowed"
+    (file) => ["image/jpeg", "image/png", "image/heic", "image/heif", "image/webp", "image/tiff"].includes(file.type),
+    "Only JPEG, PNG, HEIC, HEIF, WebP, and TIFF files are allowed"
   ),
 });
 

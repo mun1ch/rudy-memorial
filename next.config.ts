@@ -6,11 +6,17 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '50mb', // Allow up to 50MB for photo uploads
     },
   },
-  // Also configure API routes if needed
-  api: {
-    bodyParser: {
-      sizeLimit: '50mb',
-    },
+  // Image optimization settings for preserving quality
+  images: {
+    // Allow all remote patterns for local uploads
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '6464',
+        pathname: '/uploads/**',
+      },
+    ],
   },
 };
 
