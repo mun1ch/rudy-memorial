@@ -1,0 +1,46 @@
+[
+  {
+    "id": "photo_1759166160099",
+    "fileName": "photo_1759166160099.jpg",
+    "url": "/uploads/photo_1759166160099.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 31018,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T17:16:00.100Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759166362173",
+    "fileName": "photo_1759166362173.jpg",
+    "url": "/uploads/photo_1759166362173.jpg",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 31018,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T17:19:22.175Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759175124906",
+    "fileName": "photo_1759175124906.png",
+    "url": "/uploads/photo_1759175124906.png",
+    "caption": null,
+    "contributorName": null,
+    "fileSize": 204198,
+    "mimeType": "image/png",
+    "uploadedAt": "2025-09-29T19:45:24.909Z",
+    "approved": true
+  },
+  {
+    "id": "photo_1759175328422",
+    "fileName": "photo_1759175328422.jpg",
+    "url": "/uploads/photo_1759175328422.jpg",
+    "caption": "I miss and love you dad.",
+    "contributorName": "Alex",
+    "fileSize": 31018,
+    "mimeType": "image/jpeg",
+    "uploadedAt": "2025-09-29T19:48:48.424Z",
+    "approved": true
+  }
+]
