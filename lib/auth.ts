@@ -22,8 +22,8 @@ export async function isAdminAuthenticated(): Promise<boolean> {
   return adminCookie?.value === ADMIN_COOKIE_VALUE;
 }
 
-export function setAdminAuth() {
-  const cookieStore = cookies();
+export async function setAdminAuth() {
+  const cookieStore = await cookies();
   cookieStore.set(ADMIN_COOKIE_NAME, ADMIN_COOKIE_VALUE, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -32,7 +32,7 @@ export function setAdminAuth() {
   });
 }
 
-export function clearAdminAuth() {
-  const cookieStore = cookies();
+export async function clearAdminAuth() {
+  const cookieStore = await cookies();
   cookieStore.delete(ADMIN_COOKIE_NAME);
 }

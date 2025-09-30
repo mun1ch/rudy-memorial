@@ -53,7 +53,7 @@ export default function AdminPhotosPage() {
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [duplicates, setDuplicates] = useState<Photo[]>([]);
+  const [duplicates, setDuplicates] = useState<Photo[][]>([]);
   const [duplicatesLoading, setDuplicatesLoading] = useState(false);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export default function AdminPhotosPage() {
     try {
       const result = await findDuplicatePhotos();
       console.log("Duplicate detection result:", result);
-      if (result.success) {
+      if (result.success && result.duplicates) {
         console.log("Found duplicates:", result.duplicates);
         setDuplicates(result.duplicates);
       } else {

@@ -2,6 +2,20 @@ import { NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 
+interface Photo {
+  id: string;
+  fileName: string;
+  url: string;
+  caption: string;
+  contributorName: string;
+  fileSize: number;
+  mimeType: string;
+  md5Hash: string;
+  uploadedAt: string;
+  approved: boolean;
+  hidden: boolean;
+}
+
 export async function GET() {
   try {
     const photosFilePath = path.join(process.cwd(), 'public', 'photos.json');

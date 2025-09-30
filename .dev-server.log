@@ -8740,3 +8740,1298 @@ https://nextjs.org/docs/messages/module-not-found
  GET /icon.svg?icon.5e81ae7e.svg 200 in 385ms
  GET /api/photos 200 in 350ms
  GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 333ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.pon2uq006d'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.pon2uq006d'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qdwigrfxpc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qdwigrfxpc'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.pon2uq006d'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.pon2uq006d'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.lja42srckrr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.lja42srckrr'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9cprn0npgjh'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9cprn0npgjh'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p2oayez2yzc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p2oayez2yzc'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.aa6sfzkhhu8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.aa6sfzkhhu8'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p2oayez2yzc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p2oayez2yzc'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.0u3ln6g3ifvp'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.0u3ln6g3ifvp'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dz28thm89iq'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dz28thm89iq'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.cjmwtlmw5uk'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.cjmwtlmw5uk'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6hc10lv1kw'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6hc10lv1kw'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.cjmwtlmw5uk'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.cjmwtlmw5uk'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.lmr2oqc0m8p'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.lmr2oqc0m8p'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.4tafa5zffbp'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.4tafa5zffbp'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.625her7va3l'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.625her7va3l'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1jqpxncnclr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1jqpxncnclr'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.625her7va3l'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.625her7va3l'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1kp9e926zmh'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1kp9e926zmh'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.faxq230dhpa'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.faxq230dhpa'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.477g7d4iw9u'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.477g7d4iw9u'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.r19ewpegtet'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.r19ewpegtet'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.477g7d4iw9u'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.477g7d4iw9u'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.a2ehtlt2hen'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.a2ehtlt2hen'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.c3y8fr5tuo4'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.c3y8fr5tuo4'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.tcyjkbpo90h'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.tcyjkbpo90h'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1ek6sm6xfs3'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1ek6sm6xfs3'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.tcyjkbpo90h'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.tcyjkbpo90h'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.yds2ic4dnh'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.yds2ic4dnh'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.72ml82t57k2'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.72ml82t57k2'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.5sy4cvbtaib'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.5sy4cvbtaib'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.91tgy46f7is'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.91tgy46f7is'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.5sy4cvbtaib'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.5sy4cvbtaib'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o0g55qklszi'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o0g55qklszi'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9w9kbie2qv6'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9w9kbie2qv6'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gibr1wglpxm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gibr1wglpxm'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.eoe2z0dr3y7'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.eoe2z0dr3y7'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gibr1wglpxm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gibr1wglpxm'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.bzd4bwzytpu'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.bzd4bwzytpu'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.wpduyrhk1gq'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.wpduyrhk1gq'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p6bh0yfwnsl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p6bh0yfwnsl'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6wd7ct6e3vt'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6wd7ct6e3vt'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p6bh0yfwnsl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.p6bh0yfwnsl'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.l3ey66r2vl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.l3ey66r2vl'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.vzoiis1sei'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.vzoiis1sei'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v3rg4i4e7p'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v3rg4i4e7p'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i7izjiud5a'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i7izjiud5a'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v3rg4i4e7p'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v3rg4i4e7p'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.98iutjs52gb'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.98iutjs52gb'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.hs3iq89jsgv'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.hs3iq89jsgv'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/(public)/gallery/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/(public)/gallery/page/app-build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/(public)/gallery/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/(public)/gallery/page/app-build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.q77ifj96ml8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.q77ifj96ml8'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.g1qm01tg6vr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.g1qm01tg6vr'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.q77ifj96ml8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.q77ifj96ml8'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6hb670dbwzq'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6hb670dbwzq'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.h7b2ix7sjpp'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.h7b2ix7sjpp'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.fhc1867es1e'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.fhc1867es1e'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.46ounkyijcp'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.46ounkyijcp'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.fhc1867es1e'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.fhc1867es1e'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gagcbn9au86'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gagcbn9au86'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.8zrx1k6n2rb'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.8zrx1k6n2rb'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.zw5lcjqxhh'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.zw5lcjqxhh'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.x4jhoahpdf'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.x4jhoahpdf'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.w3a5ee470me'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.w3a5ee470me'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.x4jhoahpdf'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.x4jhoahpdf'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.xxgyrhpp46'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.xxgyrhpp46'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ga4yds085c5'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ga4yds085c5'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i7fyonnyfw'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i7fyonnyfw'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.h1omqh66uwc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.h1omqh66uwc'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i7fyonnyfw'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i7fyonnyfw'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.b3duirrvvef'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.b3duirrvvef'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3bufb6fwnk6'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3bufb6fwnk6'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.jpi0mqrktji'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.jpi0mqrktji'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.cc52gos93eg'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.cc52gos93eg'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.jpi0mqrktji'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.jpi0mqrktji'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.2h8a5t866go'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.2h8a5t866go'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.m0snelz98js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.m0snelz98js'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3g8vgz8kbqj'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3g8vgz8kbqj'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.7kvnq7dhaqg'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.7kvnq7dhaqg'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3cof62jtq0v'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3cof62jtq0v'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ccpwrj1eym'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ccpwrj1eym'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3g8vgz8kbqj'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3g8vgz8kbqj'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.7kvnq7dhaqg'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.7kvnq7dhaqg'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.on02r6nfdol'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.on02r6nfdol'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.r75cisvnukr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.r75cisvnukr'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qu3urwrdbei'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qu3urwrdbei'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gkvyri29a3i'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.gkvyri29a3i'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ws4we0hxmlg'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ws4we0hxmlg'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qzjy5dtn0q'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qzjy5dtn0q'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.nw48wve4kl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.nw48wve4kl'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.142sh9ee7th'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.142sh9ee7th'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ws4we0hxmlg'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ws4we0hxmlg'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qzjy5dtn0q'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qzjy5dtn0q'
+}
+ ✓ Compiled in 172ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ya5bugc30y'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ya5bugc30y'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ewss7dxac8g'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ewss7dxac8g'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.h1ucyf82uea'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.h1ucyf82uea'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oxw5iove3i'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oxw5iove3i'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.0f9k72awdttr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.0f9k72awdttr'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dvenmk4qkwo'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dvenmk4qkwo'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qd5gua18218'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qd5gua18218'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.44iilr4mwfk'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.44iilr4mwfk'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.0f9k72awdttr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.0f9k72awdttr'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dvenmk4qkwo'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dvenmk4qkwo'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.y7anepf78nm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.y7anepf78nm'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1m1nwgjahcd'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1m1nwgjahcd'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.5q24cv4ok3s'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.5q24cv4ok3s'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oswlxzf1u8h'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oswlxzf1u8h'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o25bjbdh89'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o25bjbdh89'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.75t1eh3i9dm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.75t1eh3i9dm'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qnl979snc2r'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qnl979snc2r'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.f9ij4tivgic'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.f9ij4tivgic'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qnl979snc2r'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qnl979snc2r'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dwc4y0dmbr5'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dwc4y0dmbr5'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.44gdgzu69on'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.44gdgzu69on'
+}
+ ✓ Compiled in 173ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6s4daw97u9r'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6s4daw97u9r'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.33wyuxqip9h'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.33wyuxqip9h'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6s4daw97u9r'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6s4daw97u9r'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oskaezxgvu'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oskaezxgvu'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ke9yb6wbkvr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ke9yb6wbkvr'
+}
+ ✓ Compiled in 66ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.rn9w37gpl48'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.rn9w37gpl48'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6b4e0fpilaq'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6b4e0fpilaq'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.rn9w37gpl48'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.rn9w37gpl48'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ajy7qq6p9zj'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ajy7qq6p9zj'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.eh2h02lrskq'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.eh2h02lrskq'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dk0bry0ks3n'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dk0bry0ks3n'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dtwjvkih6xo'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dtwjvkih6xo'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dk0bry0ks3n'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dk0bry0ks3n'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oe2vg6n0kgr'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oe2vg6n0kgr'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.po2p94rk868'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.po2p94rk868'
+}
+ ✓ Compiled in 150ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v6drbg83eln'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v6drbg83eln'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.vhbo286tu4d'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.vhbo286tu4d'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v6drbg83eln'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v6drbg83eln'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.u06fj1m9so'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.u06fj1m9so'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.7xuzmi19r03'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.7xuzmi19r03'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.t9zu9s3hacl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.t9zu9s3hacl'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.tmu1sw9tjo7'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.tmu1sw9tjo7'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.t9zu9s3hacl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.t9zu9s3hacl'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.fte8hghzr3e'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.fte8hghzr3e'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.wdu1k8ah5qn'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.wdu1k8ah5qn'
+}
+ ✓ Compiled in 89ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.73anol2sgf5'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.73anol2sgf5'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ii5sxx1hgj'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ii5sxx1hgj'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.73anol2sgf5'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.73anol2sgf5'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o20dggu2c4'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o20dggu2c4'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.q1gk0dok2x'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.q1gk0dok2x'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.m0btx5hi6u8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.m0btx5hi6u8'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.59jj5oz12mq'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.59jj5oz12mq'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.m0btx5hi6u8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.m0btx5hi6u8'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ippxmjd5c6'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ippxmjd5c6'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v4aucckzmaj'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.v4aucckzmaj'
+}
+ ✓ Compiled in 164ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.bfwvb9vg4ns'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.bfwvb9vg4ns'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dp9qitddb4a'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dp9qitddb4a'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.wk7gr4kx9gb'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.wk7gr4kx9gb'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dp9qitddb4a'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.dp9qitddb4a'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.az72w6wxw9a'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.az72w6wxw9a'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.e8l0wk0c8q6'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.e8l0wk0c8q6'
+}
+ ✓ Compiled in 105ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/app/api/photos/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/server/pages/_app/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.s6c8vmwh4xm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.s6c8vmwh4xm'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.z1hqgfdx0p8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.z1hqgfdx0p8'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.s6c8vmwh4xm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.s6c8vmwh4xm'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3y5ad6xey2v'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3y5ad6xey2v'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.b949v1vo6nf'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.b949v1vo6nf'
+}
+ ✓ Compiled in 12ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1baiajlgx9p'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1baiajlgx9p'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3gs1env7sno'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.3gs1env7sno'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1baiajlgx9p'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1baiajlgx9p'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.4degw7hlqk7'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.4degw7hlqk7'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o4x9q5qwcb'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.o4x9q5qwcb'
+}
+ ✓ Compiled in 11ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.f2z9nl66hbe'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.f2z9nl66hbe'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6jfzgrm5sdl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.6jfzgrm5sdl'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.f2z9nl66hbe'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.f2z9nl66hbe'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.70emxutujdh'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.70emxutujdh'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oun7ujeym7'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.oun7ujeym7'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ualwf3d237t'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ualwf3d237t'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.sjkn91hg60b'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.sjkn91hg60b'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ualwf3d237t'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ualwf3d237t'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.j6qtf5uysz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.j6qtf5uysz'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9q2305ytmvc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9q2305ytmvc'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.kl8fiifm78'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.kl8fiifm78'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.li4kvuyxk5'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.li4kvuyxk5'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.kl8fiifm78'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.kl8fiifm78'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ti0d3wnsxes'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ti0d3wnsxes'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.li9d37fd0yc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.li9d37fd0yc'
+}

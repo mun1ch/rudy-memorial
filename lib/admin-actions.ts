@@ -5,6 +5,29 @@ import { revalidatePath } from "next/cache";
 
 // Admin actions for managing photos and memories
 
+interface Photo {
+  id: string;
+  fileName: string;
+  url: string;
+  caption: string;
+  contributorName: string;
+  fileSize: number;
+  mimeType: string;
+  md5Hash: string;
+  uploadedAt: string;
+  approved: boolean;
+  hidden: boolean;
+}
+
+interface Tribute {
+  id: string;
+  message: string;
+  contributorName: string;
+  submittedAt: string;
+  approved: boolean;
+  hidden: boolean;
+}
+
 export async function getPhotos() {
   try {
     const supabase = await createClient();
@@ -298,8 +321,12 @@ export async function editPhoto(photoId: string, caption: string | null, contrib
       return { success: false, error: "Photo not found" };
     }
 
-    photos[photoIndex].caption = caption;
-    photos[photoIndex].contributorName = contributorName;
+    if (caption !== null) {
+      photos[photoIndex].caption = caption;
+    }
+    if (contributorName !== null) {
+      photos[photoIndex].contributorName = contributorName;
+    }
 
     await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
 
@@ -335,8 +362,12 @@ export async function editMemory(memoryId: string, message: string, contributorN
       return { success: false, error: "Memory not found" };
     }
 
-    tributes[memoryIndex].message = message;
-    tributes[memoryIndex].contributorName = contributorName;
+    if (message !== null) {
+      tributes[memoryIndex].message = message;
+    }
+    if (contributorName !== null) {
+      tributes[memoryIndex].contributorName = contributorName;
+    }
 
     await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
 

@@ -36,7 +36,7 @@ interface Memory {
 export default function AdminDashboard() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [memories, setMemories] = useState<Memory[]>([]);
-  const [duplicates, setDuplicates] = useState<Photo[]>([]);
+  const [duplicates, setDuplicates] = useState<Photo[][]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function AdminDashboard() {
         setMemories(memoriesResult.tributes);
       }
       
-      if (duplicatesResult.success) {
+      if (duplicatesResult.success && duplicatesResult.duplicates) {
         setDuplicates(duplicatesResult.duplicates);
       }
     } catch (error) {

@@ -29,7 +29,7 @@ export default function AdminSettings() {
   const loadEmailSettings = async () => {
     try {
       const result = await getEmailSettings();
-      if (result.success) {
+      if (result.success && result.settings) {
         setEmailSettings(result.settings);
       }
     } catch (error) {

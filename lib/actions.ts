@@ -2,8 +2,18 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { tributeSchema, photoUploadSchema } from "@/lib/validation";
+
+interface Tribute {
+  id: string;
+  message: string;
+  contributorName: string;
+  submittedAt: string;
+  approved: boolean;
+  hidden: boolean;
+}
 // import { logger } from "@/lib/logger";
 import { rateLimit } from "@/lib/rate-limit";
 import { headers } from "next/headers";
@@ -17,7 +27,7 @@ export async function submitTribute(formData: FormData) {
   try {
     // Rate limiting
     const headersList = await headers();
-    const request = new Request("http://localhost", {
+    const request = new NextRequest("http://localhost", {
       headers: headersList,
     });
     
@@ -55,9 +65,10 @@ export async function submitTribute(formData: FormData) {
     const newTribute = {
       id: uuidv4(),
       message: validatedData.message,
-      contributorName: validatedData.displayName,
+      contributorName: validatedData.displayName || "Anonymous",
       submittedAt: new Date().toISOString(),
       approved: true, // Direct to memorial wall as requested
+      hidden: false,
     };
     existingTributes.push(newTribute);
 
@@ -103,7 +114,7 @@ export async function submitPhoto(formData: FormData) {
     }
     // Rate limiting
     const headersList = await headers();
-    const request = new Request("http://localhost", {
+    const request = new NextRequest("http://localhost", {
       headers: headersList,
     });
     
