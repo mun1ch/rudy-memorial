@@ -3478,3 +3478,462 @@ This is an automated notification from Rudy's Memorial Site.
  GET /api/photos 200 in 329ms
  GET /api/photos 200 in 329ms
  GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 288ms
+ GET / 200 in 202ms
+ GET /api/photos 200 in 336ms
+ GET /api/photos 200 in 267ms
+ GET /api/photos 200 in 282ms
+ GET / 200 in 162ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 362ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 344ms
+ GET /gallery 200 in 122ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 621ms
+ GET /memories 200 in 126ms
+ GET /api/photos 200 in 643ms
+ GET /memories 200 in 526ms
+ GET /memorial-wall 200 in 372ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 275ms
+ GET / 200 in 152ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 278ms
+ GET /api/photos 200 in 405ms
+ GET /gallery 200 in 108ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 378ms
+ GET /api/photos 200 in 387ms
+ ✓ Compiled in 191ms
+ ✓ Compiled /gallery in 374ms
+ GET /gallery 200 in 594ms
+ GET /memories/photo 200 in 1656ms
+ GET /gallery 200 in 118ms
+ GET /memories/photo 200 in 150ms
+ GET /gallery 200 in 109ms
+ GET /memories/photo 200 in 150ms
+ GET /gallery 200 in 150ms
+ GET /memories/photo 200 in 164ms
+ GET /gallery 200 in 557ms
+ GET /memories/photo 200 in 548ms
+ GET /gallery 200 in 795ms
+ GET /memories/photo 200 in 804ms
+ GET /gallery 200 in 194ms
+ GET /memories/photo 200 in 178ms
+ GET /gallery 200 in 234ms
+ GET /memories/photo 200 in 204ms
+ GET /gallery 200 in 143ms
+ GET /memories/photo 200 in 185ms
+ GET /gallery 200 in 156ms
+ GET /memories/photo 200 in 529ms
+ GET /gallery 200 in 554ms
+ GET /memories/photo 200 in 133ms
+ GET /api/photos 200 in 601ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 195ms
+ GET /memories/photo 200 in 508ms
+ GET /gallery 200 in 689ms
+ GET /api/photos 200 in 961ms
+ GET /api/photos 200 in 827ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 838ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 744ms
+ GET /api/photos 200 in 670ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 813ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 550ms
+ GET /api/photos 200 in 278ms
+ GET /gallery 200 in 236ms
+ GET /api/photos 200 in 658ms
+ GET /api/photos 200 in 637ms
+ GET /api/photos 200 in 510ms
+ GET /api/photos 200 in 669ms
+ ✓ Compiled /memorial-wall in 110ms
+ GET /memorial-wall 200 in 351ms
+ ✓ Compiled / in 42ms
+ GET / 200 in 202ms
+ GET /api/photos 200 in 296ms
+ ✓ Compiled /admin in 110ms
+ GET /admin 307 in 235ms
+ ✓ Compiled /admin/dashboard in 108ms
+ GET /admin/dashboard 200 in 223ms
+ ✓ Compiled in 175ms
+ ✓ Compiled /admin/dashboard in 193ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 642ms
+ GET /memories/photo 200 in 637ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 113ms
+ GET /memories/photo 200 in 159ms
+ GET /memories/photo 200 in 161ms
+ GET /memories/photo 200 in 116ms
+ GET /memories/photo 200 in 463ms
+ GET /memories/photo 200 in 109ms
+ GET /memories/photo 200 in 79ms
+ GET /api/photos 200 in 689ms
+ GET /memories/photo 200 in 156ms
+ GET /memories/photo 200 in 117ms
+ GET /memories/photo 200 in 103ms
+ GET /memories/photo 200 in 732ms
+ ✓ Compiled /admin/settings in 471ms
+ GET /admin/settings 200 in 687ms
+ POST /admin/settings 200 in 292ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 752ms
+ POST /admin/settings 200 in 149ms
+ ✓ Compiled / in 51ms
+ GET / 200 in 158ms
+ GET /api/photos 200 in 566ms
+ GET /api/photos 200 in 331ms
+ ✓ Compiled /admin in 275ms
+ GET /admin 307 in 441ms
+ GET /admin/dashboard 200 in 92ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 66ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 141ms
+ GET /admin/settings 200 in 180ms
+ POST /admin/settings 200 in 191ms
+ POST /admin/settings 200 in 246ms
+ GET /api/photos 200 in 342ms
+ GET / 200 in 243ms
+ GET /api/photos 200 in 563ms
+ GET /api/photos 200 in 358ms
+ GET /admin 307 in 1245ms
+ GET /admin/dashboard 200 in 645ms
+ GET /api/photos 200 in 707ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 399ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 110ms
+ ✓ Compiled in 245ms
+ ✓ Compiled /admin/dashboard in 318ms
+ GET /admin/dashboard 200 in 728ms
+ ○ Compiling /memorial-wall ...
+ GET /memories/photo 200 in 2484ms
+ ✓ Compiled /memorial-wall in 2.1s
+ GET /admin/dashboard 200 in 2067ms
+ GET /memories/photo 200 in 338ms
+ GET /memorial-wall 200 in 2381ms
+ GET /memories/photo 200 in 582ms
+ GET /memories/photo 200 in 207ms
+ GET /memories/photo 200 in 138ms
+ GET /memories/photo 200 in 102ms
+ GET /memories/photo 200 in 202ms
+ GET /memories/photo 200 in 387ms
+ GET /memories/photo 200 in 342ms
+ ✓ Compiled /gallery in 361ms
+ GET /memories/photo 200 in 445ms
+ GET /gallery 200 in 731ms
+ GET /memories/photo 200 in 379ms
+ GET /api/photos 200 in 318ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 183ms
+ GET /gallery 200 in 2226ms
+ GET /memories/photo 200 in 2232ms
+ GET /api/photos 200 in 819ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 844ms
+ GET /api/photos 200 in 366ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 307ms
+ GET /api/photos 200 in 396ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 450ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 398ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 472ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 520ms
+ GET /api/photos 200 in 268ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 355ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 360ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 312ms
+ GET /gallery 200 in 138ms
+ GET /api/photos 200 in 281ms
+ GET /api/photos 200 in 374ms
+ GET /memorial-wall 200 in 153ms
+ GET /api/photos 200 in 335ms
+ ✓ Compiled / in 65ms
+ GET / 200 in 128ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 381ms
+ GET /memorial-wall 200 in 134ms
+ ✓ Compiled /admin in 105ms
+ GET /admin 307 in 214ms
+ GET /admin/dashboard 200 in 146ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 152ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 54ms
+ GET /api/photos 200 in 311ms
+ GET /gallery 200 in 117ms
+ GET /api/photos 200 in 359ms
+ ✓ Compiled in 107ms
+ ✓ Compiled /gallery in 40ms
+ GET /gallery 200 in 76ms
+ GET /memories/photo 200 in 235ms
+ GET /gallery 200 in 94ms
+ GET /memories/photo 200 in 114ms
+ GET /gallery 200 in 85ms
+ GET /memories/photo 200 in 100ms
+ GET /gallery 200 in 121ms
+ GET /memories/photo 200 in 128ms
+ GET /gallery 200 in 72ms
+ GET /memories/photo 200 in 94ms
+ GET /gallery 200 in 89ms
+ GET /memories/photo 200 in 92ms
+ GET /gallery 200 in 88ms
+ GET /memories/photo 200 in 86ms
+ GET /gallery 200 in 86ms
+ GET /memories/photo 200 in 88ms
+ GET /gallery 200 in 78ms
+ GET /memories/photo 200 in 78ms
+ GET /gallery 200 in 77ms
+ GET /memories/photo 200 in 101ms
+ GET /gallery 200 in 275ms
+ GET /memories/photo 200 in 384ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 326ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 304ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 140ms
+ GET /gallery 200 in 251ms
+ GET /memories/photo 200 in 379ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 334ms
+ GET /api/photos 200 in 342ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 262ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 372ms
+ GET /api/photos 200 in 366ms
+ GET /api/photos 200 in 400ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 340ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 363ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 457ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 331ms
+ ✓ Compiled / in 63ms
+ GET / 200 in 223ms
+ GET /api/photos 200 in 350ms
+ GET /gallery 200 in 141ms
+ GET /api/photos 200 in 271ms
+ GET /api/photos 200 in 383ms
+ ✓ Compiled /memories in 196ms
+ GET /memories 200 in 476ms
+ GET /gallery 200 in 94ms
+ GET /api/photos 200 in 266ms
+ ✓ Compiled /memorial-wall in 54ms
+ GET /memorial-wall 200 in 129ms
+ ✓ Compiled /admin in 54ms
+ GET /admin 307 in 127ms
+ ✓ Compiled /admin/dashboard in 25ms
+ GET /admin/dashboard 200 in 106ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 79ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 42ms
+ ✓ Compiled /admin/settings in 205ms
+ GET /admin/settings 200 in 291ms
+ GET /api/photos 200 in 283ms
+ POST /admin/settings 200 in 119ms
+ POST /admin/settings 200 in 56ms
+ GET /memorial-wall 200 in 166ms
+ GET /memories 200 in 121ms
+ GET /gallery 200 in 92ms
+ GET /api/photos 200 in 259ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 316ms
+ GET / 200 in 109ms
+ GET / 200 in 76ms
+ GET /api/photos 200 in 330ms
+ GET /gallery 200 in 168ms
+ GET /api/photos 200 in 293ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 146ms
+ GET /gallery 200 in 338ms
+ GET /memories/photo 200 in 332ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 495ms
+ GET /api/photos 200 in 515ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 353ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 71ms
+ GET /api/photos 200 in 663ms
+ GET /gallery 200 in 620ms
+ GET /memories/photo 200 in 628ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 350ms
+ GET /api/photos 200 in 377ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 323ms
+ GET /gallery 200 in 124ms
+ GET /api/photos 200 in 261ms
+ GET / 200 in 160ms
+ GET /api/photos 200 in 266ms
+ GET /memories 200 in 145ms
+ GET /gallery 200 in 96ms
+ GET /api/photos 200 in 265ms
+ GET /memories 200 in 102ms
+ GET /api/photos 200 in 290ms
+ GET /gallery 200 in 152ms
+ GET /api/photos 200 in 260ms
+ GET /memories 200 in 108ms
+ GET / 200 in 144ms
+ GET /api/photos 200 in 269ms
+ GET / 200 in 94ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 276ms
+ GET /api/photos 200 in 283ms
+ GET /gallery 200 in 117ms
+ GET /api/photos 200 in 257ms
+ GET /memories 200 in 159ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 289ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 113ms
+ GET /memories/photo 200 in 556ms
+ GET /memories 200 in 583ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 425ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 276ms
+ GET /api/photos 200 in 273ms
+ GET /api/photos 200 in 306ms
+ ✓ Compiled in 80ms
+ GET /memories/photo 200 in 108ms
+ GET /memories 200 in 148ms
+ GET /memories/photo 200 in 74ms
+ GET /memories 200 in 98ms
+ GET /memories/photo 200 in 104ms
+ GET /memories 200 in 95ms
+ GET /memories/photo 200 in 80ms
+ GET /memories 200 in 102ms
+ GET /memories/photo 200 in 127ms
+ GET /memories 200 in 106ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 294ms
+ GET /memories 200 in 103ms
+ GET /memories/photo 200 in 134ms
+ ✓ Compiled in 410ms
+ GET /memories 200 in 77ms
+ GET /memories/photo 200 in 95ms
+ GET /memories 200 in 114ms
+ GET /memories/photo 200 in 94ms
+ GET /memories 200 in 79ms
+ GET /memories/photo 200 in 100ms
+ GET /memories 200 in 105ms
+ GET /memories/photo 200 in 146ms
+ GET /api/photos 200 in 341ms
+ GET / 200 in 177ms
+ GET /api/photos 200 in 263ms
+ GET /memories 200 in 121ms
+ GET /api/photos 200 in 326ms
+ ✓ Compiled /admin in 140ms
+ GET /admin 307 in 676ms
+ ✓ Compiled /admin/dashboard in 60ms
+ GET /admin/dashboard 200 in 573ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 80ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 57ms
+ GET /gallery 200 in 112ms
+ GET /api/photos 200 in 298ms
+ GET /admin 307 in 375ms
+ GET /admin/dashboard 200 in 210ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 71ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 49ms
+ GET /memorial-wall 200 in 459ms
+ GET /memories 200 in 119ms
+ GET /gallery 200 in 199ms
+ GET /api/photos 200 in 265ms
+ GET /api/photos 200 in 379ms
+ GET / 200 in 218ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 332ms
+ GET /admin 307 in 204ms
+ GET /admin/dashboard 200 in 112ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 81ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 44ms
+ ✓ Compiled in 110ms
+ ✓ Compiled /admin/dashboard in 198ms
+ GET /memories/photo 200 in 414ms
+ GET /admin/dashboard 200 in 415ms
+ GET /memories/photo 200 in 128ms
+ GET /admin/dashboard 200 in 129ms
+ GET /admin/dashboard 200 in 105ms
+ GET /memories/photo 200 in 108ms
+ ✓ Compiled / in 36ms
+ GET / 200 in 126ms
+ GET /admin/dashboard 200 in 104ms
+ GET /api/photos 200 in 305ms
+ GET /memories/photo 200 in 237ms
+ GET /memories/photo 200 in 149ms
+ GET /memories/photo 200 in 92ms
+ GET /memories/photo 200 in 110ms
+ GET /api/photos 200 in 334ms
+ GET /memories/photo 200 in 63ms
+ GET /memories/photo 200 in 65ms
+ GET /memories/photo 200 in 81ms
+ GET /memories/photo 200 in 68ms
+ ✓ Compiled /gallery in 35ms
+ GET /gallery 200 in 99ms
+ GET /api/photos 200 in 546ms
+ GET /gallery 200 in 178ms
+ ✓ Compiled /gallery in 217ms
+ GET /gallery 200 in 612ms
+ GET /memories/photo 200 in 933ms
+ ✓ Compiled /memories in 354ms
+ GET /memories/photo 200 in 750ms
+ GET /gallery 200 in 550ms
+ GET /memories 200 in 925ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 601ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 267ms
+ ✓ Compiled / in 53ms
+ GET / 200 in 359ms
+ GET /api/photos 200 in 375ms
+ GET /gallery 200 in 185ms
+ GET /api/photos 200 in 272ms
+ GET /memories 200 in 118ms
+ GET /api/photos 200 in 354ms
+ ✓ Compiled /memorial-wall in 115ms
+ GET /memorial-wall 200 in 795ms
+ GET /gallery 200 in 114ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 2158ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 245ms
+ GET /api/photos 200 in 326ms

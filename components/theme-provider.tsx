@@ -16,22 +16,56 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Apply stored theme on mount
+    // Get the stored theme and apply it immediately
     const storedTheme = getStoredTheme();
     setCurrentTheme(storedTheme);
     applyTheme(storedTheme);
     setMounted(true);
   }, []);
 
+  // Apply theme on every render to handle client-side navigation
+  useEffect(() => {
+    if (mounted) {
+      applyTheme(currentTheme);
+    }
+  }, [currentTheme, mounted]);
+
+  // Listen for route changes and reapply theme immediately
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleRouteChange = () => {
+      // Apply theme immediately, no delay
+      applyTheme(currentTheme);
+    };
+
+    // Listen for popstate (back/forward navigation)
+    window.addEventListener('popstate', handleRouteChange);
+    
+    // Listen for focus events (covers most navigation)
+    window.addEventListener('focus', handleRouteChange);
+
+    // Use MutationObserver to detect DOM changes (route changes)
+    const observer = new MutationObserver(() => {
+      applyTheme(currentTheme);
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+      window.removeEventListener('focus', handleRouteChange);
+      observer.disconnect();
+    };
+  }, [currentTheme, mounted]);
+
   const setTheme = (theme: Theme) => {
     setCurrentTheme(theme);
     applyTheme(theme);
   };
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ currentTheme, setTheme, availableThemes: themes }}>

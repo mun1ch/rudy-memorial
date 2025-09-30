@@ -2,6 +2,7 @@ import { requireAdmin } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { LogOut, Home, Users, Image, MessageCircle, Settings } from "lucide-react";
 import Link from "next/link";
+import { AdminThemeEnforcer } from "@/components/admin-theme-enforcer";
 
 export default async function AdminLayout({
   children,
@@ -12,6 +13,7 @@ export default async function AdminLayout({
 
   return (
     <div className="min-h-screen bg-background">
+      <AdminThemeEnforcer />
       {/* Admin Header */}
       <header className="border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
