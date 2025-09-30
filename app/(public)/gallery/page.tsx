@@ -286,7 +286,7 @@ export default function GalleryPage() {
               Memory Gallery
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              A beautiful collection of moments that capture Rudy's spirit, 
+              A beautiful collection of moments that capture Rudy&apos;s spirit, 
               shared by those who loved him most.
             </p>
             <div className="grid gap-6 md:grid-cols-2 mt-8">

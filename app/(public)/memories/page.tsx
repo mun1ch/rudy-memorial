@@ -18,7 +18,7 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
             Share Your Memory
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Help us celebrate Rudy's life by sharing your photos, stories, or both
+            Help us celebrate Rudy&apos;s life by sharing your photos, stories, or both
           </p>
         </div>
 

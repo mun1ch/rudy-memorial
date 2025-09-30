@@ -21,7 +21,7 @@ interface Photo {
 // Global auto-play state - completely independent of React
 let isAutoPlaying = false;
 let playInterval: NodeJS.Timeout | null = null;
-let currentPhotos: Photo[] = [];
+const currentPhotos: Photo[] = [];
 let currentPhotoIndex = 0;
 
 export default function HomePage() {

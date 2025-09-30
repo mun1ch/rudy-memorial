@@ -21,8 +21,8 @@ export default async function MemorialWallPage() {
     const tributesFilePath = path.join(process.cwd(), "public", "tributes.json");
     const data = await fs.readFile(tributesFilePath, "utf-8");
     tributes = JSON.parse(data);
-  } catch (error: any) {
-    if (error.code === "ENOENT") {
+  } catch (error: unknown) {
+    if (error && typeof error === 'object' && 'code' in error && error.code === "ENOENT") {
       console.log("tributes.json not found, memorial wall will be empty.");
     } else {
       console.error("Error reading tributes.json:", error);

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -52,12 +53,12 @@ export default function RootLayout({
                 </h1>
               </div>
               <nav className="flex items-center space-x-6">
-                <a 
+                <Link 
                   href="/" 
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Home
-                </a>
+                </Link>
                 <a 
                   href="/gallery" 
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

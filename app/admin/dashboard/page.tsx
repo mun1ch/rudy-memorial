@@ -36,7 +36,7 @@ interface Memory {
 export default function AdminDashboard() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [memories, setMemories] = useState<Memory[]>([]);
-  const [duplicates, setDuplicates] = useState<any[]>([]);
+  const [duplicates, setDuplicates] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function AdminDashboard() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
           <p className="text-muted-foreground">
-            Manage photos and memories for Rudy's memorial site
+            Manage photos and memories for Rudy&apos;s memorial site
           </p>
         </div>
 

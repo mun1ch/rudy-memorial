@@ -9,11 +9,11 @@ export async function GET() {
     const photos = JSON.parse(data);
     
     // Filter out hidden photos for public gallery
-    const visiblePhotos = photos.filter((photo: any) => !photo.hidden);
+    const visiblePhotos = photos.filter((photo: Photo) => !photo.hidden);
     
     return NextResponse.json(visiblePhotos);
-  } catch (error: any) {
-    if (error.code === 'ENOENT') {
+  } catch (error: unknown) {
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
       // File doesn't exist yet, return empty array
       return NextResponse.json([]);
     }

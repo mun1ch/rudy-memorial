@@ -53,7 +53,7 @@ export default function AdminPhotosPage() {
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [duplicates, setDuplicates] = useState<any[]>([]);
+  const [duplicates, setDuplicates] = useState<Photo[]>([]);
   const [duplicatesLoading, setDuplicatesLoading] = useState(false);
 
   useEffect(() => {
