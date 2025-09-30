@@ -52,7 +52,7 @@ export default function AdminDashboard() {
         findDuplicatePhotos()
       ]);
       
-      if (photosResult.success) {
+      if (photosResult.success && photosResult.photos) {
         setPhotos(photosResult.photos);
       }
       

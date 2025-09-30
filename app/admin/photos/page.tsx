@@ -89,7 +89,7 @@ export default function AdminPhotosPage() {
     setLoading(true);
     try {
       const result = await getPhotos();
-      if (result.success) {
+      if (result.success && result.photos) {
         setPhotos(result.photos);
       }
     } catch (error) {

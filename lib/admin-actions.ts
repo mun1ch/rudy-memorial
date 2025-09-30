@@ -34,7 +34,7 @@ export async function getPhotos() {
     
     // TODO: Read from Vercel KV or Supabase instead of file system
     // For now, return empty array since Vercel file system is read-only
-    let photos = [];
+    const photos: Photo[] = [];
     console.log("Using in-memory storage for photos (Vercel file system is read-only)");
     
     return { success: true, photos };

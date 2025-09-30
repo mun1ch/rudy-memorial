@@ -48,7 +48,7 @@ export async function submitTribute(formData: FormData) {
 
     // Store tributes in memory for now (Vercel file system is read-only)
     // TODO: Switch to Vercel KV or Supabase for persistent storage
-    let existingTributes: Tribute[] = [];
+    const existingTributes: Tribute[] = [];
     
     // For now, just create an empty array since we can't write to file system
     console.log("Using in-memory storage for tributes (Vercel file system is read-only)");
