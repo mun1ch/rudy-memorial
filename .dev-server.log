@@ -3937,3 +3937,1641 @@ This is an automated notification from Rudy's Memorial Site.
  GET /api/photos 200 in 286ms
  GET /api/photos 200 in 245ms
  GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 370ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 398ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 513ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 336ms
+ GET /api/photos 200 in 286ms
+ ✓ Compiled /gallery in 40ms
+ GET /gallery 200 in 194ms
+ GET /memories/photo 200 in 187ms
+ GET /gallery 200 in 74ms
+ GET /memories/photo 200 in 95ms
+ GET /gallery 200 in 75ms
+ GET /memories/photo 200 in 104ms
+ GET /gallery 200 in 110ms
+ GET /memories/photo 200 in 140ms
+ GET /gallery 200 in 129ms
+ GET /memories/photo 200 in 112ms
+ GET /gallery 200 in 96ms
+ GET /memories/photo 200 in 103ms
+ GET /gallery 200 in 111ms
+ GET /memories/photo 200 in 107ms
+ GET /gallery 200 in 84ms
+ GET /memories/photo 200 in 122ms
+ GET /gallery 200 in 100ms
+ GET /memories/photo 200 in 97ms
+ GET /gallery 200 in 88ms
+ GET /memories/photo 200 in 94ms
+ GET /gallery 200 in 96ms
+ GET /memories/photo 200 in 159ms
+ GET /api/photos 200 in 306ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 281ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 312ms
+ GET /gallery 200 in 231ms
+ GET /api/photos 200 in 275ms
+ ✓ Compiled /memories in 27ms
+ GET /memories 200 in 123ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 158ms
+ GET /memories 200 in 364ms
+ GET /memories/photo 200 in 382ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 327ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 242ms
+ GET /api/photos 200 in 315ms
+ ✓ Compiled /memorial-wall in 86ms
+ GET /memorial-wall 200 in 198ms
+ GET /memories 200 in 177ms
+ GET /gallery 200 in 115ms
+ GET /api/photos 200 in 261ms
+ ✓ Compiled / in 40ms
+ GET / 200 in 103ms
+ GET /api/photos 200 in 329ms
+ GET /gallery 200 in 301ms
+ GET /api/photos 200 in 267ms
+ GET /memories 200 in 153ms
+ GET /memorial-wall 200 in 175ms
+ GET /api/photos 200 in 286ms
+ GET /memories 200 in 297ms
+ GET / 200 in 109ms
+ GET /api/photos 200 in 283ms
+ GET /gallery 200 in 148ms
+ GET /api/photos 200 in 265ms
+ GET /memories 200 in 124ms
+ GET /memorial-wall 200 in 181ms
+ ✓ Compiled /admin in 74ms
+ GET /admin 307 in 458ms
+ ✓ Compiled /admin/dashboard in 48ms
+ GET /admin/dashboard 200 in 289ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 58ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 46ms
+ GET /api/photos 200 in 321ms
+ GET / 200 in 151ms
+ GET /api/photos 200 in 272ms
+ GET /gallery 200 in 195ms
+ GET /api/photos 200 in 272ms
+ GET /memories 200 in 124ms
+ GET /memorial-wall 200 in 137ms
+ GET /api/photos 200 in 323ms
+ GET /admin 307 in 214ms
+ GET /admin/dashboard 200 in 106ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 82ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 50ms
+ GET /api/photos 200 in 364ms
+ GET /gallery 200 in 127ms
+ GET /api/photos 200 in 275ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 278ms
+ GET /gallery 200 in 871ms
+ GET /memories/photo 200 in 876ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 576ms
+ GET /api/photos 200 in 588ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 427ms
+ GET /api/photos 200 in 338ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 370ms
+ GET / 200 in 344ms
+ GET /api/photos 200 in 278ms
+ GET /gallery 200 in 457ms
+ GET /api/photos 200 in 295ms
+ ✓ Compiled in 150ms
+ ✓ Compiled /gallery in 43ms
+ GET /gallery 200 in 241ms
+ GET /memories/photo 200 in 245ms
+ GET /gallery 200 in 81ms
+ GET /memories/photo 200 in 105ms
+ GET /gallery 200 in 87ms
+ GET /memories/photo 200 in 84ms
+ GET /gallery 200 in 91ms
+ GET /memories/photo 200 in 92ms
+ GET /gallery 200 in 71ms
+ GET /memories/photo 200 in 126ms
+ GET /gallery 200 in 152ms
+ GET /memories/photo 200 in 124ms
+ GET /gallery 200 in 133ms
+ GET /memories/photo 200 in 186ms
+ GET /gallery 200 in 151ms
+ GET /memories/photo 200 in 130ms
+ GET /gallery 200 in 121ms
+ GET /memories/photo 200 in 110ms
+ GET /gallery 200 in 90ms
+ GET /memories/photo 200 in 98ms
+ GET /gallery 200 in 91ms
+ GET /memories/photo 200 in 82ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 275ms
+ GET /gallery 200 in 160ms
+ GET /api/photos 200 in 272ms
+ GET /gallery 200 in 108ms
+ GET /api/photos 200 in 364ms
+ GET /api/photos 200 in 263ms
+ ✓ Compiled /memories in 37ms
+ GET /memories 200 in 139ms
+ ✓ Compiled /memorial-wall in 283ms
+ GET /memorial-wall 200 in 364ms
+ GET /memories 200 in 185ms
+ GET /gallery 200 in 264ms
+ GET /api/photos 200 in 284ms
+ ✓ Compiled / in 30ms
+ GET / 200 in 88ms
+ GET /api/photos 200 in 265ms
+ GET /memorial-wall 200 in 156ms
+ ✓ Compiled /admin in 30ms
+ GET /admin 307 in 111ms
+ ✓ Compiled /admin/dashboard in 41ms
+ GET /admin/dashboard 200 in 117ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 70ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 50ms
+ GET /api/photos 200 in 395ms
+ GET /api/photos 200 in 278ms
+ GET /admin 307 in 166ms
+ GET /admin/dashboard 200 in 107ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 82ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 52ms
+ GET /memorial-wall 200 in 139ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 336ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 303ms
+ ✓ Compiled in 74ms
+ GET /memories/photo 200 in 173ms
+ GET /memorial-wall 200 in 177ms
+ GET /memories/photo 200 in 124ms
+ GET /memorial-wall 200 in 129ms
+ GET /memories/photo 200 in 264ms
+ GET /memorial-wall 200 in 268ms
+ GET /memories/photo 200 in 107ms
+ GET /memorial-wall 200 in 109ms
+ GET /memories/photo 200 in 145ms
+ GET /memorial-wall 200 in 147ms
+ ✓ Compiled in 254ms
+ GET /memories/photo 200 in 146ms
+ GET /memorial-wall 200 in 148ms
+ GET /memories/photo 200 in 183ms
+ GET /memorial-wall 200 in 195ms
+ GET /memories/photo 200 in 197ms
+ GET /memorial-wall 200 in 206ms
+ GET /memories/photo 200 in 145ms
+ GET /memorial-wall 200 in 150ms
+ GET /memorial-wall 200 in 143ms
+ GET /memories/photo 200 in 144ms
+ ✓ Compiled /admin in 37ms
+ GET /admin 307 in 518ms
+ ✓ Compiled /admin/dashboard in 157ms
+ GET /admin/dashboard 200 in 1145ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 284ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 154ms
+ GET /api/photos 200 in 397ms
+ GET /memorial-wall 200 in 132ms
+ GET /memories 200 in 137ms
+ GET /gallery 200 in 262ms
+ GET /api/photos 200 in 320ms
+ GET / 200 in 239ms
+ GET /api/photos 200 in 295ms
+ GET /memories 200 in 117ms
+ GET /api/photos 200 in 347ms
+ GET /api/photos 200 in 452ms
+ GET /memorial-wall 200 in 215ms
+ GET /memories 200 in 172ms
+ GET /admin 307 in 120ms
+ GET /admin/dashboard 200 in 110ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 105ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 50ms
+ GET / 200 in 101ms
+ GET /api/photos 200 in 337ms
+ GET /gallery 200 in 117ms
+ GET /api/photos 200 in 267ms
+ ✓ Compiled in 129ms
+ GET /gallery 200 in 154ms
+ GET /memories/photo 200 in 157ms
+ GET /api/photos 200 in 276ms
+ ✓ Compiled /memories in 61ms
+ GET /memories 200 in 365ms
+ ✓ Compiled in 176ms
+ ✓ Compiled /memories in 70ms
+ GET /memories/photo 200 in 270ms
+ GET /memories 200 in 215ms
+ GET /memories 200 in 286ms
+ GET /api/photos 200 in 376ms
+ GET /memorial-wall 200 in 371ms
+ GET /memories 200 in 125ms
+ GET /admin 307 in 128ms
+ GET /admin/dashboard 200 in 91ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 77ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 52ms
+ GET /memories 200 in 122ms
+ GET / 200 in 89ms
+ GET /api/photos 200 in 270ms
+ GET /gallery 200 in 99ms
+ GET /api/photos 200 in 267ms
+ GET /memories 200 in 153ms
+ GET /gallery 200 in 126ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 270ms
+ GET /memories 200 in 284ms
+ GET /gallery 200 in 145ms
+ GET /api/photos 200 in 294ms
+ GET /memorial-wall 200 in 182ms
+ GET /api/photos 200 in 280ms
+ GET /memories 200 in 181ms
+ GET /memorial-wall 200 in 358ms
+ GET /gallery 200 in 169ms
+ GET /api/photos 200 in 336ms
+ GET /api/photos 200 in 364ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 329ms
+ GET /memories 200 in 176ms
+ GET /api/photos 200 in 310ms
+ GET /memories 200 in 240ms
+ GET /api/photos 200 in 262ms
+ GET /memorial-wall 200 in 131ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 320ms
+ GET / 200 in 125ms
+ GET /api/photos 200 in 336ms
+ GET /gallery 200 in 177ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 312ms
+ GET /memories 200 in 235ms
+ GET /gallery 200 in 316ms
+ GET /api/photos 200 in 272ms
+ GET /memories 200 in 251ms
+ GET /api/photos 200 in 270ms
+ GET /gallery 200 in 132ms
+ GET /api/photos 200 in 289ms
+ GET /memories 200 in 161ms
+ GET /gallery 200 in 124ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 354ms
+ GET /api/photos 200 in 279ms
+ GET /api/photos 200 in 311ms
+ GET /memories 200 in 164ms
+ GET /memorial-wall 200 in 190ms
+ GET /gallery 200 in 144ms
+ GET /api/photos 200 in 493ms
+ GET /api/photos 200 in 334ms
+ GET /memories 200 in 169ms
+ GET /memories/photo 200 in 98ms
+ GET /api/photos 200 in 286ms
+ GET /gallery 200 in 937ms
+ GET /api/photos 200 in 424ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 344ms
+ GET /gallery 200 in 127ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 315ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 295ms
+ GET / 200 in 195ms
+ GET /api/photos 200 in 277ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 268ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 381ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 336ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 303ms
+ ✓ Compiled in 162ms
+ ✓ Compiled / in 87ms
+ GET / 200 in 171ms
+ GET /memories 200 in 332ms
+ GET / 200 in 103ms
+ GET /memories 200 in 107ms
+ GET / 200 in 73ms
+ GET /memories 200 in 99ms
+ GET / 200 in 110ms
+ GET /memories 200 in 121ms
+ GET / 200 in 121ms
+ GET /memories 200 in 115ms
+ GET / 200 in 98ms
+ GET /memories 200 in 104ms
+ GET / 200 in 145ms
+ GET /memories 200 in 166ms
+ GET / 200 in 205ms
+ GET /memories 200 in 194ms
+ GET / 200 in 101ms
+ GET /memories 200 in 96ms
+ GET / 200 in 90ms
+ GET /memories 200 in 98ms
+ GET / 200 in 89ms
+ GET /memories 200 in 195ms
+ GET /api/photos 200 in 368ms
+ ✓ Compiled /gallery in 68ms
+ GET /gallery 200 in 162ms
+ GET /api/photos 200 in 387ms
+ GET /memories 200 in 510ms
+ GET /api/photos 200 in 502ms
+ GET /gallery 200 in 156ms
+ GET /api/photos 200 in 325ms
+ ✓ Compiled /memorial-wall in 92ms
+ GET /memorial-wall 200 in 181ms
+ ✓ Compiled /admin in 72ms
+ GET /admin 307 in 173ms
+ ✓ Compiled /admin/dashboard in 41ms
+ GET /admin/dashboard 200 in 130ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 65ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 50ms
+ GET /memories 200 in 138ms
+ GET / 200 in 126ms
+ GET /api/photos 200 in 265ms
+ GET /gallery 200 in 130ms
+ GET /api/photos 200 in 267ms
+ GET /memories 200 in 364ms
+ GET /api/photos 200 in 405ms
+ ✓ Compiled in 303ms
+ GET /memories 200 in 243ms
+ GET /memorial-wall 200 in 117ms
+ GET /admin 307 in 131ms
+ GET /admin/dashboard 200 in 95ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 67ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 45ms
+ ✓ Compiled /admin/settings in 255ms
+ GET /admin/settings 200 in 555ms
+ POST /admin/settings 200 in 85ms
+ POST /admin/settings 200 in 43ms
+ GET /api/photos 200 in 279ms
+ GET / 200 in 138ms
+ GET /api/photos 200 in 324ms
+ ⚠ Fast Refresh had to perform a full reload when ./lib/themes.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./lib/themes.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 66ms
+ GET / 200 in 1056ms
+ GET /memories 200 in 1062ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 348ms
+ GET /api/photos 200 in 381ms
+ GET /api/photos 200 in 293ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 245ms
+ GET / 200 in 242ms
+ GET /api/photos 200 in 268ms
+ GET /gallery 200 in 302ms
+ GET /api/photos 200 in 358ms
+ ✓ Compiled /gallery in 41ms
+ GET /memories 200 in 198ms
+ GET /gallery 200 in 201ms
+ GET /memories 200 in 108ms
+ GET /gallery 200 in 104ms
+ GET /gallery 200 in 100ms
+ GET /memories 200 in 113ms
+ ✓ Compiled / in 50ms
+ GET /gallery 200 in 84ms
+ GET / 200 in 145ms
+ GET /memories 200 in 195ms
+ GET /memories 200 in 209ms
+ GET /memories 200 in 251ms
+ GET /memories 200 in 68ms
+ GET /memories 200 in 69ms
+ GET /api/photos 200 in 543ms
+ GET /memories 200 in 82ms
+ GET /memories 200 in 69ms
+ GET /memories 200 in 67ms
+ GET /gallery 200 in 127ms
+ GET /api/photos 200 in 261ms
+ GET /memories 200 in 223ms
+ ✓ Compiled /memorial-wall in 60ms
+ GET /memorial-wall 200 in 176ms
+ GET / 200 in 93ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 309ms
+ GET / 200 in 155ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 303ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 292ms
+ GET /gallery 200 in 190ms
+ GET /api/photos 200 in 291ms
+ GET /memories 200 in 159ms
+ GET /memorial-wall 200 in 157ms
+ GET /gallery 200 in 141ms
+ GET /api/photos 200 in 327ms
+ GET / 200 in 150ms
+ GET /api/photos 200 in 266ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 317ms
+ GET /gallery 200 in 166ms
+ GET /api/photos 200 in 314ms
+ GET /memories 200 in 118ms
+ GET /memorial-wall 200 in 222ms
+ GET /memories 200 in 156ms
+ GET / 200 in 131ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 263ms
+ ✓ Compiled in 200ms
+ GET /api/photos 200 in 300ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 105ms
+ GET /api/photos 200 in 329ms
+ GET / 200 in 339ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 344ms
+ GET /api/photos 200 in 339ms
+ GET / 200 in 108ms
+ GET /api/photos 200 in 267ms
+ GET /gallery 200 in 150ms
+ GET /api/photos 200 in 283ms
+ GET /memories 200 in 150ms
+ GET /memorial-wall 200 in 166ms
+ ✓ Compiled /admin in 52ms
+ GET /admin 307 in 238ms
+ ✓ Compiled /admin/dashboard in 38ms
+ GET /admin/dashboard 200 in 142ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 120ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 51ms
+ GET / 200 in 131ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 303ms
+ GET / 200 in 87ms
+ GET /api/photos 200 in 265ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 334ms
+ GET /gallery 200 in 184ms
+ GET /api/photos 200 in 357ms
+ GET /memories 200 in 211ms
+ GET /memorial-wall 200 in 170ms
+ GET /admin 307 in 216ms
+ GET /admin/dashboard 200 in 125ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 87ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 49ms
+ GET /api/photos 200 in 308ms
+ GET /gallery 200 in 135ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 299ms
+ GET / 200 in 300ms
+ GET / 200 in 104ms
+ GET /api/photos 200 in 333ms
+ GET / 200 in 133ms
+ GET /api/photos 200 in 266ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 301ms
+ ✓ Compiled in 82ms
+ ✓ Compiled / in 94ms
+ GET / 200 in 239ms
+ GET /memories 200 in 282ms
+ GET / 200 in 78ms
+ GET /memories 200 in 108ms
+ GET / 200 in 97ms
+ GET /memories 200 in 93ms
+ GET / 200 in 93ms
+ GET /memories 200 in 93ms
+ GET / 200 in 85ms
+ GET /memories 200 in 145ms
+ GET / 200 in 178ms
+ GET /memories 200 in 147ms
+ GET / 200 in 91ms
+ GET /memories 200 in 92ms
+ GET / 200 in 94ms
+ GET /memories 200 in 89ms
+ GET / 200 in 85ms
+ GET /memories 200 in 95ms
+ GET / 200 in 84ms
+ GET /memories 200 in 109ms
+ GET / 200 in 102ms
+ GET /memories 200 in 147ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 321ms
+ ✓ Compiled /gallery in 40ms
+ GET /api/photos 200 in 79ms
+ GET /gallery 200 in 133ms
+ GET /api/photos 200 in 289ms
+ GET / 200 in 291ms
+ GET /api/photos 200 in 278ms
+ GET / 200 in 122ms
+ GET /api/photos 200 in 283ms
+ GET / 200 in 136ms
+ GET /api/photos 200 in 283ms
+ GET / 200 in 129ms
+ GET /api/photos 200 in 291ms
+ GET / 200 in 127ms
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when ./components/theme-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /api/photos 200 in 284ms
+ ✓ Compiled in 95ms
+ GET / 200 in 159ms
+ GET /memories 200 in 390ms
+ GET / 200 in 340ms
+ GET /api/photos 200 in 539ms
+ GET / 200 in 640ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 327ms
+ GET /api/photos 200 in 340ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 286ms
+ GET / 200 in 101ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 268ms
+ GET / 200 in 118ms
+ GET /api/photos 200 in 316ms
+ GET /gallery 200 in 140ms
+ GET /api/photos 200 in 266ms
+ GET / 200 in 189ms
+ GET /api/photos 200 in 279ms
+ GET / 200 in 107ms
+ GET /api/photos 200 in 287ms
+ ✓ Compiled /admin in 71ms
+ GET /admin 307 in 157ms
+ ✓ Compiled /admin/dashboard in 25ms
+ GET /admin/dashboard 200 in 104ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 65ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 51ms
+ GET /gallery 200 in 146ms
+ GET /api/photos 200 in 310ms
+ GET / 200 in 209ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 377ms
+ GET /admin 307 in 150ms
+ GET /admin/dashboard 200 in 107ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 75ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 45ms
+ ✓ Compiled /admin/settings in 85ms
+ GET /admin/settings 200 in 169ms
+ POST /admin/settings 200 in 76ms
+ POST /admin/settings 200 in 61ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 305ms
+ GET / 200 in 244ms
+ GET /api/photos 200 in 369ms
+ GET /api/photos 200 in 284ms
+ GET /api/photos 200 in 301ms
+ ✓ Compiled /memorial-wall in 54ms
+ GET /memorial-wall 200 in 203ms
+ GET /gallery 200 in 148ms
+ GET /api/photos 200 in 326ms
+ GET / 200 in 101ms
+ GET /api/photos 200 in 298ms
+ GET / 200 in 127ms
+ GET /api/photos 200 in 284ms
+ GET /api/photos 200 in 263ms
+ ✓ Compiled in 192ms
+ GET /api/photos 200 in 345ms
+ ✓ Compiled in 1108ms
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <ThemeProvider>
+     |          ^
+  47 |           <AdminThemeEnforcer />
+  48 |           <div className="relative flex min-h-screen flex-col">
+  49 |           <header className="sticky top-0 z-40 w-full border-b bg-background"> {
+  digest: '2639760509'
+}
+ ○ Compiling /memories ...
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <ThemeProvider>
+     |          ^
+  47 |           <AdminThemeEnforcer />
+  48 |           <div className="relative flex min-h-screen flex-col">
+  49 |           <header className="sticky top-0 z-40 w-full border-b bg-background"> {
+  digest: '2639760509'
+}
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <ThemeProvider>
+     |          ^
+  47 |           <AdminThemeEnforcer />
+  48 |           <div className="relative flex min-h-screen flex-col">
+  49 |           <header className="sticky top-0 z-40 w-full border-b bg-background"> {
+  digest: '2639760509'
+}
+ GET /memories 200 in 1361ms
+ GET /memories 500 in 792ms
+ ✓ Compiled /memories in 938ms
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <ThemeProvider>
+     |          ^
+  47 |           <AdminThemeEnforcer />
+  48 |           <div className="relative flex min-h-screen flex-col">
+  49 |           <header className="sticky top-0 z-40 w-full border-b bg-background"> {
+  digest: '2639760509'
+}
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <ThemeProvider>
+     |          ^
+  47 |           <AdminThemeEnforcer />
+  48 |           <div className="relative flex min-h-screen flex-col">
+  49 |           <header className="sticky top-0 z-40 w-full border-b bg-background"> {
+  digest: '2639760509'
+}
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <ThemeProvider>
+     |          ^
+  47 |           <AdminThemeEnforcer />
+  48 |           <div className="relative flex min-h-screen flex-col">
+  49 |           <header className="sticky top-0 z-40 w-full border-b bg-background"> {
+  digest: '2639760509'
+}
+ GET / 200 in 1730ms
+ GET / 500 in 1153ms
+ GET /favicon.ico 200 in 526ms
+ GET /favicon.ico 200 in 354ms
+ ✓ Compiled in 60ms
+ ✓ Compiled /memories in 123ms
+ ⨯ ReferenceError: ThemeProvider is not defined
+    at RootLayout (app/layout.tsx:46:10)
+  44 |     <html lang="en" className={inter.variable}>
+  45 |       <body className="min-h-screen bg-background font-sans antialiased">
+> 46 |         <div className="relative flex min-h-screen flex-col">
+     |          ^
+  47 |           <header className="sticky top-0 z-40 w-full border-b bg-background">
+  48 |             <div className="container flex h-16 items-center justify-between">
+  49 |               <div className="flex items-center space-x-4"> {
+  digest: '2639760509'
+}
+ GET / 500 in 837ms
+ GET /memories 200 in 933ms
+ GET /api/photos 200 in 1241ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 883ms
+ GET /favicon.ico 200 in 832ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 128ms
+ ⨯ ReferenceError: ClientThemeEnforcer is not defined
+    at HomePage (app/page.tsx:30:8)
+  28 |   return (
+  29 |     <>
+> 30 |       <ClientThemeEnforcer />
+     |        ^
+  31 |       <ImmediateThemeEnforcer />
+  32 |       <HomeContent />
+  33 |     </> {
+  digest: '337074920'
+}
+ GET / 500 in 317ms
+ GET /favicon.ico 200 in 298ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 69ms
+ GET / 200 in 511ms
+ GET /api/photos 200 in 406ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 302ms
+ ✓ Compiled in 82ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 396ms
+ ✓ Compiled in 156ms
+ GET / 200 in 206ms
+ ✓ Compiled /memories in 251ms
+ ⨯ ReferenceError: ClientThemeEnforcer is not defined
+    at MemoriesPage (app/(public)/memories/page.tsx:14:8)
+  12 |   return (
+  13 |     <>
+> 14 |       <ClientThemeEnforcer />
+     |        ^
+  15 |       <div className="container py-8">
+  16 |       <div className="mx-auto max-w-4xl">
+  17 |         <div className="mb-8 text-center"> {
+  digest: '2633405275'
+}
+ GET /memories 200 in 395ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 441ms
+ GET /api/photos 500 in 320ms
+ ✓ Compiled in 102ms
+ ✓ Compiled /memories in 39ms
+ GET / 200 in 375ms
+ GET /memories 200 in 384ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 284ms
+ GET / 200 in 142ms
+ GET /memories 200 in 233ms
+ ✓ Compiled in 419ms
+ GET / 200 in 97ms
+ GET /memories 200 in 105ms
+ GET / 200 in 110ms
+ GET /memories 200 in 118ms
+ GET / 200 in 140ms
+ GET /memories 200 in 169ms
+ GET / 200 in 78ms
+ GET /memories 200 in 128ms
+ ✓ Compiled in 90ms
+ GET / 200 in 118ms
+ GET /memories 200 in 133ms
+ GET / 200 in 156ms
+ GET /api/photos 200 in 275ms
+ GET /memories 200 in 161ms
+ GET / 200 in 92ms
+ GET /memories 200 in 122ms
+ GET / 200 in 81ms
+ GET /memories 200 in 106ms
+ GET / 200 in 101ms
+ GET /memories 200 in 111ms
+ GET / 200 in 224ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 283ms
+ GET / 200 in 148ms
+ GET /api/photos 200 in 325ms
+ ✓ Compiled /admin in 77ms
+ GET /admin 307 in 428ms
+ ✓ Compiled /admin/dashboard in 55ms
+ GET /admin/dashboard 200 in 370ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 121ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 64ms
+ ✓ Compiled /admin/settings in 73ms
+ GET /admin/settings 200 in 273ms
+ POST /admin/settings 200 in 1015ms
+ POST /admin/settings 200 in 68ms
+ GET /api/photos 200 in 291ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 102ms
+ GET /admin/settings 200 in 347ms
+ POST /admin/settings 200 in 103ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 300ms
+ ✓ Compiled /admin/memories in 54ms
+ GET /admin/memories 200 in 369ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 81ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 98ms
+ GET /api/photos 200 in 335ms
+ GET /admin 307 in 117ms
+ GET /admin/dashboard 200 in 99ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 109ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 61ms
+ GET /api/photos 200 in 824ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 391ms
+ GET /api/photos 200 in 298ms
+   Reload env: .env.local
+ GET /admin/dashboard 200 in 412ms
+ GET / 200 in 546ms
+ GET /api/photos 200 in 583ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 340ms
+ GET / 200 in 266ms
+ GET /api/photos 200 in 293ms
+ ✓ Compiled /gallery in 63ms
+ GET /gallery 200 in 392ms
+ GET /api/photos 200 in 344ms
+ GET / 200 in 135ms
+ GET /api/photos 200 in 280ms
+ GET /api/photos 200 in 283ms
+ GET / 200 in 80ms
+ ✓ Compiled in 203ms
+ GET / 200 in 83ms
+ GET / 200 in 83ms
+ GET / 200 in 172ms
+ GET / 200 in 82ms
+ GET / 200 in 71ms
+ GET / 200 in 67ms
+ GET / 200 in 181ms
+ GET / 200 in 142ms
+ GET / 200 in 126ms
+ GET /gallery 200 in 103ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 269ms
+ GET / 200 in 154ms
+ GET /api/photos 200 in 263ms
+ GET /gallery 200 in 109ms
+ GET /api/photos 200 in 289ms
+ ✓ Compiled in 251ms
+ GET /gallery 200 in 826ms
+ GET / 200 in 828ms
+ GET / 200 in 123ms
+ GET /gallery 200 in 127ms
+ ✓ Compiled /admin in 78ms
+ GET /admin 307 in 838ms
+ GET /api/photos 200 in 317ms
+ ✓ Compiled /admin/login in 325ms
+ GET /admin/login 307 in 483ms
+ GET /admin/login 307 in 155ms
+ GET /admin/login 307 in 110ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 122ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 127ms
+ GET /admin/login 307 in 111ms
+ GET /admin/login 307 in 213ms
+ GET /admin/login 307 in 105ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 117ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 121ms
+ GET /admin/login 307 in 126ms
+ GET /admin/login 307 in 268ms
+ GET / 200 in 179ms
+ GET / 200 in 94ms
+ GET /admin/login 200 in 202ms
+ GET /gallery 200 in 162ms
+ GET /api/photos 200 in 326ms
+ ✓ Compiled /memorial-wall in 108ms
+ GET /memorial-wall 200 in 419ms
+ GET / 200 in 163ms
+ GET /memorial-wall 200 in 165ms
+ GET / 200 in 98ms
+ GET /memorial-wall 200 in 102ms
+ GET /api/photos 200 in 333ms
+ GET /admin 307 in 297ms
+ GET /admin/login 307 in 148ms
+ GET /admin/login 307 in 111ms
+ GET /admin/login 307 in 112ms
+ ✓ Compiled in 186ms
+ GET /admin/login 307 in 504ms
+ ✓ Compiled /admin/login in 66ms
+ GET / 200 in 276ms
+ GET /memorial-wall 200 in 302ms
+ GET /admin/login 307 in 165ms
+ GET / 200 in 158ms
+ GET /memorial-wall 200 in 170ms
+ GET /admin/login 307 in 172ms
+ GET / 200 in 192ms
+ GET /memorial-wall 200 in 204ms
+ GET /admin/login 307 in 211ms
+ GET / 200 in 186ms
+ GET /memorial-wall 200 in 199ms
+ GET /admin/login 307 in 187ms
+ GET / 200 in 193ms
+ GET /memorial-wall 200 in 205ms
+ GET /admin/login 307 in 199ms
+ GET / 200 in 154ms
+ GET /memorial-wall 200 in 194ms
+ GET /admin/login 307 in 192ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 119ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 136ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 105ms
+ GET /memorial-wall 200 in 225ms
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/components/logout-button'
+[0m [90m 3 |[39m [36mimport[39m { [33mLogOut[39m[33m,[39m [33mHome[39m[33m,[39m [33mUsers[39m[33m,[39m [33mImage[39m[33m,[39m [33mMessageCircle[39m[33m,[39m [33mSettings[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mLogoutButton[39m } [36mfrom[39m [32m"@/components/logout-button"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36masync[39m [36mfunction[39m [33mAdminLayout[39m({
+ [90m 8 |[39m   children[33m,[39m[0m
+
+Import map: aliased to relative './components/logout-button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 500 in 233ms
+ ✓ Compiled in 577ms
+ GET / 200 in 223ms
+ GET /memorial-wall 200 in 259ms
+ GET / 200 in 320ms
+ GET /memorial-wall 200 in 363ms
+ GET / 200 in 155ms
+ GET /memorial-wall 200 in 203ms
+ GET / 200 in 249ms
+ GET /memorial-wall 200 in 226ms
+ GET / 200 in 126ms
+ GET /memorial-wall 200 in 121ms
+ GET / 200 in 136ms
+ GET /memorial-wall 200 in 166ms
+ GET /api/photos 200 in 304ms
+ GET /memories 200 in 376ms
+ GET /api/photos 200 in 363ms
+ ✓ Compiled /admin in 80ms
+ GET /admin 307 in 388ms
+ ✓ Compiled /admin/login in 35ms
+ GET /admin/login 307 in 243ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 134ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 120ms
+ GET /admin/login 307 in 126ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 107ms
+ GET /admin/login 307 in 92ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 130ms
+ GET /admin/login 307 in 114ms
+ GET /admin/login 307 in 121ms
+ GET /admin/login 307 in 121ms
+ GET /admin/login 307 in 146ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 184ms
+ GET /admin/login 307 in 131ms
+ GET /admin/login 307 in 84ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 130ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 159ms
+ GET /admin/login 307 in 114ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 112ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 85ms
+ GET /admin/login 307 in 84ms
+ GET /admin/login 307 in 85ms
+ GET /api/photos 200 in 309ms
+ GET /admin/login 307 in 147ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 87ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 108ms
+ GET /admin/login 307 in 101ms
+ GET /admin/login 307 in 87ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 134ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 88ms
+ GET /admin/login 307 in 89ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 135ms
+ GET /admin/login 307 in 231ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 123ms
+ GET /admin/login 307 in 107ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 132ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 323ms
+ GET /admin/login 307 in 153ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 165ms
+ GET /admin/login 307 in 120ms
+ GET /admin/login 307 in 151ms
+ GET /admin/login 307 in 376ms
+ GET /admin/login 307 in 265ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 104ms
+ GET /api/photos 200 in 261ms
+ GET /api/photos 200 in 348ms
+ GET /api/photos 200 in 397ms
+ ✓ Compiled in 85ms
+ GET / 200 in 68ms
+ GET / 200 in 56ms
+ GET / 200 in 59ms
+ GET / 200 in 52ms
+ GET / 200 in 56ms
+ GET / 200 in 58ms
+ GET /memories 200 in 188ms
+ ✓ Compiled /admin in 87ms
+ GET /admin 307 in 513ms
+ ✓ Compiled /admin/login in 38ms
+ GET /admin/login 307 in 123ms
+ GET /admin/login 307 in 128ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 125ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 92ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 153ms
+ GET /admin/login 307 in 108ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 104ms
+ ✓ Compiled in 103ms
+ ✓ Compiled /admin/login in 35ms
+ GET / 200 in 415ms
+ GET /admin/login 307 in 527ms
+ GET /memories 200 in 431ms
+ GET /admin/login 307 in 180ms
+ GET /memories 200 in 160ms
+ GET /api/photos 200 in 341ms
+ GET / 200 in 288ms
+ GET / 200 in 64ms
+ GET / 200 in 60ms
+ GET / 200 in 64ms
+ GET / 200 in 56ms
+ GET /admin/login 307 in 134ms
+ GET /admin/login 307 in 530ms
+ GET /admin/login 307 in 987ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 153ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 98ms
+ ✓ Compiled in 184ms
+ GET / 200 in 70ms
+ GET /admin/login 307 in 462ms
+ ✓ Compiled /admin/login in 29ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 238ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 108ms
+ GET /admin/login 307 in 85ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 89ms
+ GET /admin/login 307 in 92ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 295ms
+ GET /api/photos 200 in 436ms
+ GET /admin/login 307 in 112ms
+ GET /admin/login 307 in 126ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 142ms
+ GET /admin/login 307 in 118ms
+ GET /admin/login 307 in 129ms
+ GET /admin/login 200 in 98ms
+ GET /memories 200 in 132ms
+ GET /memorial-wall 200 in 239ms
+ ✓ Compiled /admin in 42ms
+ GET /admin 307 in 105ms
+ GET /admin/login 307 in 118ms
+ GET /admin/login 307 in 134ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 127ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 120ms
+ GET /admin/login 307 in 150ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 119ms
+ GET /admin/login 307 in 195ms
+ GET /admin/login 307 in 138ms
+ GET /admin/login 307 in 131ms
+ GET /admin/login 307 in 133ms
+ GET /admin/login 307 in 153ms
+ GET /admin/login 307 in 165ms
+ GET /admin/login 307 in 133ms
+ GET /admin/login 307 in 179ms
+ GET /admin/login 307 in 170ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 113ms
+ GET /admin/login 307 in 105ms
+ GET /admin/login 307 in 134ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 168ms
+ GET /admin/login 307 in 142ms
+ GET /admin/login 200 in 81ms
+ GET /memorial-wall 200 in 137ms
+ GET /api/photos 200 in 288ms
+ GET /memories 200 in 198ms
+ GET /memorial-wall 200 in 162ms
+ GET /admin 307 in 126ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 86ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 88ms
+ GET /admin/login 307 in 88ms
+ GET /admin/login 307 in 130ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 92ms
+ GET /admin/login 307 in 150ms
+ GET /admin/login 307 in 114ms
+ GET /admin/login 307 in 112ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 101ms
+ GET /admin/login 307 in 257ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 146ms
+ GET /memorial-wall 200 in 159ms
+ GET /admin 307 in 304ms
+ GET /admin/login 307 in 161ms
+ GET /admin/login 307 in 126ms
+ GET /admin/login 307 in 135ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 123ms
+ GET /admin/login 307 in 117ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 130ms
+ GET /admin/login 307 in 213ms
+ GET /admin/login 307 in 134ms
+ GET /admin/login 307 in 108ms
+ GET /api/photos 200 in 351ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 118ms
+ GET /admin/login 307 in 219ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 135ms
+ GET /admin/login 307 in 135ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 154ms
+ GET /admin/login 307 in 146ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 120ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 186ms
+ GET /admin/login 200 in 42ms
+ GET /admin/login 307 in 145ms
+ GET /admin/login 307 in 118ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 172ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 200 in 69ms
+ GET /memorial-wall 200 in 102ms
+ GET /api/photos 200 in 267ms
+ GET /memorial-wall 200 in 180ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 394ms
+ GET /admin 307 in 133ms
+ GET /admin/login 307 in 347ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 108ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 107ms
+ GET /admin/login 307 in 89ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 86ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 128ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 136ms
+ GET /admin/login 307 in 111ms
+ GET /admin/login 307 in 114ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 111ms
+ GET /admin/login 307 in 295ms
+ GET /admin/login 307 in 156ms
+ GET /admin/login 307 in 85ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 171ms
+ GET /admin/login 307 in 172ms
+ GET /admin/login 307 in 137ms
+ GET /admin/login 307 in 270ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 101ms
+ GET /admin/login 307 in 101ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 180ms
+ GET /admin/login 307 in 244ms
+ GET /admin/login 307 in 137ms
+ GET /admin/login 307 in 121ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 100ms
+ GET /api/photos 200 in 420ms
+ GET /admin/login 307 in 158ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 140ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 109ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 138ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 244ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 102ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 123ms
+ GET /admin/login 307 in 91ms
+ GET /admin/login 307 in 111ms
+ GET /api/photos 200 in 315ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 87ms
+ GET /admin/login 307 in 87ms
+ GET /admin/login 307 in 84ms
+ GET /admin/login 307 in 98ms
+ GET /admin/login 307 in 130ms
+ GET /admin/login 307 in 86ms
+ GET /admin/login 307 in 87ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 84ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 153ms
+ GET /admin/login 307 in 92ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 143ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 88ms
+ GET /admin/login 307 in 87ms
+ GET /admin/login 307 in 82ms
+ GET /api/photos 200 in 389ms
+ GET /api/photos 200 in 700ms
+ GET /memorial-wall 200 in 314ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 410ms
+ GET /admin 307 in 166ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 111ms
+ GET /admin/login 307 in 112ms
+ GET /admin/login 307 in 253ms
+ GET /admin/login 307 in 139ms
+ GET /admin/login 307 in 145ms
+ GET /admin/login 307 in 116ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 111ms
+ GET /admin/login 307 in 94ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 139ms
+ GET /admin/login 307 in 92ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 104ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 146ms
+ GET /admin/login 307 in 95ms
+ GET /admin/login 307 in 115ms
+ GET /admin/login 307 in 142ms
+ GET /api/photos 200 in 326ms
+ GET /admin/login 307 in 105ms
+ GET /admin/login 307 in 101ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 202ms
+ GET /admin/login 307 in 332ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 97ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 106ms
+ GET /admin/login 307 in 113ms
+ GET /admin/login 307 in 239ms
+ GET /admin/login 307 in 93ms
+ GET /admin/login 307 in 103ms
+ GET /admin/login 307 in 89ms
+ GET /admin/login 307 in 96ms
+ GET /admin/login 307 in 120ms
+ GET /admin/login 307 in 99ms
+ GET /admin/login 307 in 150ms
+ GET /admin/login 307 in 101ms
+ GET /admin/login 307 in 108ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 128ms
+ GET /admin/login 307 in 107ms
+ GET /admin/login 307 in 90ms
+ GET /admin/login 307 in 130ms
+ GET /admin/login 307 in 117ms
+ GET /admin/login 307 in 100ms
+ GET /admin/login 307 in 89ms
+ GET /admin/login 307 in 158ms
+ GET /admin/login 307 in 97ms
+ GET /api/photos 200 in 372ms
+ GET /api/photos 200 in 720ms
+ GET /memorial-wall 200 in 1052ms
+ GET / 200 in 1282ms
+ GET /memorial-wall 200 in 250ms
+ GET / 200 in 110ms
+ GET /memorial-wall 200 in 147ms
+ GET / 200 in 203ms
+ GET /api/photos 200 in 420ms
+ ○ Compiling /_not-found/page ...
+ ✓ Compiled /_not-found/page in 562ms
+ GET /admin/login 404 in 1347ms
+ GET /api/photos 200 in 581ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 392ms
+ ✓ Compiled in 126ms
+ GET /admin/login 404 in 495ms
+ GET / 200 in 496ms
+ GET /memorial-wall 200 in 532ms
+ GET /admin/login 404 in 327ms
+ GET / 200 in 287ms
+ GET /memorial-wall 200 in 304ms
+ GET /admin/login 404 in 182ms
+ GET / 200 in 306ms
+ GET /memorial-wall 200 in 327ms
+ GET /admin/login 404 in 300ms
+ GET / 200 in 159ms
+ GET /memorial-wall 200 in 169ms
+ GET /admin/login 404 in 135ms
+ GET / 200 in 146ms
+ GET /memorial-wall 200 in 161ms
+ GET /admin/login 404 in 243ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 559ms
+ GET / 200 in 551ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 490ms
+ GET /api/photos 200 in 486ms
+ GET /api/photos 200 in 293ms
+ ✓ Compiled /admin in 69ms
+ GET /admin 307 in 767ms
+ ✓ Compiled /admin-login in 438ms
+ GET /admin-login 200 in 570ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 357ms
+ ✓ Compiled /api/admin/login in 128ms
+ POST /api/admin/login 200 in 429ms
+ ✓ Compiled /admin/dashboard in 284ms
+ GET /admin/dashboard 200 in 1075ms
+ GET /admin/dashboard 200 in 263ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 115ms
+ GET /api/photos 200 in 451ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 66ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 65ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 309ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 59ms
+ ✓ Compiled /admin/photos in 140ms
+ GET /admin/photos 200 in 679ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 150ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 344ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 608ms
+ ✓ Compiled /admin/memories in 193ms
+ GET /admin/memories 200 in 650ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 171ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 72ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 371ms
+ GET /api/photos 200 in 631ms
+ ✓ Compiled /api/admin/logout in 348ms
+ POST /api/admin/logout 200 in 640ms
+ GET / 200 in 104ms
+ GET / 200 in 122ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 398ms
+ GET /api/photos 200 in 404ms
+ GET /api/photos 200 in 264ms
+ GET /admin 307 in 170ms
+ GET /admin-login 200 in 124ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 570ms
+ POST /api/admin/login 401 in 299ms
+ GET /api/photos 200 in 381ms
+ POST /api/admin/login 200 in 327ms
+ GET /admin/dashboard 200 in 199ms
+ GET /admin/dashboard 200 in 195ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 147ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 64ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 59ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 329ms
+ POST /admin/dashboard 200 in 67ms
+ GET /api/photos 200 in 300ms
+ GET /memorial-wall 200 in 839ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 380ms
+ GET /memories 200 in 599ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 342ms
+ GET / 200 in 194ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 593ms
+ GET /api/photos 200 in 594ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 296ms

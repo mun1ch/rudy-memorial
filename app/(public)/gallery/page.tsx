@@ -315,31 +315,48 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5"></div>
         <div className="container relative py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6">
-              <Camera className="h-10 w-10 text-primary" />
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-6">
+            <Camera className="mx-auto h-16 w-16 text-primary mb-4" />
+            <h1 className="text-4xl font-bold tracking-tight text-foreground">
               Memory Gallery
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="mt-4 text-lg text-muted-foreground">
               A beautiful collection of moments that capture Rudy's spirit, 
               shared by those who loved him most.
             </p>
-            <div className="flex flex-col gap-4 justify-center items-center">
-              <Button asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3">
-                <Link href="/memories">
-                  <Upload className="mr-2 h-5 w-5" />
-                  Share Your Photos
-                </Link>
-              </Button>
+            <div className="grid gap-6 md:grid-cols-2 mt-8">
+              <Card className="hover:scale-105 transition-transform duration-200">
+                <CardContent className="pt-6 text-center">
+                  <Upload className="mx-auto h-12 w-12 text-primary mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Share Your Photos</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Upload photos to preserve special moments
+                  </p>
+                  <Button asChild className="w-full">
+                    <Link href="/memories">
+                      <Upload className="mr-2 h-4 w-4" />
+                      Share Photos
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
               {photos.length > 0 && (
-                <Button 
-                  onClick={startSlideshow}
-                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3"
-                >
-                  <Play className="mr-2 h-5 w-5" />
-                  Start Slideshow
-                </Button>
+                <Card className="hover:scale-105 transition-transform duration-200">
+                  <CardContent className="pt-6 text-center">
+                    <Play className="mx-auto h-12 w-12 text-primary mb-4" />
+                    <h3 className="text-xl font-semibold mb-2">Start Slideshow</h3>
+                    <p className="text-muted-foreground mb-4">
+                      View all photos in a beautiful slideshow
+                    </p>
+                    <Button 
+                      onClick={startSlideshow}
+                      className="w-full"
+                    >
+                      <Play className="mr-2 h-4 w-4" />
+                      Start Slideshow
+                    </Button>
+                  </CardContent>
+                </Card>
               )}
             </div>
           </div>

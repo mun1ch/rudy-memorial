@@ -4,28 +4,28 @@
 
 @layer base {
   :root {
-    /* Warm Amber & Gold Theme (Default) */
-    --background: #FFFBEB;
-    --foreground: #92400E;
-    --card: #FFFBEB;
-    --card-foreground: #92400E;
-    --popover: #FFFBEB;
-    --popover-foreground: #92400E;
-    --primary: #D97706;
-    --primary-foreground: #FFFBEB;
-    --secondary: #F59E0B;
-    --secondary-foreground: #FFFBEB;
-    --muted: #FEF3C7;
-    --muted-foreground: #A16207;
-    --accent: #FCD34D;
-    --accent-foreground: #92400E;
+    /* Slate Blue & Silver Theme (Default) */
+    --background: #F8FAFC;
+    --foreground: #334155;
+    --card: #FFFFFF;
+    --card-foreground: #334155;
+    --popover: #FFFFFF;
+    --popover-foreground: #334155;
+    --primary: #475569;
+    --primary-foreground: #F8FAFC;
+    --secondary: #64748B;
+    --secondary-foreground: #F8FAFC;
+    --muted: #E2E8F0;
+    --muted-foreground: #475569;
+    --accent: #94A3B8;
+    --accent-foreground: #334155;
     --destructive: #DC2626;
     --destructive-foreground: #FEF2F2;
-    --border: #FDE68A;
-    --input: #FEF3C7;
-    --ring: #D97706;
-    --gradient-start: rgba(217, 119, 6, 0.1);
-    --gradient-end: rgba(245, 158, 11, 0.1);
+    --border: #CBD5E1;
+    --input: #E2E8F0;
+    --ring: #475569;
+    --gradient-start: rgba(71, 85, 105, 0.1);
+    --gradient-end: rgba(100, 116, 139, 0.1);
     --radius: 0.5rem;
   }
 

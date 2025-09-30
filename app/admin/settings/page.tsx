@@ -3,7 +3,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ThemeSelector } from "@/components/theme-selector";
 import { Settings as SettingsIcon, Mail, Plus, X, Save, Bell, BellOff } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getEmailSettings, updateEmailSettings } from "@/lib/admin-actions";
@@ -107,21 +106,6 @@ export default function AdminSettings() {
           </p>
         </div>
 
-        {/* Theme Settings */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <SettingsIcon className="h-5 w-5" />
-              Theme Settings
-            </CardTitle>
-            <CardDescription>
-              Customize the appearance and theme of the memorial site
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ThemeSelector />
-          </CardContent>
-        </Card>
 
         {/* Email Notification Settings */}
         <Card>

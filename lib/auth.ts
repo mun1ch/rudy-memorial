@@ -1,43 +1,38 @@
-import { createClient } from "@/lib/supabase/server";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function getUser() {
-  const supabase = await createClient();
-  const { data: { user }, error } = await supabase.auth.getUser();
-  
-  if (error) {
-    console.error("Error getting user:", error);
-    return null;
-  }
-  
-  return user;
-}
-
-export async function requireAuth() {
-  const user = await getUser();
-  if (!user) {
-    redirect("/auth/login");
-  }
-  return user;
-}
+const ADMIN_COOKIE_NAME = "rudy-admin-auth";
+const ADMIN_COOKIE_VALUE = "authenticated";
 
 export async function requireAdmin() {
-  // For now, bypass admin check since we don't have auth set up
-  // In production, you would implement proper authentication here
-  return { email: "admin@rudy-memorial.com" };
+  const cookieStore = await cookies();
+  const adminCookie = cookieStore.get(ADMIN_COOKIE_NAME);
   
-  // Original implementation (commented out for now):
-  // const user = await requireAuth();
-  // const adminEmails = process.env.ADMIN_EMAILS?.split(",") || [];
-  // 
-  // if (!adminEmails.includes(user.email!)) {
-  //   redirect("/");
-  // }
-  // 
-  // return user;
+  if (!adminCookie || adminCookie.value !== ADMIN_COOKIE_VALUE) {
+    redirect("/admin-login");
+  }
+  
+  return { email: "admin@rudy-memorial.com" };
 }
 
-export function isAdminEmail(email: string): boolean {
-  const adminEmails = process.env.ADMIN_EMAILS?.split(",") || [];
-  return adminEmails.includes(email);
+export async function isAdminAuthenticated(): Promise<boolean> {
+  const cookieStore = await cookies();
+  const adminCookie = cookieStore.get(ADMIN_COOKIE_NAME);
+  
+  return adminCookie?.value === ADMIN_COOKIE_VALUE;
+}
+
+export function setAdminAuth() {
+  const cookieStore = cookies();
+  cookieStore.set(ADMIN_COOKIE_NAME, ADMIN_COOKIE_VALUE, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  });
+}
+
+export function clearAdminAuth() {
+  const cookieStore = cookies();
+  cookieStore.delete(ADMIN_COOKIE_NAME);
 }

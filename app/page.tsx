@@ -265,17 +265,16 @@ export default function HomePage() {
                   Share a Memory
                 </Link>
               </Button>
-              {photos.length > 0 && (
-                <Button
-                  onClick={startSlideshow}
-                  size="lg"
-                  variant="outline"
-                  className="bg-gradient-to-r from-primary/80 to-primary/60 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <Play className="mr-2 h-4 w-4" />
-                  Start Slideshow
-                </Button>
-              )}
+              <Button
+                onClick={startSlideshow}
+                size="lg"
+                variant="outline"
+                disabled={photos.length === 0}
+                className="bg-gradient-to-r from-primary/80 to-primary/60 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Play className="mr-2 h-4 w-4" />
+                Start Slideshow
+              </Button>
             </div>
           </div>
         </div>
