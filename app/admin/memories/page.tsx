@@ -11,10 +11,15 @@ import {
   User,
   ArrowLeft,
   CheckSquare,
-  Square
+  Square,
+  Edit3,
+  Save,
+  X
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getMemories, hideMemory, unhideMemory, deleteMemory } from "@/lib/admin-actions";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 
 interface Memory {
@@ -33,6 +38,8 @@ export default function AdminMemoriesPage() {
   const [selectedMemories, setSelectedMemories] = useState<Set<string>>(new Set());
   const [bulkActionLoading, setBulkActionLoading] = useState(false);
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
+  const [editingMemory, setEditingMemory] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState({ message: '', contributorName: '' });
 
   useEffect(() => {
     loadMemories();
@@ -120,6 +127,65 @@ export default function AdminMemoriesPage() {
         return memories.filter(memory => memory.hidden);
       default:
         return memories;
+    }
+  };
+
+  const startEditing = (memory: Memory) => {
+    setEditingMemory(memory.id);
+    setEditForm({
+      message: memory.message || '',
+      contributorName: memory.contributorName || ''
+    });
+  };
+
+  const cancelEditing = () => {
+    setEditingMemory(null);
+    setEditForm({ message: '', contributorName: '' });
+  };
+
+  const saveEdit = async (memoryId: string) => {
+    setActionLoading(memoryId);
+    try {
+      // Update the memory in the JSON file
+      const fs = await import('fs/promises');
+      const path = await import('path');
+
+      const tributesFile = path.join(process.cwd(), 'public', 'tributes.json');
+      let tributes = [];
+
+      try {
+        const data = await fs.readFile(tributesFile, 'utf-8');
+        tributes = JSON.parse(data);
+      } catch (error) {
+        console.error('Error reading tributes file:', error);
+        return;
+      }
+
+      // Find and update the memory
+      const memoryIndex = tributes.findIndex((tribute: any) => tribute.id === memoryId);
+      if (memoryIndex === -1) {
+        console.error('Memory not found');
+        return;
+      }
+
+      tributes[memoryIndex].message = editForm.message || '';
+      tributes[memoryIndex].contributorName = editForm.contributorName || null;
+
+      await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+
+      // Update local state
+      setMemories(prev => prev.map(memory => 
+        memory.id === memoryId 
+          ? { ...memory, message: editForm.message || '', contributorName: editForm.contributorName || null }
+          : memory
+      ));
+
+      setEditingMemory(null);
+      setEditForm({ message: '', contributorName: '' });
+    } catch (error) {
+      console.error('Error saving memory edit:', error);
+    } finally {
+      setActionLoading(null);
     }
   };
 
@@ -391,56 +457,108 @@ export default function AdminMemoriesPage() {
                           )}
                         </button>
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-2">
-                            <p className="font-medium">
-                              {memory.contributorName || "Anonymous"}
-                            </p>
-                            {memory.hidden && (
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
-                                <EyeOff className="h-3 w-3 mr-1" />
-                                Hidden
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-                            {memory.message}
-                          </p>
-                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Calendar className="h-3 w-3" />
-                            <span>{formatDate(memory.submittedAt)}</span>
-                          </div>
+                          {editingMemory === memory.id ? (
+                            <div className="space-y-2">
+                              <Input
+                                value={editForm.contributorName}
+                                onChange={(e) => setEditForm(prev => ({ ...prev, contributorName: e.target.value }))}
+                                placeholder="Contributor name..."
+                                className="text-sm"
+                              />
+                              <Textarea
+                                value={editForm.message}
+                                onChange={(e) => setEditForm(prev => ({ ...prev, message: e.target.value }))}
+                                placeholder="Memory message..."
+                                className="text-sm min-h-[80px]"
+                              />
+                            </div>
+                          ) : (
+                            <>
+                              <div className="flex items-center gap-2 mb-2">
+                                <p className="font-medium">
+                                  {memory.contributorName || "Anonymous"}
+                                </p>
+                                {memory.hidden && (
+                                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
+                                    <EyeOff className="h-3 w-3 mr-1" />
+                                    Hidden
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
+                                {memory.message}
+                              </p>
+                              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                <Calendar className="h-3 w-3" />
+                                <span>{formatDate(memory.submittedAt)}</span>
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
                       <div className="flex space-x-2 ml-4">
-                        {memory.hidden ? (
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => handleUnhideMemory(memory.id)}
-                            disabled={actionLoading === memory.id}
-                            className="text-green-600 hover:text-green-700"
-                          >
-                            <Eye className="h-4 w-4" />
-                          </Button>
+                        {editingMemory === memory.id ? (
+                          <>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => saveEdit(memory.id)}
+                              disabled={actionLoading === memory.id}
+                              className="text-green-600 hover:text-green-700"
+                            >
+                              <Save className="h-4 w-4" />
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={cancelEditing}
+                              disabled={actionLoading === memory.id}
+                            >
+                              <X className="h-4 w-4" />
+                            </Button>
+                          </>
                         ) : (
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => handleHideMemory(memory.id)}
-                            disabled={actionLoading === memory.id}
-                          >
-                            <EyeOff className="h-4 w-4" />
-                          </Button>
+                          <>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => startEditing(memory)}
+                              disabled={actionLoading === memory.id}
+                              className="text-blue-600 hover:text-blue-700"
+                            >
+                              <Edit3 className="h-4 w-4" />
+                            </Button>
+                            {memory.hidden ? (
+                              <Button 
+                                size="sm" 
+                                variant="outline"
+                                onClick={() => handleUnhideMemory(memory.id)}
+                                disabled={actionLoading === memory.id}
+                                className="text-green-600 hover:text-green-700"
+                              >
+                                <Eye className="h-4 w-4" />
+                              </Button>
+                            ) : (
+                              <Button 
+                                size="sm" 
+                                variant="outline"
+                                onClick={() => handleHideMemory(memory.id)}
+                                disabled={actionLoading === memory.id}
+                              >
+                                <EyeOff className="h-4 w-4" />
+                              </Button>
+                            )}
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleDeleteMemory(memory.id)}
+                              disabled={actionLoading === memory.id}
+                              className="text-destructive hover:text-destructive"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </>
                         )}
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleDeleteMemory(memory.id)}
-                          disabled={actionLoading === memory.id}
-                          className="text-destructive hover:text-destructive"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
                       </div>
                     </div>
                   </div>

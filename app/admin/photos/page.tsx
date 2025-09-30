@@ -11,10 +11,14 @@ import {
   User,
   ArrowLeft,
   CheckSquare,
-  Square
+  Square,
+  Edit3,
+  Save,
+  X
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getPhotos, hidePhoto, unhidePhoto, deletePhoto } from "@/lib/admin-actions";
+import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -38,6 +42,8 @@ export default function AdminPhotosPage() {
   const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
   const [bulkActionLoading, setBulkActionLoading] = useState(false);
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
+  const [editingPhoto, setEditingPhoto] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
 
   useEffect(() => {
     loadPhotos();
@@ -212,6 +218,65 @@ export default function AdminPhotosPage() {
         return photos.filter(photo => photo.hidden);
       default:
         return photos;
+    }
+  };
+
+  const startEditing = (photo: Photo) => {
+    setEditingPhoto(photo.id);
+    setEditForm({
+      caption: photo.caption || '',
+      contributorName: photo.contributorName || ''
+    });
+  };
+
+  const cancelEditing = () => {
+    setEditingPhoto(null);
+    setEditForm({ caption: '', contributorName: '' });
+  };
+
+  const saveEdit = async (photoId: string) => {
+    setActionLoading(photoId);
+    try {
+      // Update the photo in the JSON file
+      const fs = await import('fs/promises');
+      const path = await import('path');
+
+      const photosFile = path.join(process.cwd(), 'public', 'photos.json');
+      let photos = [];
+
+      try {
+        const data = await fs.readFile(photosFile, 'utf-8');
+        photos = JSON.parse(data);
+      } catch (error) {
+        console.error('Error reading photos file:', error);
+        return;
+      }
+
+      // Find and update the photo
+      const photoIndex = photos.findIndex((photo: any) => photo.id === photoId);
+      if (photoIndex === -1) {
+        console.error('Photo not found');
+        return;
+      }
+
+      photos[photoIndex].caption = editForm.caption || null;
+      photos[photoIndex].contributorName = editForm.contributorName || null;
+
+      await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+
+      // Update local state
+      setPhotos(prev => prev.map(photo => 
+        photo.id === photoId 
+          ? { ...photo, caption: editForm.caption || null, contributorName: editForm.contributorName || null }
+          : photo
+      ));
+
+      setEditingPhoto(null);
+      setEditForm({ caption: '', contributorName: '' });
+    } catch (error) {
+      console.error('Error saving photo edit:', error);
+    } finally {
+      setActionLoading(null);
     }
   };
 
@@ -411,62 +476,114 @@ export default function AdminPhotosPage() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <p className="font-medium truncate">
-                            {photo.caption || "Untitled Photo"}
-                          </p>
-                          {photo.hidden && (
-                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
-                              <EyeOff className="h-3 w-3 mr-1" />
-                              Hidden
-                            </span>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          {photo.contributorName && (
-                            <div className="flex items-center gap-1">
-                              <User className="h-3 w-3" />
-                              <span>{photo.contributorName}</span>
-                            </div>
-                          )}
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            <span>{formatDate(photo.uploadedAt)}</span>
+                        {editingPhoto === photo.id ? (
+                          <div className="space-y-2">
+                            <Input
+                              value={editForm.caption}
+                              onChange={(e) => setEditForm(prev => ({ ...prev, caption: e.target.value }))}
+                              placeholder="Photo caption..."
+                              className="text-sm"
+                            />
+                            <Input
+                              value={editForm.contributorName}
+                              onChange={(e) => setEditForm(prev => ({ ...prev, contributorName: e.target.value }))}
+                              placeholder="Contributor name..."
+                              className="text-sm"
+                            />
                           </div>
-                          <span>{formatFileSize(photo.fileSize)}</span>
-                        </div>
+                        ) : (
+                          <>
+                            <div className="flex items-center gap-2 mb-1">
+                              <p className="font-medium truncate">
+                                {photo.caption || "Untitled Photo"}
+                              </p>
+                              {photo.hidden && (
+                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
+                                  <EyeOff className="h-3 w-3 mr-1" />
+                                  Hidden
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              {photo.contributorName && (
+                                <div className="flex items-center gap-1">
+                                  <User className="h-3 w-3" />
+                                  <span>{photo.contributorName}</span>
+                                </div>
+                              )}
+                              <div className="flex items-center gap-1">
+                                <Calendar className="h-3 w-3" />
+                                <span>{formatDate(photo.uploadedAt)}</span>
+                              </div>
+                              <span>{formatFileSize(photo.fileSize)}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                     <div className="flex space-x-2">
-                      {photo.hidden ? (
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleUnhidePhoto(photo.id)}
-                          disabled={actionLoading === photo.id}
-                          className="text-green-600 hover:text-green-700"
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Button>
+                      {editingPhoto === photo.id ? (
+                        <>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => saveEdit(photo.id)}
+                            disabled={actionLoading === photo.id}
+                            className="text-green-600 hover:text-green-700"
+                          >
+                            <Save className="h-4 w-4" />
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={cancelEditing}
+                            disabled={actionLoading === photo.id}
+                          >
+                            <X className="h-4 w-4" />
+                          </Button>
+                        </>
                       ) : (
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleHidePhoto(photo.id)}
-                          disabled={actionLoading === photo.id}
-                        >
-                          <EyeOff className="h-4 w-4" />
-                        </Button>
+                        <>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => startEditing(photo)}
+                            disabled={actionLoading === photo.id}
+                            className="text-blue-600 hover:text-blue-700"
+                          >
+                            <Edit3 className="h-4 w-4" />
+                          </Button>
+                          {photo.hidden ? (
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleUnhidePhoto(photo.id)}
+                              disabled={actionLoading === photo.id}
+                              className="text-green-600 hover:text-green-700"
+                            >
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                          ) : (
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleHidePhoto(photo.id)}
+                              disabled={actionLoading === photo.id}
+                            >
+                              <EyeOff className="h-4 w-4" />
+                            </Button>
+                          )}
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => handleDeletePhoto(photo.id)}
+                            disabled={actionLoading === photo.id}
+                            className="text-destructive hover:text-destructive"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </>
                       )}
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        onClick={() => handleDeletePhoto(photo.id)}
-                        disabled={actionLoading === photo.id}
-                        className="text-destructive hover:text-destructive"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
                     </div>
                   </div>
                 ))}

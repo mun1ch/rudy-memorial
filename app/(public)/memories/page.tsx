@@ -82,52 +82,6 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
             </CardContent>
           </Card>
         </div>
-
-        {/* Memory Wall Preview */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6 text-center">
-            Recent Memories
-          </h2>
-          <p className="text-muted-foreground mb-8 text-center">
-            Beautiful tributes from those who knew and loved Rudy
-          </p>
-        </div>
-
-        <div className="space-y-6">
-          {/* Placeholder memories - will be replaced with real data */}
-          {Array.from({ length: 3 }).map((_, i) => (
-            <Card key={i} className="memory-card">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CardTitle className="text-lg">
-                      {i % 2 === 0 ? "A Gentle Soul" : "Unforgettable Moments"}
-                    </CardTitle>
-                    <CardDescription>
-                      Shared by {i % 2 === 0 ? "Sarah M." : "Mike R."} • {new Date().toLocaleDateString()}
-                    </CardDescription>
-                  </div>
-                  <Heart className="h-5 w-5 text-muted-foreground" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  {i % 2 === 0 
-                    ? "Rudy had the most gentle spirit. He always knew exactly what to say to make you feel better, and his laugh could light up any room. I'll never forget his kindness and the way he made everyone feel special."
-                    : "The memories I have with Rudy are some of my most treasured. His wisdom and humor made every moment special. He had a way of making even the most ordinary day feel extraordinary. He will be deeply missed."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Load More Button */}
-        <div className="mt-12 text-center">
-          <Button variant="outline" size="lg">
-            View All Memories
-          </Button>
-        </div>
       </div>
     </div>
   );
