@@ -156,9 +156,16 @@ Target: cname.vercel-dns.com
 Proxy status: Proxied (orange cloud) ✅
 ```
 
+## Build Issues Fixed ✅
+- **Issue**: Build failing due to ESLint errors (unescaped apostrophes)
+- **Fix**: Escaped apostrophes in home page (`Rudy's` → `Rudy&apos;s`)
+- **Status**: Build now successful locally
+- **Deployment**: Fixed and pushed to trigger new deployment
+
 ## GitHub Repository
-- **Status**: Not yet created
-- **Planned Name**: rudy-memorial
+- **Status**: ✅ Created and active
+- **Name**: rudy-memorial
+- **URL**: https://github.com/mun1ch/rudy-memorial
 - **Description**: Rudy Augsburger Memorial Website
 
 ---

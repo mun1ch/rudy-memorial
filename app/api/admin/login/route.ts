@@ -14,6 +14,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Debug logging (temporary)
+    console.log("Debug - Provided password:", JSON.stringify(password));
+    console.log("Debug - Admin password:", JSON.stringify(adminPassword));
+    console.log("Debug - Password length:", adminPassword?.length);
+    console.log("Debug - Passwords match:", password === adminPassword);
+
     // Check if the provided password matches
     if (password !== adminPassword) {
       return NextResponse.json(
