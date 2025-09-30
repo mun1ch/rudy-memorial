@@ -14,22 +14,28 @@ export function PhotoForm() {
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
+    console.log("🚀 Form submission started, setting loading state...");
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(null);
     
     try {
+      console.log("📤 Calling submitPhoto server action...");
       const result = await submitPhoto(formData);
+      console.log("📥 Received result from server:", result);
+      
       if (result?.success) {
         setSubmitSuccess(result.message || "Photo uploaded successfully!");
         // Reset form
         const form = document.querySelector('form') as HTMLFormElement;
         if (form) form.reset();
       }
+      console.log("✅ Upload completed, clearing loading state");
       setIsSubmitting(false);
     } catch (error) {
-      console.error("Upload error:", error);
+      console.error("💥 Upload error:", error);
       setSubmitError(error instanceof Error ? error.message : "Failed to upload photos. Please try again.");
+      console.log("❌ Upload failed, clearing loading state");
       setIsSubmitting(false);
     }
   };
@@ -58,13 +64,18 @@ export function PhotoForm() {
             </div>
           )}
           {isSubmitting && (
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center">
-              <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm mx-4">
-                <div className="flex items-center gap-3">
-                  <Loader2 className="h-6 w-6 text-blue-600 animate-spin" />
+            <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center">
+              <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-4 border-2 border-blue-200">
+                <div className="flex items-center gap-4">
+                  <Loader2 className="h-8 w-8 text-blue-600 animate-spin" />
                   <div>
-                    <p className="text-gray-900 font-medium">Uploading photos...</p>
-                    <p className="text-gray-600 text-sm">Please wait while we process your images</p>
+                    <p className="text-gray-900 font-semibold text-lg">Uploading photos...</p>
+                    <p className="text-gray-600 text-sm mt-1">Please wait while we process and upload your images to the gallery</p>
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -10,58 +10,349 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 1027ms
+ ✓ Ready in 2.6s
  ○ Compiling / ...
- ✓ Compiled / in 2.2s
- GET / 200 in 2752ms
- ✓ Compiled /favicon.ico in 299ms
- GET /icon.svg?icon.5e81ae7e.svg 200 in 546ms
- ✓ Compiled /memories in 209ms
- GET /memories 200 in 299ms
- ✓ Compiled /memorial-wall in 226ms
- GET /memorial-wall 200 in 306ms
- ✓ Compiled /api/tributes in 323ms
- GET /api/tributes 200 in 1507ms
+ ✓ Compiled / in 1949ms
+ GET / 200 in 2667ms
+ ✓ Compiled /favicon.ico in 294ms
+ ✓ Compiled /memories in 216ms
+ GET /memories 200 in 417ms
+ ○ Compiling /memories/photo ...
+ ✓ Compiled /memories/photo in 532ms
+ GET /memories/photo 200 in 627ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(Screenshot 2025-09-02 at 2.22.04 PM.png, 186627 bytes)
+  photo: File(Screenshot 2025-09-03 at 5.16.19 PM.png, 545858 bytes)
+  caption: 
+  name: 
+📁 Files received: 2 files
+📁 File 1: Screenshot 2025-09-02 at 2.22.04 PM.png 186627 image/png
+📁 File 2: Screenshot 2025-09-03 at 5.16.19 PM.png 545858 image/png
+📝 Caption: 
+👤 Name: 
+✅ Processing 2 valid files
+💾 Starting Vercel Blob operations...
+📖 Loaded existing photos: 6
+🔄 Processing file 1/2: Screenshot 2025-09-02 at 2.22.04 PM.png
+📦 File 1 converted to buffer, size: 186627
+🔍 MD5 hash for file 1: 871deaffb44fe9868ec485201a43e462
+📝 Generated filename for file 1: photo_1759275093851.png
+💾 Uploading file 1 to Vercel Blob...
+✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275093851-5As8TAN2YjYNKZjR8qQgZCHtl35tkU.png
+➕ Added new photo 1 to array: photo_1759275093851
+🔄 Processing file 2/2: Screenshot 2025-09-03 at 5.16.19 PM.png
+📦 File 2 converted to buffer, size: 545858
+🔍 MD5 hash for file 2: 1f6b01b25063ac81da52baafa15ab55b
+📝 Generated filename for file 2: photo_1759275093852.png
+💾 Uploading file 2 to Vercel Blob...
+✅ File 2 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275093852-xtMfePKblnRv1ykBhPzSEuaHEXqJ2p.png
+➕ Added new photo 2 to array: photo_1759275093852
+✅ Added 2 photos to gallery
+💾 Photos saved to Vercel Blob storage
+✅ 2 photo(s) upload completed successfully!
+No email settings found, notifications disabled
+Email notifications disabled or no emails configured
+ POST /memories/photo 200 in 2418ms
  ○ Compiling /gallery ...
- ✓ Compiled /gallery in 552ms
- GET /gallery 200 in 646ms
- ✓ Compiled /api/photos in 149ms
- GET /api/photos 200 in 737ms
- ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.si1xmru4d1'] {
+ ✓ Compiled /gallery in 574ms
+ GET /gallery 200 in 773ms
+ GET /favicon.ico 200 in 41ms
+ ✓ Compiled /api/photos in 234ms
+ GET /api/photos 200 in 1081ms
+ GET /memories 200 in 220ms
+ GET /memories/photo 200 in 144ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20240726_193255.jpg, 6114385 bytes)
+  photo: File(20220704_194812.jpg, 2810385 bytes)
+  photo: File(20240904_170713.jpg, 4327773 bytes)
+  photo: File(20230704_110352.jpg, 3792324 bytes)
+  photo: File(20241015_144315.jpg, 3684489 bytes)
+  photo: File(20240904_171041.jpg, 4608702 bytes)
+  photo: File(20230709_153921.jpg, 2980306 bytes)
+  photo: File(20240907_094205.jpg, 4303658 bytes)
+  photo: File(20230514_113123.jpg, 4079796 bytes)
+  photo: File(20250514_201655.jpg, 4605065 bytes)
+  photo: File(FB_IMG_1758956884247.jpg, 36296 bytes)
+  photo: File(FB_IMG_1758956835857.jpg, 19556 bytes)
+  photo: File(FB_IMG_1758956935792.jpg, 31018 bytes)
+  photo: File(FB_IMG_1758956817829.jpg, 23491 bytes)
+  photo: File(FB_IMG_1758956782216.jpg, 60565 bytes)
+  photo: File(FB_IMG_1758956809987.jpg, 32796 bytes)
+  photo: File(FB_IMG_1758956644716.jpg, 76083 bytes)
+  photo: File(FB_IMG_1758956862086.jpg, 48984 bytes)
+  photo: File(FB_IMG_1758956872177.jpg, 37375 bytes)
+  photo: File(FB_IMG_1758956250662.jpg, 41584 bytes)
+  photo: File(FB_IMG_1758956825210.jpg, 33028 bytes)
+  photo: File(FB_IMG_1758956896451.jpg, 60192 bytes)
+  photo: File(FB_IMG_1758956918243.jpg, 24568 bytes)
+  caption: 
+  name: 
+📁 Files received: 23 files
+📁 File 1: 20240726_193255.jpg 6114385 image/jpeg
+📁 File 2: 20220704_194812.jpg 2810385 image/jpeg
+📁 File 3: 20240904_170713.jpg 4327773 image/jpeg
+📁 File 4: 20230704_110352.jpg 3792324 image/jpeg
+📁 File 5: 20241015_144315.jpg 3684489 image/jpeg
+📁 File 6: 20240904_171041.jpg 4608702 image/jpeg
+📁 File 7: 20230709_153921.jpg 2980306 image/jpeg
+📁 File 8: 20240907_094205.jpg 4303658 image/jpeg
+📁 File 9: 20230514_113123.jpg 4079796 image/jpeg
+📁 File 10: 20250514_201655.jpg 4605065 image/jpeg
+📁 File 11: FB_IMG_1758956884247.jpg 36296 image/jpeg
+📁 File 12: FB_IMG_1758956835857.jpg 19556 image/jpeg
+📁 File 13: FB_IMG_1758956935792.jpg 31018 image/jpeg
+📁 File 14: FB_IMG_1758956817829.jpg 23491 image/jpeg
+📁 File 15: FB_IMG_1758956782216.jpg 60565 image/jpeg
+📁 File 16: FB_IMG_1758956809987.jpg 32796 image/jpeg
+📁 File 17: FB_IMG_1758956644716.jpg 76083 image/jpeg
+📁 File 18: FB_IMG_1758956862086.jpg 48984 image/jpeg
+📁 File 19: FB_IMG_1758956872177.jpg 37375 image/jpeg
+📁 File 20: FB_IMG_1758956250662.jpg 41584 image/jpeg
+📁 File 21: FB_IMG_1758956825210.jpg 33028 image/jpeg
+📁 File 22: FB_IMG_1758956896451.jpg 60192 image/jpeg
+📁 File 23: FB_IMG_1758956918243.jpg 24568 image/jpeg
+📝 Caption: 
+👤 Name: 
+✅ Processing 23 valid files
+💾 Starting Vercel Blob operations...
+📖 Loaded existing photos: 8
+🔄 Processing file 1/23: 20240726_193255.jpg
+📦 File 1 converted to buffer, size: 6114385
+🔍 MD5 hash for file 1: 3841231475da138340dcfc1e9dec5a05
+📝 Generated filename for file 1: photo_1759275133310.jpg
+💾 Uploading file 1 to Vercel Blob...
+✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133310-8j41VEE3WKs8s0tdxJ6HouJ0UYhWC3.jpg
+➕ Added new photo 1 to array: photo_1759275133310
+🔄 Processing file 2/23: 20220704_194812.jpg
+📦 File 2 converted to buffer, size: 2810385
+🔍 MD5 hash for file 2: 774971636a2118b8899691f23ad7e7c0
+📝 Generated filename for file 2: photo_1759275133311.jpg
+💾 Uploading file 2 to Vercel Blob...
+✅ File 2 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133311-FTuGVZjTmOQ1XqisNqyf1B6eF6URkg.jpg
+➕ Added new photo 2 to array: photo_1759275133311
+🔄 Processing file 3/23: 20240904_170713.jpg
+📦 File 3 converted to buffer, size: 4327773
+🔍 MD5 hash for file 3: 72dc8c13b166f9aba9b0b8bd522095f4
+📝 Generated filename for file 3: photo_1759275133312.jpg
+💾 Uploading file 3 to Vercel Blob...
+✅ File 3 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133312-9nTFZZ0LlW1xzoHtqdWII8DRAscblT.jpg
+➕ Added new photo 3 to array: photo_1759275133312
+🔄 Processing file 4/23: 20230704_110352.jpg
+📦 File 4 converted to buffer, size: 3792324
+🔍 MD5 hash for file 4: 715ca9ce9c5b59fe9386bf76409212b3
+📝 Generated filename for file 4: photo_1759275133313.jpg
+💾 Uploading file 4 to Vercel Blob...
+✅ File 4 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133313-Vmd0txr5WbdvIwh3kmSmoY2t7ulNHs.jpg
+➕ Added new photo 4 to array: photo_1759275133313
+🔄 Processing file 5/23: 20241015_144315.jpg
+📦 File 5 converted to buffer, size: 3684489
+🔍 MD5 hash for file 5: 8392fbfa8f4b9e321747226a20ce9776
+📝 Generated filename for file 5: photo_1759275133314.jpg
+💾 Uploading file 5 to Vercel Blob...
+✅ File 5 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133314-jy5F4Jmzl4buQP1U6k5WtJYMCQuK4j.jpg
+➕ Added new photo 5 to array: photo_1759275133314
+🔄 Processing file 6/23: 20240904_171041.jpg
+📦 File 6 converted to buffer, size: 4608702
+🔍 MD5 hash for file 6: 9f52068b9a578ad114dfa9feabe65880
+📝 Generated filename for file 6: photo_1759275133315.jpg
+💾 Uploading file 6 to Vercel Blob...
+✅ File 6 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133315-goCaKU3fmxnhEOYII8ruLTDH7trmn0.jpg
+➕ Added new photo 6 to array: photo_1759275133315
+🔄 Processing file 7/23: 20230709_153921.jpg
+📦 File 7 converted to buffer, size: 2980306
+🔍 MD5 hash for file 7: e9686dc208e72dad6c02fb2553d76d35
+📝 Generated filename for file 7: photo_1759275133316.jpg
+💾 Uploading file 7 to Vercel Blob...
+✅ File 7 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133316-xeq1EHJxQolfCR1Y5oJre07Yx1oA4t.jpg
+➕ Added new photo 7 to array: photo_1759275133316
+🔄 Processing file 8/23: 20240907_094205.jpg
+📦 File 8 converted to buffer, size: 4303658
+🔍 MD5 hash for file 8: a170118da9bdee23d82a63356d0fba78
+📝 Generated filename for file 8: photo_1759275133317.jpg
+💾 Uploading file 8 to Vercel Blob...
+✅ File 8 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133317-eImEDW0BObHU0ulE9AfFAKOFgXLBfz.jpg
+➕ Added new photo 8 to array: photo_1759275133317
+🔄 Processing file 9/23: 20230514_113123.jpg
+📦 File 9 converted to buffer, size: 4079796
+🔍 MD5 hash for file 9: a8f9005273bd7d291005d657184146ee
+📝 Generated filename for file 9: photo_1759275133318.jpg
+💾 Uploading file 9 to Vercel Blob...
+✅ File 9 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133318-FlKdLdrwWBJn2ptek8nZr2RpLV1shg.jpg
+➕ Added new photo 9 to array: photo_1759275133318
+🔄 Processing file 10/23: 20250514_201655.jpg
+📦 File 10 converted to buffer, size: 4605065
+🔍 MD5 hash for file 10: 686f76f883b3d826b43dde213ca1b46c
+📝 Generated filename for file 10: photo_1759275133319.jpg
+💾 Uploading file 10 to Vercel Blob...
+✅ File 10 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133319-F2ZuNRrz9NA0hOK8s3encMwBWuhcEF.jpg
+➕ Added new photo 10 to array: photo_1759275133319
+🔄 Processing file 11/23: FB_IMG_1758956884247.jpg
+📦 File 11 converted to buffer, size: 36296
+🔍 MD5 hash for file 11: 1ee3792b3b1d1ce9e2889870f28260df
+📝 Generated filename for file 11: photo_1759275133320.jpg
+💾 Uploading file 11 to Vercel Blob...
+✅ File 11 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133320-VWD6npybztgG3NMCZGS1L4NHVnVymT.jpg
+➕ Added new photo 11 to array: photo_1759275133320
+🔄 Processing file 12/23: FB_IMG_1758956835857.jpg
+📦 File 12 converted to buffer, size: 19556
+🔍 MD5 hash for file 12: 46c15ae60c14f7b5f3565251e0fa68ee
+📝 Generated filename for file 12: photo_1759275133321.jpg
+💾 Uploading file 12 to Vercel Blob...
+✅ File 12 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133321-JYKLV8Kpv0FeKP72FsTMljkS1tssqf.jpg
+➕ Added new photo 12 to array: photo_1759275133321
+🔄 Processing file 13/23: FB_IMG_1758956935792.jpg
+📦 File 13 converted to buffer, size: 31018
+🔍 MD5 hash for file 13: 07dbee8758cce501427cf34a34deed0a
+📝 Generated filename for file 13: photo_1759275133322.jpg
+💾 Uploading file 13 to Vercel Blob...
+✅ File 13 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133322-ZYFkMIE1vH43v0rrCvmEGSDqGRBJJK.jpg
+➕ Added new photo 13 to array: photo_1759275133322
+🔄 Processing file 14/23: FB_IMG_1758956817829.jpg
+📦 File 14 converted to buffer, size: 23491
+🔍 MD5 hash for file 14: 7937f6d865d3bae4ea9332f52cff99cd
+📝 Generated filename for file 14: photo_1759275133323.jpg
+💾 Uploading file 14 to Vercel Blob...
+✅ File 14 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133323-CotaZqK0hQ7yNAA2eWDZADZhsxLAWD.jpg
+➕ Added new photo 14 to array: photo_1759275133323
+🔄 Processing file 15/23: FB_IMG_1758956782216.jpg
+📦 File 15 converted to buffer, size: 60565
+🔍 MD5 hash for file 15: 825919858dc6d7c058739bc68c403597
+📝 Generated filename for file 15: photo_1759275133324.jpg
+💾 Uploading file 15 to Vercel Blob...
+✅ File 15 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133324-DriP4ocauzANL1kX4AhEOGV5FVjTFe.jpg
+➕ Added new photo 15 to array: photo_1759275133324
+🔄 Processing file 16/23: FB_IMG_1758956809987.jpg
+📦 File 16 converted to buffer, size: 32796
+🔍 MD5 hash for file 16: 963ab7c818034c6604303e7c89f0280e
+📝 Generated filename for file 16: photo_1759275133325.jpg
+💾 Uploading file 16 to Vercel Blob...
+✅ File 16 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133325-VlFGg57AsR3YXERCfYWLJDVGl9CyOq.jpg
+➕ Added new photo 16 to array: photo_1759275133325
+🔄 Processing file 17/23: FB_IMG_1758956644716.jpg
+📦 File 17 converted to buffer, size: 76083
+🔍 MD5 hash for file 17: a33081abb1a593b7ccf773c081138c0d
+📝 Generated filename for file 17: photo_1759275133326.jpg
+💾 Uploading file 17 to Vercel Blob...
+✅ File 17 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133326-shF6rR9XSaEgHaMDlEPSPer8R7PfNA.jpg
+➕ Added new photo 17 to array: photo_1759275133326
+🔄 Processing file 18/23: FB_IMG_1758956862086.jpg
+📦 File 18 converted to buffer, size: 48984
+🔍 MD5 hash for file 18: 80b2beb3227d6f0b1383b5d9e203268d
+📝 Generated filename for file 18: photo_1759275133327.jpg
+💾 Uploading file 18 to Vercel Blob...
+✅ File 18 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133327-sdOTPJg5UkCJ2aJBhwAfNQJR1ozJo2.jpg
+➕ Added new photo 18 to array: photo_1759275133327
+🔄 Processing file 19/23: FB_IMG_1758956872177.jpg
+📦 File 19 converted to buffer, size: 37375
+🔍 MD5 hash for file 19: c40ce3a91190c1d9bcc0afe023f39e8c
+📝 Generated filename for file 19: photo_1759275133328.jpg
+💾 Uploading file 19 to Vercel Blob...
+✅ File 19 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133328-a2V5wHfIut8iZAyN2n1olxbTMb0vj2.jpg
+➕ Added new photo 19 to array: photo_1759275133328
+🔄 Processing file 20/23: FB_IMG_1758956250662.jpg
+📦 File 20 converted to buffer, size: 41584
+🔍 MD5 hash for file 20: ce75b1afd8ee97a0fcf34242b8435c43
+📝 Generated filename for file 20: photo_1759275133329.jpg
+💾 Uploading file 20 to Vercel Blob...
+✅ File 20 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133329-QdhdOaVmiSnTKoRqe5IhaBQfZYY15b.jpg
+➕ Added new photo 20 to array: photo_1759275133329
+🔄 Processing file 21/23: FB_IMG_1758956825210.jpg
+📦 File 21 converted to buffer, size: 33028
+🔍 MD5 hash for file 21: 25efbcd496d0a621e68858b719cc8d06
+📝 Generated filename for file 21: photo_1759275133330.jpg
+💾 Uploading file 21 to Vercel Blob...
+✅ File 21 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133330-hquMCQtjeLmkZE33loJ9nGqnQmLbBk.jpg
+➕ Added new photo 21 to array: photo_1759275133330
+🔄 Processing file 22/23: FB_IMG_1758956896451.jpg
+📦 File 22 converted to buffer, size: 60192
+🔍 MD5 hash for file 22: 88dc17cabd42c8461d99f728197c7e35
+📝 Generated filename for file 22: photo_1759275133331.jpg
+💾 Uploading file 22 to Vercel Blob...
+✅ File 22 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133331-y1LXcjptWyO43h5jJwrGM59vtUbTQ3.jpg
+➕ Added new photo 22 to array: photo_1759275133331
+🔄 Processing file 23/23: FB_IMG_1758956918243.jpg
+📦 File 23 converted to buffer, size: 24568
+🔍 MD5 hash for file 23: 15fd676f3a18261aa73c7546ae2570b9
+📝 Generated filename for file 23: photo_1759275133332.jpg
+💾 Uploading file 23 to Vercel Blob...
+✅ File 23 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759275133332-T01GhHeBbvCe8dxhBbGBYtkyiQDGN5.jpg
+➕ Added new photo 23 to array: photo_1759275133332
+✅ Added 23 photos to gallery
+💾 Photos saved to Vercel Blob storage
+✅ 23 photo(s) upload completed successfully!
+No email settings found, notifications disabled
+Email notifications disabled or no emails configured
+ POST /memories/photo 200 in 12766ms
+ ✓ Compiled in 565ms
+ ✓ Compiled in 150ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ohuhi0o3318'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.si1xmru4d1'
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ohuhi0o3318'
 }
  ○ Compiling /_error ...
- ✓ Compiled /_error in 752ms
- ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qgc1o3fzdk'] {
+ ✓ Compiled /_error in 933ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.77039b0i21f'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.qgc1o3fzdk'
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.77039b0i21f'
 }
-[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.si1xmru4d1'] {
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ohuhi0o3318'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.si1xmru4d1'
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.ohuhi0o3318'
 }
- ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.36aqyavoyoy'] {
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.vafykw7mrma'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.36aqyavoyoy'
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.vafykw7mrma'
 }
-[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9duv195ykd9'] {
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1sbgd9u9w19'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.9duv195ykd9'
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.1sbgd9u9w19'
 }
- ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.z7q9l2y0gys'] {
+ ✓ Compiled /admin in 276ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.xoog366856d'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.z7q9l2y0gys'
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.xoog366856d'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.k07z9x6yd7m'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.k07z9x6yd7m'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.xoog366856d'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.xoog366856d'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.lxaex4d9ow'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.lxaex4d9ow'
+}
+[Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i1ynhm2jqvc'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.i1ynhm2jqvc'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.zfy754oe2vo'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/aaugsbur/rudy_site/.next/static/development/_buildManifest.js.tmp.zfy754oe2vo'
 }
