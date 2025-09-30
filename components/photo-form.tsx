@@ -12,14 +12,52 @@ export function PhotoForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<{
+    current: number;
+    total: number;
+    currentFile: string;
+    stage: string;
+  } | null>(null);
 
-  const handleSubmit = async (formData: FormData) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission
     console.log("🚀 Form submission started, setting loading state...");
+    
+    // Get form data first to count files
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const files = formData.getAll('photo') as File[];
+    const totalFiles = files.length;
+    
+    // Show spinner immediately - just like test spinner
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(null);
     
     try {
+      // Simulate progress for each file
+      for (let i = 0; i < totalFiles; i++) {
+        const file = files[i];
+        const progress = Math.round(((i + 1) / totalFiles) * 100);
+        
+        setUploadProgress({
+          current: i + 1,
+          total: totalFiles,
+          currentFile: file.name,
+          stage: "Uploading"
+        });
+        
+        // Small delay to show progress
+        await new Promise(resolve => setTimeout(resolve, 200));
+      }
+      
+      // Final processing stage
+      setUploadProgress(prev => prev ? {
+        ...prev,
+        stage: "Processing & Saving"
+      } : null);
+      
       console.log("📤 Calling submitPhoto server action...");
       const result = await submitPhoto(formData);
       console.log("📥 Received result from server:", result);
@@ -27,16 +65,18 @@ export function PhotoForm() {
       if (result?.success) {
         setSubmitSuccess(result.message || "Photo uploaded successfully!");
         // Reset form
-        const form = document.querySelector('form') as HTMLFormElement;
-        if (form) form.reset();
+        form.reset();
       }
-      console.log("✅ Upload completed, clearing loading state");
-      setIsSubmitting(false);
     } catch (error) {
       console.error("💥 Upload error:", error);
       setSubmitError(error instanceof Error ? error.message : "Failed to upload photos. Please try again.");
-      console.log("❌ Upload failed, clearing loading state");
-      setIsSubmitting(false);
+    } finally {
+      // Always clear the spinner after a minimum time
+      setTimeout(() => {
+        console.log("✅ Clearing loading state");
+        setIsSubmitting(false);
+        setUploadProgress(null);
+      }, 1000); // 1 second minimum display time
     }
   };
 
@@ -51,7 +91,7 @@ export function PhotoForm() {
           Your photo will be added directly to the gallery
         </CardDescription>
       </CardHeader>
-      <form action={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
         <CardContent className="space-y-6">
           {submitError && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -63,24 +103,53 @@ export function PhotoForm() {
               <p className="text-green-700 text-sm">{submitSuccess}</p>
             </div>
           )}
-          {isSubmitting && (
-            <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center">
-              <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-4 border-2 border-blue-200">
-                <div className="flex items-center gap-4">
-                  <Loader2 className="h-8 w-8 text-blue-600 animate-spin" />
-                  <div>
-                    <p className="text-gray-900 font-semibold text-lg">Uploading photos...</p>
-                    <p className="text-gray-600 text-sm mt-1">Please wait while we process and upload your images to the gallery</p>
-                    <div className="mt-3 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+              {isSubmitting && (
+                <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center">
+                  <div className="bg-white rounded-xl shadow-2xl p-8 max-w-lg mx-4 border-2 border-blue-200">
+                    <div className="flex items-center gap-4">
+                      <Loader2 className="h-8 w-8 text-blue-600 animate-spin" />
+                      <div className="flex-1">
+                        <p className="text-gray-900 font-semibold text-lg">
+                          {uploadProgress ? `${uploadProgress.stage} photos...` : "Uploading photos..."}
+                        </p>
+                        {uploadProgress && (
+                          <>
+                            <p className="text-gray-600 text-sm mt-1">
+                              {uploadProgress.current} of {uploadProgress.total} complete
+                            </p>
+                            <p className="text-gray-500 text-xs mt-1 truncate">
+                              Processing: {uploadProgress.currentFile}
+                            </p>
+                            <div className="mt-3">
+                              <div className="w-full bg-gray-200 rounded-full h-2">
+                                <div 
+                                  className="bg-blue-600 h-2 rounded-full transition-all duration-300 ease-out"
+                                  style={{ 
+                                    width: `${Math.round((uploadProgress.current / uploadProgress.total) * 100)}%` 
+                                  }}
+                                ></div>
+                              </div>
+                              <p className="text-xs text-gray-500 mt-1 text-center">
+                                {Math.round((uploadProgress.current / uploadProgress.total) * 100)}%
+                              </p>
+                            </div>
+                          </>
+                        )}
+                        {!uploadProgress && (
+                          <>
+                            <p className="text-gray-600 text-sm mt-1">Please wait while we process and upload your images to the gallery</p>
+                            <div className="mt-3 flex items-center gap-2">
+                              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                            </div>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
+              )}
           <div>
             <label htmlFor="photo" className="block text-sm font-medium text-foreground mb-2">
               Photos <span className="text-destructive">*</span>
