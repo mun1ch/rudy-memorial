@@ -28,7 +28,7 @@ async function getEmailSettings(): Promise<EmailSettings> {
     const settingsFile = path.join(process.cwd(), 'public', 'email-settings.json');
     const data = await fs.readFile(settingsFile, 'utf-8');
     return JSON.parse(data);
-  } catch (error) {
+  } catch {
     console.log("No email settings found, notifications disabled");
     return {
       notificationEmails: [],

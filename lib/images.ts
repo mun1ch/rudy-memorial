@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { logger, createLogger } from "./logger";
+import { createLogger } from "./logger";
 import { createServiceClient } from "./supabase/server";
 
 export interface ImageProcessingResult {
@@ -100,7 +100,7 @@ export async function processImage(
   }
 }
 
-export function generateStoragePath(file: File): string {
+export function generateStoragePath(_file: File): string {
   const timestamp = Date.now();
   const randomId = Math.random().toString(36).substring(2, 15);
   const extension = "jpg"; // Always JPEG after processing

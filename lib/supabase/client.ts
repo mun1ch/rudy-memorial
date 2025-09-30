@@ -25,7 +25,7 @@ export function createClient() {
           getPublicUrl: () => ({ data: { publicUrl: '/mock-url' } })
         })
       }
-    } as any;
+    } as unknown;
   }
 
   return createBrowserClient(

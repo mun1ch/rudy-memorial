@@ -26,7 +26,7 @@ export async function createClient() {
           getPublicUrl: () => ({ data: { publicUrl: '/mock-url' } })
         })
       }
-    } as any;
+    } as unknown;
   }
 
   const cookieStore = await cookies();

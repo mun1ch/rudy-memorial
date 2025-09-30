@@ -19,7 +19,7 @@ export function rateLimit(
 ): { success: boolean; remaining: number; resetTime: number } {
   const ip = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
   const now = Date.now();
-  const windowStart = now - config.windowMs;
+  // const windowStart = now - config.windowMs; // Not currently used
 
   // Clean up expired entries
   for (const [key, value] of rateLimitMap.entries()) {
