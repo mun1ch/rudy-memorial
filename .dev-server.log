@@ -11076,3 +11076,27 @@ https://nextjs.org/docs/messages/module-not-found
  POST /admin/memories 200 in 72ms
  GET /memorial-wall 200 in 460ms
  GET /api/photos 200 in 280ms
+ GET /api/photos 200 in 282ms
+ GET / 200 in 135ms
+ GET /api/photos 200 in 444ms
+ GET /gallery 200 in 339ms
+ GET /api/photos 200 in 610ms
+ GET /api/photos 200 in 539ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 606ms
+ GET /api/photos 200 in 602ms
+ GET /memories 200 in 473ms
+ GET /memorial-wall 200 in 167ms
+ GET /api/photos 200 in 1215ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 311ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 462ms
+ GET /api/photos 200 in 708ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 279ms
+ GET /api/photos 200 in 291ms
