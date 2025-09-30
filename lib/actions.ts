@@ -10,6 +10,7 @@ import { headers } from "next/headers";
 import { promises as fs } from "fs";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
+import { createHash } from "crypto";
 import { sendPhotoUploadNotification, sendMemorySubmissionNotification } from "@/lib/email";
 
 export async function submitTribute(formData: FormData) {
@@ -209,6 +210,10 @@ export async function submitPhoto(formData: FormData) {
       const fileBuffer = Buffer.from(await validatedData.file.arrayBuffer());
       console.log(`📦 File ${i + 1} converted to buffer, size:`, fileBuffer.length);
       
+      // Calculate MD5 hash for duplicate detection
+      const md5Hash = createHash('md5').update(fileBuffer).digest('hex');
+      console.log(`🔍 MD5 hash for file ${i + 1}:`, md5Hash);
+      
       // Generate a unique filename with index to avoid collisions
       const timestamp = baseTimestamp + i;
       const fileExtension = validatedData.file.name.split('.').pop() || 'jpg';
@@ -235,6 +240,7 @@ export async function submitPhoto(formData: FormData) {
         contributorName: validatedData.name || null,
         fileSize: validatedData.file.size,
         mimeType: validatedData.file.type,
+        md5Hash,
         uploadedAt: new Date().toISOString(),
         approved: true
       };

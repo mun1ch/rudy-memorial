@@ -6888,3 +6888,655 @@ https://nextjs.org/docs/messages/module-not-found
  GET /api/photos 200 in 325ms
  GET /api/photos 200 in 337ms
  GET /api/photos 200 in 439ms
+ GET /api/photos 200 in 365ms
+ GET /api/photos 200 in 365ms
+ ✓ Compiled in 107ms
+ GET /gallery 200 in 268ms
+ GET /gallery 200 in 268ms
+ GET /admin/dashboard 200 in 290ms
+ GET /gallery 200 in 309ms
+ GET /gallery 200 in 312ms
+ GET /admin/dashboard 200 in 333ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 553ms
+ GET /api/photos 200 in 334ms
+ ✓ Compiled in 309ms
+ GET /gallery 200 in 1471ms
+ GET /gallery 200 in 1480ms
+ GET /admin/dashboard 200 in 1497ms
+ GET /admin/dashboard 200 in 639ms
+ GET /gallery 200 in 654ms
+ GET /gallery 200 in 344ms
+ GET /api/photos 200 in 419ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 351ms
+ GET / 200 in 198ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 398ms
+ ✓ Compiled in 330ms
+ GET /gallery 200 in 361ms
+ GET / 200 in 435ms
+ GET /gallery 200 in 436ms
+ GET / 200 in 234ms
+ GET /gallery 200 in 237ms
+ GET /gallery 200 in 315ms
+ GET /api/photos 200 in 521ms
+ GET / 200 in 191ms
+ GET /gallery 200 in 198ms
+ GET /gallery 200 in 203ms
+ GET /gallery 200 in 485ms
+ GET / 200 in 492ms
+ GET /gallery 200 in 590ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 832ms
+ GET /api/photos 200 in 478ms
+ ✓ Compiled in 86ms
+ ✓ Compiled /gallery in 82ms
+ GET /gallery 200 in 755ms
+ GET / 200 in 760ms
+ GET /gallery 200 in 764ms
+ GET / 200 in 177ms
+ GET /gallery 200 in 179ms
+ GET /gallery 200 in 183ms
+ GET / 200 in 141ms
+ GET /gallery 200 in 181ms
+ GET /gallery 200 in 184ms
+ GET / 200 in 206ms
+ GET /gallery 200 in 237ms
+ GET /gallery 200 in 237ms
+ GET / 200 in 758ms
+ GET /gallery 200 in 674ms
+ GET /gallery 200 in 802ms
+ GET / 200 in 800ms
+ GET /gallery 200 in 808ms
+ GET /gallery 200 in 737ms
+ GET / 200 in 284ms
+ GET /gallery 200 in 299ms
+ GET /gallery 200 in 316ms
+ GET / 200 in 590ms
+ GET /gallery 200 in 710ms
+ GET /gallery 200 in 736ms
+ GET /api/photos 200 in 909ms
+ GET / 200 in 414ms
+ GET /gallery 200 in 287ms
+ GET /gallery 200 in 299ms
+ GET / 200 in 373ms
+ GET /gallery 200 in 416ms
+ GET /gallery 200 in 478ms
+ GET / 200 in 361ms
+ GET /gallery 200 in 313ms
+ GET /gallery 200 in 215ms
+ GET /api/photos 200 in 540ms
+ GET / 200 in 187ms
+ GET /gallery 200 in 191ms
+ GET /gallery 200 in 208ms
+ GET / 200 in 216ms
+ GET /gallery 200 in 218ms
+ GET /gallery 200 in 302ms
+ GET /api/photos 200 in 283ms
+ GET /gallery 200 in 288ms
+ GET /api/photos 200 in 497ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 501ms
+ GET /api/photos 200 in 578ms
+ ✓ Compiled /admin in 81ms
+ GET /admin 307 in 321ms
+ ✓ Compiled /admin/dashboard in 182ms
+ GET /admin/dashboard 200 in 1305ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 282ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 54ms
+ GET /api/photos 200 in 628ms
+ GET /api/photos 200 in 606ms
+ ✓ Compiled /admin/photos in 55ms
+ GET /admin/photos 200 in 276ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 203ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 1293ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 648ms
+ GET /api/photos 200 in 456ms
+ GET /admin/dashboard 200 in 153ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 100ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 237ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 170ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 78ms
+ GET /api/photos 200 in 489ms
+ GET /api/photos 200 in 328ms
+ POST /api/admin/logout 200 in 333ms
+ GET / 200 in 110ms
+ GET / 200 in 254ms
+ GET /api/photos 200 in 441ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 292ms
+ GET /admin 307 in 144ms
+ ✓ Compiled /admin-login in 31ms
+ GET /admin-login 200 in 112ms
+ POST /api/admin/login 200 in 285ms
+ GET /admin/dashboard 200 in 122ms
+ GET /admin/dashboard 200 in 438ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 130ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 79ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 57ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 76ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 394ms
+ GET /api/photos 200 in 380ms
+ GET /api/photos 200 in 369ms
+ ✓ Compiled in 257ms
+ GET /gallery 200 in 252ms
+ GET /gallery 200 in 253ms
+ GET /admin/dashboard 200 in 262ms
+ GET /api/photos 200 in 356ms
+ ✓ Compiled /admin/photos in 144ms
+ GET /admin/photos 200 in 460ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 115ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 317ms
+ GET /admin/dashboard 200 in 146ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 99ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 137ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 98ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 106ms
+ GET /admin/photos 200 in 111ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 131ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 111ms
+ ✓ Compiled in 320ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 326ms
+ ✓ Compiled in 105ms
+ GET /api/photos 200 in 319ms
+ GET /admin/photos 200 in 365ms
+ GET /admin/dashboard 200 in 153ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 203ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 64ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 78ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 70ms
+ GET /admin/photos 200 in 310ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 158ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 178ms
+ GET /api/photos 200 in 306ms
+ ✓ Compiled in 277ms
+ GET /admin/dashboard 200 in 117ms
+ GET /api/photos 200 in 280ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 177ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 68ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 110ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 60ms
+ GET /admin/photos 200 in 264ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 155ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 1884ms
+ POST /admin/photos 200 in 242ms
+ ✓ Compiled in 135ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 375ms
+ ✓ Compiled in 208ms
+ GET /api/photos 500 in 778ms
+ GET /api/photos 500 in 388ms
+ GET /api/photos 500 in 262ms
+ ✓ Compiled in 194ms
+ ✓ Compiled /admin/photos in 241ms
+ GET /gallery 200 in 497ms
+ GET /gallery 200 in 846ms
+ GET /admin/photos 200 in 807ms
+ GET /api/photos 200 in 326ms
+ GET /gallery 200 in 206ms
+ GET /api/photos 200 in 352ms
+ GET /api/photos 200 in 341ms
+ ✓ Compiled /memories in 59ms
+ GET /memories 200 in 142ms
+ ✓ Compiled /memories/photo in 106ms
+ GET /memories/photo 200 in 504ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 472ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 382ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20220704_194812.jpg, 2810385 bytes)
+  caption: 
+  name: 
+📁 Files received: 1 files
+📁 File 1: 20220704_194812.jpg 2810385 image/jpeg
+📝 Caption: 
+👤 Name: 
+✅ Processing 1 valid files
+💾 Starting file operations...
+📁 Uploads directory: /Users/aaugsbur/rudy_site/public/uploads
+✅ Uploads directory created/verified
+📄 Photos JSON file: /Users/aaugsbur/rudy_site/public/photos.json
+📖 Loaded existing photos: 36
+🔄 Processing file 1/1: 20220704_194812.jpg
+📦 File 1 converted to buffer, size: 2810385
+🔍 MD5 hash for file 1: 774971636a2118b8899691f23ad7e7c0
+📝 Generated filename for file 1: photo_1759263393359.jpg
+💾 Saving file 1 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759263393359.jpg
+✅ File 1 saved successfully
+🔗 Public URL for file 1: /uploads/photo_1759263393359.jpg
+➕ Added new photo 1 to array: photo_1759263393359
+✅ Added 1 photos to gallery
+💾 Photos JSON updated successfully
+✅ 1 photo(s) upload completed successfully!
+📧 Email sent successfully to losaugs@gmail.com: <55cbd0d0-8a3c-7e61-6089-d15dd0bf9d46@gmail.com>
+📧 Photo upload notifications sent to 1 recipients
+ POST /memories/photo 200 in 1961ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 342ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20220704_194812.jpg, 2810385 bytes)
+  caption: 
+  name: 
+📁 Files received: 1 files
+📁 File 1: 20220704_194812.jpg 2810385 image/jpeg
+📝 Caption: 
+👤 Name: 
+✅ Processing 1 valid files
+💾 Starting file operations...
+📁 Uploads directory: /Users/aaugsbur/rudy_site/public/uploads
+✅ Uploads directory created/verified
+📄 Photos JSON file: /Users/aaugsbur/rudy_site/public/photos.json
+📖 Loaded existing photos: 37
+🔄 Processing file 1/1: 20220704_194812.jpg
+📦 File 1 converted to buffer, size: 2810385
+🔍 MD5 hash for file 1: 774971636a2118b8899691f23ad7e7c0
+📝 Generated filename for file 1: photo_1759263399521.jpg
+💾 Saving file 1 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759263399521.jpg
+✅ File 1 saved successfully
+🔗 Public URL for file 1: /uploads/photo_1759263399521.jpg
+➕ Added new photo 1 to array: photo_1759263399521
+✅ Added 1 photos to gallery
+💾 Photos JSON updated successfully
+✅ 1 photo(s) upload completed successfully!
+📧 Email sent successfully to losaugs@gmail.com: <b8aa2d4a-bc1f-37b6-635c-648a3143f519@gmail.com>
+📧 Photo upload notifications sent to 1 recipients
+ POST /memories/photo 200 in 1832ms
+ GET /gallery 200 in 327ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 286ms
+ GET /admin 307 in 170ms
+ GET /admin/dashboard 200 in 140ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 119ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 63ms
+ GET /api/photos 200 in 331ms
+ GET /admin/photos 200 in 98ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 110ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 148ms
+ GET /api/photos 200 in 295ms
+ GET /gallery 200 in 169ms
+ GET /api/photos 200 in 462ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 290ms
+ GET /gallery 200 in 272ms
+ GET /api/photos 200 in 330ms
+ GET /memories 200 in 557ms
+ GET /memories/photo 200 in 133ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 298ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20220704_194812.jpg, 2810385 bytes)
+  caption: 
+  name: 
+📁 Files received: 1 files
+📁 File 1: 20220704_194812.jpg 2810385 image/jpeg
+📝 Caption: 
+👤 Name: 
+✅ Processing 1 valid files
+💾 Starting file operations...
+📁 Uploads directory: /Users/aaugsbur/rudy_site/public/uploads
+✅ Uploads directory created/verified
+📄 Photos JSON file: /Users/aaugsbur/rudy_site/public/photos.json
+📖 Loaded existing photos: 38
+🔄 Processing file 1/1: 20220704_194812.jpg
+📦 File 1 converted to buffer, size: 2810385
+🔍 MD5 hash for file 1: 774971636a2118b8899691f23ad7e7c0
+📝 Generated filename for file 1: photo_1759263451092.jpg
+💾 Saving file 1 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759263451092.jpg
+✅ File 1 saved successfully
+🔗 Public URL for file 1: /uploads/photo_1759263451092.jpg
+➕ Added new photo 1 to array: photo_1759263451092
+✅ Added 1 photos to gallery
+💾 Photos JSON updated successfully
+✅ 1 photo(s) upload completed successfully!
+📧 Email sent successfully to losaugs@gmail.com: <110c073c-1996-12f6-4b6f-e8985abcba73@gmail.com>
+📧 Photo upload notifications sent to 1 recipients
+ POST /memories/photo 200 in 1868ms
+ GET /api/photos 200 in 449ms
+ GET /gallery 200 in 194ms
+ GET /api/photos 200 in 383ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 453ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 347ms
+ GET /admin 307 in 198ms
+ GET /admin/dashboard 200 in 165ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 244ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 104ms
+ GET /admin/photos 200 in 119ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 104ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 116ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 279ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 328ms
+ ✓ Compiled in 104ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 297ms
+ ✓ Compiled in 105ms
+ GET /admin/photos 200 in 694ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 570ms
+ GET /favicon.ico 200 in 687ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 714ms
+ GET /api/photos 200 in 1322ms
+ POST /admin/photos 200 in 1073ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 101ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1259ms
+ POST /admin/photos 200 in 218ms
+ GET /api/photos 200 in 340ms
+ ✓ Compiled in 105ms
+ GET /api/photos 200 in 392ms
+ GET /admin/dashboard 200 in 109ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 82ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 62ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 109ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 67ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 442ms
+ GET /api/photos 200 in 330ms
+ GET /admin/photos 200 in 326ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 129ms
+ POST /admin/photos 200 in 265ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 127ms
+ POST /admin/photos 200 in 78ms
+ ✓ Compiled in 81ms
+ GET /api/photos 200 in 472ms
+ GET /gallery 200 in 209ms
+ GET /api/photos 200 in 419ms
+ GET /api/photos 200 in 1336ms
+ GET /api/photos 200 in 329ms
+ ✓ Compiled in 95ms
+ GET /gallery 200 in 117ms
+ GET /gallery 200 in 118ms
+ GET /gallery 200 in 144ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 442ms
+ GET /api/photos 200 in 300ms
+ ✓ Compiled in 297ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 348ms
+ GET /admin 307 in 209ms
+ ✓ Compiled /admin/dashboard in 61ms
+ GET /admin/dashboard 200 in 801ms
+ GET /api/photos 200 in 713ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 348ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 61ms
+ POST /admin/dashboard 200 in 72ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 211ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 69ms
+ POST /admin/dashboard 200 in 72ms
+ GET /admin/photos?filter=duplicates 200 in 282ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 290ms
+ POST /admin/photos?filter=duplicates 200 in 176ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 129ms
+ POST /admin/photos?filter=duplicates 200 in 103ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 296ms
+ ✓ Compiled in 210ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 432ms
+ POST /admin/photos?filter=duplicates 200 in 116ms
+ GET /api/photos 200 in 306ms
+ ✓ Compiled in 103ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 430ms
+ GET /api/photos 200 in 352ms
+ GET /api/photos 200 in 284ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 363ms
+ GET /api/photos 200 in 330ms
+ GET /admin 307 in 378ms
+ GET /admin/dashboard 200 in 299ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 142ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 97ms
+ POST /admin/dashboard 200 in 74ms
+ GET /api/photos 200 in 263ms
+ GET /admin/photos?filter=duplicates 200 in 227ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 273ms
+ POST /admin/photos?filter=duplicates 200 in 62ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 105ms
+ POST /admin/photos?filter=duplicates 200 in 105ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 366ms
+ GET /api/photos 200 in 366ms
+ GET /gallery 200 in 186ms
+ GET /api/photos 200 in 293ms
+ GET /memories 200 in 317ms
+ GET /memories/photo 200 in 139ms
+ GET /api/photos 200 in 431ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 293ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(20220704_194812.jpg, 2810385 bytes)
+  caption: Sup
+  name: Alex A
+📁 Files received: 1 files
+📁 File 1: 20220704_194812.jpg 2810385 image/jpeg
+📝 Caption: Sup
+👤 Name: Alex A
+✅ Processing 1 valid files
+💾 Starting file operations...
+📁 Uploads directory: /Users/aaugsbur/rudy_site/public/uploads
+✅ Uploads directory created/verified
+📄 Photos JSON file: /Users/aaugsbur/rudy_site/public/photos.json
+📖 Loaded existing photos: 39
+🔄 Processing file 1/1: 20220704_194812.jpg
+📦 File 1 converted to buffer, size: 2810385
+🔍 MD5 hash for file 1: 774971636a2118b8899691f23ad7e7c0
+📝 Generated filename for file 1: photo_1759263651278.jpg
+💾 Saving file 1 to: /Users/aaugsbur/rudy_site/public/uploads/photo_1759263651278.jpg
+✅ File 1 saved successfully
+🔗 Public URL for file 1: /uploads/photo_1759263651278.jpg
+➕ Added new photo 1 to array: photo_1759263651278
+✅ Added 1 photos to gallery
+💾 Photos JSON updated successfully
+✅ 1 photo(s) upload completed successfully!
+ GET /api/photos 200 in 275ms
+📧 Email sent successfully to losaugs@gmail.com: <6841befd-ff60-1810-3d48-00a53ffda738@gmail.com>
+📧 Photo upload notifications sent to 1 recipients
+ POST /memories/photo 200 in 2722ms
+ GET /gallery 200 in 131ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 282ms
+ GET /admin 307 in 138ms
+ GET /admin/dashboard 200 in 118ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 79ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 64ms
+ POST /admin/dashboard 200 in 54ms
+ GET /api/photos 200 in 306ms
+ GET /admin/photos?filter=duplicates 200 in 101ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 108ms
+ POST /admin/photos?filter=duplicates 200 in 118ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 1367ms
+ POST /admin/photos?filter=duplicates 200 in 73ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 358ms
+ GET /api/photos 200 in 346ms
+ POST /admin/photos?filter=duplicates 200 in 176ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 465ms
+ GET /api/photos 200 in 294ms
+ POST /admin/photos?filter=duplicates 200 in 186ms
+ POST /admin/photos?filter=duplicates 200 in 109ms
+ GET /api/photos 200 in 359ms
+ POST /admin/photos?filter=duplicates 200 in 86ms
+ POST /admin/photos?filter=duplicates 200 in 140ms
+ POST /admin/photos?filter=duplicates 200 in 116ms
+ POST /admin/photos?filter=duplicates 200 in 144ms
+ POST /admin/photos?filter=duplicates 200 in 153ms
+ POST /admin/photos?filter=duplicates 200 in 127ms
+ POST /admin/photos?filter=duplicates 200 in 109ms
+ POST /admin/photos?filter=duplicates 200 in 85ms
+ POST /admin/photos?filter=duplicates 200 in 130ms
+ POST /admin/photos?filter=duplicates 200 in 93ms
+ POST /admin/photos?filter=duplicates 200 in 82ms
+ POST /admin/photos?filter=duplicates 200 in 112ms
+ POST /admin/photos?filter=duplicates 200 in 103ms
+ POST /admin/photos?filter=duplicates 200 in 81ms
+ POST /admin/photos?filter=duplicates 200 in 143ms
+ POST /admin/photos?filter=duplicates 200 in 92ms
+ POST /admin/photos?filter=duplicates 200 in 73ms
+ POST /admin/photos?filter=duplicates 200 in 80ms
+ POST /admin/photos?filter=duplicates 200 in 77ms
+ POST /admin/photos?filter=duplicates 200 in 76ms
+ POST /admin/photos?filter=duplicates 200 in 92ms
+ POST /admin/photos?filter=duplicates 200 in 88ms
+ POST /admin/photos?filter=duplicates 200 in 80ms
+ POST /admin/photos?filter=duplicates 200 in 159ms
+ POST /admin/photos?filter=duplicates 200 in 100ms
+ POST /admin/photos?filter=duplicates 200 in 88ms
+ POST /admin/photos?filter=duplicates 200 in 99ms
+ POST /admin/photos?filter=duplicates 200 in 104ms
+ POST /admin/photos?filter=duplicates 200 in 101ms
+ POST /admin/photos?filter=duplicates 200 in 72ms
+ POST /admin/photos?filter=duplicates 200 in 81ms
+ POST /admin/photos?filter=duplicates 200 in 86ms
+ POST /admin/photos?filter=duplicates 200 in 84ms
+ POST /admin/photos?filter=duplicates 200 in 80ms
+ POST /admin/photos?filter=duplicates 200 in 83ms
+ POST /admin/photos?filter=duplicates 200 in 93ms
+ POST /admin/photos?filter=duplicates 200 in 96ms
+ POST /admin/photos?filter=duplicates 200 in 100ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 280ms
+ GET /api/photos 200 in 451ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 403ms
+ GET /api/photos 200 in 366ms
+ ✓ Compiled in 163ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 361ms
+ POST /admin/photos?filter=duplicates 200 in 388ms
+ ✓ Compiled /_not-found/page in 337ms
+ POST /admin/photos?filter=duplicates 200 in 470ms
+ POST /admin/photos?filter=duplicates 200 in 450ms
+ GET /uploads/photo_1759263393359.jpg 404 in 574ms
+ ⨯ The requested resource isn't a valid image for /uploads/photo_1759263393359.jpg received null
+[Error: The requested resource isn't a valid image.] { statusCode: 400 }
+ GET /api/photos 200 in 394ms
+ ✓ Compiled in 261ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=duplicates 200 in 532ms
+ POST /admin/photos?filter=duplicates 200 in 530ms
+ POST /admin/photos?filter=duplicates 200 in 191ms
+ POST /admin/photos?filter=duplicates 200 in 193ms
+ GET /api/photos 200 in 427ms
+ GET /api/photos 200 in 399ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 418ms
+ GET /api/photos 200 in 322ms
+ POST /admin/photos?filter=duplicates 200 in 277ms
+ POST /admin/photos?filter=duplicates 200 in 137ms
+ POST /admin/photos?filter=duplicates 200 in 149ms
+ GET /api/photos 200 in 525ms
+ POST /admin/photos?filter=duplicates 200 in 157ms
+ POST /admin/photos?filter=duplicates 200 in 106ms
+ POST /admin/photos?filter=duplicates 200 in 94ms
+ GET /api/photos 200 in 393ms
+ GET / 200 in 463ms
+ GET /api/photos 200 in 840ms
+ GET /api/photos 200 in 451ms
+ GET /api/photos 200 in 461ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 458ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 392ms
+ GET /api/photos 200 in 404ms

@@ -9,7 +9,7 @@
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.390Z",
     "approved": true,
-    "hidden": true
+    "hidden": false
   },
   {
     "id": "photo_1759253766369",
@@ -20,7 +20,8 @@
     "fileSize": 2810385,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.394Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766370",
@@ -31,7 +32,8 @@
     "fileSize": 4327773,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.399Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766371",
@@ -42,7 +44,8 @@
     "fileSize": 3792324,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.405Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766372",
@@ -53,7 +56,8 @@
     "fileSize": 6114385,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.412Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766373",
@@ -64,7 +68,8 @@
     "fileSize": 3684489,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.418Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766374",
@@ -75,7 +80,8 @@
     "fileSize": 4608702,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.425Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766375",
@@ -86,7 +92,8 @@
     "fileSize": 2980306,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.431Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766376",
@@ -97,7 +104,8 @@
     "fileSize": 4079796,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.435Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766377",
@@ -108,7 +116,8 @@
     "fileSize": 4605065,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.440Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766378",
@@ -119,7 +128,8 @@
     "fileSize": 36296,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.441Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766379",
@@ -130,7 +140,8 @@
     "fileSize": 19556,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.442Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766380",
@@ -141,7 +152,8 @@
     "fileSize": 31018,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.443Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766381",
@@ -152,7 +164,8 @@
     "fileSize": 23491,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.443Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766382",
@@ -163,7 +176,8 @@
     "fileSize": 60565,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.444Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766383",
@@ -174,7 +188,8 @@
     "fileSize": 32796,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.445Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766384",
@@ -185,7 +200,8 @@
     "fileSize": 76083,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.445Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766385",
@@ -196,7 +212,8 @@
     "fileSize": 48984,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.447Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766386",
@@ -207,7 +224,8 @@
     "fileSize": 37375,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.447Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766387",
@@ -218,7 +236,8 @@
     "fileSize": 41584,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.449Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766388",
@@ -229,7 +248,8 @@
     "fileSize": 33028,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.450Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766389",
@@ -240,7 +260,8 @@
     "fileSize": 60192,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.451Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759253766390",
@@ -251,7 +272,8 @@
     "fileSize": 24568,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:36:06.452Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759254842481",
@@ -262,7 +284,8 @@
     "fileSize": 4303658,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:54:02.486Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759254956405",
@@ -273,7 +296,8 @@
     "fileSize": 4303658,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:55:56.418Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759255129426",
@@ -284,7 +308,8 @@
     "fileSize": 3792324,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:58:49.431Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759255129427",
@@ -295,7 +320,8 @@
     "fileSize": 6114385,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:58:49.450Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759255129428",
@@ -306,7 +332,8 @@
     "fileSize": 3684489,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:58:49.457Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759255129429",
@@ -317,7 +344,8 @@
     "fileSize": 4608702,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T17:58:49.464Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759255627899",
@@ -328,7 +356,8 @@
     "fileSize": 4303658,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:07:07.903Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759255692730",
@@ -339,7 +368,8 @@
     "fileSize": 36296,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:08:12.731Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759256119754",
@@ -350,7 +380,8 @@
     "fileSize": 3684489,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:15:19.758Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759256161073",
@@ -361,7 +392,8 @@
     "fileSize": 4303658,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:16:01.083Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759256206511",
@@ -372,7 +404,8 @@
     "fileSize": 36296,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:16:46.513Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759256235071",
@@ -383,7 +416,8 @@
     "fileSize": 36296,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:17:15.074Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   },
   {
     "id": "photo_1759256507313",
@@ -394,6 +428,7 @@
     "fileSize": 60192,
     "mimeType": "image/jpeg",
     "uploadedAt": "2025-09-30T18:21:47.315Z",
-    "approved": true
+    "approved": true,
+    "hidden": false
   }
 ]

@@ -4,10 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Image as ImageIcon, 
   MessageCircle, 
-  EyeOff
+  EyeOff,
+  Copy
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getPhotos, getMemories } from "@/lib/admin-actions";
+import { getPhotos, getMemories, findDuplicatePhotos } from "@/lib/admin-actions";
 import Link from "next/link";
 
 interface Photo {
@@ -35,6 +36,7 @@ interface Memory {
 export default function AdminDashboard() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [memories, setMemories] = useState<Memory[]>([]);
+  const [duplicates, setDuplicates] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,9 +46,10 @@ export default function AdminDashboard() {
   const loadData = async () => {
     setLoading(true);
     try {
-      const [photosResult, memoriesResult] = await Promise.all([
+      const [photosResult, memoriesResult, duplicatesResult] = await Promise.all([
         getPhotos(),
-        getMemories()
+        getMemories(),
+        findDuplicatePhotos()
       ]);
       
       if (photosResult.success) {
@@ -55,6 +58,10 @@ export default function AdminDashboard() {
       
       if (memoriesResult.success) {
         setMemories(memoriesResult.tributes);
+      }
+      
+      if (duplicatesResult.success) {
+        setDuplicates(duplicatesResult.duplicates);
       }
     } catch (error) {
       console.error("Error loading data:", error);
@@ -85,7 +92,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Stats */}
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-5">
           <Link href="/admin/photos">
             <Card className="cursor-pointer hover:shadow-md transition-shadow">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -136,6 +143,21 @@ export default function AdminDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{memories.filter(m => m.hidden).length}</div>
+              </CardContent>
+            </Card>
+          </Link>
+          
+          <Link href="/admin/photos?filter=duplicates">
+            <Card className="cursor-pointer hover:shadow-md transition-shadow">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Duplicate Photos</CardTitle>
+                <Copy className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{duplicates.flat().length}</div>
+                <p className="text-xs text-muted-foreground">
+                  {duplicates.length} group{duplicates.length !== 1 ? 's' : ''}
+                </p>
               </CardContent>
             </Card>
           </Link>

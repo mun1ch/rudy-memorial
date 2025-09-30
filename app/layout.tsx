@@ -102,7 +102,7 @@ export default function RootLayout({
                 </div>
                 <div className="flex items-center space-x-4">
                   <p className="text-sm text-muted-foreground">
-                    © 2024 Rudy Memorial
+                    © 2025 Rudy Memorial
                   </p>
                 </div>
               </div>

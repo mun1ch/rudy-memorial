@@ -406,3 +406,40 @@ export async function updateEmailSettings(notificationEmails: string[], notifica
     return { success: false, error: "Failed to update email settings" };
   }
 }
+
+export async function findDuplicatePhotos() {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    
+    const photosFile = path.join(process.cwd(), 'public', 'photos.json');
+    let photos = [];
+    
+    try {
+      const data = await fs.readFile(photosFile, 'utf-8');
+      photos = JSON.parse(data);
+    } catch (error) {
+      return { success: false, error: "No photos file found" };
+    }
+    
+    // Group photos by MD5 hash
+    const hashGroups: { [key: string]: any[] } = {};
+    
+    photos.forEach((photo: any) => {
+      if (photo.md5Hash) {
+        if (!hashGroups[photo.md5Hash]) {
+          hashGroups[photo.md5Hash] = [];
+        }
+        hashGroups[photo.md5Hash].push(photo);
+      }
+    });
+    
+    // Find groups with more than one photo (duplicates)
+    const duplicates = Object.values(hashGroups).filter(group => group.length > 1);
+    
+    return { success: true, duplicates };
+  } catch (error) {
+    console.error("Error finding duplicate photos:", error);
+    return { success: false, error: "Failed to find duplicate photos" };
+  }
+}

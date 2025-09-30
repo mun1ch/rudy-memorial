@@ -16,10 +16,13 @@ import {
   Save,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Copy,
+  AlertTriangle
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto } from "@/lib/admin-actions";
+import { useSearchParams } from "next/navigation";
+import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,26 +35,55 @@ interface Photo {
   contributorName: string | null;
   fileSize: number;
   mimeType: string;
+  md5Hash?: string;
   uploadedAt: string;
   approved: boolean;
   hidden?: boolean;
 }
 
 export default function AdminPhotosPage() {
+  const searchParams = useSearchParams();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
   const [bulkActionLoading, setBulkActionLoading] = useState(false);
-  const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
+  const [filter, setFilter] = useState<'all' | 'visible' | 'hidden' | 'duplicates'>('all');
   const [editingPhoto, setEditingPhoto] = useState<string | null>(null);
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [duplicates, setDuplicates] = useState<any[]>([]);
+  const [duplicatesLoading, setDuplicatesLoading] = useState(false);
 
   useEffect(() => {
     loadPhotos();
-  }, []);
+    loadDuplicates(); // Load duplicates on page load
+    
+    // Check for filter parameter in URL
+    const filterParam = searchParams.get('filter');
+    if (filterParam && ['all', 'visible', 'hidden', 'duplicates'].includes(filterParam)) {
+      setFilter(filterParam as 'all' | 'visible' | 'hidden' | 'duplicates');
+    }
+  }, [searchParams]);
+
+  const loadDuplicates = async () => {
+    setDuplicatesLoading(true);
+    try {
+      const result = await findDuplicatePhotos();
+      console.log("Duplicate detection result:", result);
+      if (result.success) {
+        console.log("Found duplicates:", result.duplicates);
+        setDuplicates(result.duplicates);
+      } else {
+        console.error("Duplicate detection failed:", result.error);
+      }
+    } catch (error) {
+      console.error("Error loading duplicates:", error);
+    } finally {
+      setDuplicatesLoading(false);
+    }
+  };
 
   const loadPhotos = async () => {
     setLoading(true);
@@ -130,7 +162,8 @@ export default function AdminPhotosPage() {
   };
 
   const selectAllPhotos = () => {
-    setSelectedPhotos(new Set(photos.map(photo => photo.id)));
+    const filteredPhotos = getFilteredPhotos();
+    setSelectedPhotos(new Set(filteredPhotos.map(photo => photo.id)));
   };
 
   const clearSelection = () => {
@@ -220,6 +253,9 @@ export default function AdminPhotosPage() {
         return photos.filter(photo => !photo.hidden);
       case 'hidden':
         return photos.filter(photo => photo.hidden);
+      case 'duplicates':
+        // Flatten all duplicate groups into a single array
+        return duplicates.flat();
       default:
         return photos;
     }
@@ -318,7 +354,7 @@ export default function AdminPhotosPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-4">
           <Card 
             className={`cursor-pointer transition-colors hover:bg-muted/50 ${filter === 'all' ? 'ring-2 ring-primary' : ''}`}
             onClick={() => setFilter('all')}
@@ -357,6 +393,32 @@ export default function AdminPhotosPage() {
               <div className="text-2xl font-bold">{photos.filter(p => p.hidden).length}</div>
             </CardContent>
           </Card>
+          
+          <Card 
+            className={`cursor-pointer transition-colors hover:bg-muted/50 ${filter === 'duplicates' ? 'ring-2 ring-primary' : ''}`}
+            onClick={() => setFilter('duplicates')}
+          >
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Duplicate Photos</CardTitle>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    loadDuplicates();
+                  }}
+                  className="p-1 hover:bg-muted rounded"
+                  title="Refresh duplicates"
+                >
+                  <Copy className="h-4 w-4 text-muted-foreground" />
+                </button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">
+                {duplicatesLoading ? '...' : duplicates.flat().length}
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Bulk Actions */}
@@ -373,7 +435,7 @@ export default function AdminPhotosPage() {
                     variant="outline"
                     size="sm"
                     onClick={selectAllPhotos}
-                    disabled={selectedPhotos.size === photos.length}
+                    disabled={selectedPhotos.size === getFilteredPhotos().length}
                   >
                     Select All
                   </Button>
@@ -440,14 +502,16 @@ export default function AdminPhotosPage() {
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <ImageIcon className="h-5 w-5" />
-                  {filter === 'all' ? 'All Photos' : filter === 'visible' ? 'Visible Photos' : 'Hidden Photos'}
+                  {filter === 'all' ? 'All Photos' : filter === 'visible' ? 'Visible Photos' : filter === 'hidden' ? 'Hidden Photos' : 'Duplicate Photos'}
                 </CardTitle>
                 <CardDescription>
                   {filter === 'all' 
                     ? 'Manage uploaded photos - hide or delete inappropriate content'
                     : filter === 'visible'
                     ? 'Photos currently visible to the public'
-                    : 'Photos hidden from public view'
+                    : filter === 'hidden'
+                    ? 'Photos hidden from public view'
+                    : 'Photos with identical content (same MD5 hash)'
                   }
                   {getFilteredPhotos().length !== photos.length && (
                     <span className="ml-2 text-primary font-medium">
@@ -479,8 +543,88 @@ export default function AdminPhotosPage() {
               </div>
             ) : (
               <>
-                <div className="space-y-4">
-                  {getPaginatedPhotos().map((photo) => (
+                {filter === 'duplicates' ? (
+                  <div className="space-y-6">
+                    {duplicates.map((duplicateGroup, groupIndex) => (
+                      <div key={groupIndex} className="border rounded-lg p-4 bg-orange-50 dark:bg-orange-950/20">
+                        <div className="flex items-center gap-2 mb-4">
+                          <AlertTriangle className="h-5 w-5 text-orange-600" />
+                          <h3 className="font-semibold text-orange-800 dark:text-orange-200">
+                            Duplicate Group {groupIndex + 1} ({duplicateGroup.length} photos)
+                          </h3>
+                          <span className="text-sm text-orange-600 dark:text-orange-400">
+                            MD5: {duplicateGroup[0].md5Hash?.substring(0, 8)}...
+                          </span>
+                        </div>
+                        <div className="space-y-3">
+                          {duplicateGroup.map((photo) => (
+                            <div key={photo.id} className={`flex items-center justify-between rounded-lg border p-3 ${photo.hidden ? 'bg-muted/50' : 'bg-white dark:bg-gray-800'}`}>
+                              <div className="flex items-center space-x-4">
+                                <button
+                                  onClick={() => togglePhotoSelection(photo.id)}
+                                  className="flex-shrink-0 p-1 hover:bg-muted rounded"
+                                >
+                                  {selectedPhotos.has(photo.id) ? (
+                                    <CheckSquare className="h-5 w-5 text-primary" />
+                                  ) : (
+                                    <Square className="h-5 w-5 text-muted-foreground" />
+                                  )}
+                                </button>
+                                <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-muted">
+                                  <Image
+                                    src={photo.url}
+                                    alt={photo.caption || "Photo"}
+                                    fill
+                                    className="object-cover"
+                                  />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <p className="font-medium truncate">
+                                      {photo.caption || "Untitled Photo"}
+                                    </p>
+                                    {photo.hidden && (
+                                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
+                                        <EyeOff className="h-3 w-3 mr-1" />
+                                        Hidden
+                                      </span>
+                                    )}
+                                  </div>
+                                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                    {photo.contributorName && (
+                                      <div className="flex items-center gap-1">
+                                        <User className="h-3 w-3" />
+                                        <span>{photo.contributorName}</span>
+                                      </div>
+                                    )}
+                                    <div className="flex items-center gap-1">
+                                      <Calendar className="h-3 w-3" />
+                                      <span>{formatDate(photo.uploadedAt)}</span>
+                                    </div>
+                                    <span>{formatFileSize(photo.fileSize)}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex space-x-2">
+                                <Button 
+                                  size="sm" 
+                                  variant="outline"
+                                  onClick={() => handleDeletePhoto(photo.id)}
+                                  disabled={actionLoading === photo.id}
+                                  className="text-destructive hover:text-destructive"
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                </Button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {getPaginatedPhotos().map((photo) => (
                   <div key={photo.id} className={`flex items-center justify-between rounded-lg border p-4 ${photo.hidden ? 'bg-muted/50' : ''}`}>
                     <div className="flex items-center space-x-4">
                       <button
@@ -612,8 +756,9 @@ export default function AdminPhotosPage() {
                       )}
                     </div>
                   </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
                 
                 {/* Pagination Controls */}
                 {getTotalPages() > 1 && (
