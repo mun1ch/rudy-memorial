@@ -1,33 +1,41 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, Heart } from "lucide-react";
 import Link from "next/link";
-import { promises as fs } from "fs";
-import path from "path";
+import { useState, useEffect } from "react";
 
 interface Tribute {
   id: string;
   message: string;
-  contributorName: string | null;
+  contributorName: string;
   submittedAt: string;
   approved: boolean;
   hidden?: boolean;
 }
 
-export default async function MemorialWallPage() {
-  // Read tributes from JSON file
-  let tributes: Tribute[] = [];
-  try {
-    const tributesFilePath = path.join(process.cwd(), "public", "tributes.json");
-    const data = await fs.readFile(tributesFilePath, "utf-8");
-    tributes = JSON.parse(data);
-  } catch (error: unknown) {
-    if (error && typeof error === 'object' && 'code' in error && error.code === "ENOENT") {
-      console.log("tributes.json not found, memorial wall will be empty.");
-    } else {
-      console.error("Error reading tributes.json:", error);
-    }
-  }
+export default function MemorialWallPage() {
+  const [tributes, setTributes] = useState<Tribute[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadTributes = async () => {
+      try {
+        const response = await fetch('/api/tributes');
+        if (response.ok) {
+          const data = await response.json();
+          setTributes(data);
+        }
+      } catch (error) {
+        console.error("Error loading tributes:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadTributes();
+  }, []);
 
   return (
     <div className="container py-8">
@@ -60,7 +68,12 @@ export default async function MemorialWallPage() {
           </div>
         </div>
 
-        {tributes.length === 0 ? (
+        {loading ? (
+          <div className="text-center text-muted-foreground py-12">
+            <MessageCircle className="mx-auto h-12 w-12 mb-4 opacity-50 animate-pulse" />
+            <p>Loading memories...</p>
+          </div>
+        ) : tributes.length === 0 ? (
           <div className="text-center text-muted-foreground py-12">
             <MessageCircle className="mx-auto h-12 w-12 mb-4 opacity-50" />
             <p>No memories shared yet. Be the first to share one!</p>

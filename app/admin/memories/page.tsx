@@ -8,7 +8,6 @@ import {
   EyeOff,
   Trash2,
   Calendar,
-  User,
   ArrowLeft,
   CheckSquare,
   Square,
@@ -53,7 +52,7 @@ export default function AdminMemoriesPage() {
     setLoading(true);
     try {
       const result = await getMemories();
-      if (result.success) {
+      if (result.success && result.tributes) {
         setMemories(result.tributes);
       }
     } catch (error) {

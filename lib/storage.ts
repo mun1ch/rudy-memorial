@@ -1,4 +1,4 @@
-import { put, del, list } from '@vercel/blob';
+import { put, list } from '@vercel/blob';
 
 export interface Photo {
   id: string;
@@ -8,6 +8,7 @@ export interface Photo {
   contributorName: string | null;
   fileSize: number;
   mimeType: string;
+  md5Hash: string;
   uploadedAt: string;
   approved: boolean;
   hidden?: boolean;

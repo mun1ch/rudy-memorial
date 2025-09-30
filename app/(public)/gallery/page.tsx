@@ -29,7 +29,6 @@ export default function GalleryPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showFullscreenInfo, setShowFullscreenInfo] = useState(true);
   const currentIndexRef = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
@@ -72,14 +71,6 @@ export default function GalleryPage() {
     return heights[Math.floor(Math.random() * heights.length)];
   };
 
-      const goToPreviousPhoto = () => {
-        if (!selectedPhoto) return;
-        const currentPhotos = getPhotos();
-        const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
-        const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
-        setSelectedPhoto(currentPhotos[previousIndex]);
-        // Don't stop auto-play when navigating programmatically
-      };
 
   const goToPreviousPhotoManual = () => {
     stopAutoPlay();
@@ -103,14 +94,6 @@ export default function GalleryPage() {
     setSelectedPhoto(currentPhotos[nextIndex]);
   };
 
-  const goToNextPhoto = () => {
-    if (!selectedPhoto) return;
-    const currentPhotos = getPhotos();
-    const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
-    const nextIndex = currentIndex < currentPhotos.length - 1 ? currentIndex + 1 : 0;
-    setSelectedPhoto(currentPhotos[nextIndex]);
-    // Don't stop auto-play when navigating programmatically
-  };
 
   const startAutoPlay = () => {
     const currentPhotos = getPhotos();
@@ -163,12 +146,9 @@ export default function GalleryPage() {
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
           setIsFullscreen(true);
-          // Always show info in fullscreen
-          setShowFullscreenInfo(true);
         } else {
           document.exitFullscreen();
           setIsFullscreen(false);
-          setShowFullscreenInfo(false);
         }
       };
 
@@ -190,7 +170,7 @@ export default function GalleryPage() {
         }, 1000);
       };
 
-  const handleKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (!selectedPhoto) return;
     
     switch (event.key) {
@@ -216,7 +196,7 @@ export default function GalleryPage() {
         toggleFullscreen();
         break;
     }
-  };
+  }, [selectedPhoto, goToPreviousPhotoManual, goToNextPhotoManual, toggleAutoPlay, toggleFullscreen]);
 
   useEffect(() => {
     if (selectedPhoto) {
@@ -232,7 +212,7 @@ export default function GalleryPage() {
       document.body.style.overflow = 'unset';
       // DON'T stop auto-play here - it was stopping every time selectedPhoto changed!
     };
-  }, [selectedPhoto]);
+  }, [selectedPhoto, handleKeyDown]);
 
   // Handle fullscreen change events
       useEffect(() => {
@@ -249,8 +229,7 @@ export default function GalleryPage() {
         if (!isFullscreen || !selectedPhoto) return;
 
         const handleMouseMove = () => {
-          // Always keep info visible
-          setShowFullscreenInfo(true);
+          // Mouse move handler for fullscreen
         };
 
         document.addEventListener('mousemove', handleMouseMove);
@@ -545,7 +524,7 @@ export default function GalleryPage() {
                   ease: "easeInOut"
                 }}
               >
-                {getPhotos().map((photo, index) => (
+                {getPhotos().map((photo) => (
                   <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent">
                     <Image
                       src={photo.url}

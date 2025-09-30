@@ -21,7 +21,7 @@ export function PhotoForm() {
     try {
       const result = await submitPhoto(formData);
       if (result?.success) {
-        setSubmitSuccess(result.message);
+        setSubmitSuccess(result.message || "Photo uploaded successfully!");
         // Reset form
         const form = document.querySelector('form') as HTMLFormElement;
         if (form) form.reset();

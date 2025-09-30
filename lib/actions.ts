@@ -3,18 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
-import { createClient } from "@/lib/supabase/server";
 import { tributeSchema, photoUploadSchema } from "@/lib/validation";
-
-interface Tribute {
-  id: string;
-  message: string;
-  contributorName: string;
-  submittedAt: string;
-  approved: boolean;
-  hidden: boolean;
-}
-// import { logger } from "@/lib/logger";
 import { rateLimit } from "@/lib/rate-limit";
 import { headers } from "next/headers";
 import { v4 as uuidv4 } from "uuid";
@@ -45,8 +34,7 @@ export async function submitTribute(formData: FormData) {
     const validatedData = tributeSchema.parse(rawData);
 
     // Store tributes using Vercel Blob storage
-    const { getTributes, addTribute } = await import('./storage');
-    const existingTributes = await getTributes();
+    const { addTribute } = await import('./storage');
 
     const newTribute = {
       id: uuidv4(),

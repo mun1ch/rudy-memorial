@@ -37,7 +37,7 @@ export default function AdminLoginPage() {
       } else {
         setError(data.error || "Invalid password");
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);

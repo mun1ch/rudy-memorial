@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Settings as SettingsIcon, Mail, Plus, X, Save, Bell, BellOff } from "lucide-react";
+import { Mail, Plus, X, Save, Bell, BellOff } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getEmailSettings, updateEmailSettings } from "@/lib/admin-actions";
 
@@ -71,7 +71,7 @@ export default function AdminSettings() {
       } else {
         setMessage({ type: 'error', text: result.error || 'Failed to save email settings' });
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'Failed to save email settings' });
     } finally {
       setSaving(false);

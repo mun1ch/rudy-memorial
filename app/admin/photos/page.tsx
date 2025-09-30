@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -41,7 +42,7 @@ interface Photo {
   hidden?: boolean;
 }
 
-export default function AdminPhotosPage() {
+function AdminPhotosContent() {
   const searchParams = useSearchParams();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +54,7 @@ export default function AdminPhotosPage() {
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [duplicates, setDuplicates] = useState<Photo[][]>([]);
+  const [duplicates, setDuplicates] = useState<{ hash: string; photos: Photo[] }[]>([]);
   const [duplicatesLoading, setDuplicatesLoading] = useState(false);
 
   useEffect(() => {
@@ -255,7 +256,7 @@ export default function AdminPhotosPage() {
         return photos.filter(photo => photo.hidden);
       case 'duplicates':
         // Flatten all duplicate groups into a single array
-        return duplicates.flat();
+        return duplicates.flatMap(duplicate => duplicate.photos);
       default:
         return photos;
     }
@@ -550,14 +551,14 @@ export default function AdminPhotosPage() {
                         <div className="flex items-center gap-2 mb-4">
                           <AlertTriangle className="h-5 w-5 text-orange-600" />
                           <h3 className="font-semibold text-orange-800 dark:text-orange-200">
-                            Duplicate Group {groupIndex + 1} ({duplicateGroup.length} photos)
+                            Duplicate Group {groupIndex + 1} ({duplicateGroup.photos.length} photos)
                           </h3>
                           <span className="text-sm text-orange-600 dark:text-orange-400">
-                            MD5: {duplicateGroup[0].md5Hash?.substring(0, 8)}...
+                            MD5: {duplicateGroup.hash?.substring(0, 8)}...
                           </span>
                         </div>
                         <div className="space-y-3">
-                          {duplicateGroup.map((photo) => (
+                          {duplicateGroup.photos.map((photo) => (
                             <div key={photo.id} className={`flex items-center justify-between rounded-lg border p-3 ${photo.hidden ? 'bg-muted/50' : 'bg-white dark:bg-gray-800'}`}>
                               <div className="flex items-center space-x-4">
                                 <button
@@ -809,5 +810,13 @@ export default function AdminPhotosPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+export default function AdminPhotosPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AdminPhotosContent />
+    </Suspense>
   );
 }

@@ -1,15 +1,13 @@
-import { requireAdmin } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { LogOut, Home, Users, Image, MessageCircle, Settings } from "lucide-react";
+import { Home, Users, Image, MessageCircle, Settings } from "lucide-react";
 import Link from "next/link";
 import { LogoutButton } from "@/components/logout-button";
 
-export default async function AdminLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  await requireAdmin();
 
   return (
     <div className="min-h-screen bg-background">
