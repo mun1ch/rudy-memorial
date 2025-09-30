@@ -350,3 +350,59 @@ export async function editMemory(memoryId: string, message: string, contributorN
     return { success: false, error: "Failed to edit memory" };
   }
 }
+
+// Email notification settings
+export async function getEmailSettings() {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    
+    const settingsFile = path.join(process.cwd(), 'public', 'email-settings.json');
+    let settings = {
+      notificationEmails: [],
+      notificationsEnabled: false
+    };
+    
+    try {
+      const data = await fs.readFile(settingsFile, 'utf-8');
+      settings = JSON.parse(data);
+    } catch (error) {
+      console.log("No email settings file found, using defaults");
+    }
+    
+    return { success: true, settings };
+  } catch (error) {
+    console.error("Error fetching email settings:", error);
+    return { success: false, error: "Failed to fetch email settings" };
+  }
+}
+
+export async function updateEmailSettings(notificationEmails: string[], notificationsEnabled: boolean) {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    
+    // Validate email addresses
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const invalidEmails = notificationEmails.filter(email => !emailRegex.test(email));
+    
+    if (invalidEmails.length > 0) {
+      return { success: false, error: `Invalid email addresses: ${invalidEmails.join(', ')}` };
+    }
+    
+    const settings = {
+      notificationEmails: notificationEmails.filter(email => email.trim() !== ''),
+      notificationsEnabled
+    };
+    
+    const settingsFile = path.join(process.cwd(), 'public', 'email-settings.json');
+    await fs.writeFile(settingsFile, JSON.stringify(settings, null, 2));
+    
+    revalidatePath("/admin/settings");
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating email settings:", error);
+    return { success: false, error: "Failed to update email settings" };
+  }
+}

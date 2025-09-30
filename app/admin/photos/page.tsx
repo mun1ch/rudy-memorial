@@ -14,7 +14,9 @@ import {
   Square,
   Edit3,
   Save,
-  X
+  X,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto } from "@/lib/admin-actions";
@@ -44,6 +46,8 @@ export default function AdminPhotosPage() {
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
   const [editingPhoto, setEditingPhoto] = useState<string | null>(null);
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
   useEffect(() => {
     loadPhotos();
@@ -219,6 +223,27 @@ export default function AdminPhotosPage() {
       default:
         return photos;
     }
+  };
+
+  const getPaginatedPhotos = () => {
+    const filtered = getFilteredPhotos();
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return filtered.slice(startIndex, endIndex);
+  };
+
+  const getTotalPages = () => {
+    const filtered = getFilteredPhotos();
+    return Math.ceil(filtered.length / pageSize);
+  };
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1); // Reset to first page when changing page size
+  };
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
   };
 
   const startEditing = (photo: Photo) => {
@@ -411,23 +436,40 @@ export default function AdminPhotosPage() {
         {/* Photos List */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <ImageIcon className="h-5 w-5" />
-              {filter === 'all' ? 'All Photos' : filter === 'visible' ? 'Visible Photos' : 'Hidden Photos'}
-            </CardTitle>
-            <CardDescription>
-              {filter === 'all' 
-                ? 'Manage uploaded photos - hide or delete inappropriate content'
-                : filter === 'visible'
-                ? 'Photos currently visible to the public'
-                : 'Photos hidden from public view'
-              }
-              {getFilteredPhotos().length !== photos.length && (
-                <span className="ml-2 text-primary font-medium">
-                  ({getFilteredPhotos().length} of {photos.length})
-                </span>
-              )}
-            </CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle className="flex items-center gap-2">
+                  <ImageIcon className="h-5 w-5" />
+                  {filter === 'all' ? 'All Photos' : filter === 'visible' ? 'Visible Photos' : 'Hidden Photos'}
+                </CardTitle>
+                <CardDescription>
+                  {filter === 'all' 
+                    ? 'Manage uploaded photos - hide or delete inappropriate content'
+                    : filter === 'visible'
+                    ? 'Photos currently visible to the public'
+                    : 'Photos hidden from public view'
+                  }
+                  {getFilteredPhotos().length !== photos.length && (
+                    <span className="ml-2 text-primary font-medium">
+                      ({getFilteredPhotos().length} of {photos.length})
+                    </span>
+                  )}
+                </CardDescription>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">Show:</span>
+                <select
+                  value={pageSize}
+                  onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                  className="px-3 py-1 border border-border rounded-md text-sm bg-background"
+                >
+                  <option value={10}>10</option>
+                  <option value={50}>50</option>
+                  <option value={100}>100</option>
+                  <option value={getFilteredPhotos().length}>ALL</option>
+                </select>
+              </div>
+            </div>
           </CardHeader>
           <CardContent>
             {photos.length === 0 ? (
@@ -436,8 +478,9 @@ export default function AdminPhotosPage() {
                 <p>No photos uploaded yet</p>
               </div>
             ) : (
-              <div className="space-y-4">
-                {getFilteredPhotos().map((photo) => (
+              <>
+                <div className="space-y-4">
+                  {getPaginatedPhotos().map((photo) => (
                   <div key={photo.id} className={`flex items-center justify-between rounded-lg border p-4 ${photo.hidden ? 'bg-muted/50' : ''}`}>
                     <div className="flex items-center space-x-4">
                       <button
@@ -569,8 +612,53 @@ export default function AdminPhotosPage() {
                       )}
                     </div>
                   </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+                
+                {/* Pagination Controls */}
+                {getTotalPages() > 1 && (
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t">
+                    <div className="text-sm text-muted-foreground">
+                      Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, getFilteredPhotos().length)} of {getFilteredPhotos().length} photos
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                        Previous
+                      </Button>
+                      
+                      <div className="flex items-center gap-1">
+                        {Array.from({ length: getTotalPages() }, (_, i) => i + 1).map((page) => (
+                          <Button
+                            key={page}
+                            variant={currentPage === page ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => handlePageChange(page)}
+                            className="w-8 h-8 p-0"
+                          >
+                            {page}
+                          </Button>
+                        ))}
+                      </div>
+                      
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === getTotalPages()}
+                      >
+                        Next
+                        <ChevronRight className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </CardContent>
         </Card>

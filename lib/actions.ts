@@ -10,6 +10,7 @@ import { headers } from "next/headers";
 import { promises as fs } from "fs";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
+import { sendPhotoUploadNotification, sendMemorySubmissionNotification } from "@/lib/email";
 
 export async function submitTribute(formData: FormData) {
   try {
@@ -62,6 +63,18 @@ export async function submitTribute(formData: FormData) {
     await fs.writeFile(tributesFilePath, JSON.stringify(existingTributes, null, 2));
 
     console.log("Tribute submitted successfully:", newTribute.id);
+    
+    // Send email notification
+    try {
+      await sendMemorySubmissionNotification({
+        contributorName: validatedData.displayName || null,
+        message: validatedData.message,
+        submittedAt: newTribute.submittedAt
+      });
+    } catch (emailError) {
+      console.error("Failed to send memory notification email:", emailError);
+      // Don't fail the submission if email fails
+    }
     
     // Revalidate the memories page
     revalidatePath("/memories");
@@ -249,6 +262,19 @@ export async function submitPhoto(formData: FormData) {
     console.log("💾 Photos JSON updated successfully");
     
     console.log(`✅ ${newPhotos.length} photo(s) upload completed successfully!`);
+    
+    // Send email notification
+    try {
+      await sendPhotoUploadNotification({
+        contributorName: nameValue || null,
+        caption: captionValue || null,
+        photoCount: newPhotos.length,
+        uploadedAt: new Date().toISOString()
+      });
+    } catch (emailError) {
+      console.error("Failed to send photo upload notification email:", emailError);
+      // Don't fail the upload if email fails
+    }
     
     // Revalidate the gallery page
     revalidatePath("/gallery");

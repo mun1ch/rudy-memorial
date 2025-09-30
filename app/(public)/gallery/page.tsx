@@ -335,7 +335,7 @@ export default function GalleryPage() {
               {photos.length > 0 && (
                 <Button 
                   onClick={startSlideshow}
-                  className="bg-gradient-to-r from-primary/80 to-primary/60 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3"
+                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-6 py-3"
                 >
                   <Play className="mr-2 h-5 w-5" />
                   Start Slideshow
@@ -434,18 +434,9 @@ export default function GalleryPage() {
             <div className="inline-flex items-center justify-center w-24 h-24 bg-muted/50 rounded-full mb-8">
               <Camera className="h-12 w-12 text-muted-foreground" />
             </div>
-            <h3 className="text-2xl font-semibold text-foreground mb-4">
-              No photos yet
-            </h3>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Be the first to share a beautiful memory of Rudy. Your photos will help create a lasting tribute.
             </p>
-                <Button asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-lg px-6 py-3">
-              <Link href="/memories">
-                <Upload className="mr-2 h-5 w-5" />
-                Upload First Photo
-              </Link>
-            </Button>
           </div>
         )}
       </div>

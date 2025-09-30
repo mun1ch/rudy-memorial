@@ -14,7 +14,9 @@ import {
   Square,
   Edit3,
   Save,
-  X
+  X,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
@@ -40,6 +42,8 @@ export default function AdminMemoriesPage() {
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
   const [editingMemory, setEditingMemory] = useState<string | null>(null);
   const [editForm, setEditForm] = useState({ message: '', contributorName: '' });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
   useEffect(() => {
     loadMemories();
@@ -128,6 +132,27 @@ export default function AdminMemoriesPage() {
       default:
         return memories;
     }
+  };
+
+  const getPaginatedMemories = () => {
+    const filtered = getFilteredMemories();
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return filtered.slice(startIndex, endIndex);
+  };
+
+  const getTotalPages = () => {
+    const filtered = getFilteredMemories();
+    return Math.ceil(filtered.length / pageSize);
+  };
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1); // Reset to first page when changing page size
+  };
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
   };
 
   const startEditing = (memory: Memory) => {
@@ -399,23 +424,40 @@ export default function AdminMemoriesPage() {
         {/* Memories List */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <MessageCircle className="h-5 w-5" />
-              {filter === 'all' ? 'All Memories' : filter === 'visible' ? 'Visible Memories' : 'Hidden Memories'}
-            </CardTitle>
-            <CardDescription>
-              {filter === 'all' 
-                ? 'Manage shared memories - hide or delete inappropriate content'
-                : filter === 'visible'
-                ? 'Memories currently visible to the public'
-                : 'Memories hidden from public view'
-              }
-              {getFilteredMemories().length !== memories.length && (
-                <span className="ml-2 text-primary font-medium">
-                  ({getFilteredMemories().length} of {memories.length})
-                </span>
-              )}
-            </CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle className="flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5" />
+                  {filter === 'all' ? 'All Memories' : filter === 'visible' ? 'Visible Memories' : 'Hidden Memories'}
+                </CardTitle>
+                <CardDescription>
+                  {filter === 'all' 
+                    ? 'Manage shared memories - hide or delete inappropriate content'
+                    : filter === 'visible'
+                    ? 'Memories currently visible to the public'
+                    : 'Memories hidden from public view'
+                  }
+                  {getFilteredMemories().length !== memories.length && (
+                    <span className="ml-2 text-primary font-medium">
+                      ({getFilteredMemories().length} of {memories.length})
+                    </span>
+                  )}
+                </CardDescription>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">Show:</span>
+                <select
+                  value={pageSize}
+                  onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                  className="px-3 py-1 border border-border rounded-md text-sm bg-background"
+                >
+                  <option value={10}>10</option>
+                  <option value={50}>50</option>
+                  <option value={100}>100</option>
+                  <option value={getFilteredMemories().length}>ALL</option>
+                </select>
+              </div>
+            </div>
           </CardHeader>
           <CardContent>
             {memories.length === 0 ? (
@@ -424,8 +466,9 @@ export default function AdminMemoriesPage() {
                 <p>No memories shared yet</p>
               </div>
             ) : (
-              <div className="space-y-4">
-                {getFilteredMemories().map((memory) => (
+              <>
+                <div className="space-y-4">
+                  {getPaginatedMemories().map((memory) => (
                   <div key={memory.id} className={`rounded-lg border p-4 ${memory.hidden ? 'bg-muted/50' : ''}`}>
                     <div className="flex items-start justify-between">
                       <div className="flex items-start gap-3 flex-1 min-w-0">
@@ -545,8 +588,53 @@ export default function AdminMemoriesPage() {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+                
+                {/* Pagination Controls */}
+                {getTotalPages() > 1 && (
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t">
+                    <div className="text-sm text-muted-foreground">
+                      Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, getFilteredMemories().length)} of {getFilteredMemories().length} memories
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                        Previous
+                      </Button>
+                      
+                      <div className="flex items-center gap-1">
+                        {Array.from({ length: getTotalPages() }, (_, i) => i + 1).map((page) => (
+                          <Button
+                            key={page}
+                            variant={currentPage === page ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => handlePageChange(page)}
+                            className="w-8 h-8 p-0"
+                          >
+                            {page}
+                          </Button>
+                        ))}
+                      </div>
+                      
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === getTotalPages()}
+                      >
+                        Next
+                        <ChevronRight className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </CardContent>
         </Card>

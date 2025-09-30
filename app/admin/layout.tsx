@@ -1,6 +1,6 @@
 import { requireAdmin } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { LogOut, Home, Users, Image, MessageCircle } from "lucide-react";
+import { LogOut, Home, Users, Image, MessageCircle, Settings } from "lucide-react";
 import Link from "next/link";
 
 export default async function AdminLayout({
@@ -59,6 +59,13 @@ export default async function AdminLayout({
             >
               <MessageCircle className="h-4 w-4" />
               <span>Memories</span>
+            </Link>
+            <Link
+              href="/admin/settings"
+              className="flex items-center space-x-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+            >
+              <Settings className="h-4 w-4" />
+              <span>Settings</span>
             </Link>
           </nav>
         </aside>
