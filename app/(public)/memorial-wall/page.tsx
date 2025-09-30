@@ -104,7 +104,7 @@ export default async function MemorialWallPage() {
             {/* Summary */}
             <div className="mt-12 text-center">
               <p className="text-sm text-muted-foreground">
-                {tributes.length} memor{tributes.length !== 1 ? 'ies' : 'y'} shared
+                {tributes.filter(tribute => !tribute.hidden).length} memor{tributes.filter(tribute => !tribute.hidden).length !== 1 ? 'ies' : 'y'} shared
               </p>
             </div>
           </>

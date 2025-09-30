@@ -17,7 +17,7 @@ import {
   X
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getMemories, hideMemory, unhideMemory, deleteMemory } from "@/lib/admin-actions";
+import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
@@ -146,42 +146,25 @@ export default function AdminMemoriesPage() {
   const saveEdit = async (memoryId: string) => {
     setActionLoading(memoryId);
     try {
-      // Update the memory in the JSON file
-      const fs = await import('fs/promises');
-      const path = await import('path');
+      const result = await editMemory(
+        memoryId, 
+        editForm.message || '', 
+        editForm.contributorName || null
+      );
+      
+      if (result.success) {
+        // Update local state
+        setMemories(prev => prev.map(memory => 
+          memory.id === memoryId 
+            ? { ...memory, message: editForm.message || '', contributorName: editForm.contributorName || null }
+            : memory
+        ));
 
-      const tributesFile = path.join(process.cwd(), 'public', 'tributes.json');
-      let tributes = [];
-
-      try {
-        const data = await fs.readFile(tributesFile, 'utf-8');
-        tributes = JSON.parse(data);
-      } catch (error) {
-        console.error('Error reading tributes file:', error);
-        return;
+        setEditingMemory(null);
+        setEditForm({ message: '', contributorName: '' });
+      } else {
+        console.error('Error saving memory edit:', result.error);
       }
-
-      // Find and update the memory
-      const memoryIndex = tributes.findIndex((tribute: any) => tribute.id === memoryId);
-      if (memoryIndex === -1) {
-        console.error('Memory not found');
-        return;
-      }
-
-      tributes[memoryIndex].message = editForm.message || '';
-      tributes[memoryIndex].contributorName = editForm.contributorName || null;
-
-      await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
-
-      // Update local state
-      setMemories(prev => prev.map(memory => 
-        memory.id === memoryId 
-          ? { ...memory, message: editForm.message || '', contributorName: editForm.contributorName || null }
-          : memory
-      ));
-
-      setEditingMemory(null);
-      setEditForm({ message: '', contributorName: '' });
     } catch (error) {
       console.error('Error saving memory edit:', error);
     } finally {
@@ -292,7 +275,7 @@ export default function AdminMemoriesPage() {
             <div>
               <h1 className="text-3xl font-bold tracking-tight">Memories Management</h1>
               <p className="text-muted-foreground">
-                {memories.length} precious memories shared
+                {memories.filter(m => !m.hidden).length} precious memories shared
               </p>
             </div>
         </div>

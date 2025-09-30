@@ -17,7 +17,7 @@ import {
   X
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getPhotos, hidePhoto, unhidePhoto, deletePhoto } from "@/lib/admin-actions";
+import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
@@ -237,42 +237,25 @@ export default function AdminPhotosPage() {
   const saveEdit = async (photoId: string) => {
     setActionLoading(photoId);
     try {
-      // Update the photo in the JSON file
-      const fs = await import('fs/promises');
-      const path = await import('path');
+      const result = await editPhoto(
+        photoId, 
+        editForm.caption || null, 
+        editForm.contributorName || null
+      );
+      
+      if (result.success) {
+        // Update local state
+        setPhotos(prev => prev.map(photo => 
+          photo.id === photoId 
+            ? { ...photo, caption: editForm.caption || null, contributorName: editForm.contributorName || null }
+            : photo
+        ));
 
-      const photosFile = path.join(process.cwd(), 'public', 'photos.json');
-      let photos = [];
-
-      try {
-        const data = await fs.readFile(photosFile, 'utf-8');
-        photos = JSON.parse(data);
-      } catch (error) {
-        console.error('Error reading photos file:', error);
-        return;
+        setEditingPhoto(null);
+        setEditForm({ caption: '', contributorName: '' });
+      } else {
+        console.error('Error saving photo edit:', result.error);
       }
-
-      // Find and update the photo
-      const photoIndex = photos.findIndex((photo: any) => photo.id === photoId);
-      if (photoIndex === -1) {
-        console.error('Photo not found');
-        return;
-      }
-
-      photos[photoIndex].caption = editForm.caption || null;
-      photos[photoIndex].contributorName = editForm.contributorName || null;
-
-      await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
-
-      // Update local state
-      setPhotos(prev => prev.map(photo => 
-        photo.id === photoId 
-          ? { ...photo, caption: editForm.caption || null, contributorName: editForm.contributorName || null }
-          : photo
-      ));
-
-      setEditingPhoto(null);
-      setEditForm({ caption: '', contributorName: '' });
     } catch (error) {
       console.error('Error saving photo edit:', error);
     } finally {

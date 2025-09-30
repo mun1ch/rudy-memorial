@@ -9,10 +9,15 @@ import {
   EyeOff,
   Trash2,
   Calendar,
-  User
+  User,
+  Edit3,
+  Save,
+  X
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getPhotos, getMemories, hidePhoto, unhidePhoto, deletePhoto, hideMemory, unhideMemory, deleteMemory } from "@/lib/admin-actions";
+import { getPhotos, getMemories, hidePhoto, unhidePhoto, deletePhoto, hideMemory, unhideMemory, deleteMemory, editPhoto, editMemory } from "@/lib/admin-actions";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 
 interface Photo {
@@ -42,6 +47,9 @@ export default function AdminDashboard() {
   const [memories, setMemories] = useState<Memory[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
+  const [editingPhoto, setEditingPhoto] = useState<string | null>(null);
+  const [editingMemory, setEditingMemory] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState({ caption: '', contributorName: '', message: '' });
 
   useEffect(() => {
     loadData();
@@ -179,6 +187,88 @@ export default function AdminDashboard() {
     });
   };
 
+  const startEditingPhoto = (photo: Photo) => {
+    setEditingPhoto(photo.id);
+    setEditForm({
+      caption: photo.caption || '',
+      contributorName: photo.contributorName || '',
+      message: ''
+    });
+  };
+
+  const startEditingMemory = (memory: Memory) => {
+    setEditingMemory(memory.id);
+    setEditForm({
+      caption: '',
+      contributorName: memory.contributorName || '',
+      message: memory.message || ''
+    });
+  };
+
+  const cancelEditing = () => {
+    setEditingPhoto(null);
+    setEditingMemory(null);
+    setEditForm({ caption: '', contributorName: '', message: '' });
+  };
+
+  const savePhotoEdit = async (photoId: string) => {
+    setActionLoading(photoId);
+    try {
+      const result = await editPhoto(
+        photoId, 
+        editForm.caption || null, 
+        editForm.contributorName || null
+      );
+      
+      if (result.success) {
+        // Update local state
+        setPhotos(prev => prev.map(photo => 
+          photo.id === photoId 
+            ? { ...photo, caption: editForm.caption || null, contributorName: editForm.contributorName || null }
+            : photo
+        ));
+
+        setEditingPhoto(null);
+        setEditForm({ caption: '', contributorName: '', message: '' });
+      } else {
+        console.error('Error saving photo edit:', result.error);
+      }
+    } catch (error) {
+      console.error('Error saving photo edit:', error);
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
+  const saveMemoryEdit = async (memoryId: string) => {
+    setActionLoading(memoryId);
+    try {
+      const result = await editMemory(
+        memoryId, 
+        editForm.message || '', 
+        editForm.contributorName || null
+      );
+      
+      if (result.success) {
+        // Update local state
+        setMemories(prev => prev.map(memory => 
+          memory.id === memoryId 
+            ? { ...memory, message: editForm.message || '', contributorName: editForm.contributorName || null }
+            : memory
+        ));
+
+        setEditingMemory(null);
+        setEditForm({ caption: '', contributorName: '', message: '' });
+      } else {
+        console.error('Error saving memory edit:', result.error);
+      }
+    } catch (error) {
+      console.error('Error saving memory edit:', error);
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
   const formatFileSize = (bytes: number) => {
     if (bytes === 0) return '0 Bytes';
     const k = 1024;
@@ -288,62 +378,114 @@ export default function AdminDashboard() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <p className="font-medium truncate">
-                            {photo.caption || "Untitled Photo"}
-                          </p>
-                          {photo.hidden && (
-                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
-                              <EyeOff className="h-3 w-3 mr-1" />
-                              Hidden
-                            </span>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          {photo.contributorName && (
-                            <div className="flex items-center gap-1">
-                              <User className="h-3 w-3" />
-                              <span>{photo.contributorName}</span>
-                            </div>
-                          )}
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            <span>{formatDate(photo.uploadedAt)}</span>
+                        {editingPhoto === photo.id ? (
+                          <div className="space-y-2">
+                            <Input
+                              value={editForm.caption}
+                              onChange={(e) => setEditForm(prev => ({ ...prev, caption: e.target.value }))}
+                              placeholder="Photo caption..."
+                              className="text-sm"
+                            />
+                            <Input
+                              value={editForm.contributorName}
+                              onChange={(e) => setEditForm(prev => ({ ...prev, contributorName: e.target.value }))}
+                              placeholder="Contributor name..."
+                              className="text-sm"
+                            />
                           </div>
-                          <span>{formatFileSize(photo.fileSize)}</span>
-                        </div>
+                        ) : (
+                          <>
+                            <div className="flex items-center gap-2 mb-1">
+                              <p className="font-medium truncate">
+                                {photo.caption || "Untitled Photo"}
+                              </p>
+                              {photo.hidden && (
+                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
+                                  <EyeOff className="h-3 w-3 mr-1" />
+                                  Hidden
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              {photo.contributorName && (
+                                <div className="flex items-center gap-1">
+                                  <User className="h-3 w-3" />
+                                  <span>{photo.contributorName}</span>
+                                </div>
+                              )}
+                              <div className="flex items-center gap-1">
+                                <Calendar className="h-3 w-3" />
+                                <span>{formatDate(photo.uploadedAt)}</span>
+                              </div>
+                              <span>{formatFileSize(photo.fileSize)}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                     <div className="flex space-x-2">
-                      {photo.hidden ? (
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleUnhidePhoto(photo.id)}
-                          disabled={actionLoading === photo.id}
-                          className="text-green-600 hover:text-green-700"
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Button>
+                      {editingPhoto === photo.id ? (
+                        <>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => savePhotoEdit(photo.id)}
+                            disabled={actionLoading === photo.id}
+                            className="text-green-600 hover:text-green-700"
+                          >
+                            <Save className="h-4 w-4" />
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={cancelEditing}
+                            disabled={actionLoading === photo.id}
+                          >
+                            <X className="h-4 w-4" />
+                          </Button>
+                        </>
                       ) : (
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleHidePhoto(photo.id)}
-                          disabled={actionLoading === photo.id}
-                        >
-                          <EyeOff className="h-4 w-4" />
-                        </Button>
+                        <>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => startEditingPhoto(photo)}
+                            disabled={actionLoading === photo.id}
+                            className="text-blue-600 hover:text-blue-700"
+                          >
+                            <Edit3 className="h-4 w-4" />
+                          </Button>
+                          {photo.hidden ? (
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleUnhidePhoto(photo.id)}
+                              disabled={actionLoading === photo.id}
+                              className="text-green-600 hover:text-green-700"
+                            >
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                          ) : (
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleHidePhoto(photo.id)}
+                              disabled={actionLoading === photo.id}
+                            >
+                              <EyeOff className="h-4 w-4" />
+                            </Button>
+                          )}
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => handleDeletePhoto(photo.id)}
+                            disabled={actionLoading === photo.id}
+                            className="text-destructive hover:text-destructive"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </>
                       )}
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        onClick={() => handleDeletePhoto(photo.id)}
-                        disabled={actionLoading === photo.id}
-                        className="text-destructive hover:text-destructive"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
                     </div>
                   </div>
                 ))}
@@ -375,55 +517,107 @@ export default function AdminDashboard() {
                   <div key={memory.id} className={`rounded-lg border p-4 ${memory.hidden ? 'bg-muted/50' : ''}`}>
                     <div className="flex items-start justify-between">
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-2">
-                          <p className="font-medium">
-                            {memory.contributorName || "Anonymous"}
-                          </p>
-                          {memory.hidden && (
-                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
-                              <EyeOff className="h-3 w-3 mr-1" />
-                              Hidden
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-                          {memory.message}
-                        </p>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Calendar className="h-3 w-3" />
-                          <span>{formatDate(memory.submittedAt)}</span>
-                        </div>
+                        {editingMemory === memory.id ? (
+                          <div className="space-y-2">
+                            <Input
+                              value={editForm.contributorName}
+                              onChange={(e) => setEditForm(prev => ({ ...prev, contributorName: e.target.value }))}
+                              placeholder="Contributor name..."
+                              className="text-sm"
+                            />
+                            <Textarea
+                              value={editForm.message}
+                              onChange={(e) => setEditForm(prev => ({ ...prev, message: e.target.value }))}
+                              placeholder="Memory message..."
+                              className="text-sm min-h-[80px]"
+                            />
+                          </div>
+                        ) : (
+                          <>
+                            <div className="flex items-center gap-2 mb-2">
+                              <p className="font-medium">
+                                {memory.contributorName || "Anonymous"}
+                              </p>
+                              {memory.hidden && (
+                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground">
+                                  <EyeOff className="h-3 w-3 mr-1" />
+                                  Hidden
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
+                              {memory.message}
+                            </p>
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <Calendar className="h-3 w-3" />
+                              <span>{formatDate(memory.submittedAt)}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                       <div className="flex space-x-2 ml-4">
-                        {memory.hidden ? (
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => handleUnhideMemory(memory.id)}
-                            disabled={actionLoading === memory.id}
-                            className="text-green-600 hover:text-green-700"
-                          >
-                            <Eye className="h-4 w-4" />
-                          </Button>
+                        {editingMemory === memory.id ? (
+                          <>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => saveMemoryEdit(memory.id)}
+                              disabled={actionLoading === memory.id}
+                              className="text-green-600 hover:text-green-700"
+                            >
+                              <Save className="h-4 w-4" />
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={cancelEditing}
+                              disabled={actionLoading === memory.id}
+                            >
+                              <X className="h-4 w-4" />
+                            </Button>
+                          </>
                         ) : (
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => handleHideMemory(memory.id)}
-                            disabled={actionLoading === memory.id}
-                          >
-                            <EyeOff className="h-4 w-4" />
-                          </Button>
+                          <>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => startEditingMemory(memory)}
+                              disabled={actionLoading === memory.id}
+                              className="text-blue-600 hover:text-blue-700"
+                            >
+                              <Edit3 className="h-4 w-4" />
+                            </Button>
+                            {memory.hidden ? (
+                              <Button 
+                                size="sm" 
+                                variant="outline"
+                                onClick={() => handleUnhideMemory(memory.id)}
+                                disabled={actionLoading === memory.id}
+                                className="text-green-600 hover:text-green-700"
+                              >
+                                <Eye className="h-4 w-4" />
+                              </Button>
+                            ) : (
+                              <Button 
+                                size="sm" 
+                                variant="outline"
+                                onClick={() => handleHideMemory(memory.id)}
+                                disabled={actionLoading === memory.id}
+                              >
+                                <EyeOff className="h-4 w-4" />
+                              </Button>
+                            )}
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleDeleteMemory(memory.id)}
+                              disabled={actionLoading === memory.id}
+                              className="text-destructive hover:text-destructive"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </>
                         )}
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleDeleteMemory(memory.id)}
-                          disabled={actionLoading === memory.id}
-                          className="text-destructive hover:text-destructive"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
                       </div>
                     </div>
                   </div>

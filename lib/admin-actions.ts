@@ -276,3 +276,77 @@ export async function deleteMemory(memoryId: string) {
     return { success: false, error: "Failed to delete memory" };
   }
 }
+
+export async function editPhoto(photoId: string, caption: string | null, contributorName: string | null) {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+
+    const photosFile = path.join(process.cwd(), 'public', 'photos.json');
+    let photos: Photo[] = [];
+
+    try {
+      const data = await fs.readFile(photosFile, 'utf-8');
+      photos = JSON.parse(data);
+    } catch (error) {
+      return { success: false, error: "No photos file found" };
+    }
+
+    // Find and update the photo
+    const photoIndex = photos.findIndex(photo => photo.id === photoId);
+    if (photoIndex === -1) {
+      return { success: false, error: "Photo not found" };
+    }
+
+    photos[photoIndex].caption = caption;
+    photos[photoIndex].contributorName = contributorName;
+
+    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+
+    revalidatePath("/gallery");
+    revalidatePath("/admin/dashboard");
+    revalidatePath("/admin/photos");
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error editing photo:", error);
+    return { success: false, error: "Failed to edit photo" };
+  }
+}
+
+export async function editMemory(memoryId: string, message: string, contributorName: string | null) {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+
+    const tributesFile = path.join(process.cwd(), 'public', 'tributes.json');
+    let tributes: Tribute[] = [];
+
+    try {
+      const data = await fs.readFile(tributesFile, 'utf-8');
+      tributes = JSON.parse(data);
+    } catch (error) {
+      return { success: false, error: "No memories file found" };
+    }
+
+    // Find and update the memory
+    const memoryIndex = tributes.findIndex(tribute => tribute.id === memoryId);
+    if (memoryIndex === -1) {
+      return { success: false, error: "Memory not found" };
+    }
+
+    tributes[memoryIndex].message = message;
+    tributes[memoryIndex].contributorName = contributorName;
+
+    await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+
+    revalidatePath("/memorial-wall");
+    revalidatePath("/admin/dashboard");
+    revalidatePath("/admin/memories");
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error editing memory:", error);
+    return { success: false, error: "Failed to edit memory" };
+  }
+}

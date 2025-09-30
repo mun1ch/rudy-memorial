@@ -8479,3 +8479,2600 @@ https://nextjs.org/docs/messages/module-not-found
 
 
  GET /api/photos 200 in 292ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/photos 200 in 153ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 129ms
+ GET /api/photos 200 in 370ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 133ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/memories 200 in 140ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 163ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 157ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 263ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 296ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/memories 200 in 139ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/memories 200 in 259ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/memories 200 in 64ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/memories 200 in 142ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 186ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 404ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 278ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 283ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 269ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 280ms
+ ✓ Compiled in 157ms
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/memories 200 in 239ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/photos 200 in 271ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 95ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos 200 in 73ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 276ms
+ ✓ Compiled in 199ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/photos 200 in 105ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 257ms
+ ✓ Compiled in 194ms
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /admin/photos 200 in 398ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 636ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 355ms
+ GET / 200 in 106ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 410ms
+ GET /gallery 200 in 116ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 293ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 288ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 262ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 431ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 869ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 260ms
+ ✓ Compiled in 484ms
+ GET /gallery 200 in 73ms
+ GET /gallery 200 in 61ms
+ GET /gallery 200 in 96ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 275ms
+ ✓ Compiled in 96ms
+ GET /gallery 200 in 219ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 273ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/photos/page.tsx:241:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 239 |[39m     [36mtry[39m {
+ [90m 240 |[39m       [90m// Update the photo in the JSON file[39m
+[31m[1m>[22m[39m[90m 241 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 242 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 243 |[39m
+ [90m 244 |[39m       [36mconst[39m photosFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'photos.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/photos/page.tsx [Client Component Browser]
+    ./app/admin/photos/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/photos/page.tsx [Client Component SSR]
+    ./app/admin/photos/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 260ms
+ ✓ Compiled in 235ms
+ GET /gallery 200 in 215ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 282ms
+ ✓ Compiled in 303ms
+ GET /gallery 200 in 376ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 295ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/memories/page.tsx:150:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 148 |[39m     [36mtry[39m {
+ [90m 149 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 151 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 152 |[39m
+ [90m 153 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/memories/page.tsx [Client Component Browser]
+    ./app/admin/memories/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/memories/page.tsx [Client Component SSR]
+    ./app/admin/memories/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 310ms
+ ✓ Compiled in 386ms
+ GET /gallery 200 in 182ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 277ms
+ ✓ Compiled in 141ms
+ GET /gallery 200 in 318ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 348ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 252ms
+ GET / 200 in 130ms
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/dashboard/page.tsx:264:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 262 |[39m     [36mtry[39m {
+ [90m 263 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 264 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 265 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 266 |[39m
+ [90m 267 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 433ms
+ ✓ Compiled in 215ms
+ GET / 200 in 144ms
+ GET /gallery 200 in 89ms
+ ⚠ ./app/admin/dashboard/page.tsx:247:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 245 |[39m     [36mtry[39m {
+ [90m 246 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 247 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 248 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 249 |[39m
+ [90m 250 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⚠ ./app/admin/dashboard/page.tsx:247:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 245 |[39m     [36mtry[39m {
+ [90m 246 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 247 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 248 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 249 |[39m
+ [90m 250 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 286ms
+ ⚠ ./app/admin/dashboard/page.tsx:247:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 245 |[39m     [36mtry[39m {
+ [90m 246 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 247 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 248 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 249 |[39m
+ [90m 250 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /api/photos 200 in 300ms
+ GET /memories 200 in 192ms
+ ⚠ ./app/admin/dashboard/page.tsx:247:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 245 |[39m     [36mtry[39m {
+ [90m 246 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 247 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 248 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 249 |[39m
+ [90m 250 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /memorial-wall 200 in 197ms
+ ⚠ ./app/admin/dashboard/page.tsx:247:24
+Module not found: Can't resolve 'fs/promises'
+[0m [90m 245 |[39m     [36mtry[39m {
+ [90m 246 |[39m       [90m// Update the memory in the JSON file[39m
+[31m[1m>[22m[39m[90m 247 |[39m       [36mconst[39m fs [33m=[39m [36mawait[39m [36mimport[39m([32m'fs/promises'[39m)[33m;[39m
+ [90m     |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 248 |[39m       [36mconst[39m path [33m=[39m [36mawait[39m [36mimport[39m([32m'path'[39m)[33m;[39m
+ [90m 249 |[39m
+ [90m 250 |[39m       [36mconst[39m tributesFile [33m=[39m path[33m.[39mjoin(process[33m.[39mcwd()[33m,[39m [32m'public'[39m[33m,[39m [32m'tributes.json'[39m)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/dashboard/page.tsx [Client Component Browser]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/dashboard/page.tsx [Client Component SSR]
+    ./app/admin/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ✓ Compiled in 467ms
+ GET /admin 307 in 463ms
+ GET /memorial-wall 200 in 357ms
+ ✓ Compiled /admin/dashboard in 159ms
+ GET /admin/dashboard 200 in 1237ms
+ GET /api/photos 200 in 1441ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 93ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 47ms
+ GET / 200 in 228ms
+ GET /api/photos 200 in 386ms
+ GET /api/photos 200 in 274ms
+ GET /admin 307 in 420ms
+ GET /admin/dashboard 200 in 110ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 433ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 168ms
+ ✓ Compiled in 278ms
+ GET /api/photos 200 in 291ms
+ ✓ Compiled in 417ms
+ POST /admin/dashboard 200 in 534ms
+ GET /api/photos 200 in 364ms
+ POST /admin/dashboard 200 in 189ms
+ HEAD /admin/dashboard 200 in 336ms
+ GET /gallery 200 in 157ms
+ GET /api/photos 200 in 373ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 285ms
+ GET /api/photos 200 in 562ms
+ GET /gallery 200 in 169ms
+ GET /api/photos 200 in 625ms
+ GET /admin 307 in 148ms
+ GET /admin/dashboard 200 in 372ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 389ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 466ms
+ GET /api/photos 200 in 324ms
+ POST /admin/dashboard 200 in 112ms
+ GET /api/photos 200 in 271ms
+ GET /gallery 200 in 121ms
+ GET /api/photos 200 in 397ms
+ GET /api/photos 200 in 367ms
+ GET /admin 307 in 289ms
+ GET /admin/dashboard 200 in 251ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 94ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 49ms
+ ✓ Compiled /admin/memories in 136ms
+ GET /admin/memories 200 in 644ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 195ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 149ms
+ GET /api/photos 200 in 263ms
+ POST /admin/memories 200 in 107ms
+ POST /admin/memories 200 in 173ms
+ GET /api/photos 200 in 463ms
+ POST /admin/memories 200 in 103ms
+ POST /admin/memories 200 in 106ms
+ GET /memorial-wall 200 in 121ms
+ GET /api/photos 200 in 356ms
+ GET /admin/memories 200 in 660ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 609ms
+ POST /admin/memories 200 in 432ms
+ GET /memorial-wall 200 in 260ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 572ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 562ms
+ GET /admin 307 in 224ms
+ GET /admin/dashboard 200 in 213ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 460ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ GET /api/photos 200 in 720ms
+ POST /admin/dashboard 200 in 226ms
+ POST /admin/dashboard 200 in 376ms
+ GET /gallery 200 in 122ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 456ms
+ GET /gallery 200 in 140ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 393ms
+ GET /api/photos 200 in 404ms
+ GET /api/photos 200 in 497ms
+ ✓ Compiled in 88ms
+ GET /gallery 200 in 406ms
+ GET /api/photos 200 in 289ms
+ GET /admin 307 in 173ms
+ GET /admin/dashboard 200 in 280ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 111ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 218ms
+ GET /api/photos 200 in 544ms
+ HEAD /admin/memories 200 in 502ms
+ ✓ Compiled /memorial-wall in 53ms
+ HEAD /memorial-wall 200 in 636ms
+ POST /admin/dashboard 200 in 125ms
+ GET /api/photos 200 in 372ms
+ GET /gallery 200 in 136ms
+ GET /api/photos 200 in 742ms
+ GET /api/photos 200 in 269ms
+ GET /api/photos 200 in 445ms
+ GET /api/photos 200 in 432ms
+ GET /api/photos 200 in 661ms
+ GET /memorial-wall 200 in 801ms
+ GET /admin 307 in 160ms
+ GET /admin/dashboard 200 in 93ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 530ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 285ms
+ GET /admin/memories 200 in 86ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 403ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 64ms
+ GET /api/photos 200 in 268ms
+ POST /admin/memories 200 in 278ms
+ GET /api/photos 200 in 274ms
+ GET /memorial-wall 200 in 282ms
+ GET /admin 307 in 218ms
+ GET /admin/dashboard 200 in 127ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 544ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 164ms
+ GET /api/photos 200 in 267ms
+ GET /admin/memories 200 in 290ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 178ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/memories 200 in 163ms
+ POST /admin/memories 200 in 72ms
+ GET /memorial-wall 200 in 460ms
+ GET /api/photos 200 in 280ms
