@@ -51,7 +51,7 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
               <Camera className="mx-auto h-12 w-12 text-primary mb-4" />
               <CardTitle className="text-2xl">Share a Photo</CardTitle>
               <CardDescription>
-                Upload a photo with an optional caption to preserve a special moment
+                Upload a photo with an optional caption
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">

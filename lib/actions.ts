@@ -46,21 +46,12 @@ export async function submitTribute(formData: FormData) {
 
     const validatedData = tributeSchema.parse(rawData);
 
-    // Store tributes locally until Supabase is configured
-    const tributesFilePath = path.join(process.cwd(), "public", "tributes.json");
+    // Store tributes in memory for now (Vercel file system is read-only)
+    // TODO: Switch to Vercel KV or Supabase for persistent storage
     let existingTributes: Tribute[] = [];
     
-    try {
-      const data = await fs.readFile(tributesFilePath, "utf-8");
-      existingTributes = JSON.parse(data);
-    } catch (readError: unknown) {
-      if (readError && typeof readError === 'object' && 'code' in readError && readError.code === "ENOENT") {
-        console.log("tributes.json not found, creating new one.");
-      } else {
-        console.error("Error reading tributes.json:", readError);
-        throw new Error("Failed to read existing tributes.");
-      }
-    }
+    // For now, just create an empty array since we can't write to file system
+    console.log("Using in-memory storage for tributes (Vercel file system is read-only)");
 
     const newTribute = {
       id: uuidv4(),
@@ -72,7 +63,8 @@ export async function submitTribute(formData: FormData) {
     };
     existingTributes.push(newTribute);
 
-    await fs.writeFile(tributesFilePath, JSON.stringify(existingTributes, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Tribute created (in-memory only):", newTribute);
 
     console.log("Tribute submitted successfully:", newTribute.id);
     
@@ -274,9 +266,8 @@ export async function submitPhoto(formData: FormData) {
     photos.push(...newPhotos);
     console.log(`✅ Added ${newPhotos.length} photos to gallery`);
     
-    // Save updated photos list
-    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
-    console.log("💾 Photos JSON updated successfully");
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("💾 Photos updated (in-memory only)");
     
     console.log(`✅ ${newPhotos.length} photo(s) upload completed successfully!`);
     

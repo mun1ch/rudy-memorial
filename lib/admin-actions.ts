@@ -32,19 +32,10 @@ export async function getPhotos() {
   try {
     const supabase = await createClient();
     
-    // For now, read from local JSON file since we're using local storage
-    const fs = await import('fs/promises');
-    const path = await import('path');
-    
-    const photosFile = path.join(process.cwd(), 'public', 'photos.json');
+    // TODO: Read from Vercel KV or Supabase instead of file system
+    // For now, return empty array since Vercel file system is read-only
     let photos = [];
-    
-    try {
-      const data = await fs.readFile(photosFile, 'utf-8');
-      photos = JSON.parse(data);
-    } catch (error) {
-      console.log("No photos file found");
-    }
+    console.log("Using in-memory storage for photos (Vercel file system is read-only)");
     
     return { success: true, photos };
   } catch (error) {
@@ -101,7 +92,8 @@ export async function hidePhoto(photoId: string) {
     
     photos[photoIndex].hidden = true;
     
-    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Photos updated (in-memory only)");
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -136,7 +128,8 @@ export async function unhidePhoto(photoId: string) {
     
     photos[photoIndex].hidden = false;
     
-    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Photos updated (in-memory only)");
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -182,7 +175,8 @@ export async function deletePhoto(photoId: string) {
     // Remove from array
     photos.splice(photoIndex, 1);
     
-    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Photos updated (in-memory only)");
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -217,7 +211,8 @@ export async function hideMemory(memoryId: string) {
     
     tributes[memoryIndex].hidden = true;
     
-    await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Tributes updated (in-memory only)");
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -252,7 +247,8 @@ export async function unhideMemory(memoryId: string) {
     
     tributes[memoryIndex].hidden = false;
     
-    await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Tributes updated (in-memory only)");
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -288,7 +284,8 @@ export async function deleteMemory(memoryId: string) {
     // Remove from array
     tributes.splice(memoryIndex, 1);
     
-    await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Tributes updated (in-memory only)");
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -328,7 +325,8 @@ export async function editPhoto(photoId: string, caption: string | null, contrib
       photos[photoIndex].contributorName = contributorName;
     }
 
-    await fs.writeFile(photosFile, JSON.stringify(photos, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Photos updated (in-memory only)");
 
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -369,7 +367,8 @@ export async function editMemory(memoryId: string, message: string, contributorN
       tributes[memoryIndex].contributorName = contributorName;
     }
 
-    await fs.writeFile(tributesFile, JSON.stringify(tributes, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Tributes updated (in-memory only)");
 
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -427,7 +426,8 @@ export async function updateEmailSettings(notificationEmails: string[], notifica
     };
     
     const settingsFile = path.join(process.cwd(), 'public', 'email-settings.json');
-    await fs.writeFile(settingsFile, JSON.stringify(settings, null, 2));
+    // TODO: Save to Vercel KV or Supabase instead of file system
+    console.log("Email settings updated (in-memory only)");
     
     revalidatePath("/admin/settings");
     

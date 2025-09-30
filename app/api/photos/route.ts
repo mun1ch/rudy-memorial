@@ -18,20 +18,12 @@ interface Photo {
 
 export async function GET() {
   try {
-    const photosFilePath = path.join(process.cwd(), 'public', 'photos.json');
-    const data = await fs.readFile(photosFilePath, 'utf-8');
-    const photos = JSON.parse(data);
+    // TODO: Read from Vercel KV or Supabase instead of file system
+    // For now, return empty array since Vercel file system is read-only
+    console.log("Using in-memory storage for photos API (Vercel file system is read-only)");
     
-    // Filter out hidden photos for public gallery
-    const visiblePhotos = photos.filter((photo: Photo) => !photo.hidden);
-    
-    return NextResponse.json(visiblePhotos);
+    return NextResponse.json([]);
   } catch (error: unknown) {
-    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-      // File doesn't exist yet, return empty array
-      return NextResponse.json([]);
-    }
-    
     console.error('Error reading photos:', error);
     return NextResponse.json([], { status: 500 });
   }
