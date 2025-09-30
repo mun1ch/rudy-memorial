@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Upload, Send } from "lucide-react";
+import { Upload, Send, Loader2 } from "lucide-react";
 import { submitPhoto } from "@/lib/actions";
 import { useState } from "react";
 
@@ -57,6 +57,17 @@ export function PhotoForm() {
               <p className="text-green-700 text-sm">{submitSuccess}</p>
             </div>
           )}
+          {isSubmitting && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <Loader2 className="h-5 w-5 text-blue-600 animate-spin" />
+                <div>
+                  <p className="text-blue-700 text-sm font-medium">Uploading your photos...</p>
+                  <p className="text-blue-600 text-xs mt-1">Please wait while we process and upload your images to the gallery.</p>
+                </div>
+              </div>
+            </div>
+          )}
           <div>
             <label htmlFor="photo" className="block text-sm font-medium text-foreground mb-2">
               Photos <span className="text-destructive">*</span>
@@ -68,12 +79,14 @@ export function PhotoForm() {
                   accept="image/*"
                   multiple
                   required
+                  disabled={isSubmitting}
                   className="block w-full text-sm text-muted-foreground
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-md file:border-0
                     file:text-sm file:font-semibold
                     file:bg-primary file:text-primary-foreground
-                    hover:file:bg-primary/90"
+                    hover:file:bg-primary/90
+                    disabled:opacity-50 disabled:cursor-not-allowed"
                 />
             <p className="mt-2 text-sm text-muted-foreground">
               Select multiple photos at once! Max file size: 50MB each. Supported formats: JPG, PNG, HEIC, WebP, TIFF. Original quality preserved.
@@ -89,7 +102,8 @@ export function PhotoForm() {
               name="caption"
               rows={3}
               placeholder="Add a caption for your photo..."
-              className="resize-y"
+              disabled={isSubmitting}
+              className="resize-y disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <p className="mt-2 text-sm text-muted-foreground">
               A short description or memory associated with this photo.
@@ -105,6 +119,8 @@ export function PhotoForm() {
               name="name"
               type="text"
               placeholder="e.g., John Doe"
+              disabled={isSubmitting}
+              className="disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <p className="mt-2 text-sm text-muted-foreground">
               Your name will be displayed with the photo if provided
@@ -116,8 +132,17 @@ export function PhotoForm() {
               By uploading, you agree that your photo will be added to the gallery
             </p>
             <Button type="submit" className="text-lg px-6 py-3" disabled={isSubmitting}>
-              <Send className="mr-2 h-4 w-4" />
-              {isSubmitting ? "Uploading..." : "Upload Photos"}
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Uploading...
+                </>
+              ) : (
+                <>
+                  <Send className="mr-2 h-4 w-4" />
+                  Upload Photos
+                </>
+              )}
             </Button>
           </div>
         </CardContent>
