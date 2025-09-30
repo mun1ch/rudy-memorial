@@ -7684,3 +7684,5 @@ https://nextjs.org/docs/messages/module-not-found
  GET /gallery 200 in 310ms
  GET /api/photos 200 in 411ms
  GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 537ms
