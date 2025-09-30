@@ -57,11 +57,6 @@ export default function GalleryPage() {
     };
 
     fetchPhotos();
-
-    // Poll for new photos every 10 seconds during events
-    const pollInterval = setInterval(fetchPhotos, 10000);
-
-    return () => clearInterval(pollInterval);
   }, []);
 
   const formatDate = (dateString: string) => {
