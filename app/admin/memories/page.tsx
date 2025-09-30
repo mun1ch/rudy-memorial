@@ -15,7 +15,8 @@ import {
   Save,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Loader2
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
@@ -531,7 +532,11 @@ export default function AdminMemoriesPage() {
                               disabled={actionLoading === memory.id}
                               className="text-green-600 hover:text-green-700"
                             >
-                              <Save className="h-4 w-4" />
+                              {actionLoading === memory.id ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <Save className="h-4 w-4" />
+                              )}
                             </Button>
                             <Button 
                               size="sm" 
@@ -551,7 +556,11 @@ export default function AdminMemoriesPage() {
                               disabled={actionLoading === memory.id}
                               className="text-blue-600 hover:text-blue-700"
                             >
-                              <Edit3 className="h-4 w-4" />
+                              {actionLoading === memory.id ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <Edit3 className="h-4 w-4" />
+                              )}
                             </Button>
                             {memory.hidden ? (
                               <Button 
@@ -561,7 +570,11 @@ export default function AdminMemoriesPage() {
                                 disabled={actionLoading === memory.id}
                                 className="text-green-600 hover:text-green-700"
                               >
-                                <Eye className="h-4 w-4" />
+                                {actionLoading === memory.id ? (
+                                  <Loader2 className="h-4 w-4 animate-spin" />
+                                ) : (
+                                  <Eye className="h-4 w-4" />
+                                )}
                               </Button>
                             ) : (
                               <Button 
@@ -570,7 +583,11 @@ export default function AdminMemoriesPage() {
                                 onClick={() => handleHideMemory(memory.id)}
                                 disabled={actionLoading === memory.id}
                               >
-                                <EyeOff className="h-4 w-4" />
+                                {actionLoading === memory.id ? (
+                                  <Loader2 className="h-4 w-4 animate-spin" />
+                                ) : (
+                                  <EyeOff className="h-4 w-4" />
+                                )}
                               </Button>
                             )}
                             <Button 
@@ -580,7 +597,11 @@ export default function AdminMemoriesPage() {
                               disabled={actionLoading === memory.id}
                               className="text-destructive hover:text-destructive"
                             >
-                              <Trash2 className="h-4 w-4" />
+                              {actionLoading === memory.id ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <Trash2 className="h-4 w-4" />
+                              )}
                             </Button>
                           </>
                         )}

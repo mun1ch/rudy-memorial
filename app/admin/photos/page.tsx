@@ -18,7 +18,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Copy,
-  AlertTriangle
+  AlertTriangle,
+  Loader2
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -142,9 +143,18 @@ function AdminPhotosContent() {
       const result = await deletePhoto(photoId);
       if (result.success) {
         setPhotos(prev => prev.filter(photo => photo.id !== photoId));
+        // Remove from selected photos if it was selected
+        setSelectedPhotos(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(photoId);
+          return newSet;
+        });
+      } else {
+        alert(`Failed to delete photo: ${result.error || 'Unknown error'}`);
       }
     } catch (error) {
       console.error("Error deleting photo:", error);
+      alert(`Error deleting photo: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setActionLoading(null);
     }
@@ -469,7 +479,11 @@ function AdminPhotosContent() {
                     disabled={bulkActionLoading}
                     className="text-orange-600 hover:text-orange-700"
                   >
-                    <EyeOff className="mr-2 h-4 w-4" />
+                    {bulkActionLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <EyeOff className="mr-2 h-4 w-4" />
+                    )}
                     Hide Selected
                   </Button>
                   <Button
@@ -478,7 +492,11 @@ function AdminPhotosContent() {
                     disabled={bulkActionLoading}
                     className="text-green-600 hover:text-green-700"
                   >
-                    <Eye className="mr-2 h-4 w-4" />
+                    {bulkActionLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <Eye className="mr-2 h-4 w-4" />
+                    )}
                     Unhide Selected
                   </Button>
                   <Button
@@ -487,7 +505,11 @@ function AdminPhotosContent() {
                     disabled={bulkActionLoading}
                     className="text-destructive hover:text-destructive"
                   >
-                    <Trash2 className="mr-2 h-4 w-4" />
+                    {bulkActionLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <Trash2 className="mr-2 h-4 w-4" />
+                    )}
                     Delete Selected
                   </Button>
                 </div>
@@ -614,7 +636,11 @@ function AdminPhotosContent() {
                                   disabled={actionLoading === photo.id}
                                   className="text-destructive hover:text-destructive"
                                 >
-                                  <Trash2 className="h-4 w-4" />
+                                  {actionLoading === photo.id ? (
+                                    <Loader2 className="h-4 w-4 animate-spin" />
+                                  ) : (
+                                    <Trash2 className="h-4 w-4" />
+                                  )}
                                 </Button>
                               </div>
                             </div>
@@ -702,7 +728,11 @@ function AdminPhotosContent() {
                             disabled={actionLoading === photo.id}
                             className="text-green-600 hover:text-green-700"
                           >
-                            <Save className="h-4 w-4" />
+                            {actionLoading === photo.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Save className="h-4 w-4" />
+                            )}
                           </Button>
                           <Button 
                             size="sm" 
@@ -722,7 +752,11 @@ function AdminPhotosContent() {
                             disabled={actionLoading === photo.id}
                             className="text-blue-600 hover:text-blue-700"
                           >
-                            <Edit3 className="h-4 w-4" />
+                            {actionLoading === photo.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Edit3 className="h-4 w-4" />
+                            )}
                           </Button>
                           {photo.hidden ? (
                             <Button 
@@ -732,7 +766,11 @@ function AdminPhotosContent() {
                               disabled={actionLoading === photo.id}
                               className="text-green-600 hover:text-green-700"
                             >
-                              <Eye className="h-4 w-4" />
+                              {actionLoading === photo.id ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <Eye className="h-4 w-4" />
+                              )}
                             </Button>
                           ) : (
                             <Button 
@@ -741,7 +779,11 @@ function AdminPhotosContent() {
                               onClick={() => handleHidePhoto(photo.id)}
                               disabled={actionLoading === photo.id}
                             >
-                              <EyeOff className="h-4 w-4" />
+                              {actionLoading === photo.id ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <EyeOff className="h-4 w-4" />
+                              )}
                             </Button>
                           )}
                           <Button 
@@ -751,7 +793,11 @@ function AdminPhotosContent() {
                             disabled={actionLoading === photo.id}
                             className="text-destructive hover:text-destructive"
                           >
-                            <Trash2 className="h-4 w-4" />
+                            {actionLoading === photo.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Trash2 className="h-4 w-4" />
+                            )}
                           </Button>
                         </>
                       )}

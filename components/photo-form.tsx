@@ -58,12 +58,14 @@ export function PhotoForm() {
             </div>
           )}
           {isSubmitting && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <div className="flex items-center gap-3">
-                <Loader2 className="h-5 w-5 text-blue-600 animate-spin" />
-                <div>
-                  <p className="text-blue-700 text-sm font-medium">Uploading your photos...</p>
-                  <p className="text-blue-600 text-xs mt-1">Please wait while we process and upload your images to the gallery.</p>
+            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center">
+              <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm mx-4">
+                <div className="flex items-center gap-3">
+                  <Loader2 className="h-6 w-6 text-blue-600 animate-spin" />
+                  <div>
+                    <p className="text-gray-900 font-medium">Uploading photos...</p>
+                    <p className="text-gray-600 text-sm">Please wait while we process your images</p>
+                  </div>
                 </div>
               </div>
             </div>
