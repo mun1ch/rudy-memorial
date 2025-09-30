@@ -166,7 +166,7 @@ export default function HomePage() {
               How to Participate
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Share your memories and help preserve Rudy's legacy
+              Share your memories and help preserve Rudy&apos;s legacy
             </p>
           </div>
 
@@ -189,7 +189,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Write Memories</h3>
               <p className="text-muted-foreground">
-                Share stories, anecdotes, and personal memories to celebrate Rudy's life.
+                Share stories, anecdotes, and personal memories to celebrate Rudy&apos;s life.
               </p>
             </div>
 
@@ -214,7 +214,7 @@ export default function HomePage() {
             Ready to Share?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Your memories and photos help keep Rudy's spirit alive. Every contribution matters.
+            Your memories and photos help keep Rudy&apos;s spirit alive. Every contribution matters.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/memories">
