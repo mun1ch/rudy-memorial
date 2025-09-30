@@ -89,29 +89,35 @@ export async function unhidePhoto(photoId: string) {
 
 export async function deletePhoto(photoId: string) {
   try {
+    console.log(`🗑️ Starting delete operation for photo: ${photoId}`);
+    
     // Read photos from Vercel Blob storage
     const { getPhotos, savePhotos } = await import('./storage');
     const photos = await getPhotos();
+    console.log(`📖 Loaded ${photos.length} photos from storage`);
     
     // Find and remove the photo
     const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
     if (photoIndex === -1) {
+      console.log(`❌ Photo ${photoId} not found in storage`);
       return { success: false, error: "Photo not found" };
     }
     
+    console.log(`🎯 Found photo at index ${photoIndex}, removing...`);
     photos.splice(photoIndex, 1);
     
     // Save photos using Vercel Blob storage
     await savePhotos(photos);
-    console.log("Photos saved to Vercel Blob storage");
+    console.log(`✅ Photos saved to Vercel Blob storage (${photos.length} remaining)`);
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
     
+    console.log(`🎉 Successfully deleted photo: ${photoId}`);
     return { success: true };
   } catch (error) {
-    console.error("Error deleting photo:", error);
-    return { success: false, error: "Failed to delete photo" };
+    console.error(`💥 Error deleting photo ${photoId}:`, error);
+    return { success: false, error: `Failed to delete photo: ${error instanceof Error ? error.message : 'Unknown error'}` };
   }
 }
 

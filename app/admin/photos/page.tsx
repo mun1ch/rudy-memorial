@@ -186,15 +186,34 @@ function AdminPhotosContent() {
     
     setBulkActionLoading(true);
     try {
-      const promises = Array.from(selectedPhotos).map(photoId => hidePhoto(photoId));
-      await Promise.all(promises);
+      const promises = Array.from(selectedPhotos).map(async (photoId) => {
+        try {
+          const result = await hidePhoto(photoId);
+          return { photoId, success: result.success, error: result.error };
+        } catch (error) {
+          console.error(`Error hiding photo ${photoId}:`, error);
+          return { photoId, success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+        }
+      });
       
-      setPhotos(prev => prev.map(photo => 
-        selectedPhotos.has(photo.id) ? { ...photo, hidden: true } : photo
-      ));
-      clearSelection();
+      const results = await Promise.all(promises);
+      const successful = results.filter(r => r.success);
+      const failed = results.filter(r => !r.success);
+      
+      if (successful.length > 0) {
+        setPhotos(prev => prev.map(photo => 
+          successful.some(s => s.photoId === photo.id) ? { ...photo, hidden: true } : photo
+        ));
+      }
+      
+      if (failed.length > 0) {
+        alert(`Failed to hide ${failed.length} photo(s). ${successful.length} photo(s) were hidden successfully.`);
+      } else {
+        clearSelection();
+      }
     } catch (error) {
       console.error("Error bulk hiding photos:", error);
+      alert("An error occurred while hiding photos. Please try again.");
     } finally {
       setBulkActionLoading(false);
     }
@@ -205,15 +224,34 @@ function AdminPhotosContent() {
     
     setBulkActionLoading(true);
     try {
-      const promises = Array.from(selectedPhotos).map(photoId => unhidePhoto(photoId));
-      await Promise.all(promises);
+      const promises = Array.from(selectedPhotos).map(async (photoId) => {
+        try {
+          const result = await unhidePhoto(photoId);
+          return { photoId, success: result.success, error: result.error };
+        } catch (error) {
+          console.error(`Error unhiding photo ${photoId}:`, error);
+          return { photoId, success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+        }
+      });
       
-      setPhotos(prev => prev.map(photo => 
-        selectedPhotos.has(photo.id) ? { ...photo, hidden: false } : photo
-      ));
-      clearSelection();
+      const results = await Promise.all(promises);
+      const successful = results.filter(r => r.success);
+      const failed = results.filter(r => !r.success);
+      
+      if (successful.length > 0) {
+        setPhotos(prev => prev.map(photo => 
+          successful.some(s => s.photoId === photo.id) ? { ...photo, hidden: false } : photo
+        ));
+      }
+      
+      if (failed.length > 0) {
+        alert(`Failed to unhide ${failed.length} photo(s). ${successful.length} photo(s) were unhidden successfully.`);
+      } else {
+        clearSelection();
+      }
     } catch (error) {
       console.error("Error bulk unhiding photos:", error);
+      alert("An error occurred while unhiding photos. Please try again.");
     } finally {
       setBulkActionLoading(false);
     }
@@ -228,13 +266,32 @@ function AdminPhotosContent() {
     
     setBulkActionLoading(true);
     try {
-      const promises = Array.from(selectedPhotos).map(photoId => deletePhoto(photoId));
-      await Promise.all(promises);
+      const promises = Array.from(selectedPhotos).map(async (photoId) => {
+        try {
+          const result = await deletePhoto(photoId);
+          return { photoId, success: result.success, error: result.error };
+        } catch (error) {
+          console.error(`Error deleting photo ${photoId}:`, error);
+          return { photoId, success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+        }
+      });
       
-      setPhotos(prev => prev.filter(photo => !selectedPhotos.has(photo.id)));
-      clearSelection();
+      const results = await Promise.all(promises);
+      const successful = results.filter(r => r.success);
+      const failed = results.filter(r => !r.success);
+      
+      if (successful.length > 0) {
+        setPhotos(prev => prev.filter(photo => !successful.some(s => s.photoId === photo.id)));
+      }
+      
+      if (failed.length > 0) {
+        alert(`Failed to delete ${failed.length} photo(s). ${successful.length} photo(s) were deleted successfully.`);
+      } else {
+        clearSelection();
+      }
     } catch (error) {
       console.error("Error bulk deleting photos:", error);
+      alert("An error occurred while deleting photos. Please try again.");
     } finally {
       setBulkActionLoading(false);
     }
