@@ -295,7 +295,7 @@ export default function GalleryPage() {
                   <Upload className="mx-auto h-12 w-12 text-primary mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Share Your Photos</h3>
                   <p className="text-muted-foreground mb-4">
-                    Upload photos to preserve special moments
+                    Help preserve special moments
                   </p>
                   <Button asChild className="w-full">
                     <Link href="/memories">
