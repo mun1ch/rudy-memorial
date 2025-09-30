@@ -29,17 +29,22 @@ export function PhotoForm() {
     const formData = new FormData(form);
     const files = formData.getAll('photo') as File[];
     const totalFiles = files.length;
+    const caption = formData.get('caption') as string;
+    const name = formData.get('name') as string;
     
-    // Show spinner immediately - just like test spinner
+    // Show spinner immediately
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(null);
     
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
     try {
-      // Simulate progress for each file
+      // Upload files sequentially with REAL progress tracking
       for (let i = 0; i < totalFiles; i++) {
         const file = files[i];
-        const progress = Math.round(((i + 1) / totalFiles) * 100);
         
         setUploadProgress({
           current: i + 1,
@@ -48,25 +53,42 @@ export function PhotoForm() {
           stage: "Uploading"
         });
         
-        // Small delay to show progress
-        await new Promise(resolve => setTimeout(resolve, 200));
+        try {
+          // Create individual form data for this file
+          const singleFileFormData = new FormData();
+          singleFileFormData.append('photo', file);
+          if (caption) singleFileFormData.append('caption', caption);
+          if (name) singleFileFormData.append('name', name);
+          
+          console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name}`);
+          const result = await submitPhoto(singleFileFormData);
+          
+          if (result?.success) {
+            successCount++;
+            console.log(`✅ Successfully uploaded: ${file.name}`);
+          } else {
+            errorCount++;
+            errors.push(`${file.name}: Upload failed`);
+            console.log(`❌ Failed to upload: ${file.name}`);
+          }
+        } catch (fileError) {
+          errorCount++;
+          const errorMsg = `${file.name}: ${fileError instanceof Error ? fileError.message : 'Unknown error'}`;
+          errors.push(errorMsg);
+          console.error(`💥 Error uploading ${file.name}:`, fileError);
+        }
       }
       
-      // Final processing stage
-      setUploadProgress(prev => prev ? {
-        ...prev,
-        stage: "Processing & Saving"
-      } : null);
-      
-      console.log("📤 Calling submitPhoto server action...");
-      const result = await submitPhoto(formData);
-      console.log("📥 Received result from server:", result);
-      
-      if (result?.success) {
-        setSubmitSuccess(result.message || "Photo uploaded successfully!");
-        // Reset form
+      // Show final results
+      if (successCount > 0 && errorCount === 0) {
+        setSubmitSuccess(`${successCount} photo(s) uploaded successfully!`);
         form.reset();
+      } else if (successCount > 0 && errorCount > 0) {
+        setSubmitError(`${successCount} photo(s) uploaded, ${errorCount} failed. Errors: ${errors.join(', ')}`);
+      } else {
+        setSubmitError(`All uploads failed. Errors: ${errors.join(', ')}`);
       }
+      
     } catch (error) {
       console.error("💥 Upload error:", error);
       setSubmitError(error instanceof Error ? error.message : "Failed to upload photos. Please try again.");
@@ -76,7 +98,7 @@ export function PhotoForm() {
         console.log("✅ Clearing loading state");
         setIsSubmitting(false);
         setUploadProgress(null);
-      }, 1000); // 1 second minimum display time
+      }, 1000);
     }
   };
 
@@ -118,19 +140,19 @@ export function PhotoForm() {
                               {uploadProgress.current} of {uploadProgress.total} complete
                             </p>
                             <p className="text-gray-500 text-xs mt-1 truncate">
-                              Processing: {uploadProgress.currentFile}
+                              {uploadProgress.stage}: {uploadProgress.currentFile}
                             </p>
                             <div className="mt-3">
                               <div className="w-full bg-gray-200 rounded-full h-2">
                                 <div 
-                                  className="bg-blue-600 h-2 rounded-full transition-all duration-300 ease-out"
+                                  className="bg-blue-600 h-2 rounded-full transition-all duration-500 ease-out"
                                   style={{ 
                                     width: `${Math.round((uploadProgress.current / uploadProgress.total) * 100)}%` 
                                   }}
                                 ></div>
                               </div>
                               <p className="text-xs text-gray-500 mt-1 text-center">
-                                {Math.round((uploadProgress.current / uploadProgress.total) * 100)}%
+                                {Math.round((uploadProgress.current / uploadProgress.total) * 100)}% • {uploadProgress.stage}
                               </p>
                             </div>
                           </>
