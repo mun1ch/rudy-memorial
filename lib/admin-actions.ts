@@ -71,7 +71,7 @@ export async function hidePhoto(photoId: string) {
     }
     
     // Find and hide the photo
-    const photoIndex = photos.findIndex((photo: any) => photo.id === photoId);
+    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
     if (photoIndex === -1) {
       return { success: false, error: "Photo not found" };
     }
@@ -106,7 +106,7 @@ export async function unhidePhoto(photoId: string) {
     }
     
     // Find and unhide the photo
-    const photoIndex = photos.findIndex((photo: any) => photo.id === photoId);
+    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
     if (photoIndex === -1) {
       return { success: false, error: "Photo not found" };
     }
@@ -141,7 +141,7 @@ export async function deletePhoto(photoId: string) {
     }
     
     // Find and remove the photo
-    const photoIndex = photos.findIndex((photo: any) => photo.id === photoId);
+    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
     if (photoIndex === -1) {
       return { success: false, error: "Photo not found" };
     }
@@ -187,7 +187,7 @@ export async function hideMemory(memoryId: string) {
     }
     
     // Find and hide the memory
-    const memoryIndex = tributes.findIndex((tribute: any) => tribute.id === memoryId);
+    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
     if (memoryIndex === -1) {
       return { success: false, error: "Memory not found" };
     }
@@ -222,7 +222,7 @@ export async function unhideMemory(memoryId: string) {
     }
     
     // Find and unhide the memory
-    const memoryIndex = tributes.findIndex((tribute: any) => tribute.id === memoryId);
+    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
     if (memoryIndex === -1) {
       return { success: false, error: "Memory not found" };
     }
@@ -257,7 +257,7 @@ export async function deleteMemory(memoryId: string) {
     }
     
     // Find and remove the memory
-    const memoryIndex = tributes.findIndex((tribute: any) => tribute.id === memoryId);
+    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
     if (memoryIndex === -1) {
       return { success: false, error: "Memory not found" };
     }
@@ -423,9 +423,9 @@ export async function findDuplicatePhotos() {
     }
     
     // Group photos by MD5 hash
-    const hashGroups: { [key: string]: any[] } = {};
+    const hashGroups: { [key: string]: Photo[] } = {};
     
-    photos.forEach((photo: any) => {
+    photos.forEach((photo: Photo) => {
       if (photo.md5Hash) {
         if (!hashGroups[photo.md5Hash]) {
           hashGroups[photo.md5Hash] = [];

@@ -8707,3 +8707,36 @@ https://nextjs.org/docs/messages/module-not-found
  GET /icon.svg?icon.5e81ae7e.svg 200 in 975ms
  GET /icon.svg?icon.5e81ae7e.svg 200 in 575ms
  GET /api/photos 200 in 427ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 395ms
+ GET /api/photos 200 in 415ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 479ms
+ GET /api/photos 200 in 405ms
+ GET /api/photos 200 in 408ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 388ms
+ GET /api/photos 200 in 416ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 352ms
+ ✓ Compiled in 70ms
+ GET /gallery 200 in 183ms
+ GET /gallery 200 in 183ms
+ GET /memories 200 in 235ms
+ GET /gallery 200 in 176ms
+ GET /gallery 200 in 175ms
+ GET /memories 200 in 167ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 451ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 451ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 357ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 361ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 299ms
+ GET /api/photos 200 in 322ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 307ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 385ms
+ GET /api/photos 200 in 350ms
+ GET /api/photos 200 in 335ms

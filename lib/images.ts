@@ -100,7 +100,7 @@ export async function processImage(
   }
 }
 
-export function generateStoragePath(_file: File): string {
+export function generateStoragePath(): string {
   const timestamp = Date.now();
   const randomId = Math.random().toString(36).substring(2, 15);
   const extension = "jpg"; // Always JPEG after processing

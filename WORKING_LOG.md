@@ -81,8 +81,27 @@ Given the Azure quota limitations, **Vercel is the recommended solution** for th
 ### Deployment Status
 - **Current Status**: ● Building (as of 2:15 PM PDT)
 - **Previous Attempts**: 2 failed deployments due to ESLint errors
-- **ESLint Fixes**: ✅ Applied and committed
+- **ESLint Fixes**: ✅ Applied and committed (Round 1 & 2)
 - **GitHub Integration**: ✅ Connected to https://github.com/mun1ch/rudy-memorial
+
+### ESLint Fixes Applied ✅
+**Round 1 Fixes:**
+- Fixed apostrophe escaping in gallery, memories, and admin pages
+- Fixed `any` types in memorial-wall, admin dashboard, and photos pages
+- Fixed Link component usage in layout.tsx
+- Fixed empty interface types in UI components
+- Fixed const vs let in page.tsx
+
+**Round 2 Fixes:**
+- Fixed unused error variable in lib/email.ts
+- Fixed unused logger import in lib/images.ts
+- Fixed unused file parameter in lib/images.ts
+- Fixed unused windowStart variable in lib/rate-limit.ts
+- Fixed `any` types in lib/supabase/client.ts and server.ts
+
+**Git Commits:**
+- `9376b9f`: Fix ESLint errors for Vercel deployment
+- `fffe075`: Fix remaining ESLint errors for Vercel deployment
 
 ## Environment Variables (To Be Set)
 - `NODE_ENV=production`

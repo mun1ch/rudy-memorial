@@ -38,13 +38,13 @@ export async function submitTribute(formData: FormData) {
 
     // Store tributes locally until Supabase is configured
     const tributesFilePath = path.join(process.cwd(), "public", "tributes.json");
-    let existingTributes: any[] = [];
+    let existingTributes: Tribute[] = [];
     
     try {
       const data = await fs.readFile(tributesFilePath, "utf-8");
       existingTributes = JSON.parse(data);
-    } catch (readError: any) {
-      if (readError.code === "ENOENT") {
+    } catch (readError: unknown) {
+      if (readError && typeof readError === 'object' && 'code' in readError && readError.code === "ENOENT") {
         console.log("tributes.json not found, creating new one.");
       } else {
         console.error("Error reading tributes.json:", readError);
