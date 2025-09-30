@@ -140,7 +140,10 @@ export async function submitPhoto(formData: FormData) {
     });
     
     if (validFiles.length === 0) {
-      throw new Error("No valid image files found. Please select image files that are not empty.");
+      const totalFiles = files.length;
+      const emptyFiles = files.filter(f => f.size === 0).length;
+      const invalidTypes = files.filter(f => !f.type.startsWith('image/')).length;
+      throw new Error(`No valid image files found. Total files: ${totalFiles}, Empty files: ${emptyFiles}, Invalid types: ${invalidTypes}. Please select valid image files.`);
     }
 
     console.log(`✅ Processing ${validFiles.length} valid files`);
@@ -255,6 +258,10 @@ export async function submitPhoto(formData: FormData) {
     return { success: true, message: `${newPhotos.length} photo(s) uploaded successfully!` };
   } catch (error) {
     console.error("❌ Error submitting photo:", error);
-    throw error;
+    if (error instanceof Error) {
+      throw new Error(`Upload failed: ${error.message}`);
+    } else {
+      throw new Error("Failed to process any photos. Please check your files and try again.");
+    }
   }
 }

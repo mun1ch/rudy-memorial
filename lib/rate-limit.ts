@@ -10,7 +10,7 @@ export interface RateLimitConfig {
 
 const defaultConfig: RateLimitConfig = {
   windowMs: 15 * 60 * 1000, // 15 minutes
-  maxRequests: 10, // 10 requests per 15 minutes
+  maxRequests: 200, // 200 requests per 15 minutes (allows 100 photos + buffer)
 };
 
 export function rateLimit(

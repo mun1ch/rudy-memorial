@@ -60,7 +60,7 @@ export function PhotoForm() {
           if (caption) singleFileFormData.append('caption', caption);
           if (name) singleFileFormData.append('name', name);
           
-          console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name}`);
+          console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name} (${file.size} bytes, ${file.type})`);
           const result = await submitPhoto(singleFileFormData);
           
           if (result?.success) {
@@ -71,11 +71,21 @@ export function PhotoForm() {
             errors.push(`${file.name}: Upload failed`);
             console.log(`❌ Failed to upload: ${file.name}`);
           }
+          
+          // Add a small delay between uploads to avoid overwhelming the server
+          if (i < totalFiles - 1) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
         } catch (fileError) {
           errorCount++;
           const errorMsg = `${file.name}: ${fileError instanceof Error ? fileError.message : 'Unknown error'}`;
           errors.push(errorMsg);
           console.error(`💥 Error uploading ${file.name}:`, fileError);
+          
+          // Add delay even on error to avoid rapid-fire requests
+          if (i < totalFiles - 1) {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+          }
         }
       }
       
