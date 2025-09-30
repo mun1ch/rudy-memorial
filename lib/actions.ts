@@ -191,7 +191,7 @@ export async function submitPhoto(formData: FormData) {
       const { put } = await import('@vercel/blob');
       const blob = await put(fileName, fileBuffer, {
         access: 'public',
-        addRandomSuffix: false
+        addRandomSuffix: true
       });
       console.log(`✅ File ${i + 1} uploaded to Vercel Blob:`, blob.url);
       

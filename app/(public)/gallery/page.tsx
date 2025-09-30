@@ -35,7 +35,7 @@ export default function GalleryPage() {
   const autoPlayIntervalRef = useRef(3);
 
   // Centralized photo list - ALWAYS in the same order (newest first)
-  const getPhotos = () => photos;
+  const getPhotos = useCallback(() => photos, [photos]);
 
   useEffect(() => {
     // Fetch photos from the API endpoint
@@ -72,7 +72,15 @@ export default function GalleryPage() {
   };
 
 
-  const goToPreviousPhotoManual = () => {
+  const stopAutoPlay = useCallback(() => {
+    setIsPlaying(false);
+    if (playInterval) {
+      clearInterval(playInterval);
+      playInterval = null;
+    }
+  }, []);
+
+  const goToPreviousPhotoManual = useCallback(() => {
     stopAutoPlay();
     if (!selectedPhoto) return;
     const currentPhotos = getPhotos();
@@ -81,9 +89,9 @@ export default function GalleryPage() {
     currentIndexRef.current = previousIndex;
     setCurrentIndex(previousIndex);
     setSelectedPhoto(currentPhotos[previousIndex]);
-  };
+  }, [selectedPhoto, stopAutoPlay, getPhotos]);
 
-  const goToNextPhotoManual = () => {
+  const goToNextPhotoManual = useCallback(() => {
     stopAutoPlay();
     if (!selectedPhoto) return;
     const currentPhotos = getPhotos();
@@ -92,10 +100,9 @@ export default function GalleryPage() {
     currentIndexRef.current = nextIndex;
     setCurrentIndex(nextIndex);
     setSelectedPhoto(currentPhotos[nextIndex]);
-  };
+  }, [selectedPhoto, stopAutoPlay, getPhotos]);
 
-
-  const startAutoPlay = () => {
+  const startAutoPlay = useCallback(() => {
     const currentPhotos = getPhotos();
     if (currentPhotos.length <= 1) return;
 
@@ -124,25 +131,17 @@ export default function GalleryPage() {
       setCurrentIndex(currentIndexRef.current);
       setSelectedPhoto(currentPhotos[currentIndexRef.current]);
     }, intervalMs);
-  };
+  }, [selectedPhoto, getPhotos]);
 
-  const stopAutoPlay = () => {
-    setIsPlaying(false);
-    if (playInterval) {
-      clearInterval(playInterval);
-      playInterval = null;
-    }
-  };
-
-  const toggleAutoPlay = () => {
+  const toggleAutoPlay = useCallback(() => {
     if (isPlaying) {
       stopAutoPlay();
     } else {
       startAutoPlay();
     }
-  };
+  }, [isPlaying, stopAutoPlay, startAutoPlay]);
 
-      const toggleFullscreen = () => {
+      const toggleFullscreen = useCallback(() => {
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
           setIsFullscreen(true);
@@ -150,7 +149,7 @@ export default function GalleryPage() {
           document.exitFullscreen();
           setIsFullscreen(false);
         }
-      };
+      }, []);
 
       const startSlideshow = () => {
         if (photos.length === 0) return;
@@ -196,7 +195,7 @@ export default function GalleryPage() {
         toggleFullscreen();
         break;
     }
-  }, [selectedPhoto, goToPreviousPhotoManual, goToNextPhotoManual, toggleAutoPlay, toggleFullscreen]);
+  }, [selectedPhoto, goToPreviousPhotoManual, goToNextPhotoManual, toggleAutoPlay, toggleFullscreen, stopAutoPlay]);
 
   useEffect(() => {
     if (selectedPhoto) {
@@ -212,7 +211,7 @@ export default function GalleryPage() {
       document.body.style.overflow = 'unset';
       // DON'T stop auto-play here - it was stopping every time selectedPhoto changed!
     };
-  }, [selectedPhoto, handleKeyDown]);
+  }, [selectedPhoto, handleKeyDown, stopAutoPlay]);
 
   // Handle fullscreen change events
       useEffect(() => {

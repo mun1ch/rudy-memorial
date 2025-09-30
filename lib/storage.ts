@@ -49,7 +49,8 @@ export async function savePhotos(photos: Photo[]): Promise<void> {
     
     await put('photos.json', blob, {
       access: 'public',
-      addRandomSuffix: false
+      addRandomSuffix: false,
+      allowOverwrite: true
     });
   } catch (error) {
     console.error('Error saving photos:', error);
@@ -104,7 +105,8 @@ export async function saveTributes(tributes: Tribute[]): Promise<void> {
     
     await put('tributes.json', blob, {
       access: 'public',
-      addRandomSuffix: false
+      addRandomSuffix: false,
+      allowOverwrite: true
     });
   } catch (error) {
     console.error('Error saving tributes:', error);
