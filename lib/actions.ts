@@ -17,8 +17,6 @@ interface Tribute {
 // import { logger } from "@/lib/logger";
 import { rateLimit } from "@/lib/rate-limit";
 import { headers } from "next/headers";
-import { promises as fs } from "fs";
-import path from "path";
 import { v4 as uuidv4 } from "uuid";
 import { createHash } from "crypto";
 import { sendPhotoUploadNotification, sendMemorySubmissionNotification } from "@/lib/email";
@@ -46,12 +44,9 @@ export async function submitTribute(formData: FormData) {
 
     const validatedData = tributeSchema.parse(rawData);
 
-    // Store tributes in memory for now (Vercel file system is read-only)
-    // TODO: Switch to Vercel KV or Supabase for persistent storage
-    const existingTributes: Tribute[] = [];
-    
-    // For now, just create an empty array since we can't write to file system
-    console.log("Using in-memory storage for tributes (Vercel file system is read-only)");
+    // Store tributes using Vercel Blob storage
+    const { getTributes, addTribute } = await import('./storage');
+    const existingTributes = await getTributes();
 
     const newTribute = {
       id: uuidv4(),
@@ -61,10 +56,7 @@ export async function submitTribute(formData: FormData) {
       approved: true, // Direct to memorial wall as requested
       hidden: false,
     };
-    existingTributes.push(newTribute);
-
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Tribute created (in-memory only):", newTribute);
+    await addTribute(newTribute);
 
     console.log("Tribute submitted successfully:", newTribute.id);
     
@@ -164,34 +156,13 @@ export async function submitPhoto(formData: FormData) {
     const captionValue = caption === "" ? undefined : caption;
     const nameValue = name === "" ? undefined : name;
 
-    // Store photos locally until Supabase is configured
+    // Store photos using Vercel Blob storage
+    console.log("💾 Starting Vercel Blob operations...");
     
-    console.log("💾 Starting file operations...");
-    
-    // Create uploads directory if it doesn't exist
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
-    console.log("📁 Uploads directory:", uploadsDir);
-    
-    try {
-      await fs.mkdir(uploadsDir, { recursive: true });
-      console.log("✅ Uploads directory created/verified");
-    } catch (error) {
-      console.log("⚠️ Directory creation error (might already exist):", error);
-    }
-    
-    // Store photo info in JSON file
-    const photosFile = path.join(process.cwd(), 'public', 'photos.json');
-    console.log("📄 Photos JSON file:", photosFile);
-    
-    let photos = [];
-    
-    try {
-      const existingData = await fs.readFile(photosFile, 'utf-8');
-      photos = JSON.parse(existingData);
-      console.log("📖 Loaded existing photos:", photos.length);
-    } catch (error) {
-      console.log("📝 No existing photos file, starting fresh");
-    }
+    // Get existing photos from Vercel Blob storage
+    const { getPhotos } = await import('./storage');
+    const photos = await getPhotos();
+    console.log("📖 Loaded existing photos:", photos.length);
     
     // Process each file
     const newPhotos = [];
@@ -223,22 +194,20 @@ export async function submitPhoto(formData: FormData) {
       const fileName = `photo_${timestamp}.${fileExtension}`;
       console.log(`📝 Generated filename for file ${i + 1}:`, fileName);
       
-      // Save file to public/uploads directory
-      const filePath = path.join(uploadsDir, fileName);
-      console.log(`💾 Saving file ${i + 1} to:`, filePath);
-      
-      await fs.writeFile(filePath, fileBuffer);
-      console.log(`✅ File ${i + 1} saved successfully`);
-      
-      // Create public URL
-      const publicUrl = `/uploads/${fileName}`;
-      console.log(`🔗 Public URL for file ${i + 1}:`, publicUrl);
+      // Upload file to Vercel Blob storage
+      console.log(`💾 Uploading file ${i + 1} to Vercel Blob...`);
+      const { put } = await import('@vercel/blob');
+      const blob = await put(fileName, fileBuffer, {
+        access: 'public',
+        addRandomSuffix: false
+      });
+      console.log(`✅ File ${i + 1} uploaded to Vercel Blob:`, blob.url);
       
       // Add new photo to array
       const newPhoto = {
         id: `photo_${timestamp}`,
         fileName,
-        url: publicUrl,
+        url: blob.url,
         caption: validatedData.caption || null,
         contributorName: validatedData.name || null,
         fileSize: validatedData.file.size,
@@ -266,8 +235,10 @@ export async function submitPhoto(formData: FormData) {
     photos.push(...newPhotos);
     console.log(`✅ Added ${newPhotos.length} photos to gallery`);
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("💾 Photos updated (in-memory only)");
+    // Save photos using Vercel Blob storage
+    const { savePhotos } = await import('./storage');
+    await savePhotos(photos);
+    console.log("💾 Photos saved to Vercel Blob storage");
     
     console.log(`✅ ${newPhotos.length} photo(s) upload completed successfully!`);
     

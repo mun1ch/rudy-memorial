@@ -1,26 +1,16 @@
 import { NextResponse } from 'next/server';
-
-interface Photo {
-  id: string;
-  fileName: string;
-  url: string;
-  caption: string;
-  contributorName: string;
-  fileSize: number;
-  mimeType: string;
-  md5Hash: string;
-  uploadedAt: string;
-  approved: boolean;
-  hidden: boolean;
-}
+import { Photo } from '@/lib/storage';
 
 export async function GET() {
   try {
-    // TODO: Read from Vercel KV or Supabase instead of file system
-    // For now, return empty array since Vercel file system is read-only
-    console.log("Using in-memory storage for photos API (Vercel file system is read-only)");
+    // Read photos from Vercel Blob storage
+    const { getPhotos } = await import('@/lib/storage');
+    const photos = await getPhotos();
     
-    return NextResponse.json([]);
+    // Filter out hidden photos for public gallery
+    const visiblePhotos = photos.filter((photo: Photo) => !photo.hidden);
+    
+    return NextResponse.json(visiblePhotos);
   } catch (error: unknown) {
     console.error('Error reading photos:', error);
     return NextResponse.json([], { status: 500 });

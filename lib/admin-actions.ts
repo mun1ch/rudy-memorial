@@ -32,10 +32,9 @@ export async function getPhotos() {
   try {
     const supabase = await createClient();
     
-    // TODO: Read from Vercel KV or Supabase instead of file system
-    // For now, return empty array since Vercel file system is read-only
-    const photos: Photo[] = [];
-    console.log("Using in-memory storage for photos (Vercel file system is read-only)");
+    // Read photos from Vercel Blob storage
+    const { getPhotos: getPhotosFromStorage } = await import('./storage');
+    const photos = await getPhotosFromStorage();
     
     return { success: true, photos };
   } catch (error) {
@@ -92,8 +91,10 @@ export async function hidePhoto(photoId: string) {
     
     photos[photoIndex].hidden = true;
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Photos updated (in-memory only)");
+    // Save photos using Vercel Blob storage
+    const { savePhotos } = await import('./storage');
+    await savePhotos(photos);
+    console.log("Photos saved to Vercel Blob storage");
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -128,8 +129,10 @@ export async function unhidePhoto(photoId: string) {
     
     photos[photoIndex].hidden = false;
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Photos updated (in-memory only)");
+    // Save photos using Vercel Blob storage
+    const { savePhotos } = await import('./storage');
+    await savePhotos(photos);
+    console.log("Photos saved to Vercel Blob storage");
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -175,8 +178,10 @@ export async function deletePhoto(photoId: string) {
     // Remove from array
     photos.splice(photoIndex, 1);
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Photos updated (in-memory only)");
+    // Save photos using Vercel Blob storage
+    const { savePhotos } = await import('./storage');
+    await savePhotos(photos);
+    console.log("Photos saved to Vercel Blob storage");
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -211,8 +216,10 @@ export async function hideMemory(memoryId: string) {
     
     tributes[memoryIndex].hidden = true;
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Tributes updated (in-memory only)");
+    // Save tributes using Vercel Blob storage
+    const { saveTributes } = await import('./storage');
+    await saveTributes(tributes);
+    console.log("Tributes saved to Vercel Blob storage");
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -247,8 +254,10 @@ export async function unhideMemory(memoryId: string) {
     
     tributes[memoryIndex].hidden = false;
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Tributes updated (in-memory only)");
+    // Save tributes using Vercel Blob storage
+    const { saveTributes } = await import('./storage');
+    await saveTributes(tributes);
+    console.log("Tributes saved to Vercel Blob storage");
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -284,8 +293,10 @@ export async function deleteMemory(memoryId: string) {
     // Remove from array
     tributes.splice(memoryIndex, 1);
     
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Tributes updated (in-memory only)");
+    // Save tributes using Vercel Blob storage
+    const { saveTributes } = await import('./storage');
+    await saveTributes(tributes);
+    console.log("Tributes saved to Vercel Blob storage");
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -325,8 +336,10 @@ export async function editPhoto(photoId: string, caption: string | null, contrib
       photos[photoIndex].contributorName = contributorName;
     }
 
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Photos updated (in-memory only)");
+    // Save photos using Vercel Blob storage
+    const { savePhotos } = await import('./storage');
+    await savePhotos(photos);
+    console.log("Photos saved to Vercel Blob storage");
 
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -367,8 +380,10 @@ export async function editMemory(memoryId: string, message: string, contributorN
       tributes[memoryIndex].contributorName = contributorName;
     }
 
-    // TODO: Save to Vercel KV or Supabase instead of file system
-    console.log("Tributes updated (in-memory only)");
+    // Save tributes using Vercel Blob storage
+    const { saveTributes } = await import('./storage');
+    await saveTributes(tributes);
+    console.log("Tributes saved to Vercel Blob storage");
 
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");

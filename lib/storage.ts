@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { put, del, list } from '@vercel/blob';
 
 export interface Photo {
   id: string;
@@ -10,6 +10,7 @@ export interface Photo {
   mimeType: string;
   uploadedAt: string;
   approved: boolean;
+  hidden?: boolean;
 }
 
 export interface Tribute {
@@ -24,7 +25,15 @@ export interface Tribute {
 // Photos storage
 export async function getPhotos(): Promise<Photo[]> {
   try {
-    const photos = await kv.get<Photo[]>('photos') || [];
+    const { blobs } = await list();
+    const photosBlob = blobs.find(blob => blob.pathname === 'photos.json');
+    
+    if (!photosBlob) {
+      return [];
+    }
+    
+    const response = await fetch(photosBlob.url);
+    const photos = await response.json();
     return photos;
   } catch (error) {
     console.error('Error getting photos:', error);
@@ -34,7 +43,13 @@ export async function getPhotos(): Promise<Photo[]> {
 
 export async function savePhotos(photos: Photo[]): Promise<void> {
   try {
-    await kv.set('photos', photos);
+    const jsonString = JSON.stringify(photos, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    
+    await put('photos.json', blob, {
+      access: 'public',
+      addRandomSuffix: false
+    });
   } catch (error) {
     console.error('Error saving photos:', error);
     throw error;
@@ -65,7 +80,15 @@ export async function deletePhoto(photoId: string): Promise<void> {
 // Tributes storage
 export async function getTributes(): Promise<Tribute[]> {
   try {
-    const tributes = await kv.get<Tribute[]>('tributes') || [];
+    const { blobs } = await list();
+    const tributesBlob = blobs.find(blob => blob.pathname === 'tributes.json');
+    
+    if (!tributesBlob) {
+      return [];
+    }
+    
+    const response = await fetch(tributesBlob.url);
+    const tributes = await response.json();
     return tributes;
   } catch (error) {
     console.error('Error getting tributes:', error);
@@ -75,7 +98,13 @@ export async function getTributes(): Promise<Tribute[]> {
 
 export async function saveTributes(tributes: Tribute[]): Promise<void> {
   try {
-    await kv.set('tributes', tributes);
+    const jsonString = JSON.stringify(tributes, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    
+    await put('tributes.json', blob, {
+      access: 'public',
+      addRandomSuffix: false
+    });
   } catch (error) {
     console.error('Error saving tributes:', error);
     throw error;
