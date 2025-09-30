@@ -5575,3 +5575,1316 @@ https://nextjs.org/docs/messages/module-not-found
  GET /api/photos 200 in 594ms
  GET /api/photos 200 in 300ms
  GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 577ms
+ GET /api/photos 200 in 613ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 362ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 385ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 343ms
+ GET /api/photos 200 in 358ms
+ GET /api/photos 200 in 416ms
+ ✓ Compiled in 752ms
+ GET / 200 in 316ms
+ GET / 200 in 356ms
+ GET /memorial-wall 200 in 378ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 340ms
+ GET /api/photos 200 in 344ms
+ GET /api/photos 500 in 1034ms
+ ✓ Compiled in 116ms
+ GET / 200 in 174ms
+ GET / 200 in 178ms
+ GET /memorial-wall 200 in 191ms
+ GET /api/photos 500 in 207ms
+ GET /api/photos 500 in 187ms
+ ✓ Compiled in 127ms
+ GET / 200 in 258ms
+ GET / 200 in 309ms
+ GET /memorial-wall 200 in 353ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 355ms
+ GET /api/photos 200 in 316ms
+ GET / 200 in 221ms
+ GET /api/photos 200 in 300ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 326ms
+ GET /api/photos 200 in 480ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 414ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 353ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 314ms
+ GET /memorial-wall 200 in 212ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 263ms
+ GET /memories 200 in 182ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 277ms
+ ✓ Compiled /gallery in 156ms
+ GET /gallery 200 in 878ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 357ms
+ GET /api/photos 200 in 364ms
+ GET /api/photos 200 in 697ms
+ GET / 200 in 151ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 276ms
+ GET /api/photos 200 in 277ms
+ GET /gallery 200 in 336ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 276ms
+ GET /api/photos 200 in 285ms
+ GET /api/photos 200 in 315ms
+ ✓ Compiled in 151ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 344ms
+ ✓ Compiled in 149ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 387ms
+ GET /api/photos 200 in 2296ms
+ GET /favicon.ico 200 in 451ms
+ GET /api/photos 200 in 366ms
+ GET /api/photos 200 in 404ms
+ GET / 200 in 180ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 272ms
+ GET /api/photos 200 in 278ms
+ GET /gallery 200 in 454ms
+ GET /api/photos 200 in 365ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 347ms
+ ✓ Compiled in 168ms
+ GET /api/photos 200 in 354ms
+ ✓ Compiled in 148ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 259ms
+ GET /api/photos 200 in 366ms
+ GET /api/photos 200 in 311ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 311ms
+ GET /api/photos 200 in 338ms
+ GET /api/photos 200 in 545ms
+ GET /api/photos 200 in 1585ms
+ ✓ Compiled in 128ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 274ms
+ ✓ Compiled in 114ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 348ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 785ms
+ ✓ Compiled in 111ms
+ ✓ Compiled in 70ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 288ms
+ ✓ Compiled in 173ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 326ms
+ ✓ Compiled in 128ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 488ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 351ms
+ ✓ Compiled in 160ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 345ms
+ GET /api/photos 200 in 328ms
+ ✓ Compiled in 97ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 995ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 379ms
+ ✓ Compiled in 140ms
+ GET /api/photos 200 in 672ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 415ms
+ GET /api/photos 200 in 397ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 306ms
+ ✓ Compiled in 143ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 311ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 340ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 284ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 298ms
+ ✓ Compiled in 118ms
+ GET /api/photos 200 in 323ms
+ ✓ Compiled in 133ms
+ GET /api/photos 200 in 280ms
+ GET /api/photos 200 in 360ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 301ms
+ ✓ Compiled in 137ms
+ GET /api/photos 200 in 507ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 284ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 347ms
+ GET /api/photos 200 in 358ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 354ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 393ms
+ GET /api/photos 200 in 338ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 377ms
+ ✓ Compiled in 191ms
+ GET /api/photos 200 in 316ms
+ ✓ Compiled in 93ms
+ GET /api/photos 200 in 305ms
+ ✓ Compiled in 94ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 375ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 355ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 473ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 347ms
+ ✓ Compiled in 568ms
+ GET /api/photos 200 in 1807ms
+ GET /api/photos 200 in 418ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 280ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 277ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 377ms
+ GET /api/photos 200 in 457ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 344ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 369ms
+ GET /api/photos 200 in 278ms
+ GET /api/photos 200 in 418ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 382ms
+ GET /api/photos 200 in 357ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 344ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 486ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 410ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 416ms
+ GET /api/photos 200 in 282ms
+ GET /gallery 200 in 1912ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 282ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 1569ms
+ GET /api/photos 200 in 756ms
+ GET /api/photos 200 in 279ms
+ GET /api/photos 200 in 395ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 351ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 285ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 438ms
+ GET /api/photos 200 in 380ms
+ ✓ Compiled in 256ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 354ms
+ GET /api/photos 200 in 453ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 426ms
+ ✓ Compiled in 168ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 294ms
+ ✓ Compiled in 182ms
+ GET /api/photos 200 in 328ms
+ ✓ Compiled in 151ms
+ GET /api/photos 200 in 311ms
+ ✓ Compiled in 116ms
+ GET /api/photos 200 in 358ms
+ GET /api/photos 200 in 307ms
+ GET /gallery 200 in 430ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 351ms
+ GET /api/photos 200 in 351ms
+ GET /api/photos 200 in 1433ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 284ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 375ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 271ms
+ GET /api/photos 200 in 275ms
+ ✓ Compiled in 119ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 377ms
+ ✓ Compiled in 239ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 1104ms
+ ✓ Compiled in 127ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 1897ms
+ ✓ Compiled in 224ms
+ GET /api/photos 200 in 661ms
+ GET /api/photos 200 in 364ms
+ GET /gallery 200 in 641ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 411ms
+ GET /api/photos 200 in 406ms
+ GET /api/photos 200 in 340ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 346ms
+ ✓ Compiled in 104ms
+ GET /api/photos 200 in 320ms
+ ✓ Compiled in 100ms
+ GET /api/photos 200 in 368ms
+ GET /api/photos 200 in 277ms
+ ✓ Compiled in 132ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 293ms
+ GET /gallery 200 in 550ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 328ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 357ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 292ms
+ ✓ Compiled in 205ms
+ GET /api/photos 200 in 291ms
+ ✓ Compiled in 228ms
+ GET /api/photos 200 in 266ms
+ ✓ Compiled in 136ms
+ GET /api/photos 200 in 502ms
+ GET /api/photos 200 in 334ms
+ ✓ Compiled in 141ms
+ GET /gallery 200 in 534ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 399ms
+ GET /api/photos 200 in 396ms
+ GET /api/photos 200 in 285ms
+ ✓ Compiled in 123ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 314ms
+ ✓ Compiled in 205ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 311ms
+ ✓ Compiled in 78ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 300ms
+ GET /gallery 200 in 499ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 298ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 364ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 277ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 413ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 342ms
+ ✓ Compiled in 165ms
+ GET /api/photos 200 in 517ms
+ GET /api/photos 200 in 323ms
+ ✓ Compiled in 91ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 360ms
+ GET /api/photos 200 in 521ms
+ GET /api/photos 200 in 347ms
+ GET /api/photos 200 in 329ms
+ GET /api/photos 200 in 462ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 310ms
+ ✓ Compiled in 122ms
+ GET /api/photos 200 in 333ms
+ ✓ Compiled in 223ms
+ GET /api/photos 200 in 291ms
+ GET /api/photos 200 in 363ms
+ GET /api/photos 200 in 299ms
+ GET /gallery 200 in 430ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 295ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 377ms
+ GET /api/photos 200 in 426ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 296ms
+ ✓ Compiled in 176ms
+ GET /api/photos 200 in 388ms
+ GET /api/photos 200 in 281ms
+ ✓ Compiled in 176ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 342ms
+ ✓ Compiled in 280ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 392ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 344ms
+ GET /api/photos 200 in 408ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 295ms
+ GET /gallery 200 in 430ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 357ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 346ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 564ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 355ms
+ GET /api/photos 200 in 395ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 520ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 363ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 400ms
+ GET /api/photos 200 in 376ms
+ ✓ Compiled in 112ms
+ GET /api/photos 200 in 258ms
+ ✓ Compiled in 167ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 312ms
+ ✓ Compiled in 183ms
+ GET /api/photos 200 in 376ms
+ GET /api/photos 200 in 372ms
+ ✓ Compiled in 167ms
+ GET /api/photos 200 in 488ms
+ GET /api/photos 200 in 336ms
+ GET /api/photos 200 in 327ms
+ GET /api/photos 200 in 339ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 369ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 308ms
+ GET /api/photos 200 in 351ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 393ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 417ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 408ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 350ms
+ GET /api/photos 200 in 536ms
+ GET /api/photos 200 in 504ms
+ GET /api/photos 200 in 295ms
+ GET /api/photos 200 in 387ms
+ GET /api/photos 200 in 310ms
+ ✓ Compiled in 415ms
+ GET /api/photos 200 in 408ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 290ms
+ GET /api/photos 200 in 310ms
+ GET /api/photos 200 in 1034ms
+ GET /api/photos 200 in 386ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 306ms
+ ✓ Compiled in 199ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 496ms
+ GET /api/photos 200 in 297ms
+ ✓ Compiled in 194ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 415ms
+ GET /api/photos 200 in 493ms
+ GET /api/photos 200 in 419ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 317ms
+ ✓ Compiled in 254ms
+ GET /api/photos 200 in 318ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 437ms
+ GET /gallery 200 in 1148ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 404ms
+ GET /api/photos 200 in 401ms
+ GET /api/photos 200 in 399ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 920ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 311ms
+ ✓ Compiled in 163ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 317ms
+ GET /gallery 200 in 381ms
+ GET /api/photos 200 in 272ms
+ GET /api/photos 200 in 344ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 281ms
+ GET /api/photos 200 in 278ms
+ GET /api/photos 200 in 272ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 276ms
+ GET /api/photos 200 in 351ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 299ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 289ms
+ ✓ Compiled in 111ms
+ GET /api/photos 200 in 470ms
+ ✓ Compiled in 155ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 338ms
+ GET /gallery 200 in 499ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 342ms
+ GET /api/photos 200 in 388ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 350ms
+ GET /api/photos 200 in 335ms
+ GET /api/photos 200 in 382ms
+ GET /api/photos 200 in 301ms
+ GET /api/photos 200 in 332ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 270ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 274ms
+ GET /api/photos 200 in 530ms
+ GET /api/photos 200 in 463ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 369ms
+ GET /api/photos 200 in 1066ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 336ms
+ ✓ Compiled in 167ms
+ GET /api/photos 200 in 381ms
+ GET /api/photos 200 in 385ms
+ GET /api/photos 200 in 387ms
+ ✓ Compiled in 114ms
+ ✓ Compiled in 137ms
+ GET /api/photos 200 in 428ms
+ GET /api/photos 200 in 502ms
+ GET /api/photos 200 in 427ms
+ ✓ Compiled in 112ms
+ GET /api/photos 200 in 402ms
+ GET /api/photos 200 in 571ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 372ms
+ GET /api/photos 200 in 414ms
+ GET /api/photos 200 in 257ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 334ms
+ GET /api/photos 200 in 277ms
+ GET /api/photos 200 in 412ms
+ GET /api/photos 200 in 494ms
+ GET /api/photos 200 in 353ms
+ GET /api/photos 200 in 271ms
+ GET /api/photos 200 in 425ms
+ GET /api/photos 200 in 305ms
+ GET /gallery 200 in 606ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 389ms
+ GET /api/photos 200 in 411ms
+ GET /api/photos 200 in 351ms
+ GET /api/photos 200 in 328ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 355ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 278ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 319ms
+ GET /api/photos 200 in 296ms
+ GET /api/photos 200 in 283ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 298ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 354ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 297ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 441ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 361ms
+ ✓ Compiled in 260ms
+ GET /api/photos 200 in 636ms
+ GET /api/photos 200 in 617ms
+ ✓ Compiled in 221ms
+ ✓ Compiled in 373ms
+ GET /api/photos 200 in 987ms
+ GET /api/photos 200 in 501ms
+ GET /api/photos 200 in 309ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 426ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 361ms
+ GET /api/photos 200 in 311ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 448ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 391ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 482ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 322ms
+ GET /api/photos 200 in 408ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 325ms
+ ✓ Compiled in 137ms
+ GET /api/photos 200 in 324ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 360ms
+ GET /api/photos 200 in 601ms
+ GET /api/photos 200 in 363ms
+ GET /api/photos 200 in 334ms
+ GET /gallery 200 in 550ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 425ms
+ GET /api/photos 200 in 463ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 290ms
+ GET /gallery 200 in 266ms
+ GET /api/photos 200 in 393ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 313ms
+ GET /api/photos 200 in 347ms
+ GET /api/photos 200 in 306ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 440ms
+ GET /api/photos 200 in 743ms
+ GET /api/photos 200 in 1005ms
+ GET /api/photos 200 in 343ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 291ms
+ ✓ Compiled in 199ms
+ GET /api/photos 200 in 542ms
+ GET /api/photos 200 in 482ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 307ms
+ ✓ Compiled in 207ms
+ ✓ Compiled in 172ms
+ GET /api/photos 200 in 695ms
+ GET /api/photos 200 in 869ms
+ GET /api/photos 200 in 665ms
+ GET /api/photos 200 in 488ms
+ GET /api/photos 200 in 279ms
+ GET /api/photos 200 in 341ms
+ GET /api/photos 200 in 315ms
+ GET /api/photos 200 in 303ms
+ GET /api/photos 200 in 356ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 381ms
+ GET /api/photos 200 in 305ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 775ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 340ms
+ ✓ Compiled in 215ms
+ GET /api/photos 200 in 526ms
+ GET /api/photos 200 in 367ms
+ GET /api/photos 200 in 390ms
+ ✓ Compiled in 449ms
+ GET /api/photos 200 in 342ms
+ GET /api/photos 200 in 385ms
+ GET /api/photos 200 in 446ms
+ GET /api/photos 200 in 340ms
+ GET /api/photos 200 in 396ms
+ GET /gallery 200 in 1524ms
+ GET /api/photos 200 in 379ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 386ms
+ GET /api/photos 200 in 326ms
+ GET /api/photos 200 in 631ms
+ GET /api/photos 200 in 292ms
+ GET /api/photos 200 in 491ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 275ms
+ GET /api/photos 200 in 330ms
+ GET /api/photos 200 in 1234ms
+ GET /api/photos 200 in 316ms
+ GET /api/photos 200 in 371ms
+ GET /api/photos 200 in 381ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 414ms
+ GET /api/photos 200 in 278ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 409ms
+ GET /api/photos 200 in 370ms
+ GET /api/photos 200 in 293ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 359ms
+ GET /api/photos 200 in 312ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 360ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 300ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 331ms
+ GET /api/photos 200 in 365ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 377ms
+ GET /api/photos 200 in 323ms
+ ✓ Compiled in 160ms
+ GET /api/photos 200 in 455ms
+ GET /api/photos 200 in 579ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 194ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 982ms
+ GET /gallery 500 in 967ms
+ GET /favicon.ico 200 in 1057ms
+ GET /api/photos 200 in 968ms
+ GET /favicon.ico 200 in 754ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 229ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 1036ms
+ GET /gallery 500 in 1042ms
+ GET /favicon.ico 200 in 593ms
+ GET /favicon.ico 200 in 562ms
+ GET /api/photos 200 in 290ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 426ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 745ms
+ GET /gallery 500 in 738ms
+ GET /favicon.ico 200 in 397ms
+ GET /favicon.ico 200 in 450ms
+ GET /api/photos 200 in 287ms
+ ✓ Compiled in 129ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 561ms
+ GET /gallery 500 in 565ms
+ GET /favicon.ico 200 in 376ms
+ GET /favicon.ico 200 in 404ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 141ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 631ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 1147ms
+ GET /favicon.ico 200 in 1055ms
+ GET /favicon.ico 200 in 819ms
+ GET /api/photos 200 in 669ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 215ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 827ms
+ GET /gallery 500 in 906ms
+ GET /favicon.ico 200 in 682ms
+ GET /favicon.ico 200 in 596ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 225ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 705ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 928ms
+ GET /favicon.ico 200 in 895ms
+ GET /favicon.ico 200 in 808ms
+ ✓ Compiled in 276ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /api/photos 200 in 982ms
+ GET /gallery 500 in 1131ms
+ GET /gallery 500 in 1142ms
+ GET /favicon.ico 200 in 586ms
+ GET /favicon.ico 200 in 624ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 117ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 730ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 869ms
+ GET /favicon.ico 200 in 608ms
+ GET /favicon.ico 200 in 458ms
+ GET /api/photos 200 in 314ms
+ GET /api/photos 200 in 648ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 182ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 1207ms
+ GET /gallery 500 in 1254ms
+ GET /favicon.ico 200 in 643ms
+ GET /favicon.ico 200 in 571ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 146ms
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ ⨯ ReferenceError: slideshowPhotos is not defined
+    at GalleryPage (app/(public)/gallery/page.tsx:291:19)
+  289 |           }
+  290 |         }
+> 291 |       }, [photos, slideshowPhotos]);
+      |                   ^
+  292 |
+  293 |   if (loading) {
+  294 |     return ( {
+  digest: '2914635207'
+}
+ GET /gallery 500 in 1015ms
+ GET /gallery 500 in 1019ms
+ GET /favicon.ico 200 in 692ms
+ GET /favicon.ico 200 in 655ms
+ GET /api/photos 200 in 632ms
+ GET /api/photos 200 in 550ms
+ GET /api/photos 200 in 744ms
+ GET /api/photos 200 in 366ms
+ GET /api/photos 200 in 629ms
+ GET /api/photos 200 in 405ms
+ GET /api/photos 200 in 798ms
+ GET /api/photos 200 in 355ms
+ GET /api/photos 200 in 374ms
+ GET /api/photos 200 in 353ms
+ GET /api/photos 200 in 472ms
+ GET /api/photos 200 in 365ms
+ GET /api/photos 200 in 392ms
+ GET /api/photos 200 in 469ms
+ GET /api/photos 200 in 491ms
+ ✓ Compiled in 290ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /gallery 200 in 1100ms
+ GET /gallery 200 in 1098ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 796ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 717ms
+ GET /api/photos 200 in 719ms
+ GET /api/photos 200 in 825ms
+ GET /api/photos 200 in 655ms
+ GET /api/photos 200 in 500ms
+ GET /api/photos 200 in 440ms
+ GET /api/photos 200 in 469ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 340ms
+ ✓ Compiled in 115ms
+ GET /api/photos 200 in 471ms
+ ✓ Compiled in 76ms
+ GET /api/photos 200 in 313ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 338ms
+ GET /gallery 200 in 681ms
+ GET /api/photos 200 in 666ms
+ GET /api/photos 200 in 693ms
+ GET /api/photos 200 in 676ms
+ GET /api/photos 200 in 323ms
+ GET /api/photos 200 in 472ms
+ GET /api/photos 200 in 393ms
+ GET /api/photos 200 in 598ms
+ GET /api/photos 200 in 333ms
+ GET /api/photos 200 in 490ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 410ms
+ GET /api/photos 200 in 285ms
+ GET /api/photos 200 in 605ms
+ GET /api/photos 200 in 321ms
+ GET /api/photos 200 in 289ms
+ GET /api/photos 200 in 641ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 357ms
+ GET /api/photos 200 in 728ms
+ GET /api/photos 200 in 360ms
+ GET /api/photos 200 in 343ms
+ GET /api/photos 200 in 643ms
+ GET /api/photos 200 in 430ms
+ GET /api/photos 200 in 349ms
+ GET /api/photos 200 in 375ms
+ GET /api/photos 200 in 307ms
+ GET /api/photos 200 in 363ms
+ GET /api/photos 200 in 317ms
+ GET /api/photos 200 in 340ms
+ GET /api/photos 200 in 756ms
+ GET /memorial-wall 200 in 821ms
+ GET /api/photos 200 in 343ms
+ GET /admin 307 in 548ms
+ GET /admin-login 200 in 142ms
+ GET /api/photos 200 in 361ms
+ POST /api/admin/login 200 in 559ms
+ GET /admin/dashboard 200 in 273ms
+ ✓ Compiled in 223ms
+ GET /admin/dashboard 200 in 564ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 221ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 256ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 96ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 524ms
+ GET /api/photos 200 in 285ms
+ GET /admin/photos?filter=hidden 200 in 183ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=hidden 200 in 112ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/photos?filter=hidden 200 in 1610ms
+ GET /api/photos 200 in 286ms
+ GET /api/photos 200 in 287ms
+ GET /api/photos 200 in 337ms
+ GET /gallery 200 in 906ms
+ GET /api/photos 200 in 562ms
+ GET /api/photos 200 in 411ms
+ GET /api/photos 200 in 992ms
+ GET /api/photos 200 in 537ms
+ GET /api/photos 200 in 288ms
+ GET /api/photos 200 in 442ms
+ GET /api/photos 200 in 588ms
+ GET /memorial-wall 200 in 489ms
+ GET /memories 200 in 105ms
+ GET /api/photos 200 in 339ms
+ GET /admin 307 in 301ms
+ GET /admin/dashboard 200 in 219ms
+ GET /api/photos 200 in 307ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 287ms
+⚠️ Supabase not configured. Please set up your .env.local file with Supabase credentials.
+ POST /admin/dashboard 200 in 121ms
+ GET /api/photos 200 in 400ms
+ GET /api/photos 200 in 304ms
+ GET /api/photos 200 in 302ms
+ GET /api/photos 200 in 294ms
+ GET /api/photos 200 in 320ms
+ GET /api/photos 200 in 388ms
+ GET /api/photos 200 in 325ms
+ GET /api/photos 200 in 337ms
+ GET /api/photos 200 in 439ms

@@ -6,6 +6,7 @@ import { Camera, Upload, Heart, Eye, Calendar, User, ChevronLeft, ChevronRight, 
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Photo {
   id: string;
@@ -20,20 +21,22 @@ interface Photo {
 }
 
 // Global auto-play state - completely independent of React
-let isAutoPlaying = false;
 let playInterval: NodeJS.Timeout | null = null;
-let currentPhotos: Photo[] = [];
-let currentPhotoIndex = 0;
 
 export default function GalleryPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-      const [isFullscreen, setIsFullscreen] = useState(false);
-      const [isPlaying, setIsPlaying] = useState(false);
-      const [isTransitioning, setIsTransitioning] = useState(false);
-      const [showFullscreenInfo, setShowFullscreenInfo] = useState(false);
-      const [slideshowPhotos, setSlideshowPhotos] = useState<Photo[]>([]);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showFullscreenInfo, setShowFullscreenInfo] = useState(true);
+  const currentIndexRef = useRef(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
+  const autoPlayIntervalRef = useRef(3);
+
+  // Centralized photo list - ALWAYS in the same order (newest first)
+  const getPhotos = () => photos;
 
   useEffect(() => {
     // Fetch photos from the API endpoint
@@ -41,7 +44,11 @@ export default function GalleryPage() {
       try {
         const res = await fetch('/api/photos');
         const data = await res.json();
-        setPhotos(data);
+        // Sort photos chronologically (newest first) - NEVER CHANGE THIS ORDER
+        const sortedPhotos = data.sort((a: Photo, b: Photo) => 
+          new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+        );
+        setPhotos(sortedPhotos);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching photos:', error);
@@ -72,7 +79,7 @@ export default function GalleryPage() {
 
       const goToPreviousPhoto = () => {
         if (!selectedPhoto) return;
-        const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+        const currentPhotos = getPhotos();
         const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
         const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
         setSelectedPhoto(currentPhotos[previousIndex]);
@@ -80,78 +87,68 @@ export default function GalleryPage() {
       };
 
   const goToPreviousPhotoManual = () => {
-        stopAutoPlay(); // Stop auto-play on manual navigation
-        if (!selectedPhoto) return;
-        const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
-        const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
-        const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
-        smoothTransitionToPhoto(currentPhotos[previousIndex]);
-        currentPhotoIndex = previousIndex;
-      };
+    stopAutoPlay();
+    if (!selectedPhoto) return;
+    const currentPhotos = getPhotos();
+    const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
+    const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
+    currentIndexRef.current = previousIndex;
+    setCurrentIndex(previousIndex);
+    setSelectedPhoto(currentPhotos[previousIndex]);
+  };
 
   const goToNextPhotoManual = () => {
-    stopAutoPlay(); // Stop auto-play on manual navigation
+    stopAutoPlay();
     if (!selectedPhoto) return;
-    const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+    const currentPhotos = getPhotos();
     const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
     const nextIndex = currentIndex < currentPhotos.length - 1 ? currentIndex + 1 : 0;
-    smoothTransitionToPhoto(currentPhotos[nextIndex]);
-    currentPhotoIndex = nextIndex;
+    currentIndexRef.current = nextIndex;
+    setCurrentIndex(nextIndex);
+    setSelectedPhoto(currentPhotos[nextIndex]);
   };
 
   const goToNextPhoto = () => {
     if (!selectedPhoto) return;
-    const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
+    const currentPhotos = getPhotos();
     const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
     const nextIndex = currentIndex < currentPhotos.length - 1 ? currentIndex + 1 : 0;
     setSelectedPhoto(currentPhotos[nextIndex]);
     // Don't stop auto-play when navigating programmatically
   };
 
-  const smoothTransitionToPhoto = (newPhoto: Photo) => {
-    setIsTransitioning(true);
-    
-    // Very subtle crossfade
-    setTimeout(() => {
-      setSelectedPhoto(newPhoto);
-      // Quick fade back in
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 25);
-    }, 25);
+  const startAutoPlay = () => {
+    const currentPhotos = getPhotos();
+    if (currentPhotos.length <= 1) return;
+
+    setIsPlaying(true);
+
+    // Set current index based on selectedPhoto
+    if (selectedPhoto) {
+      const index = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
+      currentIndexRef.current = index !== -1 ? index : 0;
+      setCurrentIndex(currentIndexRef.current);
+    } else {
+      currentIndexRef.current = 0;
+      setCurrentIndex(0);
+    }
+
+    // Clear any existing interval
+    if (playInterval) {
+      clearInterval(playInterval);
+    }
+
+    // Start new interval with current interval value
+    const intervalMs = autoPlayIntervalRef.current * 1000;
+    playInterval = setInterval(() => {
+      const currentPhotos = getPhotos();
+      currentIndexRef.current = (currentIndexRef.current + 1) % currentPhotos.length;
+      setCurrentIndex(currentIndexRef.current);
+      setSelectedPhoto(currentPhotos[currentIndexRef.current]);
+    }, intervalMs);
   };
 
-      const startAutoPlay = () => {
-        const currentPhotos = slideshowPhotos.length > 0 ? slideshowPhotos : photos;
-        if (currentPhotos.length <= 1) return;
-
-        isAutoPlaying = true;
-        setIsPlaying(true);
-
-        // Store photos and current index globally
-        currentPhotos.splice(0, currentPhotos.length, ...currentPhotos);
-        currentPhotoIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto?.id);
-        if (currentPhotoIndex === -1) currentPhotoIndex = 0;
-
-        // Clear any existing interval
-        if (playInterval) {
-          clearInterval(playInterval);
-        }
-
-        // Start new interval - completely independent of React
-        playInterval = setInterval(() => {
-          if (isAutoPlaying && currentPhotos.length > 0) {
-            // Move to next photo
-            currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
-
-            // Use smooth transition for auto-play
-            smoothTransitionToPhoto(currentPhotos[currentPhotoIndex]);
-          }
-        }, 3000); // 3 seconds between photos
-      };
-
   const stopAutoPlay = () => {
-    isAutoPlaying = false;
     setIsPlaying(false);
     if (playInterval) {
       clearInterval(playInterval);
@@ -160,7 +157,7 @@ export default function GalleryPage() {
   };
 
   const toggleAutoPlay = () => {
-    if (isAutoPlaying) {
+    if (isPlaying) {
       stopAutoPlay();
     } else {
       startAutoPlay();
@@ -171,9 +168,8 @@ export default function GalleryPage() {
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
           setIsFullscreen(true);
-          // Show info briefly when entering fullscreen, then hide it
+          // Always show info in fullscreen
           setShowFullscreenInfo(true);
-          setTimeout(() => setShowFullscreenInfo(false), 3000);
         } else {
           document.exitFullscreen();
           setIsFullscreen(false);
@@ -184,12 +180,8 @@ export default function GalleryPage() {
       const startSlideshow = () => {
         if (photos.length === 0) return;
         
-        // Create a randomized copy of photos for slideshow
-        const randomizedPhotos = [...photos].sort(() => Math.random() - 0.5);
-        setSlideshowPhotos(randomizedPhotos);
-        
-        // Select the first photo from randomized list and open lightbox
-        setSelectedPhoto(randomizedPhotos[0]);
+        // Select the first photo and open lightbox
+        setSelectedPhoto(photos[0]);
         
         // Enter fullscreen
         if (!document.fullscreenElement) {
@@ -261,39 +253,18 @@ export default function GalleryPage() {
       useEffect(() => {
         if (!isFullscreen || !selectedPhoto) return;
 
-        let hideTimeout: NodeJS.Timeout;
-
         const handleMouseMove = () => {
+          // Always keep info visible
           setShowFullscreenInfo(true);
-          clearTimeout(hideTimeout);
-          hideTimeout = setTimeout(() => setShowFullscreenInfo(false), 2000);
         };
 
         document.addEventListener('mousemove', handleMouseMove);
         return () => {
           document.removeEventListener('mousemove', handleMouseMove);
-          clearTimeout(hideTimeout);
         };
       }, [isFullscreen, selectedPhoto]);
 
-      // Handle new photos being added during slideshow
-      useEffect(() => {
-        if (slideshowPhotos.length > 0 && photos.length > slideshowPhotos.length) {
-          // New photos detected! Add them to the beginning of the slideshow queue
-          const newPhotos = photos.filter(photo => 
-            !slideshowPhotos.some(slideshowPhoto => slideshowPhoto.id === photo.id)
-          );
-          
-          if (newPhotos.length > 0) {
-            // Add new photos to the beginning of the slideshow queue
-            const updatedSlideshowPhotos = [...newPhotos, ...slideshowPhotos];
-            setSlideshowPhotos(updatedSlideshowPhotos);
-            
-            // Update global currentPhotos for auto-play
-            currentPhotos.splice(0, currentPhotos.length, ...updatedSlideshowPhotos);
-          }
-        }
-      }, [photos, slideshowPhotos]);
+      // Photos are now centralized - no complex slideshow logic needed
 
   if (loading) {
     return (
@@ -379,12 +350,18 @@ export default function GalleryPage() {
 
             {/* Masonry Grid */}
             <div className="masonry-grid">
-              {photos.map((photo, index) => (
-                <div
+              {getPhotos().map((photo, index) => (
+                <motion.div
                   key={photo.id}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
                   className={`masonry-item group cursor-pointer ${getRandomHeight()}`}
                   onClick={() => setSelectedPhoto(photo)}
-                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <Card className="h-full overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02]">
                     <CardContent className="p-0 h-full relative">
@@ -441,7 +418,7 @@ export default function GalleryPage() {
                       )}
                     </CardContent>
                   </Card>
-                </div>
+                </motion.div>
               ))}
             </div>
           </>
@@ -459,24 +436,54 @@ export default function GalleryPage() {
       </div>
 
       {/* Lightbox Modal */}
-      {selectedPhoto && (
-        <div 
-          className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-4'}`}
-          style={{
-            backgroundImage: 'url(/static/pexels-roseleon-4564366.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setSelectedPhoto(null);
-          }}
-        >
+      <AnimatePresence>
+        {selectedPhoto && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-4'}`}
+            style={{
+              backgroundImage: 'url(/static/pexels-roseleon-4564366.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setSelectedPhoto(null);
+            }}
+          >
           <div className={`relative z-10 ${isFullscreen ? 'w-full h-full' : 'max-w-4xl max-h-full'}`}>
             {/* Control Buttons */}
             <div className="absolute -top-12 right-0 flex items-center gap-2 z-10">
+                  {/* Auto-play Interval Selector - Only show when not fullscreen */}
+                  {!isFullscreen && getPhotos().length > 1 && (
+                <select
+                  value={autoPlayInterval}
+                  onChange={(e) => {
+                    const newInterval = Number(e.target.value);
+                    setAutoPlayInterval(newInterval);
+                    autoPlayIntervalRef.current = newInterval;
+                    // Restart auto-play with new interval if currently playing
+                    if (isPlaying) {
+                      stopAutoPlay();
+                      setTimeout(() => startAutoPlay(), 50);
+                    }
+                  }}
+                  className="bg-black/50 text-white/80 text-xs px-2 py-1 rounded border border-white/20 hover:bg-black/70 transition-colors"
+                  title="Auto-play interval"
+                >
+                  <option value={1}>1s</option>
+                  <option value={2}>2s</option>
+                  <option value={3}>3s</option>
+                  <option value={5}>5s</option>
+                  <option value={10}>10s</option>
+                </select>
+              )}
+                  
                   {/* Auto-play Button */}
-                  {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).length > 1 && (
+                  {getPhotos().length > 1 && (
                 <button
                   onClick={toggleAutoPlay}
                   className="text-white/80 hover:text-white transition-colors"
@@ -507,12 +514,12 @@ export default function GalleryPage() {
 
             {/* Photo Counter */}
                 <div className="absolute -top-12 left-0 text-white/80 text-sm z-10">
-                  {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).findIndex(photo => photo.id === selectedPhoto.id) + 1} of {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).length}
+                  {getPhotos().findIndex(photo => photo.id === selectedPhoto.id) + 1} of {getPhotos().length}
                   {isPlaying && <span className="ml-2 text-xs">• Auto-playing</span>}
                 </div>
             
             {/* Navigation Arrows - Outside the photo */}
-            {(slideshowPhotos.length > 0 ? slideshowPhotos : photos).length > 1 && (
+            {getPhotos().length > 1 && (
               <>
                     <button
                       onClick={goToPreviousPhotoManual}
@@ -532,27 +539,36 @@ export default function GalleryPage() {
               </>
             )}
             
-            <div className={`relative flex items-center justify-center ${isFullscreen ? 'h-screen w-screen' : 'h-full'}`}>
-                  <Image
-                    src={selectedPhoto.url}
-                    alt={selectedPhoto.caption || "Photo of Rudy"}
-                    width={1000}
-                    height={800}
-                    quality={100}
-                    className={`${isFullscreen ? 'w-full h-full max-w-none max-h-none' : 'max-h-[75vh] max-w-full w-auto'} mx-auto object-contain rounded-lg shadow-2xl transition-opacity duration-75 ease-in-out ${
-                      isTransitioning ? 'opacity-70' : 'opacity-100'
-                    }`}
-                    priority
-                  />
+            <div className="relative overflow-hidden w-full h-full bg-transparent">
+              <motion.div
+                className="flex h-full bg-transparent"
+                animate={{ 
+                  x: -100 * currentIndex + '%'
+                }}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: "easeInOut"
+                }}
+              >
+                {getPhotos().map((photo, index) => (
+                  <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent">
+                    <Image
+                      src={photo.url}
+                      alt={photo.caption || "Photo of Rudy"}
+                      width={1000}
+                      height={800}
+                      quality={100}
+                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} rounded-lg shadow-2xl bg-transparent`}
+                      priority={photo.id === selectedPhoto?.id}
+                    />
+                  </div>
+                ))}
+              </motion.div>
             </div>
 
             {/* Fullscreen Info Overlay */}
             {isFullscreen && (selectedPhoto.caption || selectedPhoto.contributorName) && (
-              <div className={`fixed bottom-0 left-0 right-0 z-20 transition-all duration-500 ease-in-out ${
-                showFullscreenInfo 
-                  ? 'translate-y-0 opacity-100' 
-                  : 'translate-y-full opacity-0'
-              }`}>
+              <div className="fixed bottom-0 left-0 right-0 z-20 translate-y-0 opacity-100">
                 <div className="bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8">
                   <div className="max-w-4xl mx-auto">
                     {selectedPhoto.caption && (
@@ -579,23 +595,21 @@ export default function GalleryPage() {
             
             {/* Photo Info - Only show when not in fullscreen */}
             {!isFullscreen && (selectedPhoto.caption || selectedPhoto.contributorName) && (
-              <div className={`mt-4 bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50 transition-opacity duration-75 ease-in-out ${
-                isTransitioning ? 'opacity-70' : 'opacity-100'
-              }`}>
+              <div className="mt-6 bg-white/95 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-lg">
                 {selectedPhoto.caption && (
-                  <p className="text-foreground mb-3 font-medium text-lg">
+                  <p className="text-gray-800 mb-4 font-medium text-lg leading-relaxed">
                     {selectedPhoto.caption}
                   </p>
                 )}
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-6 text-sm text-gray-600">
                   {selectedPhoto.contributorName && (
                     <div className="flex items-center gap-2">
-                      <User className="h-4 w-4" />
+                      <User className="h-4 w-4 text-gray-500" />
                       <span>Shared by {selectedPhoto.contributorName}</span>
                     </div>
                   )}
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4 text-gray-500" />
                     <span>{formatDate(selectedPhoto.uploadedAt)}</span>
                   </div>
                 </div>
@@ -612,8 +626,9 @@ export default function GalleryPage() {
               )}
             </div>
           </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
