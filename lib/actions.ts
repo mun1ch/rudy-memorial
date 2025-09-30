@@ -33,9 +33,6 @@ export async function submitTribute(formData: FormData) {
 
     const validatedData = tributeSchema.parse(rawData);
 
-    // Store tributes using Vercel Blob storage
-    const { addTribute } = await import('./storage');
-
     const newTribute = {
       id: uuidv4(),
       message: validatedData.message,
@@ -44,7 +41,14 @@ export async function submitTribute(formData: FormData) {
       approved: true, // Direct to memorial wall as requested
       hidden: false,
     };
-    await addTribute(newTribute);
+
+    // Store tributes using Vercel Blob storage
+    if (process.env.NODE_ENV === 'production') {
+      const { addTribute } = await import('./storage');
+      await addTribute(newTribute);
+    } else {
+      console.log("Development mode: Skipping Vercel Blob storage");
+    }
 
     console.log("Tribute submitted successfully:", newTribute.id);
     
