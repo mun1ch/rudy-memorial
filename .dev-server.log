@@ -10,61 +10,7 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 3.9s
+ ✓ Ready in 1030ms
  ○ Compiling / ...
  ✓ Compiled / in 2.2s
- GET / 200 in 2926ms
- ○ Compiling /admin/dashboard ...
- ✓ Compiled /admin/dashboard in 545ms
- GET /admin/dashboard 200 in 702ms
- POST /admin/dashboard 200 in 571ms
- POST /admin/dashboard 200 in 243ms
- POST /admin/dashboard 200 in 260ms
- ✓ Compiled /memorial-wall in 176ms
-🎬 Memory wall component rendered
- GET /memorial-wall 200 in 252ms
- ✓ Compiled /api/tributes in 270ms
- GET /api/tributes 200 in 869ms
-🎬 Memory wall component rendered
- GET /memorial-wall 200 in 98ms
- GET /api/tributes 200 in 487ms
- ✓ Compiled /memories/words in 418ms
- GET /memories/words 200 in 561ms
-Raw form data: {
-  displayName: '',
-  message: 'Come up with a plan on how you are going to update the website to become mobile friendly. Right now it’s way off in sizing, tabs, everyyyyything. It pretty much fucking sucks ass on mobile. Look through the code, especially the css and tailwaind, and come up with a plan on making things correct for different aspect rations on diffrent devices, especially mobile.'
-}
-displayName type: string value: 
-message type: string value: Come up with a plan on how you are going to update the website to become mobile friendly. Right now it’s way off in sizing, tabs, everyyyyything. It pretty much fucking sucks ass on mobile. Look through the code, especially the css and tailwaind, and come up with a plan on making things correct for different aspect rations on diffrent devices, especially mobile.
-Tribute submitted successfully: 41242174-5589-41ac-8cf5-82eb85ce378f
-Email notifications disabled or no emails configured
-Error submitting tribute: Error: NEXT_REDIRECT
-    at submitTribute (lib/actions.ts:70:13)
-  68 |     
-  69 |     // Redirect to success page
-> 70 |     redirect("/memories?success=tribute");
-     |             ^
-  71 |   } catch (error) {
-  72 |     console.error("Error submitting tribute:", error);
-  73 |     throw error; {
-  digest: 'NEXT_REDIRECT;push;/memories?success=tribute;307;'
-}
- ✓ Compiled /memories in 192ms
- GET /memories?success=tribute 200 in 265ms
- POST /memories/words 303 in 857ms
- GET /memories 200 in 121ms
-🎬 Memory wall component rendered
- GET /memorial-wall 200 in 180ms
- GET /api/tributes 200 in 1132ms
- GET / 200 in 119ms
- ○ Compiling /gallery ...
- ✓ Compiled /gallery in 525ms
- GET /gallery 200 in 622ms
- ✓ Compiled /api/photos in 154ms
- GET /api/photos 200 in 825ms
-🎬 Memory wall component rendered
- GET /memorial-wall 200 in 129ms
- GET /api/tributes 200 in 825ms
- GET /memories 200 in 159ms
- GET /gallery 200 in 147ms
- GET /api/photos 200 in 589ms
+ GET / 200 in 2699ms

@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, ArrowLeft, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, Heart } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -44,28 +44,18 @@ export default function MemorialWallPage() {
   }, []);
 
   return (
-    <div className="container py-8">
+    <div className="container py-4">
       <div className="mx-auto max-w-4xl">
-        {/* Back Button */}
-        <div className="mb-6">
-          <Button asChild variant="outline" size="sm">
-            <Link href="/memories">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Share Memory
-            </Link>
-          </Button>
-        </div>
-
-        <div className="mb-8 text-center">
-          <Heart className="mx-auto h-16 w-16 text-primary mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-foreground">
+        <div className="mb-4 text-center">
+          <Heart className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2" />
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
             Memorial Wall
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Memories and tributes shared by friends and family
           </p>
-          <div className="mt-6">
-            <Button asChild>
+          <div className="mt-3">
+            <Button asChild size="default" className="min-h-[44px]">
               <Link href="/memories/words">
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Share Your Memory
@@ -87,21 +77,21 @@ export default function MemorialWallPage() {
         ) : (
           <>
             {/* Tributes Grid */}
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-6">
               {tributes.filter(tribute => !tribute.hidden).reverse().map((tribute) => (
                 <Card key={tribute.id} className="overflow-hidden">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
+                  <CardContent className="p-3 sm:p-6">
+                    <div className="flex items-start gap-2 sm:gap-4">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                          <MessageCircle className="h-6 w-6 text-primary" />
+                        <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                          <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 text-primary" />
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-foreground leading-relaxed mb-3">
+                        <p className="text-foreground leading-relaxed mb-2 sm:mb-3 text-sm sm:text-base">
                           {tribute.message}
                         </p>
-                        <div className="flex items-center justify-between text-sm text-muted-foreground">
+                        <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground">
                           {tribute.contributorName && (
                             <span>— {tribute.contributorName}</span>
                           )}
@@ -121,8 +111,8 @@ export default function MemorialWallPage() {
             </div>
 
             {/* Summary */}
-            <div className="mt-12 text-center">
-              <p className="text-sm text-muted-foreground">
+            <div className="mt-6 sm:mt-12 text-center">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {tributes.filter(tribute => !tribute.hidden).length} memor{tributes.filter(tribute => !tribute.hidden).length !== 1 ? 'ies' : 'y'} shared
               </p>
             </div>

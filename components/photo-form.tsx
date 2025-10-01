@@ -152,18 +152,18 @@ export function PhotoForm() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Upload className="h-5 w-5" />
+    <Card className="w-full">
+      <CardHeader className="p-4 sm:p-6">
+        <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+          <Upload className="h-5 w-5 sm:h-6 sm:w-6" />
           Upload Your Photo
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-sm sm:text-base">
           Your photo will be added directly to the gallery
         </CardDescription>
       </CardHeader>
           <form onSubmit={handleSubmit} className="space-y-6">
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-4 sm:space-y-6 p-4 sm:p-6">
           {submitError && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
               <p className="text-red-700 text-sm">{submitError}</p>
@@ -234,8 +234,8 @@ export function PhotoForm() {
                   required
                   disabled={isSubmitting}
                   onChange={handleFileChange}
-                  className="block w-full text-sm text-muted-foreground
-                    file:mr-4 file:py-2 file:px-4
+                  className="block w-full text-sm text-muted-foreground h-12
+                    file:mr-4 file:py-3 file:px-4
                     file:rounded-md file:border-0
                     file:text-sm file:font-semibold
                     file:bg-primary file:text-primary-foreground
@@ -279,7 +279,7 @@ export function PhotoForm() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                 {getCurrentPageFiles().map((file, index) => {
                   const globalIndex = (currentPage - 1) * filesPerPage + index;
                   return (
@@ -349,13 +349,13 @@ export function PhotoForm() {
             </p>
           </div>
 
-          <div className="flex items-center justify-between pt-4">
-            <p className="text-sm text-muted-foreground">
+          <div className="space-y-4 pt-4">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
               By uploading, you agree that your photo will be added to the gallery
             </p>
             <Button 
               type="submit" 
-              className="text-lg px-6 py-3" 
+              className="w-full sm:w-auto text-base sm:text-lg px-6 py-3 h-12 sm:h-auto" 
               disabled={isSubmitting || selectedFiles.length === 0}
             >
               {isSubmitting ? (

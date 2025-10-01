@@ -24,6 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
+import { MobileAdminMemories } from "@/components/mobile-admin-memories";
 
 interface Memory {
   id: string;
@@ -34,7 +35,7 @@ interface Memory {
   hidden?: boolean;
 }
 
-export default function AdminMemoriesPage() {
+function AdminMemoriesContent() {
   const [memories, setMemories] = useState<Memory[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
@@ -928,5 +929,18 @@ export default function AdminMemoriesPage() {
         onClose={() => setShowProgress(false)}
       />
     </div>
+  );
+}
+
+export default function AdminMemoriesPage() {
+  return (
+    <>
+      <div className="sm:hidden">
+        <MobileAdminMemories />
+      </div>
+      <div className="hidden sm:block">
+        <AdminMemoriesContent />
+      </div>
+    </>
   );
 }

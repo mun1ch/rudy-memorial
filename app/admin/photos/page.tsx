@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
+import { MobileAdminPhotos } from "@/components/mobile-admin-photos";
 
 interface Photo {
   id: string;
@@ -1156,7 +1157,12 @@ function AdminPhotosContent() {
 export default function AdminPhotosPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <AdminPhotosContent />
+      <div className="sm:hidden">
+        <MobileAdminPhotos />
+      </div>
+      <div className="hidden sm:block">
+        <AdminPhotosContent />
+      </div>
     </Suspense>
   );
 }

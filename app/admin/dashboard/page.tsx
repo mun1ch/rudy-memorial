@@ -10,6 +10,7 @@ import {
 import { useState, useEffect } from "react";
 import { getPhotos, getMemories, findDuplicatePhotos } from "@/lib/admin-actions";
 import Link from "next/link";
+import { MobileAdminDashboard } from "@/components/mobile-admin-dashboard";
 
 interface Photo {
   id: string;
@@ -33,7 +34,7 @@ interface Memory {
   hidden?: boolean;
 }
 
-export default function AdminDashboard() {
+function AdminDashboard() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [memories, setMemories] = useState<Memory[]>([]);
   const [duplicates, setDuplicates] = useState<{ hash: string; photos: Photo[] }[]>([]);
@@ -164,5 +165,18 @@ export default function AdminDashboard() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminDashboardPage() {
+  return (
+    <>
+      <div className="sm:hidden">
+        <MobileAdminDashboard />
+      </div>
+      <div className="hidden sm:block">
+        <AdminDashboard />
+      </div>
+    </>
   );
 }

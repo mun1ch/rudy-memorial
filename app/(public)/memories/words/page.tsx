@@ -1,28 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ArrowLeft, Camera } from "lucide-react";
+import { MessageCircle, Camera } from "lucide-react";
 import Link from "next/link";
 import { WordsForm } from "@/components/words-form";
 
 export default function WordsPage() {
   return (
-    <div className="container py-8">
+    <div className="container py-4">
       <div className="mx-auto max-w-2xl">
-        {/* Back Button */}
-        <div className="mb-6">
-          <Button asChild variant="outline" size="sm">
-            <Link href="/memories">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Share Memory
-            </Link>
-          </Button>
-        </div>
 
-        <div className="mb-8 text-center">
-          <MessageCircle className="mx-auto h-16 w-16 text-primary mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-foreground">
+        <div className="mb-6 text-center">
+          <MessageCircle className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-3" />
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
             Share Your Words
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-2 text-sm sm:text-base text-muted-foreground">
             Write a memory, story, or tribute to share with others
           </p>
         </div>

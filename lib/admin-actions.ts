@@ -298,6 +298,8 @@ export async function findDuplicatePhotos() {
     const { getPhotos } = await import('./storage');
     const photos = await getPhotos();
     
+    console.log(`🔍 Finding duplicates among ${photos.length} photos`);
+    
     // Find duplicates based on file size and similar filenames
     // Group photos by file size first
     const sizeMap = new Map<number, Photo[]>();
@@ -309,17 +311,35 @@ export async function findDuplicatePhotos() {
       sizeMap.get(photo.fileSize)!.push(photo);
     }
     
+    console.log(`📊 Found ${sizeMap.size} unique file sizes`);
+    
     const duplicates = [];
     
     // Check each size group for potential duplicates
     for (const [size, photosOfSize] of sizeMap) {
+      console.log(`📏 Size ${size}: ${photosOfSize.length} photos`);
+      
       if (photosOfSize.length > 1) {
         // Group by filename pattern (without timestamp)
         const patternMap = new Map<string, Photo[]>();
         
         for (const photo of photosOfSize) {
           // Extract base filename without timestamp (e.g., "photo_1759272581990.jpg" -> "photo_.jpg")
-          const basePattern = photo.fileName.replace(/photo_\d+/, 'photo_');
+          // Also handle different filename patterns
+          let basePattern = photo.fileName;
+          
+          // Remove timestamp patterns: photo_1234567890.jpg -> photo_.jpg
+          basePattern = basePattern.replace(/photo_\d+/, 'photo_');
+          
+          // Remove any other numeric suffixes that might be timestamps
+          basePattern = basePattern.replace(/_\d+\./, '_.');
+          
+          // For files that don't follow the photo_ pattern, use the original filename
+          if (!basePattern.includes('photo_')) {
+            basePattern = photo.fileName;
+          }
+          
+          console.log(`🔄 ${photo.fileName} -> ${basePattern}`);
           
           if (!patternMap.has(basePattern)) {
             patternMap.set(basePattern, []);
@@ -327,9 +347,13 @@ export async function findDuplicatePhotos() {
           patternMap.get(basePattern)!.push(photo);
         }
         
+        console.log(`🎯 Found ${patternMap.size} patterns for size ${size}`);
+        
         // Add groups with multiple photos as duplicates
         for (const [pattern, photosOfPattern] of patternMap) {
+          console.log(`📋 Pattern "${pattern}": ${photosOfPattern.length} photos`);
           if (photosOfPattern.length > 1) {
+            console.log(`✅ Found duplicate group: ${photosOfPattern.map(p => p.fileName).join(', ')}`);
             duplicates.push({
               hash: `${size}_${pattern}`, // Use size + pattern as identifier
               photos: photosOfPattern
@@ -339,6 +363,7 @@ export async function findDuplicatePhotos() {
       }
     }
     
+    console.log(`🎉 Found ${duplicates.length} duplicate groups`);
     return { success: true, duplicates };
   } catch (error) {
     console.error("Error finding duplicate photos:", error);

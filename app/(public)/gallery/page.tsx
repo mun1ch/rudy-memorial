@@ -2,11 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Camera, Upload, Heart, Eye, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause } from "lucide-react";
+import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useFullscreen } from "@/lib/fullscreen-context";
 
 interface Photo {
   id: string;
@@ -28,7 +29,7 @@ export default function GalleryPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const { isFullscreen, setIsFullscreen } = useFullscreen();
   const [isPlaying, setIsPlaying] = useState(false);
   const currentIndexRef = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,10 +68,6 @@ export default function GalleryPage() {
     });
   };
 
-  const getRandomHeight = () => {
-    const heights = ['h-64', 'h-80', 'h-72', 'h-96', 'h-60'];
-    return heights[Math.floor(Math.random() * heights.length)];
-  };
 
 
   const stopAutoPlay = useCallback(() => {
@@ -150,7 +147,7 @@ export default function GalleryPage() {
           document.exitFullscreen();
           setIsFullscreen(false);
         }
-      }, []);
+      }, [setIsFullscreen]);
 
       const startSlideshow = () => {
         if (photos.length === 0) return;
@@ -222,7 +219,7 @@ export default function GalleryPage() {
 
         document.addEventListener('fullscreenchange', handleFullscreenChange);
         return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      }, []);
+      }, [setIsFullscreen]);
 
       // Handle mouse movement in fullscreen to show/hide info
       useEffect(() => {
@@ -257,29 +254,29 @@ export default function GalleryPage() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5"></div>
-        <div className="container relative py-16">
-          <div className="text-center max-w-3xl mx-auto">
-            <Camera className="mx-auto h-16 w-16 text-primary mb-4" />
-            <h1 className="text-4xl font-bold tracking-tight text-foreground">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/3"></div>
+        <div className="container relative py-3 md:py-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <Camera className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2" />
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
               Memory Gallery
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              A beautiful collection of moments that capture Rudy&apos;s spirit, 
-              shared by those who loved him most.
+            <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
+              A beautiful collection of moments that capture Rudy&apos;s spirit.
             </p>
-            <div className="grid gap-6 md:grid-cols-2 mt-8">
+            <div className="grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 mt-4 sm:mt-8">
               <Card className="hover:scale-105 transition-transform duration-200">
-                <CardContent className="pt-6 text-center">
-                  <Upload className="mx-auto h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Share Your Photos</h3>
-                  <p className="text-muted-foreground mb-4">
+                <CardContent className="pt-2 sm:pt-6 text-center p-2 sm:p-6">
+                  <Upload className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
+                  <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-2">Share Your Photos</h3>
+                  <p className="text-muted-foreground mb-2 sm:mb-4 text-xs sm:text-base hidden sm:block">
                     Help preserve special moments
                   </p>
-                  <Button asChild className="w-full">
-                    <Link href="/memories">
-                      <Upload className="mr-2 h-4 w-4" />
-                      Share Photos
+                  <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
+                    <Link href="/memories/photo">
+                      <Upload className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="hidden sm:inline">Share Photos</span>
+                      <span className="sm:hidden">Share</span>
                     </Link>
                   </Button>
                 </CardContent>
@@ -287,18 +284,20 @@ export default function GalleryPage() {
 
               {photos.length > 0 && (
                 <Card className="hover:scale-105 transition-transform duration-200">
-                  <CardContent className="pt-6 text-center">
-                    <Play className="mx-auto h-12 w-12 text-primary mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Start Slideshow</h3>
-                    <p className="text-muted-foreground mb-4">
+                  <CardContent className="pt-2 sm:pt-6 text-center p-2 sm:p-6">
+                    <Play className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
+                    <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-2">Start Slideshow</h3>
+                    <p className="text-muted-foreground mb-2 sm:mb-4 text-xs sm:text-base hidden sm:block">
                       View all photos in a beautiful slideshow
                     </p>
                     <Button 
                       onClick={startSlideshow}
-                      className="w-full"
+                      size="sm"
+                      className="w-full min-h-[44px] text-xs sm:text-base"
                     >
-                      <Play className="mr-2 h-4 w-4" />
-                      Start Slideshow
+                      <Play className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="hidden sm:inline">Start Slideshow</span>
+                      <span className="sm:hidden">Slideshow</span>
                     </Button>
                   </CardContent>
                 </Card>
@@ -313,17 +312,17 @@ export default function GalleryPage() {
         {photos.length > 0 ? (
           <>
             {/* Stats */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-6 py-3">
-                <Heart className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium">
+            <div className="text-center mb-6 sm:mb-12">
+              <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-3 py-2 sm:px-6 sm:py-3">
+                <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
+                <span className="text-xs sm:text-sm font-medium">
                   {photos.length} precious memories shared
                 </span>
               </div>
             </div>
 
-            {/* Masonry Grid */}
-            <div className="masonry-grid">
+            {/* Responsive Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6">
               {getPhotos().map((photo, index) => (
                 <motion.div
                   key={photo.id}
@@ -331,10 +330,10 @@ export default function GalleryPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ 
                     duration: 0.8, 
-                    delay: index * 0.15,
+                    delay: index * 0.1,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  className={`masonry-item group cursor-pointer ${getRandomHeight()}`}
+                  className="group cursor-pointer min-h-[120px] sm:min-h-[250px]"
                   onClick={() => setSelectedPhoto(photo)}
                 >
                   <Card className="h-full overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02]">
@@ -350,20 +349,34 @@ export default function GalleryPage() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Eye className="h-4 w-4" />
-                              <span className="text-sm font-medium">Click to view</span>
+                        {/* Overlay - Always visible on mobile, hover on desktop */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 text-white">
+                            {photo.caption && (
+                              <p className="text-xs sm:text-sm font-medium mb-1 sm:mb-2 line-clamp-1 sm:line-clamp-2">
+                                {photo.caption}
+                              </p>
+                            )}
+                            <div className="flex items-center justify-between text-xs text-white/80">
+                              {photo.contributorName && (
+                                <div className="flex items-center gap-1">
+                                  <User className="h-2 w-2 sm:h-3 sm:w-3" />
+                                  <span className="truncate text-xs">{photo.contributorName}</span>
+                                </div>
+                              )}
+                              <div className="flex items-center gap-1">
+                                <Calendar className="h-2 w-2 sm:h-3 sm:w-3" />
+                                <span className="hidden sm:inline text-xs">{formatDate(photo.uploadedAt)}</span>
+                                <span className="sm:hidden text-xs">{new Date(photo.uploadedAt).toLocaleDateString()}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
 
-                        {/* Floating Info */}
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
-                            <Heart className="h-4 w-4 text-primary" />
+                        {/* Floating Info - Touch-friendly on mobile */}
+                        <div className="absolute top-1 right-1 sm:top-4 sm:right-4 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-white/90 backdrop-blur-sm rounded-full p-1 sm:p-2 shadow-lg min-h-[32px] min-w-[32px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center">
+                            <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
                           </div>
                         </div>
                       </div>
@@ -417,7 +430,7 @@ export default function GalleryPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-4'}`}
+            className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-2 sm:p-4'}`}
             style={{
               backgroundImage: 'url(/static/pexels-roseleon-4564366.jpg)',
               backgroundSize: 'cover',
@@ -428,9 +441,9 @@ export default function GalleryPage() {
               if (e.target === e.currentTarget) setSelectedPhoto(null);
             }}
           >
-          <div className={`relative z-10 ${isFullscreen ? 'w-full h-full' : 'max-w-4xl max-h-full'}`}>
+          <div className={`relative z-10 bg-transparent ${isFullscreen ? 'w-full h-full' : 'w-full h-full sm:max-w-4xl sm:max-h-full'}`} style={{ backgroundColor: 'transparent' }}>
             {/* Control Buttons */}
-            <div className="absolute -top-12 right-0 flex items-center gap-2 z-10">
+            <div className="absolute top-2 right-2 sm:top-2 sm:right-2 flex items-center gap-1 sm:gap-2 z-20">
                   {/* Auto-play Interval Selector - Only show when not fullscreen */}
                   {!isFullscreen && getPhotos().length > 1 && (
                 <select
@@ -445,7 +458,7 @@ export default function GalleryPage() {
                       setTimeout(() => startAutoPlay(), 50);
                     }
                   }}
-                  className="bg-black/50 text-white/80 text-xs px-2 py-1 rounded border border-white/20 hover:bg-black/70 transition-colors"
+                  className="bg-black/50 text-white/80 text-xs px-2 py-1 rounded border border-white/20 hover:bg-black/70 transition-colors min-h-[44px]"
                   title="Auto-play interval"
                 >
                   <option value={1}>1s</option>
@@ -460,7 +473,7 @@ export default function GalleryPage() {
                   {getPhotos().length > 1 && (
                 <button
                   onClick={toggleAutoPlay}
-                  className="text-white/80 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
                   title={isPlaying ? "Pause slideshow" : "Play slideshow"}
                 >
                   {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
@@ -470,7 +483,7 @@ export default function GalleryPage() {
               {/* Fullscreen Button */}
               <button
                 onClick={toggleFullscreen}
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/80 hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
                 title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               >
                 {isFullscreen ? <Minimize2 className="w-6 h-6" /> : <Maximize2 className="w-6 h-6" />}
@@ -479,7 +492,7 @@ export default function GalleryPage() {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/80 hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
                 title="Close"
               >
                 <X className="w-6 h-6" />
@@ -487,7 +500,7 @@ export default function GalleryPage() {
             </div>
 
             {/* Photo Counter */}
-                <div className="absolute -top-12 left-0 text-white/80 text-sm z-10">
+                <div className="absolute top-2 left-2 sm:top-2 sm:left-2 text-white/80 text-xs sm:text-sm z-20">
                   {getPhotos().findIndex(photo => photo.id === selectedPhoto.id) + 1} of {getPhotos().length}
                   {isPlaying && <span className="ml-2 text-xs">• Auto-playing</span>}
                 </div>
@@ -497,18 +510,18 @@ export default function GalleryPage() {
               <>
                     <button
                       onClick={goToPreviousPhotoManual}
-                      className="absolute -left-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-10 group"
+                      className="absolute left-2 sm:-left-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center"
                       aria-label="Previous photo"
                     >
-                      <ChevronLeft className="w-8 h-8 group-hover:drop-shadow-lg transition-all duration-300" />
+                      <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all duration-300" />
                     </button>
 
                     <button
                       onClick={goToNextPhotoManual}
-                      className="absolute -right-16 top-1/2 -translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-10 group"
+                      className="absolute right-2 sm:-right-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center"
                       aria-label="Next photo"
                     >
-                      <ChevronRight className="w-8 h-8 group-hover:drop-shadow-lg transition-all duration-300" />
+                      <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all duration-300" />
                     </button>
               </>
             )}

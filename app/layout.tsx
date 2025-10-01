@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
+import { MobileNav } from "@/components/mobile-nav";
+import { ConditionalHeader } from "@/components/conditional-header";
+import { FullscreenProvider } from "@/lib/fullscreen-context";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -44,72 +46,37 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <div className="relative flex min-h-screen flex-col">
-          <header className="sticky top-0 z-40 w-full border-b bg-background">
-            <div className="container flex h-16 items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <h1 className="text-xl font-semibold text-foreground">
-                  In Memory of Rudy
-                </h1>
-              </div>
-              <nav className="flex items-center space-x-6">
-                <Link 
-                  href="/" 
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Home
-                </Link>
-                <a 
-                  href="/gallery" 
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Gallery
-                </a>
-                <a 
-                  href="/memories" 
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Share Memory
-                </a>
-                <a 
-                  href="/memorial-wall" 
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Memorial Wall
-                </a>
-                <a 
-                  href="/admin" 
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Admin
-                </a>
-              </nav>
-            </div>
-          </header>
-          
-          <main className="flex-1">
-            {children}
-          </main>
-          
-          <footer className="border-t bg-background">
-            <div className="container py-8">
-              <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-                <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-                  <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-                    Built with love in memory of Rudy Augsburger. 
-                    <br className="hidden sm:inline" />
-                    Share your memories and photos to keep his spirit alive.
-                  </p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <p className="text-sm text-muted-foreground">
-                    © 2025 Rudy Memorial
-                  </p>
+        <FullscreenProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <ConditionalHeader />
+            
+            <main className="flex-1 pb-16 sm:pb-0">
+              {children}
+            </main>
+            
+            {/* Mobile Bottom Navigation */}
+            <MobileNav />
+            
+            <footer className="border-t bg-background hidden sm:block">
+              <div className="container py-8">
+                <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+                  <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+                    <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
+                      Built with love in memory of Rudy Augsburger. 
+                      <br className="hidden sm:inline" />
+                      Share your memories and photos to keep his spirit alive.
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <p className="text-sm text-muted-foreground">
+                      © 2025 Rudy Memorial
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </footer>
-        </div>
+            </footer>
+          </div>
+        </FullscreenProvider>
       </body>
     </html>
   );
