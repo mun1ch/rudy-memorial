@@ -45,7 +45,7 @@ function AdminMemoriesContent() {
   const { showProgress, progress, isCancelledRef, startProgress, updateProgress, setShowProgress } = useProgress();
 
   // Use shared hook instead of duplicate loading logic
-  const { tributes: hookTributes, loading: hookLoading } = useTributes();
+  const { tributes: hookTributes, loading: hookLoading, reload: reloadTributes } = useTributes();
   
   useEffect(() => {
     setMemories(hookTributes);
@@ -57,9 +57,8 @@ function AdminMemoriesContent() {
     try {
       const result = await hideMemory(memoryId);
       if (result.success) {
-        setMemories(prev => prev.map(memory => 
-          memory.id === memoryId ? { ...memory, hidden: true } : memory
-        ));
+        // Reload data from the hook to ensure memory wall gets updated
+        await reloadTributes();
       }
     } catch (error) {
       console.error("Error hiding memory:", error);
@@ -73,9 +72,8 @@ function AdminMemoriesContent() {
     try {
       const result = await unhideMemory(memoryId);
       if (result.success) {
-        setMemories(prev => prev.map(memory => 
-          memory.id === memoryId ? { ...memory, hidden: false } : memory
-        ));
+        // Reload data from the hook to ensure memory wall gets updated
+        await reloadTributes();
       }
     } catch (error) {
       console.error("Error unhiding memory:", error);
@@ -93,7 +91,8 @@ function AdminMemoriesContent() {
     try {
       const result = await deleteMemory(memoryId);
       if (result.success) {
-        setMemories(prev => prev.filter(memory => memory.id !== memoryId));
+        // Reload data from the hook to ensure memory wall gets updated
+        await reloadTributes();
       }
     } catch (error) {
       console.error("Error deleting memory:", error);
@@ -167,13 +166,9 @@ function AdminMemoriesContent() {
       );
       
       if (result.success) {
-        // Update local state
-        setMemories(prev => prev.map(memory => 
-          memory.id === memoryId 
-            ? { ...memory, message: editForm.message || '', contributorName: editForm.contributorName || null }
-            : memory
-        ));
-
+        // Reload data from the hook to ensure memory wall gets updated
+        await reloadTributes();
+        
         setEditingMemory(null);
         setEditForm({ message: '', contributorName: '' });
       } else {
@@ -248,10 +243,6 @@ function AdminMemoriesContent() {
         const result = await hideMemory(memoryId);
         if (result.success) {
           successCount++;
-          // Update local state immediately
-          setMemories(prev => prev.map(memory => 
-            memory.id === memoryId ? { ...memory, hidden: true } : memory
-          ));
         } else {
           errorCount++;
           errors.push(`${memoryName}: ${result.error || 'Unknown error'}`);
@@ -268,6 +259,11 @@ function AdminMemoriesContent() {
     
     // Final progress update
     updateProgress(memoryIds.length, memoryIds.length, "", "Hide operation complete", successCount, errorCount, errors);
+    
+    // Reload data from the hook to ensure memory wall gets updated
+    if (successCount > 0) {
+      await reloadTributes();
+    }
     
     // Clear selection if all successful
     if (errorCount === 0) {
@@ -322,10 +318,6 @@ function AdminMemoriesContent() {
         const result = await unhideMemory(memoryId);
         if (result.success) {
           successCount++;
-          // Update local state immediately
-          setMemories(prev => prev.map(memory => 
-            memory.id === memoryId ? { ...memory, hidden: false } : memory
-          ));
         } else {
           errorCount++;
           errors.push(`${memoryName}: ${result.error || 'Unknown error'}`);
@@ -342,6 +334,11 @@ function AdminMemoriesContent() {
     
     // Final progress update
     updateProgress(memoryIds.length, memoryIds.length, "", "Unhide operation complete", successCount, errorCount, errors);
+    
+    // Reload data from the hook to ensure memory wall gets updated
+    if (successCount > 0) {
+      await reloadTributes();
+    }
     
     // Clear selection if all successful
     if (errorCount === 0) {
@@ -400,8 +397,6 @@ function AdminMemoriesContent() {
         const result = await deleteMemory(memoryId);
         if (result.success) {
           successCount++;
-          // Update local state immediately
-          setMemories(prev => prev.filter(memory => memory.id !== memoryId));
         } else {
           errorCount++;
           errors.push(`${memoryName}: ${result.error || 'Unknown error'}`);
@@ -418,6 +413,11 @@ function AdminMemoriesContent() {
     
     // Final progress update
     updateProgress(memoryIds.length, memoryIds.length, "", "Delete operation complete", successCount, errorCount, errors);
+    
+    // Reload data from the hook to ensure memory wall gets updated
+    if (successCount > 0) {
+      await reloadTributes();
+    }
     
     // Clear selection if all successful
     if (errorCount === 0) {

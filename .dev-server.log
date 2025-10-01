@@ -2,14 +2,130 @@
 > rudy_site@0.1.0 dev
 > next dev --turbopack --port 6464
 
- ⨯ Failed to start server
-Error: listen EADDRINUSE: address already in use :::6464
-    at <unknown> (Error: listen EADDRINUSE: address already in use :::6464)
-    at new Promise (<anonymous>) {
-  code: 'EADDRINUSE',
-  errno: -48,
-  syscall: 'listen',
-  address: '::',
-  port: 6464
-}
-[?25h
+   ▲ Next.js 15.5.4 (Turbopack)
+   - Local:        http://localhost:6464
+   - Network:      http://10.0.0.7:6464
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · serverActions
+
+ ✓ Starting...
+ ✓ Ready in 2.8s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.4s
+ GET / 200 in 3120ms
+ GET / 200 in 756ms
+ ✓ Compiled /icon.svg in 191ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 515ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 702ms
+ GET /gallery 200 in 759ms
+ ✓ Compiled /api/photos in 389ms
+ GET /api/photos 200 in 1784ms
+ GET /api/photos 200 in 1785ms
+ ✓ Compiled /memorial-wall in 444ms
+🎬 Memory wall component rendered
+ GET /memorial-wall 200 in 536ms
+ ✓ Compiled /api/tributes in 192ms
+ GET /api/tributes 200 in 863ms
+ GET /gallery 200 in 175ms
+ GET /api/photos 200 in 1080ms
+🎬 Memory wall component rendered
+ GET /memorial-wall 200 in 160ms
+ GET /icon.svg?icon.5e81ae7e.svg 200 in 428ms
+ GET /api/tributes 200 in 1019ms
+ ✓ Compiled /admin in 372ms
+ GET /admin 307 in 464ms
+ ✓ Compiled /admin/dashboard in 258ms
+ GET /admin/dashboard 200 in 352ms
+ ✓ Compiled /api/duplicates in 356ms
+ GET /api/tributes 200 in 706ms
+ GET /api/photos 200 in 924ms
+🔍 Finding duplicates among 83 photos
+📊 Found 83 unique file sizes
+📏 Size 102558: 1 photos
+📏 Size 95656: 1 photos
+📏 Size 24568: 1 photos
+📏 Size 60192: 1 photos
+📏 Size 33028: 1 photos
+📏 Size 41584: 1 photos
+📏 Size 37375: 1 photos
+📏 Size 48984: 1 photos
+📏 Size 76083: 1 photos
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 23491: 1 photos
+📏 Size 31018: 1 photos
+📏 Size 19556: 1 photos
+📏 Size 36296: 1 photos
+📏 Size 4079796: 1 photos
+📏 Size 4303658: 1 photos
+📏 Size 2980306: 1 photos
+📏 Size 3684489: 1 photos
+📏 Size 3792324: 1 photos
+📏 Size 4327773: 1 photos
+📏 Size 2810385: 1 photos
+📏 Size 75721: 1 photos
+📏 Size 88659: 1 photos
+📏 Size 85561: 1 photos
+📏 Size 76901: 1 photos
+📏 Size 51333: 1 photos
+📏 Size 51823: 1 photos
+📏 Size 50478: 1 photos
+📏 Size 48866: 1 photos
+📏 Size 79988: 1 photos
+📏 Size 57797: 1 photos
+📏 Size 67453: 1 photos
+📏 Size 48474: 1 photos
+📏 Size 54458: 1 photos
+📏 Size 43473: 1 photos
+📏 Size 40777: 1 photos
+📏 Size 54554: 1 photos
+📏 Size 56456: 1 photos
+📏 Size 37852: 1 photos
+📏 Size 92780: 1 photos
+📏 Size 78476: 1 photos
+📏 Size 103659: 1 photos
+📏 Size 109047: 1 photos
+📏 Size 74598: 1 photos
+📏 Size 78511: 1 photos
+📏 Size 74035: 1 photos
+📏 Size 85093: 1 photos
+📏 Size 58236: 1 photos
+📏 Size 63423: 1 photos
+📏 Size 73979: 1 photos
+📏 Size 73657: 1 photos
+📏 Size 84657: 1 photos
+📏 Size 79912: 1 photos
+📏 Size 94897: 1 photos
+📏 Size 103652: 1 photos
+📏 Size 98115: 1 photos
+📏 Size 47012: 1 photos
+📏 Size 52708: 1 photos
+📏 Size 76360: 1 photos
+📏 Size 59370: 1 photos
+📏 Size 71513: 1 photos
+📏 Size 59384: 1 photos
+📏 Size 45836: 1 photos
+📏 Size 50727: 1 photos
+📏 Size 59179: 1 photos
+📏 Size 53390: 1 photos
+📏 Size 70279: 1 photos
+📏 Size 37096: 1 photos
+📏 Size 60545: 1 photos
+📏 Size 79597: 1 photos
+📏 Size 140605: 1 photos
+📏 Size 173564: 1 photos
+📏 Size 41581: 1 photos
+📏 Size 53497: 1 photos
+📏 Size 58586: 1 photos
+📏 Size 70474: 1 photos
+📏 Size 45797: 1 photos
+📏 Size 58147: 1 photos
+📏 Size 52557: 1 photos
+📏 Size 67085: 1 photos
+📏 Size 53858: 1 photos
+📏 Size 47547: 1 photos
+🎉 Found 0 duplicate groups
+ GET /api/duplicates 200 in 1494ms
+ GET /api/tributes 200 in 1124ms
