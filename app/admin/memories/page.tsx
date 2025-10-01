@@ -18,11 +18,12 @@ import {
   ChevronRight,
   Loader2
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
+import { AdminProgressPopup } from "@/components/admin-progress-popup";
 
 interface Memory {
   id: string;
@@ -38,12 +39,24 @@ export default function AdminMemoriesPage() {
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [selectedMemories, setSelectedMemories] = useState<Set<string>>(new Set());
-  const [bulkActionLoading, setBulkActionLoading] = useState(false);
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
   const [editingMemory, setEditingMemory] = useState<string | null>(null);
   const [editForm, setEditForm] = useState({ message: '', contributorName: '' });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  
+  // Progress popup state
+  const [showProgress, setShowProgress] = useState(false);
+  const [progress, setProgress] = useState({
+    current: 0,
+    total: 0,
+    currentItem: "",
+    stage: "",
+    successCount: 0,
+    errorCount: 0,
+    errors: [] as string[]
+  });
+  const isCancelledRef = useRef(false);
 
   useEffect(() => {
     loadMemories();
@@ -220,38 +233,205 @@ export default function AdminMemoriesPage() {
   const handleBulkHide = async () => {
     if (selectedMemories.size === 0) return;
     
-    setBulkActionLoading(true);
-    try {
-      const promises = Array.from(selectedMemories).map(memoryId => hideMemory(memoryId));
-      await Promise.all(promises);
+    const memoryIds = Array.from(selectedMemories);
+    const memoryNames = memoryIds.map(id => {
+      const memory = memories.find(m => m.id === id);
+      return memory ? memory.message.substring(0, 30) + '...' : id;
+    });
+    
+    // Initialize progress
+    setProgress({
+      current: 0,
+      total: memoryIds.length,
+      currentItem: "",
+      stage: "Hiding memories...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
+    // Process each memory sequentially
+    for (let i = 0; i < memoryIds.length; i++) {
+      // Check if cancelled
+      if (isCancelledRef.current) {
+        setProgress(prev => ({
+          ...prev,
+          current: memoryIds.length, // Mark as complete so popup shows close button
+          currentItem: "",
+          stage: "Hide operation cancelled",
+          successCount,
+          errorCount,
+          errors: [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]
+        }));
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+          setShowProgress(false);
+        }, 2000);
+        
+        return;
+      }
       
-      setMemories(prev => prev.map(memory => 
-        selectedMemories.has(memory.id) ? { ...memory, hidden: true } : memory
-      ));
-      clearSelection();
-    } catch (error) {
-      console.error("Error bulk hiding memories:", error);
-    } finally {
-      setBulkActionLoading(false);
+      const memoryId = memoryIds[i];
+      const memoryName = memoryNames[i];
+      
+      // Update progress
+      setProgress(prev => ({
+        ...prev,
+        current: i,
+        currentItem: memoryName,
+        successCount,
+        errorCount,
+        errors: [...errors]
+      }));
+      
+      try {
+        const result = await hideMemory(memoryId);
+        if (result.success) {
+          successCount++;
+          // Update local state immediately
+          setMemories(prev => prev.map(memory => 
+            memory.id === memoryId ? { ...memory, hidden: true } : memory
+          ));
+        } else {
+          errorCount++;
+          errors.push(`${memoryName}: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        errorCount++;
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`${memoryName}: ${errorMessage}`);
+      }
+      
+      // Small delay between operations
+      await new Promise(resolve => setTimeout(resolve, 100));
     }
+    
+    // Final progress update
+    setProgress(prev => ({
+      ...prev,
+      current: memoryIds.length,
+      currentItem: "",
+      stage: "Hide operation complete",
+      successCount,
+      errorCount,
+      errors: [...errors]
+    }));
+    
+    // Clear selection if all successful
+    if (errorCount === 0) {
+      clearSelection();
+    }
+    
+    // Auto-close popup after 2 seconds
+    setTimeout(() => {
+      setShowProgress(false);
+    }, 2000);
   };
 
   const handleBulkUnhide = async () => {
     if (selectedMemories.size === 0) return;
     
-    setBulkActionLoading(true);
-    try {
-      const promises = Array.from(selectedMemories).map(memoryId => unhideMemory(memoryId));
-      await Promise.all(promises);
+    const memoryIds = Array.from(selectedMemories);
+    const memoryNames = memoryIds.map(id => {
+      const memory = memories.find(m => m.id === id);
+      return memory ? memory.message.substring(0, 30) + '...' : id;
+    });
+    
+    // Initialize progress
+    setProgress({
+      current: 0,
+      total: memoryIds.length,
+      currentItem: "",
+      stage: "Unhiding memories...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
+    // Process each memory sequentially
+    for (let i = 0; i < memoryIds.length; i++) {
+      // Check if cancelled
+      if (isCancelledRef.current) {
+        setProgress(prev => ({
+          ...prev,
+          current: memoryIds.length, // Mark as complete so popup shows close button
+          currentItem: "",
+          stage: "Unhide operation cancelled",
+          successCount,
+          errorCount,
+          errors: [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]
+        }));
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+          setShowProgress(false);
+        }, 2000);
+        
+        return;
+      }
       
-      setMemories(prev => prev.map(memory => 
-        selectedMemories.has(memory.id) ? { ...memory, hidden: false } : memory
-      ));
+      const memoryId = memoryIds[i];
+      const memoryName = memoryNames[i];
+      
+      // Update progress
+      setProgress(prev => ({
+        ...prev,
+        current: i,
+        currentItem: memoryName,
+        successCount,
+        errorCount,
+        errors: [...errors]
+      }));
+      
+      try {
+        const result = await unhideMemory(memoryId);
+        if (result.success) {
+          successCount++;
+          // Update local state immediately
+          setMemories(prev => prev.map(memory => 
+            memory.id === memoryId ? { ...memory, hidden: false } : memory
+          ));
+        } else {
+          errorCount++;
+          errors.push(`${memoryName}: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        errorCount++;
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`${memoryName}: ${errorMessage}`);
+      }
+      
+      // Small delay between operations
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    
+    // Final progress update
+    setProgress(prev => ({
+      ...prev,
+      current: memoryIds.length,
+      currentItem: "",
+      stage: "Unhide operation complete",
+      successCount,
+      errorCount,
+      errors: [...errors]
+    }));
+    
+    // Clear selection if all successful
+    if (errorCount === 0) {
       clearSelection();
-    } catch (error) {
-      console.error("Error bulk unhiding memories:", error);
-    } finally {
-      setBulkActionLoading(false);
     }
   };
 
@@ -262,17 +442,98 @@ export default function AdminMemoriesPage() {
       return;
     }
     
-    setBulkActionLoading(true);
-    try {
-      const promises = Array.from(selectedMemories).map(memoryId => deleteMemory(memoryId));
-      await Promise.all(promises);
+    const memoryIds = Array.from(selectedMemories);
+    const memoryNames = memoryIds.map(id => {
+      const memory = memories.find(m => m.id === id);
+      return memory ? memory.message.substring(0, 30) + '...' : id;
+    });
+    
+    // Initialize progress
+    setProgress({
+      current: 0,
+      total: memoryIds.length,
+      currentItem: "",
+      stage: "Deleting memories...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
+    // Process each memory sequentially
+    for (let i = 0; i < memoryIds.length; i++) {
+      // Check if cancelled
+      if (isCancelledRef.current) {
+        setProgress(prev => ({
+          ...prev,
+          current: memoryIds.length, // Mark as complete so popup shows close button
+          currentItem: "",
+          stage: "Delete operation cancelled",
+          successCount,
+          errorCount,
+          errors: [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]
+        }));
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+          setShowProgress(false);
+        }, 2000);
+        
+        return;
+      }
       
-      setMemories(prev => prev.filter(memory => !selectedMemories.has(memory.id)));
+      const memoryId = memoryIds[i];
+      const memoryName = memoryNames[i];
+      
+      // Update progress
+      setProgress(prev => ({
+        ...prev,
+        current: i,
+        currentItem: memoryName,
+        successCount,
+        errorCount,
+        errors: [...errors]
+      }));
+      
+      try {
+        const result = await deleteMemory(memoryId);
+        if (result.success) {
+          successCount++;
+          // Update local state immediately
+          setMemories(prev => prev.filter(memory => memory.id !== memoryId));
+        } else {
+          errorCount++;
+          errors.push(`${memoryName}: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        errorCount++;
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`${memoryName}: ${errorMessage}`);
+      }
+      
+      // Small delay between operations
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    
+    // Final progress update
+    setProgress(prev => ({
+      ...prev,
+      current: memoryIds.length,
+      currentItem: "",
+      stage: "Delete operation complete",
+      successCount,
+      errorCount,
+      errors: [...errors]
+    }));
+    
+    // Clear selection if all successful
+    if (errorCount === 0) {
       clearSelection();
-    } catch (error) {
-      console.error("Error bulk deleting memories:", error);
-    } finally {
-      setBulkActionLoading(false);
     }
   };
 
@@ -391,7 +652,6 @@ export default function AdminMemoriesPage() {
                   <Button
                     variant="outline"
                     onClick={handleBulkHide}
-                    disabled={bulkActionLoading}
                     className="text-orange-600 hover:text-orange-700"
                   >
                     <EyeOff className="mr-2 h-4 w-4" />
@@ -400,7 +660,6 @@ export default function AdminMemoriesPage() {
                   <Button
                     variant="outline"
                     onClick={handleBulkUnhide}
-                    disabled={bulkActionLoading}
                     className="text-green-600 hover:text-green-700"
                   >
                     <Eye className="mr-2 h-4 w-4" />
@@ -409,7 +668,6 @@ export default function AdminMemoriesPage() {
                   <Button
                     variant="outline"
                     onClick={handleBulkDelete}
-                    disabled={bulkActionLoading}
                     className="text-destructive hover:text-destructive"
                   >
                     <Trash2 className="mr-2 h-4 w-4" />
@@ -659,6 +917,16 @@ export default function AdminMemoriesPage() {
           </CardContent>
         </Card>
       </div>
+      
+      {/* Progress Popup */}
+      <AdminProgressPopup
+        isOpen={showProgress}
+        progress={progress}
+        onCancel={() => {
+          isCancelledRef.current = true;
+        }}
+        onClose={() => setShowProgress(false)}
+      />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 "use server";
 
-import { promises as fs } from 'fs';
-import path from 'path';
 import nodemailer from 'nodemailer';
 
 interface EmailSettings {
@@ -22,12 +20,16 @@ interface MemoryNotificationData {
   submittedAt: string;
 }
 
-// Get email settings
+// Get email settings from environment variables
 async function getEmailSettings(): Promise<EmailSettings> {
   try {
-    const settingsFile = path.join(process.cwd(), 'public', 'email-settings.json');
-    const data = await fs.readFile(settingsFile, 'utf-8');
-    return JSON.parse(data);
+    const notificationEmails = process.env.NOTIFICATION_EMAILS?.split(',') || [];
+    const notificationsEnabled = process.env.NOTIFICATIONS_ENABLED === 'true';
+    
+    return {
+      notificationEmails: notificationEmails.filter(email => email.trim()),
+      notificationsEnabled
+    };
   } catch {
     console.log("No email settings found, notifications disabled");
     return {

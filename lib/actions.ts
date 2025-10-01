@@ -12,6 +12,8 @@ import { sendPhotoUploadNotification, sendMemorySubmissionNotification } from "@
 
 export async function submitTribute(formData: FormData) {
   try {
+    console.log("🎬 submitTribute function called");
+    
     // Rate limiting
     const headersList = await headers();
     const request = new NextRequest("http://localhost", {
@@ -30,6 +32,8 @@ export async function submitTribute(formData: FormData) {
     };
 
     console.log("Raw form data:", rawData);
+    console.log("displayName type:", typeof rawData.displayName, "value:", rawData.displayName);
+    console.log("message type:", typeof rawData.message, "value:", rawData.message);
 
     const validatedData = tributeSchema.parse(rawData);
 
@@ -43,12 +47,8 @@ export async function submitTribute(formData: FormData) {
     };
 
     // Store tributes using Vercel Blob storage
-    if (process.env.NODE_ENV === 'production') {
-      const { addTribute } = await import('./storage');
-      await addTribute(newTribute);
-    } else {
-      console.log("Development mode: Skipping Vercel Blob storage");
-    }
+    const { addTribute } = await import('./storage');
+    await addTribute(newTribute);
 
     console.log("Tribute submitted successfully:", newTribute.id);
     

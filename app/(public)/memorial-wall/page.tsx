@@ -16,20 +16,26 @@ interface Tribute {
 }
 
 export default function MemorialWallPage() {
+  console.log('🎬 Memory wall component rendered');
   const [tributes, setTributes] = useState<Tribute[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('🚀 Memory wall useEffect triggered');
     const loadTributes = async () => {
       try {
+        console.log('📡 Fetching tributes from /api/tributes...');
         const response = await fetch('/api/tributes');
+        console.log('📡 Response status:', response.status);
         if (response.ok) {
           const data = await response.json();
+          console.log('💬 Received tributes:', data.length, 'tributes');
           setTributes(data);
         }
       } catch (error) {
-        console.error("Error loading tributes:", error);
+        console.error("💥 Error loading tributes:", error);
       } finally {
+        console.log('✅ Setting loading to false');
         setLoading(false);
       }
     };

@@ -7,13 +7,19 @@ PID_FILE := .dev-server.pid
 start:
 	@echo "Building and starting development server..."
 	@npm run build
-	@echo "Checking for existing processes on port 6464..."
-	@if lsof -ti:6464 > /dev/null 2>&1; then \
-		echo "Port 6464 is in use, killing existing process..."; \
-		PID=$$(lsof -ti:6464); \
-		echo "Killing process $$PID using port 6464..."; \
-		kill -9 $$PID 2>/dev/null || true; \
-		sleep 2; \
+	@echo "Checking for existing server from PID file..."
+	@if [ -f $(PID_FILE) ]; then \
+		PID=$$(cat $(PID_FILE)); \
+		if ps -p $$PID > /dev/null 2>&1; then \
+			echo "Found existing server process $$PID, stopping it..."; \
+			kill $$PID 2>/dev/null || true; \
+			sleep 2; \
+			if ps -p $$PID > /dev/null 2>&1; then \
+				echo "Force killing process $$PID..."; \
+				kill -9 $$PID 2>/dev/null || true; \
+			fi; \
+		fi; \
+		rm -f $(PID_FILE); \
 	fi
 	@echo "Starting development server in background..."
 	@nohup npm run dev > .dev-server.log 2>&1 & echo $$! > $(PID_FILE)
@@ -50,16 +56,6 @@ stop:
 		fi; \
 		rm -f $(PID_FILE); \
 	fi
-	@echo "Checking for any remaining processes on port 6464..."
-	@if lsof -ti:6464 > /dev/null 2>&1; then \
-		echo "Found process using port 6464, killing it..."; \
-		PID=$$(lsof -ti:6464); \
-		echo "Killing process $$PID using port 6464..."; \
-		kill -9 $$PID 2>/dev/null || true; \
-		sleep 1; \
-	fi
-	@echo "Killing any remaining 'next dev' processes..."
-	@pkill -f "next dev" || true
 	@echo "Development server stopped"
 
 # Restart the development server

@@ -21,13 +21,14 @@ import {
   AlertTriangle,
   Loader2
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
+import { AdminProgressPopup } from "@/components/admin-progress-popup";
 
 interface Photo {
   id: string;
@@ -48,8 +49,18 @@ function AdminPhotosContent() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
+  const [showProgress, setShowProgress] = useState(false);
+  const [progress, setProgress] = useState({
+    current: 0,
+    total: 0,
+    currentItem: "",
+    stage: "",
+    successCount: 0,
+    errorCount: 0,
+    errors: [] as string[]
+  });
+  const isCancelledRef = useRef(false);
   const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
-  const [bulkActionLoading, setBulkActionLoading] = useState(false);
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden' | 'duplicates'>('all');
   const [editingPhoto, setEditingPhoto] = useState<string | null>(null);
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
@@ -138,7 +149,22 @@ function AdminPhotosContent() {
       return;
     }
     
-    setActionLoading(photoId);
+    const photo = photos.find(p => p.id === photoId);
+    const photoName = photo ? photo.fileName : photoId;
+    
+    // Initialize progress for single photo
+    setProgress({
+      current: 0,
+      total: 1,
+      currentItem: photoName,
+      stage: "Deleting photo...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
     try {
       const result = await deletePhoto(photoId);
       if (result.success) {
@@ -149,14 +175,41 @@ function AdminPhotosContent() {
           newSet.delete(photoId);
           return newSet;
         });
+        
+        // Update progress to success
+        setProgress(prev => ({
+          ...prev,
+          current: 1,
+          currentItem: "",
+          stage: "Deletion complete",
+          successCount: 1,
+          errorCount: 0,
+          errors: []
+        }));
       } else {
-        alert(`Failed to delete photo: ${result.error || 'Unknown error'}`);
+        // Update progress to show error
+        setProgress(prev => ({
+          ...prev,
+          current: 1,
+          currentItem: "",
+          stage: "Deletion failed",
+          successCount: 0,
+          errorCount: 1,
+          errors: [`${photoName}: ${result.error || 'Unknown error'}`]
+        }));
       }
     } catch (error) {
       console.error("Error deleting photo:", error);
-      alert(`Error deleting photo: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    } finally {
-      setActionLoading(null);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      setProgress(prev => ({
+        ...prev,
+        current: 1,
+        currentItem: "",
+        stage: "Deletion failed",
+        successCount: 0,
+        errorCount: 1,
+        errors: [`${photoName}: ${errorMessage}`]
+      }));
     }
   };
 
@@ -184,77 +237,211 @@ function AdminPhotosContent() {
   const handleBulkHide = async () => {
     if (selectedPhotos.size === 0) return;
     
-    setBulkActionLoading(true);
-    try {
-      const promises = Array.from(selectedPhotos).map(async (photoId) => {
-        try {
-          const result = await hidePhoto(photoId);
-          return { photoId, success: result.success, error: result.error };
-        } catch (error) {
-          console.error(`Error hiding photo ${photoId}:`, error);
-          return { photoId, success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+    const photoIds = Array.from(selectedPhotos);
+    const photoNames = photoIds.map(id => {
+      const photo = photos.find(p => p.id === id);
+      return photo ? photo.fileName : id;
+    });
+    
+    // Initialize progress
+    setProgress({
+      current: 0,
+      total: photoIds.length,
+      currentItem: "",
+      stage: "Hiding photos...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
+    // Process each photo sequentially
+    for (let i = 0; i < photoIds.length; i++) {
+      // Check if cancelled
+      if (isCancelledRef.current) {
+        setProgress(prev => ({
+          ...prev,
+          current: photoIds.length, // Mark as complete so popup shows close button
+          currentItem: "",
+          stage: "Hide operation cancelled",
+          successCount,
+          errorCount,
+          errors: [...errors, `Operation cancelled after ${i} of ${photoIds.length} photos`]
+        }));
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+          setShowProgress(false);
+        }, 2000);
+        
+        return;
+      }
+      
+      const photoId = photoIds[i];
+      const photoName = photoNames[i];
+      
+      // Update progress
+      setProgress(prev => ({
+        ...prev,
+        current: i,
+        currentItem: photoName,
+        successCount,
+        errorCount,
+        errors: [...errors]
+      }));
+      
+      try {
+        const result = await hidePhoto(photoId);
+        if (result.success) {
+          successCount++;
+          // Update local state immediately
+          setPhotos(prev => prev.map(photo => 
+            photo.id === photoId ? { ...photo, hidden: true } : photo
+          ));
+        } else {
+          errorCount++;
+          errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
         }
-      });
-      
-      const results = await Promise.all(promises);
-      const successful = results.filter(r => r.success);
-      const failed = results.filter(r => !r.success);
-      
-      if (successful.length > 0) {
-        setPhotos(prev => prev.map(photo => 
-          successful.some(s => s.photoId === photo.id) ? { ...photo, hidden: true } : photo
-        ));
+      } catch (error) {
+        errorCount++;
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`${photoName}: ${errorMessage}`);
       }
       
-      if (failed.length > 0) {
-        alert(`Failed to hide ${failed.length} photo(s). ${successful.length} photo(s) were hidden successfully.`);
-      } else {
-        clearSelection();
-      }
-    } catch (error) {
-      console.error("Error bulk hiding photos:", error);
-      alert("An error occurred while hiding photos. Please try again.");
-    } finally {
-      setBulkActionLoading(false);
+      // Small delay between operations
+      await new Promise(resolve => setTimeout(resolve, 100));
     }
+    
+    // Final progress update
+    setProgress(prev => ({
+      ...prev,
+      current: photoIds.length,
+      currentItem: "",
+      stage: "Hide operation complete",
+      successCount,
+      errorCount,
+      errors: [...errors]
+    }));
+    
+    // Clear selection if all successful
+    if (errorCount === 0) {
+      clearSelection();
+    }
+    
+    // Auto-close popup after 2 seconds
+    setTimeout(() => {
+      setShowProgress(false);
+    }, 2000);
   };
 
   const handleBulkUnhide = async () => {
     if (selectedPhotos.size === 0) return;
     
-    setBulkActionLoading(true);
-    try {
-      const promises = Array.from(selectedPhotos).map(async (photoId) => {
-        try {
-          const result = await unhidePhoto(photoId);
-          return { photoId, success: result.success, error: result.error };
-        } catch (error) {
-          console.error(`Error unhiding photo ${photoId}:`, error);
-          return { photoId, success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+    const photoIds = Array.from(selectedPhotos);
+    const photoNames = photoIds.map(id => {
+      const photo = photos.find(p => p.id === id);
+      return photo ? photo.fileName : id;
+    });
+    
+    // Initialize progress
+    setProgress({
+      current: 0,
+      total: photoIds.length,
+      currentItem: "",
+      stage: "Unhiding photos...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
+    // Process each photo sequentially
+    for (let i = 0; i < photoIds.length; i++) {
+      // Check if cancelled
+      if (isCancelledRef.current) {
+        setProgress(prev => ({
+          ...prev,
+          current: photoIds.length, // Mark as complete so popup shows close button
+          currentItem: "",
+          stage: "Unhide operation cancelled",
+          successCount,
+          errorCount,
+          errors: [...errors, `Operation cancelled after ${i} of ${photoIds.length} photos`]
+        }));
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+          setShowProgress(false);
+        }, 2000);
+        
+        return;
+      }
+      
+      const photoId = photoIds[i];
+      const photoName = photoNames[i];
+      
+      // Update progress
+      setProgress(prev => ({
+        ...prev,
+        current: i,
+        currentItem: photoName,
+        successCount,
+        errorCount,
+        errors: [...errors]
+      }));
+      
+      try {
+        const result = await unhidePhoto(photoId);
+        if (result.success) {
+          successCount++;
+          // Update local state immediately
+          setPhotos(prev => prev.map(photo => 
+            photo.id === photoId ? { ...photo, hidden: false } : photo
+          ));
+        } else {
+          errorCount++;
+          errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
         }
-      });
-      
-      const results = await Promise.all(promises);
-      const successful = results.filter(r => r.success);
-      const failed = results.filter(r => !r.success);
-      
-      if (successful.length > 0) {
-        setPhotos(prev => prev.map(photo => 
-          successful.some(s => s.photoId === photo.id) ? { ...photo, hidden: false } : photo
-        ));
+      } catch (error) {
+        errorCount++;
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`${photoName}: ${errorMessage}`);
       }
       
-      if (failed.length > 0) {
-        alert(`Failed to unhide ${failed.length} photo(s). ${successful.length} photo(s) were unhidden successfully.`);
-      } else {
-        clearSelection();
-      }
-    } catch (error) {
-      console.error("Error bulk unhiding photos:", error);
-      alert("An error occurred while unhiding photos. Please try again.");
-    } finally {
-      setBulkActionLoading(false);
+      // Small delay between operations
+      await new Promise(resolve => setTimeout(resolve, 100));
     }
+    
+    // Final progress update
+    setProgress(prev => ({
+      ...prev,
+      current: photoIds.length,
+      currentItem: "",
+      stage: "Unhide operation complete",
+      successCount,
+      errorCount,
+      errors: [...errors]
+    }));
+    
+    // Clear selection if all successful
+    if (errorCount === 0) {
+      clearSelection();
+    }
+    
+    // Auto-close popup after 2 seconds
+    setTimeout(() => {
+      setShowProgress(false);
+    }, 2000);
   };
 
   const handleBulkDelete = async () => {
@@ -264,37 +451,104 @@ function AdminPhotosContent() {
       return;
     }
     
-    setBulkActionLoading(true);
-    try {
-      const promises = Array.from(selectedPhotos).map(async (photoId) => {
-        try {
-          const result = await deletePhoto(photoId);
-          return { photoId, success: result.success, error: result.error };
-        } catch (error) {
-          console.error(`Error deleting photo ${photoId}:`, error);
-          return { photoId, success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+    const photoIds = Array.from(selectedPhotos);
+    const photoNames = photoIds.map(id => {
+      const photo = photos.find(p => p.id === id);
+      return photo ? photo.fileName : id;
+    });
+    
+    // Initialize progress
+    setProgress({
+      current: 0,
+      total: photoIds.length,
+      currentItem: "",
+      stage: "Deleting photos...",
+      successCount: 0,
+      errorCount: 0,
+      errors: []
+    });
+    setShowProgress(true);
+    isCancelledRef.current = false;
+    
+    let successCount = 0;
+    let errorCount = 0;
+    const errors: string[] = [];
+    
+    // Process each photo sequentially
+    for (let i = 0; i < photoIds.length; i++) {
+      // Check if cancelled
+      if (isCancelledRef.current) {
+        setProgress(prev => ({
+          ...prev,
+          current: photoIds.length, // Mark as complete so popup shows close button
+          currentItem: "",
+          stage: "Deletion cancelled",
+          successCount,
+          errorCount,
+          errors: [...errors, `Operation cancelled after ${i} of ${photoIds.length} photos`]
+        }));
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+          setShowProgress(false);
+        }, 2000);
+        
+        return;
+      }
+      
+      const photoId = photoIds[i];
+      const photoName = photoNames[i];
+      
+      // Update progress
+      setProgress(prev => ({
+        ...prev,
+        current: i,
+        currentItem: photoName,
+        successCount,
+        errorCount,
+        errors: [...errors]
+      }));
+      
+      try {
+        const result = await deletePhoto(photoId);
+        if (result.success) {
+          successCount++;
+          // Remove from local state immediately
+          setPhotos(prev => prev.filter(photo => photo.id !== photoId));
+        } else {
+          errorCount++;
+          errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
         }
-      });
-      
-      const results = await Promise.all(promises);
-      const successful = results.filter(r => r.success);
-      const failed = results.filter(r => !r.success);
-      
-      if (successful.length > 0) {
-        setPhotos(prev => prev.filter(photo => !successful.some(s => s.photoId === photo.id)));
+      } catch (error) {
+        errorCount++;
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`${photoName}: ${errorMessage}`);
       }
       
-      if (failed.length > 0) {
-        alert(`Failed to delete ${failed.length} photo(s). ${successful.length} photo(s) were deleted successfully.`);
-      } else {
-        clearSelection();
-      }
-    } catch (error) {
-      console.error("Error bulk deleting photos:", error);
-      alert("An error occurred while deleting photos. Please try again.");
-    } finally {
-      setBulkActionLoading(false);
+      // Small delay between operations
+      await new Promise(resolve => setTimeout(resolve, 100));
     }
+    
+    // Final progress update
+    setProgress(prev => ({
+      ...prev,
+      current: photoIds.length,
+      currentItem: "",
+      stage: "Deletion complete",
+      successCount,
+      errorCount,
+      errors: [...errors]
+    }));
+    
+    // Clear selection if all successful
+    if (errorCount === 0) {
+      clearSelection();
+    }
+    
+    // Auto-close popup after 2 seconds
+    setTimeout(() => {
+      setShowProgress(false);
+    }, 2000);
   };
 
   const formatDate = (dateString: string) => {
@@ -533,40 +787,25 @@ function AdminPhotosContent() {
                   <Button
                     variant="outline"
                     onClick={handleBulkHide}
-                    disabled={bulkActionLoading}
                     className="text-orange-600 hover:text-orange-700"
                   >
-                    {bulkActionLoading ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <EyeOff className="mr-2 h-4 w-4" />
-                    )}
+                    <EyeOff className="mr-2 h-4 w-4" />
                     Hide Selected
                   </Button>
                   <Button
                     variant="outline"
                     onClick={handleBulkUnhide}
-                    disabled={bulkActionLoading}
                     className="text-green-600 hover:text-green-700"
                   >
-                    {bulkActionLoading ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <Eye className="mr-2 h-4 w-4" />
-                    )}
+                    <Eye className="mr-2 h-4 w-4" />
                     Unhide Selected
                   </Button>
                   <Button
                     variant="outline"
                     onClick={handleBulkDelete}
-                    disabled={bulkActionLoading}
                     className="text-destructive hover:text-destructive"
                   >
-                    {bulkActionLoading ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <Trash2 className="mr-2 h-4 w-4" />
-                    )}
+                    <Trash2 className="mr-2 h-4 w-4" />
                     Delete Selected
                   </Button>
                 </div>
@@ -690,14 +929,9 @@ function AdminPhotosContent() {
                                   size="sm" 
                                   variant="outline"
                                   onClick={() => handleDeletePhoto(photo.id)}
-                                  disabled={actionLoading === photo.id}
                                   className="text-destructive hover:text-destructive"
                                 >
-                                  {actionLoading === photo.id ? (
-                                    <Loader2 className="h-4 w-4 animate-spin" />
-                                  ) : (
-                                    <Trash2 className="h-4 w-4" />
-                                  )}
+                                  <Trash2 className="h-4 w-4" />
                                 </Button>
                               </div>
                             </div>
@@ -847,14 +1081,9 @@ function AdminPhotosContent() {
                             size="sm" 
                             variant="outline"
                             onClick={() => handleDeletePhoto(photo.id)}
-                            disabled={actionLoading === photo.id}
                             className="text-destructive hover:text-destructive"
                           >
-                            {actionLoading === photo.id ? (
-                              <Loader2 className="h-4 w-4 animate-spin" />
-                            ) : (
-                              <Trash2 className="h-4 w-4" />
-                            )}
+                            <Trash2 className="h-4 w-4" />
                           </Button>
                         </>
                       )}
@@ -912,6 +1141,14 @@ function AdminPhotosContent() {
           </CardContent>
         </Card>
       </div>
+      
+      {/* Progress Popup */}
+      <AdminProgressPopup
+        isOpen={showProgress}
+        onClose={() => setShowProgress(false)}
+        onCancel={() => { isCancelledRef.current = true; }}
+        progress={progress}
+      />
     </div>
   );
 }

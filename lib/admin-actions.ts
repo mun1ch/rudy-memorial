@@ -33,21 +33,9 @@ export async function getMemories() {
 
 export async function hidePhoto(photoId: string) {
   try {
-    // Read photos from Vercel Blob storage
-    const { getPhotos, savePhotos } = await import('./storage');
-    const photos = await getPhotos();
-    
-    // Find and hide the photo
-    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
-    if (photoIndex === -1) {
-      return { success: false, error: "Photo not found" };
-    }
-    
-    photos[photoIndex].hidden = true;
-    
-    // Save photos using Vercel Blob storage
-    await savePhotos(photos);
-    console.log("Photos saved to Vercel Blob storage");
+    // Hide photo using new individual file system
+    const { hidePhoto: hidePhotoFromStorage } = await import('./storage');
+    await hidePhotoFromStorage(photoId);
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -61,21 +49,9 @@ export async function hidePhoto(photoId: string) {
 
 export async function unhidePhoto(photoId: string) {
   try {
-    // Read photos from Vercel Blob storage
-    const { getPhotos, savePhotos } = await import('./storage');
-    const photos = await getPhotos();
-    
-    // Find and unhide the photo
-    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
-    if (photoIndex === -1) {
-      return { success: false, error: "Photo not found" };
-    }
-    
-    photos[photoIndex].hidden = false;
-    
-    // Save photos using Vercel Blob storage
-    await savePhotos(photos);
-    console.log("Photos saved to Vercel Blob storage");
+    // Unhide photo using new individual file system
+    const { unhidePhoto: unhidePhotoFromStorage } = await import('./storage');
+    await unhidePhotoFromStorage(photoId);
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -91,24 +67,9 @@ export async function deletePhoto(photoId: string) {
   try {
     console.log(`🗑️ Starting delete operation for photo: ${photoId}`);
     
-    // Read photos from Vercel Blob storage
-    const { getPhotos, savePhotos } = await import('./storage');
-    const photos = await getPhotos();
-    console.log(`📖 Loaded ${photos.length} photos from storage`);
-    
-    // Find and remove the photo
-    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
-    if (photoIndex === -1) {
-      console.log(`❌ Photo ${photoId} not found in storage`);
-      return { success: false, error: "Photo not found" };
-    }
-    
-    console.log(`🎯 Found photo at index ${photoIndex}, removing...`);
-    photos.splice(photoIndex, 1);
-    
-    // Save photos using Vercel Blob storage
-    await savePhotos(photos);
-    console.log(`✅ Photos saved to Vercel Blob storage (${photos.length} remaining)`);
+    // Delete photo using new individual file system
+    const { deletePhoto: deletePhotoFromStorage } = await import('./storage');
+    await deletePhotoFromStorage(photoId);
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");
@@ -123,21 +84,39 @@ export async function deletePhoto(photoId: string) {
 
 export async function hideMemory(memoryId: string) {
   try {
-    // Read tributes from Vercel Blob storage
-    const { getTributes, saveTributes } = await import('./storage');
-    const tributes = await getTributes();
+    // Hide individual tribute file by renaming it to include "_hidden"
+    const { put, del, list } = await import('@vercel/blob');
     
-    // Find and hide the memory
-    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
-    if (memoryIndex === -1) {
+    // Find the tribute file by ID
+    const { blobs } = await list();
+    const tributeBlob = blobs.find(blob => 
+      blob.pathname.startsWith('tribute_') && 
+      blob.pathname.includes(memoryId) &&
+      !blob.pathname.includes('_hidden')
+    );
+    
+    if (!tributeBlob) {
       return { success: false, error: "Memory not found" };
     }
     
-    tributes[memoryIndex].hidden = true;
+    // Fetch the original file content
+    const response = await fetch(tributeBlob.url);
+    const fileContent = await response.arrayBuffer();
     
-    // Save tributes using Vercel Blob storage
-    await saveTributes(tributes);
-    console.log("Tributes saved to Vercel Blob storage");
+    // Create hidden filename
+    const hiddenFilename = tributeBlob.pathname.replace(/\.(json)$/i, '_hidden.$1');
+    
+    // Upload with new hidden filename
+    await put(hiddenFilename, fileContent, {
+      access: 'public',
+      addRandomSuffix: false,
+      allowOverwrite: true
+    });
+    
+    // Delete the original file
+    await del(tributeBlob.url);
+    
+    console.log(`Hidden memory: ${tributeBlob.pathname} -> ${hiddenFilename}`);
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -151,21 +130,39 @@ export async function hideMemory(memoryId: string) {
 
 export async function unhideMemory(memoryId: string) {
   try {
-    // Read tributes from Vercel Blob storage
-    const { getTributes, saveTributes } = await import('./storage');
-    const tributes = await getTributes();
+    // Unhide individual tribute file by removing "_hidden" from filename
+    const { put, del, list } = await import('@vercel/blob');
     
-    // Find and unhide the memory
-    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
-    if (memoryIndex === -1) {
-      return { success: false, error: "Memory not found" };
+    // Find the hidden tribute file by ID
+    const { blobs } = await list();
+    const tributeBlob = blobs.find(blob => 
+      blob.pathname.startsWith('tribute_') && 
+      blob.pathname.includes(memoryId) &&
+      blob.pathname.includes('_hidden')
+    );
+    
+    if (!tributeBlob) {
+      return { success: false, error: "Hidden memory not found" };
     }
     
-    tributes[memoryIndex].hidden = false;
+    // Fetch the original file content
+    const response = await fetch(tributeBlob.url);
+    const fileContent = await response.arrayBuffer();
     
-    // Save tributes using Vercel Blob storage
-    await saveTributes(tributes);
-    console.log("Tributes saved to Vercel Blob storage");
+    // Create visible filename by removing "_hidden"
+    const visibleFilename = tributeBlob.pathname.replace('_hidden.', '.');
+    
+    // Upload with new visible filename
+    await put(visibleFilename, fileContent, {
+      access: 'public',
+      addRandomSuffix: false,
+      allowOverwrite: true
+    });
+    
+    // Delete the hidden file
+    await del(tributeBlob.url);
+    
+    console.log(`Unhidden memory: ${tributeBlob.pathname} -> ${visibleFilename}`);
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -179,21 +176,23 @@ export async function unhideMemory(memoryId: string) {
 
 export async function deleteMemory(memoryId: string) {
   try {
-    // Read tributes from Vercel Blob storage
-    const { getTributes, saveTributes } = await import('./storage');
-    const tributes = await getTributes();
+    // Delete individual tribute file from Vercel Blob storage
+    const { del, list } = await import('@vercel/blob');
     
-    // Find and remove the memory
-    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
-    if (memoryIndex === -1) {
+    // Find the tribute file by ID
+    const { blobs } = await list();
+    const tributeBlob = blobs.find(blob => 
+      blob.pathname.startsWith('tribute_') && 
+      blob.pathname.includes(memoryId)
+    );
+    
+    if (!tributeBlob) {
       return { success: false, error: "Memory not found" };
     }
     
-    tributes.splice(memoryIndex, 1);
-    
-    // Save tributes using Vercel Blob storage
-    await saveTributes(tributes);
-    console.log("Tributes saved to Vercel Blob storage");
+    // Delete the blob file
+    await del(tributeBlob.url);
+    console.log(`Deleted memory file: ${tributeBlob.pathname}`);
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -296,19 +295,43 @@ export async function findDuplicatePhotos() {
     const { getPhotos } = await import('./storage');
     const photos = await getPhotos();
     
-    // Find duplicates based on MD5 hash
-    const hashMap = new Map();
-    const duplicates = [];
+    // Find duplicates based on file size and similar filenames
+    // Group photos by file size first
+    const sizeMap = new Map<number, Photo[]>();
     
     for (const photo of photos) {
-      if (photo.md5Hash) {
-        if (hashMap.has(photo.md5Hash)) {
-          duplicates.push({
-            hash: photo.md5Hash,
-            photos: [hashMap.get(photo.md5Hash), photo]
-          });
-        } else {
-          hashMap.set(photo.md5Hash, photo);
+      if (!sizeMap.has(photo.fileSize)) {
+        sizeMap.set(photo.fileSize, []);
+      }
+      sizeMap.get(photo.fileSize)!.push(photo);
+    }
+    
+    const duplicates = [];
+    
+    // Check each size group for potential duplicates
+    for (const [size, photosOfSize] of sizeMap) {
+      if (photosOfSize.length > 1) {
+        // Group by filename pattern (without timestamp)
+        const patternMap = new Map<string, Photo[]>();
+        
+        for (const photo of photosOfSize) {
+          // Extract base filename without timestamp (e.g., "photo_1759272581990.jpg" -> "photo_.jpg")
+          const basePattern = photo.fileName.replace(/photo_\d+/, 'photo_');
+          
+          if (!patternMap.has(basePattern)) {
+            patternMap.set(basePattern, []);
+          }
+          patternMap.get(basePattern)!.push(photo);
+        }
+        
+        // Add groups with multiple photos as duplicates
+        for (const [pattern, photosOfPattern] of patternMap) {
+          if (photosOfPattern.length > 1) {
+            duplicates.push({
+              hash: `${size}_${pattern}`, // Use size + pattern as identifier
+              photos: photosOfPattern
+            });
+          }
         }
       }
     }

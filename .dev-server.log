@@ -10,318 +10,82 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 1387ms
- ○ Compiling / ...
- ✓ Compiled / in 3s
- GET / 200 in 4515ms
- GET / 200 in 105ms
+ ✓ Ready in 1083ms
+ ○ Compiling /memories ...
+ GET / 200 in 2426ms
+ ✓ Compiled /memories in 4.2s
+ GET /memories 200 in 4548ms
+ ✓ Compiled /memorial-wall in 213ms
+🎬 Memory wall component rendered
+ GET /memorial-wall 200 in 414ms
  ○ Compiling /favicon.ico ...
- ✓ Compiled /favicon.ico in 649ms
- ○ Compiling /gallery ...
- ✓ Compiled /gallery in 650ms
- GET /gallery 200 in 782ms
- ✓ Compiled /api/photos in 393ms
- GET /api/photos 200 in 1494ms
- ✓ Compiled /memories in 220ms
- GET /memories 200 in 304ms
- ○ Compiling /memories/photo ...
- ✓ Compiled /memories/photo in 651ms
- GET /memories/photo 200 in 939ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(FB_IMG_1758956817829.jpg, 23491 bytes)
-📁 Files received: 1 files
-📁 File 1: FB_IMG_1758956817829.jpg 23491 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 6
-🔄 Processing file 1/1: FB_IMG_1758956817829.jpg
-📦 File 1 converted to buffer, size: 23491
-🔍 MD5 hash for file 1: 7937f6d865d3bae4ea9332f52cff99cd
-📝 Generated filename for file 1: photo_1759279481875.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279481875-st5qdhTEPR7LOwTgubuhR03TpDrvxj.jpg
-➕ Added new photo 1 to array: photo_1759279481875
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
+ ✓ Compiled /favicon.ico in 552ms
+📖 getTributes called
+📂 Found 0 tribute files
+ GET /api/tributes 200 in 1104ms
+ GET /memories 200 in 128ms
+ ✓ Compiled /memories/words in 421ms
+ GET /memories/words 200 in 564ms
+🎬 submitTribute function called
+Raw form data: { displayName: '', message: 'Sup bro Sup bro Sup bro Sup bro ' }
+displayName type: string value: 
+message type: string value: Sup bro Sup bro Sup bro Sup bro 
+💬 addTribute called with: {
+  id: '123f2be3-4a14-4c93-b2a5-6dcd569484cc',
+  message: 'Sup bro Sup bro Sup bro Sup bro ',
+  contributorName: 'Anonymous',
+  submittedAt: '2025-10-01T01:35:25.439Z',
+  approved: true,
+  hidden: false
+}
+🚀 Uploading tribute to Vercel Blob: tribute_1759282525466_123f2be3-4a14-4c93-b2a5-6dcd569484cc
+✅ Tribute saved successfully
+Tribute submitted successfully: 123f2be3-4a14-4c93-b2a5-6dcd569484cc
 Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1248ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(FB_IMG_1758956935792.jpg, 31018 bytes)
-📁 Files received: 1 files
-📁 File 1: FB_IMG_1758956935792.jpg 31018 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: FB_IMG_1758956935792.jpg
-📦 File 1 converted to buffer, size: 31018
-🔍 MD5 hash for file 1: 07dbee8758cce501427cf34a34deed0a
-📝 Generated filename for file 1: photo_1759279483250.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279483250-FTVPp2CMeqTvmdW9Ci2wsu2TIuAu4I.jpg
-➕ Added new photo 1 to array: photo_1759279483250
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 726ms
- GET / 200 in 294ms
- GET /gallery 200 in 76ms
- GET /api/photos 200 in 974ms
- GET /api/photos 200 in 1104ms
- GET /gallery 200 in 174ms
- GET /favicon.ico 200 in 49ms
- GET /api/photos 200 in 1184ms
- GET /memories 200 in 295ms
- GET /memories/photo 200 in 77ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20240726_193255.jpg, 6114385 bytes)
-📁 Files received: 1 files
-📁 File 1: 20240726_193255.jpg 6114385 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: 20240726_193255.jpg
-📦 File 1 converted to buffer, size: 6114385
-🔍 MD5 hash for file 1: 3841231475da138340dcfc1e9dec5a05
-📝 Generated filename for file 1: photo_1759279504882.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279504882-iYys5CzzohFJxUpxFtOPM5O7GbBgb6.jpg
-➕ Added new photo 1 to array: photo_1759279504882
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1933ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20241015_144315.jpg, 3684489 bytes)
-📁 Files received: 1 files
-📁 File 1: 20241015_144315.jpg 3684489 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: 20241015_144315.jpg
-📦 File 1 converted to buffer, size: 3684489
-🔍 MD5 hash for file 1: 8392fbfa8f4b9e321747226a20ce9776
-📝 Generated filename for file 1: photo_1759279506963.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279506963-GQBZLh85V5b3JwuICMMjLubZ2MRDaG.jpg
-➕ Added new photo 1 to array: photo_1759279506963
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1576ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20240904_171041.jpg, 4608702 bytes)
-📁 Files received: 1 files
-📁 File 1: 20240904_171041.jpg 4608702 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: 20240904_171041.jpg
-📦 File 1 converted to buffer, size: 4608702
-🔍 MD5 hash for file 1: 9f52068b9a578ad114dfa9feabe65880
-📝 Generated filename for file 1: photo_1759279509149.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279509149-Fw38nTKF6OOfYTO4WnpLpoeus7ibli.jpg
-➕ Added new photo 1 to array: photo_1759279509149
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1300ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20230709_153921.jpg, 2980306 bytes)
-📁 Files received: 1 files
-📁 File 1: 20230709_153921.jpg 2980306 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: 20230709_153921.jpg
-📦 File 1 converted to buffer, size: 2980306
-🔍 MD5 hash for file 1: e9686dc208e72dad6c02fb2553d76d35
-📝 Generated filename for file 1: photo_1759279511002.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279511002-93jlIIP7fEc6Wl8yORjXmCUzNiHKw6.jpg
-➕ Added new photo 1 to array: photo_1759279511002
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1437ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20240907_094205.jpg, 4303658 bytes)
-📁 Files received: 1 files
-📁 File 1: 20240907_094205.jpg 4303658 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: 20240907_094205.jpg
-📦 File 1 converted to buffer, size: 4303658
-🔍 MD5 hash for file 1: a170118da9bdee23d82a63356d0fba78
-📝 Generated filename for file 1: photo_1759279512756.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279512756-88wEYdsGn3yAFlXLv8BfTBPaAlVi8e.jpg
-➕ Added new photo 1 to array: photo_1759279512756
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1234ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20230514_113123.jpg, 4079796 bytes)
-📁 Files received: 1 files
-📁 File 1: 20230514_113123.jpg 4079796 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 7
-🔄 Processing file 1/1: 20230514_113123.jpg
-📦 File 1 converted to buffer, size: 4079796
-🔍 MD5 hash for file 1: a8f9005273bd7d291005d657184146ee
-📝 Generated filename for file 1: photo_1759279514599.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279514599-e0WWoT0b44fnlWe2mAtR8Qg67H03so.jpg
-➕ Added new photo 1 to array: photo_1759279514599
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1296ms
- GET /gallery 200 in 116ms
+Error submitting tribute: Error: NEXT_REDIRECT
+    at submitTribute (lib/actions.ts:71:13)
+  69 |     
+  70 |     // Redirect to success page
+> 71 |     redirect("/memories?success=tribute");
+     |             ^
+  72 |   } catch (error) {
+  73 |     console.error("Error submitting tribute:", error);
+  74 |     throw error; {
+  digest: 'NEXT_REDIRECT;push;/memories?success=tribute;307;'
+}
+ GET /memories?success=tribute 200 in 76ms
+ POST /memories/words 303 in 606ms
+🎬 Memory wall component rendered
+ GET /memorial-wall 200 in 123ms
+ GET /favicon.ico 200 in 40ms
+📖 getTributes called
+📂 Found 1 tribute files
+ GET /api/tributes 200 in 847ms
+ ✓ Compiled /admin in 219ms
+ GET /admin 307 in 325ms
+ ✓ Compiled /admin/dashboard in 385ms
+ GET /admin/dashboard 200 in 493ms
+ GET /favicon.ico 200 in 54ms
+ POST /admin/dashboard 200 in 288ms
+📖 getTributes called
+📂 Found 1 tribute files
+ POST /admin/dashboard 200 in 534ms
+ POST /admin/dashboard 200 in 260ms
+ ○ Compiling /admin/memories ...
+ ✓ Compiled /admin/memories in 580ms
+ GET /admin/memories 200 in 770ms
+ GET /admin/memories 200 in 109ms
+📖 getTributes called
+📂 Found 1 tribute files
+ POST /admin/memories 200 in 347ms
+📖 getTributes called
+📂 Found 1 tribute files
+ POST /admin/memories 200 in 290ms
+Deleted memory file: tribute_1759282525466_123f2be3-4a14-4c93-b2a5-6dcd569484cc
+ POST /admin/memories 200 in 586ms
+🎬 Memory wall component rendered
+ GET /memorial-wall 200 in 90ms
  GET /favicon.ico 200 in 42ms
- GET /api/photos 200 in 767ms
- GET /gallery 200 in 90ms
- GET /favicon.ico 200 in 43ms
- GET /api/photos 200 in 576ms
- GET /gallery 200 in 86ms
- GET /favicon.ico 200 in 34ms
- GET /api/photos 200 in 576ms
- GET /gallery 200 in 93ms
- GET /favicon.ico 200 in 45ms
- GET /api/photos 200 in 539ms
- GET /gallery 200 in 72ms
- GET /favicon.ico 200 in 43ms
- GET /api/photos 200 in 514ms
- GET /gallery 200 in 94ms
- GET /favicon.ico 200 in 52ms
- GET /api/photos 200 in 538ms
- GET /gallery 200 in 251ms
- GET /favicon.ico 200 in 41ms
- GET /api/photos 200 in 531ms
- GET /gallery 200 in 112ms
- GET /api/photos 200 in 580ms
- GET /memories 200 in 98ms
- GET /gallery 200 in 81ms
- GET /favicon.ico 200 in 42ms
- GET /api/photos 200 in 558ms
- GET /memories 200 in 191ms
- GET /gallery 200 in 87ms
- GET /api/photos 200 in 683ms
- GET /memories 200 in 146ms
- GET /gallery 200 in 92ms
- GET /favicon.ico 200 in 42ms
- GET /api/photos 200 in 531ms
- GET /gallery 200 in 84ms
- GET /api/photos 200 in 992ms
- GET /memories 200 in 125ms
- GET /memories/photo 200 in 91ms
- GET /api/photos 200 in 924ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20250514_201655.jpg, 4605065 bytes)
-📁 Files received: 1 files
-📁 File 1: 20250514_201655.jpg 4605065 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 77
-🔄 Processing file 1/1: 20250514_201655.jpg
-📦 File 1 converted to buffer, size: 4605065
-🔍 MD5 hash for file 1: 686f76f883b3d826b43dde213ca1b46c
-📝 Generated filename for file 1: photo_1759279602568.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279602568-OJh2HU5uhyunLqN6PFAToiisfWukMG.jpg
-➕ Added new photo 1 to array: photo_1759279602568
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1542ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20230514_113123.jpg, 4079796 bytes)
-📁 Files received: 1 files
-📁 File 1: 20230514_113123.jpg 4079796 image/jpeg
-📝 Caption: null
-👤 Name: null
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-📖 Loaded existing photos: 8
-🔄 Processing file 1/1: 20230514_113123.jpg
-📦 File 1 converted to buffer, size: 4079796
-🔍 MD5 hash for file 1: a8f9005273bd7d291005d657184146ee
-📝 Generated filename for file 1: photo_1759279604545.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759279604545-ETTgbGzagEsUc9VIqBWCJTzxfAu8hG.jpg
-➕ Added new photo 1 to array: photo_1759279604545
-✅ Added 1 photos to gallery
-💾 Photos saved to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-No email settings found, notifications disabled
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1616ms
- GET / 200 in 142ms
- GET /gallery 200 in 69ms
- GET /api/photos 200 in 846ms
- GET /api/photos 200 in 925ms
- ✓ Compiled in 55ms
- GET /gallery 200 in 217ms
- ✓ Compiled in 43ms
- GET /gallery 200 in 175ms
- ✓ Compiled in 26ms
- GET /gallery 200 in 61ms
- ✓ Compiled in 207ms
- GET /gallery 200 in 79ms
- GET /api/photos 200 in 965ms
- GET /gallery 200 in 96ms
- GET /api/photos 200 in 559ms
- GET /gallery 200 in 116ms
- GET /api/photos 200 in 702ms
- GET /gallery 200 in 81ms
- GET /favicon.ico 200 in 52ms
- GET /api/photos 200 in 852ms
+📖 getTributes called
+📂 Found 0 tribute files
+ GET /api/tributes 200 in 426ms
