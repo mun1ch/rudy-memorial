@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause } from "lucide-react";
+import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause, Grid3X3 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
@@ -35,9 +35,38 @@ export default function GalleryPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
   const autoPlayIntervalRef = useRef(3);
+  const [gridSize, setGridSize] = useState<'small' | 'medium' | 'large'>('medium');
 
   // Centralized photo list - ALWAYS in the same order (newest first)
   const getPhotos = useCallback(() => photos, [photos]);
+
+  // Get grid classes based on selected size
+  const getGridClasses = () => {
+    switch (gridSize) {
+      case 'small':
+        return 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8';
+      case 'medium':
+        return 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+      case 'large':
+        return 'grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2';
+      default:
+        return 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+    }
+  };
+
+  // Get card height classes based on grid size
+  const getCardHeightClasses = () => {
+    switch (gridSize) {
+      case 'small':
+        return 'aspect-square min-h-[80px] sm:min-h-[120px]';
+      case 'medium':
+        return 'aspect-square min-h-[120px] sm:min-h-[200px]';
+      case 'large':
+        return 'aspect-[4/3] min-h-[150px] sm:min-h-[250px]';
+      default:
+        return 'aspect-square min-h-[120px] sm:min-h-[200px]';
+    }
+  };
 
   useEffect(() => {
     // Fetch photos from the API endpoint
@@ -268,7 +297,10 @@ export default function GalleryPage() {
               <Card className="hover:scale-105 transition-transform duration-200">
                 <CardContent className="pt-2 sm:pt-6 text-center p-2 sm:p-6">
                   <Upload className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
-                  <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-2">Share Your Photos</h3>
+                  <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-2">
+                    <span className="sm:hidden">Upload</span>
+                    <span className="hidden sm:inline">Share Your Photos</span>
+                  </h3>
                   <p className="text-muted-foreground mb-2 sm:mb-4 text-xs sm:text-base hidden sm:block">
                     Help preserve special moments
                   </p>
@@ -311,18 +343,32 @@ export default function GalleryPage() {
       <div className="container py-12">
         {photos.length > 0 ? (
           <>
-            {/* Stats */}
-            <div className="text-center mb-6 sm:mb-12">
+            {/* Stats and Grid Size Selector */}
+            <div className="flex items-center justify-between mb-6 sm:mb-12">
               <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-3 py-2 sm:px-6 sm:py-3">
                 <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
                 <span className="text-xs sm:text-sm font-medium">
                   {photos.length} precious memories shared
                 </span>
               </div>
+              
+              {/* Grid Size Selector */}
+              <div className="flex items-center gap-2">
+                <Grid3X3 className="h-4 w-4 text-muted-foreground" />
+                <select
+                  value={gridSize}
+                  onChange={(e) => setGridSize(e.target.value as 'small' | 'medium' | 'large')}
+                  className="text-xs sm:text-sm bg-background border border-border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                </select>
+              </div>
             </div>
 
             {/* Responsive Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6">
+            <div className={`grid ${getGridClasses()} gap-2 sm:gap-6`}>
               {getPhotos().map((photo, index) => (
                 <motion.div
                   key={photo.id}
@@ -333,7 +379,7 @@ export default function GalleryPage() {
                     delay: index * 0.1,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  className="group cursor-pointer min-h-[120px] sm:min-h-[250px]"
+                  className={`group cursor-pointer ${getCardHeightClasses()}`}
                   onClick={() => setSelectedPhoto(photo)}
                 >
                   <Card className="h-full overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02]">

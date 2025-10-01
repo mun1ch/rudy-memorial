@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useFullscreen } from "@/lib/fullscreen-context";
 
 export function MobileNav() {
   const pathname = usePathname();
-  const { isFullscreen } = useFullscreen();
 
   const navItems = [
     {
@@ -57,13 +55,10 @@ export function MobileNav() {
     }
   ];
 
-  // Hide navigation when in fullscreen mode
-  if (isFullscreen) {
-    return null;
-  }
+  // Navigation is always visible - never hide
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t border-border sm:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-t border-border sm:hidden shadow-lg">
       <div className="flex items-center justify-around py-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href || 

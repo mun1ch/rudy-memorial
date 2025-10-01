@@ -1,13 +1,18 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { Home, Users, Image, MessageCircle, Settings } from "lucide-react";
+import { Home, Users, Image, MessageCircle, Settings, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { LogoutButton } from "@/components/logout-button";
+import { usePathname } from "next/navigation";
 
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isNotDashboard = pathname !== "/admin/dashboard" && pathname !== "/admin";
 
   return (
     <div className="min-h-screen bg-background">
@@ -20,12 +25,15 @@ export default function AdminLayout({
             </h1>
           </div>
           <div className="flex items-center space-x-4">
-            <Button asChild variant="outline" size="sm">
-              <Link href="/">
-                <Home className="mr-2 h-4 w-4" />
-                View Site
-              </Link>
-            </Button>
+            {/* Back to Admin button - only show on mobile when not on dashboard */}
+            {isNotDashboard && (
+              <Button asChild variant="outline" size="sm" className="sm:hidden">
+                <Link href="/admin">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Admin
+                </Link>
+              </Button>
+            )}
             <LogoutButton />
           </div>
         </div>

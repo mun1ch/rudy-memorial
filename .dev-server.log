@@ -10,13 +10,7 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 1220ms
+ ✓ Ready in 1424ms
  ○ Compiling / ...
- ✓ Compiled / in 2.1s
- GET / 200 in 2539ms
- ○ Compiling /gallery ...
- ✓ Compiled /gallery in 665ms
- GET /gallery 200 in 775ms
- ○ Compiling /favicon.ico ...
- ✓ Compiled /favicon.ico in 534ms
- GET /api/photos 200 in 910ms
+ ✓ Compiled / in 2.8s
+ GET / 200 in 4049ms

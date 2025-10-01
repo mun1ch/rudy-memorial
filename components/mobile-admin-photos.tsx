@@ -22,8 +22,6 @@ import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicat
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 
 interface Photo {
   id: string;
@@ -318,11 +316,6 @@ export function MobileAdminPhotos() {
 
   return (
     <div className="p-3 space-y-3 max-w-full overflow-x-hidden">
-      {/* Back Button */}
-      <Link href="/admin" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-        <ArrowLeft className="h-4 w-4" />
-        Back to Admin
-      </Link>
       {/* Search and Filter Bar */}
       <div className="space-y-3">
         <div className="relative">
@@ -430,8 +423,8 @@ export function MobileAdminPhotos() {
         </span>
       </div>
 
-      {/* Photos List */}
-      <div className="space-y-2">
+      {/* Photos Grid - 2 columns */}
+      <div className="grid grid-cols-2 gap-2">
         {filteredPhotos.map((photo) => (
           <div
             key={photo.id}
@@ -439,102 +432,102 @@ export function MobileAdminPhotos() {
               selectedPhotos.has(photo.id) ? 'border-primary bg-primary/5' : 'border-border'
             }`}
           >
-            {/* Photo Header */}
-            <div className="flex items-start gap-3">
+            {/* Photo Image */}
+            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-muted">
+              <Image
+                src={photo.url}
+                alt={photo.caption || "Photo"}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              {/* Selection Checkbox */}
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSelectPhoto(photo.id)}
-                className="h-8 w-8 p-0 mt-1"
+                className="absolute top-1 left-1 h-6 w-6 p-0 bg-black/20 hover:bg-black/40"
               >
                 {selectedPhotos.has(photo.id) ? (
-                  <CheckSquare className="h-4 w-4" />
+                  <CheckSquare className="h-3 w-3 text-white" />
                 ) : (
-                  <Square className="h-4 w-4" />
+                  <Square className="h-3 w-3 text-white" />
                 )}
               </Button>
-              
-              <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-muted flex-shrink-0">
-                <Image
-                  src={photo.url}
-                  alt={photo.caption || "Photo"}
-                  fill
-                  className="object-cover"
-                  sizes="64px"
-                />
+            </div>
+            
+            {/* Photo Info */}
+            <div className="space-y-1">
+              <p className="text-xs font-medium truncate" title={photo.fileName}>
+                {photo.fileName}
+              </p>
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Calendar className="h-2 w-2" />
+                <span>{new Date(photo.uploadedAt).toLocaleDateString()}</span>
               </div>
-              
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">{photo.fileName}</p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-                  <Calendar className="h-3 w-3" />
-                  <span>{new Date(photo.uploadedAt).toLocaleDateString()}</span>
+              {photo.contributorName && (
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <User className="h-2 w-2" />
+                  <span className="truncate">{photo.contributorName}</span>
                 </div>
-                {photo.contributorName && (
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <User className="h-3 w-3" />
-                    <span className="truncate">{photo.contributorName}</span>
-                  </div>
-                )}
-              </div>
-              
-              <div className="flex gap-1">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleEditPhoto(photo)}
-                  className="h-8 w-8 p-0"
-                >
-                  <Edit3 className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => photo.hidden ? unhidePhoto(photo.id) : hidePhoto(photo.id)}
-                  className="h-8 w-8 p-0"
-                >
-                  {photo.hidden ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => deletePhoto(photo.id)}
-                  className="h-8 w-8 p-0 text-destructive hover:text-destructive"
-                >
-                  <Trash2 className="h-4 w-4" />
-                </Button>
-              </div>
+              )}
+              {photo.caption && (
+                <p className="text-xs text-muted-foreground line-clamp-2">
+                  {photo.caption}
+                </p>
+              )}
             </div>
 
-            {/* Photo Caption */}
-            {photo.caption && (
-              <p className="text-sm text-muted-foreground pl-11">
-                {photo.caption}
-              </p>
-            )}
+            {/* Action Buttons */}
+            <div className="flex gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handleEditPhoto(photo)}
+                className="h-6 w-6 p-0 flex-1"
+              >
+                <Edit3 className="h-3 w-3" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => photo.hidden ? unhidePhoto(photo.id) : hidePhoto(photo.id)}
+                className="h-6 w-6 p-0 flex-1"
+              >
+                {photo.hidden ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => deletePhoto(photo.id)}
+                className="h-6 w-6 p-0 flex-1 text-destructive hover:text-destructive"
+              >
+                <Trash2 className="h-3 w-3" />
+              </Button>
+            </div>
 
             {/* Edit Form */}
             {editingPhoto === photo.id && (
-              <div className="pl-11 space-y-2 border-t pt-3">
+              <div className="space-y-2 border-t pt-2">
                 <Input
                   placeholder="Caption"
                   value={editCaption}
                   onChange={(e) => setEditCaption(e.target.value)}
-                  className="h-10"
+                  className="text-xs h-8"
                 />
                 <Input
                   placeholder="Contributor name"
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
-                  className="h-10"
+                  className="text-xs h-8"
                 />
-                <div className="flex gap-2">
-                  <Button size="sm" onClick={handleSaveEdit} className="h-10">
-                    <Save className="mr-2 h-4 w-4" />
+                <div className="flex gap-1">
+                  <Button size="sm" onClick={handleSaveEdit} className="text-xs h-6 flex-1">
+                    <Save className="mr-1 h-2 w-2" />
                     Save
                   </Button>
-                  <Button variant="outline" size="sm" onClick={handleCancelEdit} className="h-10">
-                    <X className="mr-2 h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={handleCancelEdit} className="text-xs h-6 flex-1">
+                    <X className="mr-1 h-2 w-2" />
                     Cancel
                   </Button>
                 </div>

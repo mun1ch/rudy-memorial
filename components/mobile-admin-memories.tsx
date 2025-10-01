@@ -21,8 +21,6 @@ import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 
 interface Tribute {
   id: string;
@@ -303,11 +301,6 @@ export function MobileAdminMemories() {
 
   return (
     <div className="p-3 space-y-3 max-w-full overflow-x-hidden">
-      {/* Back Button */}
-      <Link href="/admin" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-        <ArrowLeft className="h-4 w-4" />
-        Back to Admin
-      </Link>
       {/* Search and Filter Bar */}
       <div className="space-y-3">
         <div className="relative">
@@ -401,8 +394,8 @@ export function MobileAdminMemories() {
         </span>
       </div>
 
-      {/* Memories List */}
-      <div className="space-y-2">
+      {/* Memories Grid - 2 columns */}
+      <div className="grid grid-cols-2 gap-2">
         {filteredMemories.map((memory) => (
           <div
             key={memory.id}
@@ -410,84 +403,90 @@ export function MobileAdminMemories() {
               selectedMemories.has(memory.id) ? 'border-primary bg-primary/5' : 'border-border'
             }`}
           >
-            {/* Memory Header */}
-            <div className="flex items-start gap-3">
+            {/* Selection Checkbox */}
+            <div className="flex justify-end">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSelectMemory(memory.id)}
-                className="h-8 w-8 p-0 mt-1"
+                className="h-6 w-6 p-0"
               >
                 {selectedMemories.has(memory.id) ? (
-                  <CheckSquare className="h-4 w-4" />
+                  <CheckSquare className="h-3 w-3" />
                 ) : (
-                  <Square className="h-4 w-4" />
+                  <Square className="h-3 w-3" />
                 )}
               </Button>
-              
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                  <Calendar className="h-3 w-3" />
-                  <span>{new Date(memory.submittedAt).toLocaleDateString()}</span>
-                  <User className="h-3 w-3" />
+            </div>
+            
+            {/* Memory Content */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Calendar className="h-2 w-2" />
+                <span>{new Date(memory.submittedAt).toLocaleDateString()}</span>
+              </div>
+              {memory.contributorName && (
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <User className="h-2 w-2" />
                   <span className="truncate">{memory.contributorName}</span>
                 </div>
-                
-                <p className="text-sm leading-relaxed line-clamp-3">
-                  {memory.message}
-                </p>
-              </div>
+              )}
               
-              <div className="flex gap-1">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleEditMemory(memory)}
-                  className="h-8 w-8 p-0"
-                >
-                  <Edit3 className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => memory.hidden ? unhideMemory(memory.id) : hideMemory(memory.id)}
-                  className="h-8 w-8 p-0"
-                >
-                  {memory.hidden ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => deleteMemory(memory.id)}
-                  className="h-8 w-8 p-0 text-destructive hover:text-destructive"
-                >
-                  <Trash2 className="h-4 w-4" />
-                </Button>
-              </div>
+              <p className="text-xs leading-relaxed line-clamp-4">
+                {memory.message}
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handleEditMemory(memory)}
+                className="h-6 w-6 p-0 flex-1"
+              >
+                <Edit3 className="h-3 w-3" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => memory.hidden ? unhideMemory(memory.id) : hideMemory(memory.id)}
+                className="h-6 w-6 p-0 flex-1"
+              >
+                {memory.hidden ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => deleteMemory(memory.id)}
+                className="h-6 w-6 p-0 flex-1 text-destructive hover:text-destructive"
+              >
+                <Trash2 className="h-3 w-3" />
+              </Button>
             </div>
 
             {/* Edit Form */}
             {editingMemory === memory.id && (
-              <div className="pl-11 space-y-2 border-t pt-3">
+              <div className="space-y-2 border-t pt-2">
                 <Textarea
                   placeholder="Memory message"
                   value={editMessage}
                   onChange={(e) => setEditMessage(e.target.value)}
-                  className="min-h-[100px]"
+                  className="min-h-[60px] text-xs"
                 />
                 <Input
                   placeholder="Contributor name"
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
-                  className="h-10"
+                  className="text-xs h-8"
                 />
-                <div className="flex gap-2">
-                  <Button size="sm" onClick={handleSaveEdit} className="h-10">
-                    <Save className="mr-2 h-4 w-4" />
+                <div className="flex gap-1">
+                  <Button size="sm" onClick={handleSaveEdit} className="text-xs h-6 flex-1">
+                    <Save className="mr-1 h-2 w-2" />
                     Save
                   </Button>
-                  <Button variant="outline" size="sm" onClick={handleCancelEdit} className="h-10">
-                    <X className="mr-2 h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={handleCancelEdit} className="text-xs h-6 flex-1">
+                    <X className="mr-1 h-2 w-2" />
                     Cancel
                   </Button>
                 </div>
