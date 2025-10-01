@@ -11,8 +11,8 @@ export default function HomePage() {
       
       {/* Main content container with proper margins */}
       <div className="relative z-10 text-center max-w-lg mx-auto">
-        {/* Hero Title - Properly sized */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight">
+        {/* Hero Title - Single line, properly sized */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight tracking-tight whitespace-nowrap">
           In Memory of{" "}
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Rudy
@@ -20,7 +20,7 @@ export default function HomePage() {
         </h1>
         
         {/* Hero Description - Better sizing */}
-        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-md mx-auto leading-relaxed font-light">
+        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-lg mx-auto leading-relaxed font-light">
           A place to remember, share, and celebrate the life of someone special. Join us in celebrating Rudy&apos;s life by sharing your memories, photos, and moments that keep his spirit alive.
         </p>
       </div>

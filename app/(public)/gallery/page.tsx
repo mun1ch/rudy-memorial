@@ -2,12 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause, Grid3X3 } from "lucide-react";
+import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause, Grid3X3, Download, Check, Square } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFullscreen } from "@/lib/fullscreen-context";
+import { MobileDownloadBar } from "@/components/mobile-download-bar";
+import { DownloadProgressPopup } from "@/components/download-progress-popup";
 
 interface Photo {
   id: string;
@@ -36,6 +38,14 @@ export default function GalleryPage() {
   const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
   const autoPlayIntervalRef = useRef(3);
   const [gridSize, setGridSize] = useState<'small' | 'medium' | 'large'>('medium');
+  
+  // Multi-select state
+  const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
+  const [isSelectionMode, setIsSelectionMode] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
+  const [downloadPhase, setDownloadPhase] = useState<'preparing' | 'downloading' | null>(null);
+  const [isDownloadCancelled, setIsDownloadCancelled] = useState(false);
 
   // Centralized photo list - ALWAYS in the same order (newest first)
   const getPhotos = useCallback(() => photos, [photos]);
@@ -65,6 +75,138 @@ export default function GalleryPage() {
         return 'aspect-[4/3] min-h-[150px] sm:min-h-[250px]';
       default:
         return 'aspect-square min-h-[120px] sm:min-h-[200px]';
+    }
+  };
+
+  // Selection functions
+  const togglePhotoSelection = (photoId: string) => {
+    const newSelection = new Set(selectedPhotos);
+    if (newSelection.has(photoId)) {
+      newSelection.delete(photoId);
+    } else {
+      newSelection.add(photoId);
+    }
+    setSelectedPhotos(newSelection);
+  };
+
+  const selectAllPhotos = () => {
+    setSelectedPhotos(new Set(photos.map(photo => photo.id)));
+  };
+
+  const clearSelection = () => {
+    setSelectedPhotos(new Set());
+  };
+
+  const toggleSelectionMode = () => {
+    setIsSelectionMode(!isSelectionMode);
+    if (isSelectionMode) {
+      clearSelection();
+    }
+  };
+
+  const cancelDownload = () => {
+    setIsDownloadCancelled(true);
+    setIsDownloading(false);
+    setDownloadProgress(0);
+    setDownloadPhase(null);
+  };
+
+  // Download functions
+  const downloadPhotos = async () => {
+    if (selectedPhotos.size === 0) return;
+    
+    setIsDownloading(true);
+    setDownloadProgress(0);
+    setDownloadPhase('preparing');
+    setIsDownloadCancelled(false);
+    
+    try {
+      const selectedPhotoObjects = photos.filter(photo => selectedPhotos.has(photo.id));
+      
+      if (selectedPhotoObjects.length === 1) {
+        // Single photo download
+        setDownloadPhase('downloading');
+        setDownloadProgress(50);
+        
+        const photo = selectedPhotoObjects[0];
+        const response = await fetch(photo.url);
+        const blob = await response.blob();
+        
+        setDownloadProgress(100);
+        
+        // Create file save dialog
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = photo.fileName;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      } else {
+        // Multiple photos - create ZIP with progress
+        setDownloadPhase('preparing');
+        setDownloadProgress(10);
+        
+        const JSZip = (await import('jszip')).default;
+        const zip = new JSZip();
+        
+        // Add photos to ZIP with progress tracking
+        for (let i = 0; i < selectedPhotoObjects.length; i++) {
+          if (isDownloadCancelled) {
+            throw new Error('Download cancelled');
+          }
+          
+          const photo = selectedPhotoObjects[i];
+          const response = await fetch(photo.url);
+          const blob = await response.blob();
+          zip.file(photo.fileName, blob);
+          
+          // Update progress (10% to 80% for preparation)
+          const progress = 10 + (i / selectedPhotoObjects.length) * 70;
+          setDownloadProgress(progress);
+        }
+        
+        setDownloadPhase('downloading');
+        setDownloadProgress(85);
+        
+        // Generate ZIP with progress callback
+        const zipBlob = await zip.generateAsync({ 
+          type: 'blob',
+          compression: 'DEFLATE',
+          compressionOptions: { level: 6 }
+        });
+        
+        setDownloadProgress(95);
+        
+        // Create custom filename with date and count
+        const date = new Date().toISOString().split('T')[0];
+        const count = selectedPhotoObjects.length;
+        const filename = `rudy-memories-${count}-photos-${date}.zip`;
+        
+        setDownloadProgress(100);
+        
+        // Create file save dialog
+        const url = window.URL.createObjectURL(zipBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }
+      
+      // Clear selection after download
+      clearSelection();
+      setIsSelectionMode(false);
+    } catch (error) {
+      console.error('Download failed:', error);
+      alert('Download failed. Please try again.');
+    } finally {
+      setIsDownloading(false);
+      setDownloadProgress(0);
+      setDownloadPhase(null);
     }
   };
 
@@ -335,6 +477,19 @@ export default function GalleryPage() {
                 </Card>
               )}
             </div>
+            
+            {/* Mobile Download Button - Only show on mobile when not in selection mode */}
+            {!isSelectionMode && (
+              <div className="mt-6 sm:hidden">
+                <Button
+                  onClick={toggleSelectionMode}
+                  className="w-full flex items-center justify-center gap-2 py-3 bg-primary hover:bg-primary/90"
+                >
+                  <Download className="h-5 w-5" />
+                  Download Photos
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -352,18 +507,64 @@ export default function GalleryPage() {
                 </span>
               </div>
               
-              {/* Grid Size Selector */}
-              <div className="flex items-center gap-2">
-                <Grid3X3 className="h-4 w-4 text-muted-foreground" />
-                <select
-                  value={gridSize}
-                  onChange={(e) => setGridSize(e.target.value as 'small' | 'medium' | 'large')}
-                  className="text-xs sm:text-sm bg-background border border-border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-primary"
-                >
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                </select>
+              {/* Grid Size Selector and Selection Controls */}
+              <div className="flex items-center gap-4">
+                {/* Desktop Selection Controls - Hidden on mobile */}
+                <div className="hidden sm:flex items-center gap-2">
+                  <Button
+                    onClick={toggleSelectionMode}
+                    variant={isSelectionMode ? "default" : "outline"}
+                    size="sm"
+                    className="flex items-center gap-2 text-xs"
+                  >
+                    {isSelectionMode ? (
+                      <>
+                        <X className="h-3 w-3" />
+                        Cancel
+                      </>
+                    ) : (
+                      <>
+                        <Download className="h-3 w-3" />
+                        Download
+                      </>
+                    )}
+                  </Button>
+                  
+                  {isSelectionMode && (
+                    <Button
+                      onClick={selectedPhotos.size === photos.length ? clearSelection : selectAllPhotos}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2 text-xs"
+                    >
+                      {selectedPhotos.size === photos.length ? (
+                        <>
+                          <Square className="h-3 w-3" />
+                          Clear All
+                        </>
+                      ) : (
+                        <>
+                          <Check className="h-3 w-3" />
+                          Select All
+                        </>
+                      )}
+                    </Button>
+                  )}
+                </div>
+                
+                {/* Grid Size Selector */}
+                <div className="flex items-center gap-2">
+                  <Grid3X3 className="h-4 w-4 text-muted-foreground" />
+                  <select
+                    value={gridSize}
+                    onChange={(e) => setGridSize(e.target.value as 'small' | 'medium' | 'large')}
+                    className="text-xs sm:text-sm bg-background border border-border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-primary"
+                  >
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -380,10 +581,35 @@ export default function GalleryPage() {
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
                   className={`group cursor-pointer ${getCardHeightClasses()}`}
-                  onClick={() => setSelectedPhoto(photo)}
+                  onClick={() => {
+                    if (isSelectionMode) {
+                      togglePhotoSelection(photo.id);
+                    } else {
+                      setSelectedPhoto(photo);
+                    }
+                  }}
                 >
-                  <Card className="h-full overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02]">
+                  <Card className={`h-full overflow-hidden bg-card/50 backdrop-blur-sm border transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] ${
+                    selectedPhotos.has(photo.id) 
+                      ? 'border-primary ring-2 ring-primary/50' 
+                      : 'border-border/50 hover:border-primary/30'
+                  }`}>
                     <CardContent className="p-0 h-full relative">
+                      {/* Selection Checkbox */}
+                      {isSelectionMode && (
+                        <div className="absolute top-2 left-2 z-10">
+                          <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+                            selectedPhotos.has(photo.id) 
+                              ? 'bg-primary border-primary' 
+                              : 'bg-background/80 border-white/80'
+                          }`}>
+                            {selectedPhotos.has(photo.id) && (
+                              <Check className="h-4 w-4 text-white" />
+                            )}
+                          </div>
+                        </div>
+                      )}
+                      
                       {/* Image Container */}
                       <div className="relative h-full overflow-hidden">
                         <Image
@@ -663,6 +889,41 @@ export default function GalleryPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Download Progress Popup */}
+      <DownloadProgressPopup
+        isVisible={isDownloading}
+        progress={downloadProgress}
+        phase={downloadPhase}
+        onCancel={cancelDownload}
+      />
+      
+      {/* Mobile Download Bar */}
+      <MobileDownloadBar
+        isSelectionMode={isSelectionMode}
+        selectedCount={selectedPhotos.size}
+        totalCount={photos.length}
+        isDownloading={isDownloading}
+        onToggleSelectionMode={toggleSelectionMode}
+        onSelectAll={selectAllPhotos}
+        onClearSelection={clearSelection}
+        onDownload={downloadPhotos}
+      />
+      
+      {/* Desktop Sticky Download Button */}
+      {isSelectionMode && selectedPhotos.size > 0 && (
+        <div className="fixed bottom-6 right-6 z-50 hidden sm:block">
+          <Button
+            onClick={downloadPhotos}
+            disabled={isDownloading}
+            size="lg"
+            className="flex items-center gap-3 px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <Download className="h-5 w-5" />
+            {isDownloading ? "Downloading..." : `Download ${selectedPhotos.size} photo${selectedPhotos.size === 1 ? '' : 's'}`}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
