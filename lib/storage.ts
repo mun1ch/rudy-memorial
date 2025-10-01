@@ -73,7 +73,7 @@ export async function getPhotos(): Promise<Photo[]> {
 }
 
 // Legacy function for admin actions - no longer needed but kept for compatibility
-export async function savePhotos(_photos: Photo[]): Promise<void> {
+export async function savePhotos(): Promise<void> {
   // No-op since photos are now individual files
   console.log('savePhotos called but no longer needed - photos are individual files');
 }
@@ -216,7 +216,7 @@ export async function getTributes(): Promise<Tribute[]> {
 }
 
 // Legacy function - no longer needed since tributes are individual files
-export async function saveTributes(_tributes: Tribute[]): Promise<void> {
+export async function saveTributes(): Promise<void> {
   // No-op function for compatibility
 }
 
@@ -243,12 +243,12 @@ export async function updateTribute(tributeId: string, updates: Partial<Tribute>
   const index = tributes.findIndex(t => t.id === tributeId);
   if (index !== -1) {
     tributes[index] = { ...tributes[index], ...updates };
-    await saveTributes(tributes);
+    await saveTributes();
   }
 }
 
 export async function deleteTribute(tributeId: string): Promise<void> {
   const tributes = await getTributes();
   const filteredTributes = tributes.filter(t => t.id !== tributeId);
-  await saveTributes(filteredTributes);
+  await saveTributes();
 }

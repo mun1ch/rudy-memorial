@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function ConditionalHeader() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -28,12 +31,14 @@ export function ConditionalHeader() {
       <div className="hidden sm:block border-t bg-background/95 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-center px-6">
           <nav className="flex items-center space-x-8">
-            <Link 
-              href="/" 
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:text-primary"
-            >
-              Home
-            </Link>
+            {!isHomePage && (
+              <Link 
+                href="/" 
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:text-primary"
+              >
+                Home
+              </Link>
+            )}
             <a 
               href="/gallery" 
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:text-primary"

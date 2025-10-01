@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Home, Users, Image, MessageCircle, Settings, ArrowLeft } from "lucide-react";
+import { Users, Image, MessageCircle, Settings, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { LogoutButton } from "@/components/logout-button";
 import { usePathname } from "next/navigation";

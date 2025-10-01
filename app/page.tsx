@@ -1,114 +1,69 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { MessageCircle, Eye, Heart, Camera, Users } from "lucide-react";
+import { Eye, Heart, Camera, Settings } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container py-6 sm:py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Welcome Section */}
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
-              Join us in celebrating Rudy&apos;s life
-            </h2>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-              Share your memories, photos, and moments that keep his spirit alive.
-            </p>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="grid gap-3 sm:gap-6 grid-cols-2 md:grid-cols-4 mb-8 sm:mb-12">
-            <Card className="hover:scale-105 transition-transform duration-200">
-              <CardHeader className="text-center p-2 sm:p-4">
-                <Eye className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-1 sm:mb-2" />
-                <CardTitle className="text-sm sm:text-base">View Gallery</CardTitle>
-                <CardDescription className="text-xs sm:text-sm hidden sm:block">
-                  Browse photos and memories
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center p-2 sm:p-4 pt-0">
-                <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                  <Link href="/gallery">
-                    <Eye className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                    <span className="hidden sm:inline">View Gallery</span>
-                    <span className="sm:hidden">Gallery</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:scale-105 transition-transform duration-200">
-              <CardHeader className="text-center p-2 sm:p-4">
-                <Camera className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-1 sm:mb-2" />
-                <CardTitle className="text-sm sm:text-base">Share Photos</CardTitle>
-                <CardDescription className="text-xs sm:text-sm hidden sm:block">
-                  Upload your memories
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center p-2 sm:p-4 pt-0">
-                <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                  <Link href="/memories/photo">
-                    <Camera className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                    <span className="hidden sm:inline">Share Photos</span>
-                    <span className="sm:hidden">Photos</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:scale-105 transition-transform duration-200">
-              <CardHeader className="text-center p-2 sm:p-4">
-                <MessageCircle className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-1 sm:mb-2" />
-                <CardTitle className="text-sm sm:text-base">Share Words</CardTitle>
-                <CardDescription className="text-xs sm:text-sm hidden sm:block">
-                  Write a tribute or memory
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center p-2 sm:p-4 pt-0">
-                <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                  <Link href="/memories/words">
-                    <MessageCircle className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                    <span className="hidden sm:inline">Share Words</span>
-                    <span className="sm:hidden">Words</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:scale-105 transition-transform duration-200">
-              <CardHeader className="text-center p-2 sm:p-4">
-                <Heart className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-1 sm:mb-2" />
-                <CardTitle className="text-sm sm:text-base">Memorial Wall</CardTitle>
-                <CardDescription className="text-xs sm:text-sm hidden sm:block">
-                  Read tributes and memories
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center p-2 sm:p-4 pt-0">
-                <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                  <Link href="/memorial-wall">
-                    <Heart className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                    <span className="hidden sm:inline">Memorial Wall</span>
-                    <span className="sm:hidden">Memories</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* About Section */}
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-4 py-2 sm:px-6 sm:py-3">
-              <Users className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium">
-                Join us in celebrating Rudy&apos;s life
-              </span>
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 sm:px-12 relative">
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.01)_0%,transparent_70%)]"></div>
+      
+      {/* Main content container with proper margins */}
+      <div className="relative z-10 text-center max-w-lg mx-auto">
+        {/* Hero Title - Properly sized */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight">
+          In Memory of{" "}
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Rudy
+          </span>
+        </h1>
+        
+        {/* Hero Description - Better sizing */}
+        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-md mx-auto leading-relaxed font-light">
+          A place to remember, share, and celebrate the life of someone special. Join us in celebrating Rudy&apos;s life by sharing your memories, photos, and moments that keep his spirit alive.
+        </p>
+      </div>
+      
+      {/* Navigation with proper spacing and borders */}
+      <div className="relative z-10 mt-6">
+        <nav className="flex items-center justify-center gap-8 sm:gap-12">
+          <Link 
+            href="/gallery"
+            className="group flex flex-col items-center gap-2 transition-all duration-300 hover:scale-105"
+          >
+            <div className="p-3 rounded-full bg-card border border-border/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
+              <Eye className="h-6 w-6 text-primary" />
             </div>
-          </div>
-        </div>
+            <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors text-center">
+              Photo Gallery
+            </span>
+          </Link>
+          
+          <Link 
+            href="/memories"
+            className="group flex flex-col items-center gap-2 transition-all duration-300 hover:scale-105"
+          >
+            <div className="p-3 rounded-full bg-card border border-border/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
+              <Camera className="h-6 w-6 text-primary" />
+            </div>
+            <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors text-center">
+              Share Memory
+            </span>
+          </Link>
+          
+          <Link 
+            href="/memorial-wall"
+            className="group flex flex-col items-center gap-2 transition-all duration-300 hover:scale-105"
+          >
+            <div className="p-3 rounded-full bg-card border border-border/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
+              <Heart className="h-6 w-6 text-primary" />
+            </div>
+            <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors text-center">
+              Memorial Wall
+            </span>
+          </Link>
+        </nav>
       </div>
     </div>
   );

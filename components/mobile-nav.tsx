@@ -5,6 +5,10 @@ import { usePathname } from "next/navigation";
 
 export function MobileNav() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  
+  // Hide mobile nav on home page since we have full-screen hero
+  if (isHomePage) return null;
 
   const navItems = [
     {
@@ -58,7 +62,7 @@ export function MobileNav() {
   // Navigation is always visible - never hide
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-t border-border sm:hidden shadow-lg">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t-2 border-border sm:hidden shadow-2xl">
       <div className="flex items-center justify-around py-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href || 

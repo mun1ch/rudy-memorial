@@ -220,7 +220,7 @@ export async function editPhoto(photoId: string, caption: string | null, contrib
     photos[photoIndex].contributorName = contributorName;
     
     // Save photos using Vercel Blob storage
-    await savePhotos(photos);
+    await savePhotos();
     console.log("Photos saved to Vercel Blob storage");
     
     revalidatePath("/gallery");
