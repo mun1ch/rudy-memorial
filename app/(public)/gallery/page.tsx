@@ -313,6 +313,28 @@ export default function GalleryPage() {
     }
   }, []);
 
+  // Pre-fetch next 1-2 photos for smoother slideshow experience
+  const preloadNextPhotos = useCallback((photos: Photo[], currentIndex: number) => {
+    // Pre-fetch the next 2 photos (or previous if at end)
+    const photosToPreload = [];
+    
+    // Next photo
+    const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+    photosToPreload.push(photos[nextIndex]);
+    
+    // Photo after next
+    const nextNextIndex = nextIndex < photos.length - 1 ? nextIndex + 1 : 0;
+    if (nextNextIndex !== currentIndex) { // Don't preload the same photo
+      photosToPreload.push(photos[nextNextIndex]);
+    }
+    
+    // Preload images using Image constructor
+    photosToPreload.forEach(photo => {
+      const img = new window.Image();
+      img.src = photo.url;
+    });
+  }, []);
+
   const goToPreviousPhotoManual = useCallback(() => {
     stopAutoPlay();
     if (!selectedPhoto) return;
@@ -322,7 +344,10 @@ export default function GalleryPage() {
     currentIndexRef.current = previousIndex;
     setCurrentIndex(previousIndex);
     setSelectedPhoto(currentPhotos[previousIndex]);
-  }, [selectedPhoto, stopAutoPlay, getPhotos]);
+    
+    // Pre-fetch next 1-2 photos for smoother slideshow
+    preloadNextPhotos(currentPhotos, previousIndex);
+  }, [selectedPhoto, stopAutoPlay, getPhotos, preloadNextPhotos]);
 
   const goToNextPhotoManual = useCallback(() => {
     stopAutoPlay();
@@ -333,7 +358,10 @@ export default function GalleryPage() {
     currentIndexRef.current = nextIndex;
     setCurrentIndex(nextIndex);
     setSelectedPhoto(currentPhotos[nextIndex]);
-  }, [selectedPhoto, stopAutoPlay, getPhotos]);
+    
+    // Pre-fetch next 1-2 photos for smoother slideshow
+    preloadNextPhotos(currentPhotos, nextIndex);
+  }, [selectedPhoto, stopAutoPlay, getPhotos, preloadNextPhotos]);
 
   const startAutoPlay = useCallback(() => {
     const currentPhotos = getPhotos();
@@ -363,8 +391,11 @@ export default function GalleryPage() {
       currentIndexRef.current = (currentIndexRef.current + 1) % currentPhotos.length;
       setCurrentIndex(currentIndexRef.current);
       setSelectedPhoto(currentPhotos[currentIndexRef.current]);
+      
+      // Pre-fetch next photos during auto-play
+      preloadNextPhotos(currentPhotos, currentIndexRef.current);
     }, intervalMs);
-  }, [selectedPhoto, getPhotos]);
+  }, [selectedPhoto, getPhotos, preloadNextPhotos]);
 
   const toggleAutoPlay = useCallback(() => {
     if (isPlaying) {
@@ -647,6 +678,9 @@ export default function GalleryPage() {
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                   </select>
+                  <span className="text-xs sm:text-sm text-muted-foreground">
+                    {getPhotos().length} beautiful memories
+                  </span>
                 </div>
               </div>
             </div>
@@ -669,6 +703,10 @@ export default function GalleryPage() {
                       togglePhotoSelection(photo.id);
                     } else {
                       setSelectedPhoto(photo);
+                      // Pre-fetch next photos when slideshow opens
+                      const currentPhotos = getPhotos();
+                      const currentIndex = currentPhotos.findIndex(p => p.id === photo.id);
+                      preloadNextPhotos(currentPhotos, currentIndex);
                     }
                   }}
                 >
