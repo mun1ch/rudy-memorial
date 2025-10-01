@@ -12,7 +12,6 @@ import { sendPhotoUploadNotification, sendMemorySubmissionNotification } from "@
 
 export async function submitTribute(formData: FormData) {
   try {
-    console.log("🎬 submitTribute function called");
     
     // Rate limiting
     const headersList = await headers();

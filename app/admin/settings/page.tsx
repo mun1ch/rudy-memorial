@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Plus, X, Save, Bell, BellOff } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getEmailSettings, updateEmailSettings } from "@/lib/admin-actions";
+import { updateEmailSettings } from "@/lib/admin-actions";
 
 interface EmailSettings {
   notificationEmails: string[];
@@ -27,16 +27,12 @@ export default function AdminSettings() {
   }, []);
 
   const loadEmailSettings = async () => {
-    try {
-      const result = await getEmailSettings();
-      if (result.success && result.settings) {
-        setEmailSettings(result.settings);
-      }
-    } catch (error) {
-      console.error("Error loading email settings:", error);
-    } finally {
-      setLoading(false);
-    }
+    // Email settings are now configured via environment variables
+    setEmailSettings({
+      notificationEmails: process.env.NOTIFICATION_EMAILS?.split(',') || [],
+      notificationsEnabled: process.env.NOTIFICATIONS_ENABLED === 'true'
+    });
+    setLoading(false);
   };
 
   const handleAddEmail = () => {

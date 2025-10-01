@@ -184,7 +184,6 @@ export async function unhidePhoto(photoId: string): Promise<void> {
 // Tributes storage - using individual files like photos
 export async function getTributes(): Promise<Tribute[]> {
   try {
-    console.log("📖 getTributes called");
     const { blobs } = await list();
     
     // Filter for tribute files (files that start with 'tribute_' and are not hidden)
@@ -193,7 +192,6 @@ export async function getTributes(): Promise<Tribute[]> {
       !blob.pathname.includes('_hidden')
     );
     
-    console.log(`📂 Found ${tributeBlobs.length} tribute files`);
     
     // Fetch each tribute file
     const tributes: Tribute[] = [];
@@ -219,24 +217,21 @@ export async function getTributes(): Promise<Tribute[]> {
 
 // Legacy function - no longer needed since tributes are individual files
 export async function saveTributes(_tributes: Tribute[]): Promise<void> {
-  console.log('saveTributes called but no longer needed - tributes are individual files');
+  // No-op function for compatibility
 }
 
 export async function addTribute(tribute: Tribute): Promise<void> {
   try {
-    console.log("💬 addTribute called with:", tribute);
     
     // Create a unique filename using timestamp and ID
     const filename = `tribute_${Date.now()}_${tribute.id}`;
     const jsonString = JSON.stringify(tribute, null, 2);
     const blob = new Blob([jsonString], { type: 'application/json' });
     
-    console.log("🚀 Uploading tribute to Vercel Blob:", filename);
     await put(filename, blob, {
       access: 'public',
       addRandomSuffix: false
     });
-    console.log("✅ Tribute saved successfully");
   } catch (error) {
     console.error("💥 Error saving tribute:", error);
     throw error;

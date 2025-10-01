@@ -10,82 +10,61 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 1083ms
- ○ Compiling /memories ...
- GET / 200 in 2426ms
- ✓ Compiled /memories in 4.2s
- GET /memories 200 in 4548ms
- ✓ Compiled /memorial-wall in 213ms
+ ✓ Ready in 3.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.2s
+ GET / 200 in 2926ms
+ ○ Compiling /admin/dashboard ...
+ ✓ Compiled /admin/dashboard in 545ms
+ GET /admin/dashboard 200 in 702ms
+ POST /admin/dashboard 200 in 571ms
+ POST /admin/dashboard 200 in 243ms
+ POST /admin/dashboard 200 in 260ms
+ ✓ Compiled /memorial-wall in 176ms
 🎬 Memory wall component rendered
- GET /memorial-wall 200 in 414ms
- ○ Compiling /favicon.ico ...
- ✓ Compiled /favicon.ico in 552ms
-📖 getTributes called
-📂 Found 0 tribute files
- GET /api/tributes 200 in 1104ms
- GET /memories 200 in 128ms
- ✓ Compiled /memories/words in 421ms
- GET /memories/words 200 in 564ms
-🎬 submitTribute function called
-Raw form data: { displayName: '', message: 'Sup bro Sup bro Sup bro Sup bro ' }
-displayName type: string value: 
-message type: string value: Sup bro Sup bro Sup bro Sup bro 
-💬 addTribute called with: {
-  id: '123f2be3-4a14-4c93-b2a5-6dcd569484cc',
-  message: 'Sup bro Sup bro Sup bro Sup bro ',
-  contributorName: 'Anonymous',
-  submittedAt: '2025-10-01T01:35:25.439Z',
-  approved: true,
-  hidden: false
+ GET /memorial-wall 200 in 252ms
+ ✓ Compiled /api/tributes in 270ms
+ GET /api/tributes 200 in 869ms
+🎬 Memory wall component rendered
+ GET /memorial-wall 200 in 98ms
+ GET /api/tributes 200 in 487ms
+ ✓ Compiled /memories/words in 418ms
+ GET /memories/words 200 in 561ms
+Raw form data: {
+  displayName: '',
+  message: 'Come up with a plan on how you are going to update the website to become mobile friendly. Right now it’s way off in sizing, tabs, everyyyyything. It pretty much fucking sucks ass on mobile. Look through the code, especially the css and tailwaind, and come up with a plan on making things correct for different aspect rations on diffrent devices, especially mobile.'
 }
-🚀 Uploading tribute to Vercel Blob: tribute_1759282525466_123f2be3-4a14-4c93-b2a5-6dcd569484cc
-✅ Tribute saved successfully
-Tribute submitted successfully: 123f2be3-4a14-4c93-b2a5-6dcd569484cc
+displayName type: string value: 
+message type: string value: Come up with a plan on how you are going to update the website to become mobile friendly. Right now it’s way off in sizing, tabs, everyyyyything. It pretty much fucking sucks ass on mobile. Look through the code, especially the css and tailwaind, and come up with a plan on making things correct for different aspect rations on diffrent devices, especially mobile.
+Tribute submitted successfully: 41242174-5589-41ac-8cf5-82eb85ce378f
 Email notifications disabled or no emails configured
 Error submitting tribute: Error: NEXT_REDIRECT
-    at submitTribute (lib/actions.ts:71:13)
-  69 |     
-  70 |     // Redirect to success page
-> 71 |     redirect("/memories?success=tribute");
+    at submitTribute (lib/actions.ts:70:13)
+  68 |     
+  69 |     // Redirect to success page
+> 70 |     redirect("/memories?success=tribute");
      |             ^
-  72 |   } catch (error) {
-  73 |     console.error("Error submitting tribute:", error);
-  74 |     throw error; {
+  71 |   } catch (error) {
+  72 |     console.error("Error submitting tribute:", error);
+  73 |     throw error; {
   digest: 'NEXT_REDIRECT;push;/memories?success=tribute;307;'
 }
- GET /memories?success=tribute 200 in 76ms
- POST /memories/words 303 in 606ms
+ ✓ Compiled /memories in 192ms
+ GET /memories?success=tribute 200 in 265ms
+ POST /memories/words 303 in 857ms
+ GET /memories 200 in 121ms
 🎬 Memory wall component rendered
- GET /memorial-wall 200 in 123ms
- GET /favicon.ico 200 in 40ms
-📖 getTributes called
-📂 Found 1 tribute files
- GET /api/tributes 200 in 847ms
- ✓ Compiled /admin in 219ms
- GET /admin 307 in 325ms
- ✓ Compiled /admin/dashboard in 385ms
- GET /admin/dashboard 200 in 493ms
- GET /favicon.ico 200 in 54ms
- POST /admin/dashboard 200 in 288ms
-📖 getTributes called
-📂 Found 1 tribute files
- POST /admin/dashboard 200 in 534ms
- POST /admin/dashboard 200 in 260ms
- ○ Compiling /admin/memories ...
- ✓ Compiled /admin/memories in 580ms
- GET /admin/memories 200 in 770ms
- GET /admin/memories 200 in 109ms
-📖 getTributes called
-📂 Found 1 tribute files
- POST /admin/memories 200 in 347ms
-📖 getTributes called
-📂 Found 1 tribute files
- POST /admin/memories 200 in 290ms
-Deleted memory file: tribute_1759282525466_123f2be3-4a14-4c93-b2a5-6dcd569484cc
- POST /admin/memories 200 in 586ms
+ GET /memorial-wall 200 in 180ms
+ GET /api/tributes 200 in 1132ms
+ GET / 200 in 119ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 525ms
+ GET /gallery 200 in 622ms
+ ✓ Compiled /api/photos in 154ms
+ GET /api/photos 200 in 825ms
 🎬 Memory wall component rendered
- GET /memorial-wall 200 in 90ms
- GET /favicon.ico 200 in 42ms
-📖 getTributes called
-📂 Found 0 tribute files
- GET /api/tributes 200 in 426ms
+ GET /memorial-wall 200 in 129ms
+ GET /api/tributes 200 in 825ms
+ GET /memories 200 in 159ms
+ GET /gallery 200 in 147ms
+ GET /api/photos 200 in 589ms

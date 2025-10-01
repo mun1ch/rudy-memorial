@@ -235,22 +235,40 @@ export async function editPhoto(photoId: string, caption: string | null, contrib
 
 export async function editMemory(memoryId: string, message: string, contributorName: string | null) {
   try {
-    // Read tributes from Vercel Blob storage
-    const { getTributes, saveTributes } = await import('./storage');
-    const tributes = await getTributes();
+    // Edit individual tribute file
+    const { put, list } = await import('@vercel/blob');
     
-    // Find and update the memory
-    const memoryIndex = tributes.findIndex((tribute: Tribute) => tribute.id === memoryId);
-    if (memoryIndex === -1) {
+    // Find the tribute file by ID
+    const { blobs } = await list();
+    const tributeBlob = blobs.find(blob => 
+      blob.pathname.startsWith('tribute_') && 
+      blob.pathname.includes(memoryId)
+    );
+    
+    if (!tributeBlob) {
       return { success: false, error: "Memory not found" };
     }
     
-    tributes[memoryIndex].message = message;
-    tributes[memoryIndex].contributorName = contributorName || "Anonymous";
+    // Fetch the original file content
+    const response = await fetch(tributeBlob.url);
+    const tribute: Tribute = await response.json();
     
-    // Save tributes using Vercel Blob storage
-    await saveTributes(tributes);
-    console.log("Tributes saved to Vercel Blob storage");
+    // Update the tribute data
+    tribute.message = message;
+    tribute.contributorName = contributorName || "Anonymous";
+    
+    // Create updated file content
+    const jsonString = JSON.stringify(tribute, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    
+    // Upload updated file
+    await put(tributeBlob.pathname, blob, {
+      access: 'public',
+      addRandomSuffix: false,
+      allowOverwrite: true
+    });
+    
+    console.log(`Updated memory: ${tributeBlob.pathname}`);
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
@@ -262,25 +280,10 @@ export async function editMemory(memoryId: string, message: string, contributorN
   }
 }
 
-export async function getEmailSettings() {
-  try {
-    // For now, return default settings since we're not using email settings
-    return { 
-      success: true, 
-      settings: {
-        notificationEmails: [],
-        notificationsEnabled: false
-      }
-    };
-  } catch (error) {
-    console.error("Error getting email settings:", error);
-    return { success: false, error: "Failed to get email settings" };
-  }
-}
-
 export async function updateEmailSettings(notificationEmails: string[], notificationsEnabled: boolean) {
   try {
-    // For now, just return success since we're not using email settings
+    // Email settings are now configured via environment variables
+    // This function is kept for compatibility but doesn't actually update anything
     console.log("Email settings update requested:", { notificationEmails, notificationsEnabled });
     return { success: true };
   } catch (error) {
