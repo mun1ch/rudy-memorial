@@ -324,12 +324,17 @@ export async function findDuplicatePhotos() {
         const patternMap = new Map<string, Photo[]>();
         
         for (const photo of photosOfSize) {
-          // Extract base filename without timestamp (e.g., "photo_1759272581990.jpg" -> "photo_.jpg")
-          // Also handle different filename patterns
+          // Extract base filename without timestamp and hash
+          // Handle patterns like: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg
           let basePattern = photo.fileName;
           
-          // Remove timestamp patterns: photo_1234567890.jpg -> photo_.jpg
-          basePattern = basePattern.replace(/photo_\d+/, 'photo_');
+          // Remove timestamp and hash: photo_1234567890-abc123def456.jpg -> photo_.jpg
+          basePattern = basePattern.replace(/photo_\d+-[a-zA-Z0-9]+/, 'photo_');
+          
+          // Fallback: remove just timestamp if no hash pattern found
+          if (basePattern === photo.fileName) {
+            basePattern = basePattern.replace(/photo_\d+/, 'photo_');
+          }
           
           // Remove any other numeric suffixes that might be timestamps
           basePattern = basePattern.replace(/_\d+\./, '_.');

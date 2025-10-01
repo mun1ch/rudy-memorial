@@ -521,8 +521,8 @@ export default function GalleryPage() {
                         <Upload className="mr-1 h-4 w-4 sm:h-3 sm:w-3" />
                         <span className="sm:hidden">Upload</span>
                         <span className="hidden sm:inline">Upload Photos</span>
-                      </Link>
-                    </Button>
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -573,7 +573,7 @@ export default function GalleryPage() {
                         <Play className="mr-1 h-4 w-4 sm:h-3 sm:w-3" />
                         <span className="sm:hidden">Slideshow</span>
                         <span className="hidden sm:inline">Start Slideshow</span>
-                      </Button>
+                    </Button>
                   </CardContent>
                 </Card>
               )}

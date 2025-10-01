@@ -10,41 +10,475 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 1056ms
+ ✓ Ready in 5.2s
  ○ Compiling / ...
- ✓ Compiled / in 2s
- GET / 200 in 2533ms
- ○ Compiling /gallery ...
- ✓ Compiled /gallery in 648ms
- GET /gallery 200 in 773ms
- ✓ Compiled /api/photos in 440ms
- GET /api/photos 200 in 1208ms
- ○ Compiling /memories/photo ...
- ✓ Compiled /memories/photo in 557ms
- GET /memories/photo 200 in 645ms
- GET /api/photos 200 in 517ms
- GET /api/photos 200 in 637ms
- ✓ Compiled /memorial-wall in 442ms
- GET /memorial-wall 200 in 506ms
- ✓ Compiled /api/tributes in 141ms
- GET /icon.svg?icon.5e81ae7e.svg 200 in 344ms
- GET /api/tributes 200 in 1496ms
- GET /api/tributes 200 in 1642ms
- GET /gallery 200 in 134ms
- GET /api/photos 200 in 496ms
- GET /api/photos 200 in 492ms
- GET /gallery 200 in 149ms
- GET /api/photos 200 in 411ms
- ✓ Compiled in 147ms
- GET /gallery 200 in 636ms
- GET /api/photos 200 in 450ms
- ✓ Compiled in 128ms
- ✓ Compiled in 108ms
- GET /gallery 200 in 286ms
- GET /api/photos 200 in 611ms
- GET /gallery 200 in 97ms
- GET /api/photos 200 in 393ms
- GET /gallery 200 in 87ms
- GET /api/photos 200 in 399ms
- GET /gallery 200 in 93ms
- GET /api/photos 200 in 395ms
+ ✓ Compiled / in 2.9s
+ GET / 200 in 4556ms
+ ✓ Compiled /api/photos in 295ms
+ GET /api/photos 200 in 1257ms
+ GET /api/photos 200 in 464ms
+ ✓ Compiled /_not-found/page in 293ms
+ POST /api/admin/duplicates 404 in 779ms
+ POST /api/admin/duplicates 404 in 281ms
+ ✓ Compiled /admin in 326ms
+ GET /admin 307 in 485ms
+ ○ Compiling /admin/dashboard ...
+ ✓ Compiled /admin/dashboard in 815ms
+ GET /admin/dashboard 200 in 1142ms
+ POST /admin/dashboard 200 in 596ms
+ POST /admin/dashboard 200 in 1470ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/dashboard 200 in 498ms
+ POST /admin/dashboard 200 in 549ms
+ POST /admin/dashboard 200 in 1003ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/dashboard 200 in 483ms
+ POST /admin/dashboard 200 in 173ms
+ POST /admin/dashboard 200 in 693ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/dashboard 200 in 177ms
+ GET /admin 307 in 106ms
+ GET /api/photos 200 in 458ms
+ GET /api/photos 200 in 725ms
+ ○ Compiling /admin/photos ...
+ ✓ Compiled /admin/photos in 727ms
+ GET /admin/photos?filter=duplicates 200 in 864ms
+ POST /admin/photos?filter=duplicates 200 in 305ms
+ POST /admin/photos?filter=duplicates 200 in 494ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/photos?filter=duplicates 200 in 373ms
+ POST /admin/photos?filter=duplicates 200 in 734ms
+ POST /admin/photos?filter=duplicates 200 in 215ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/photos?filter=duplicates 200 in 184ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/photos?filter=duplicates 200 in 641ms
+🔍 Finding duplicates among 27 photos
+📊 Found 11 unique file sizes
+📏 Size 2810385: 4 photos
+🔄 photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg -> photo_.jpg
+🔄 photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg -> photo_.jpg
+🔄 photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg -> photo_.jpg
+🔄 photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2810385
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299520618-cplXKPdFbb8q4urZQXIB4yVnqU8Qdr.jpg, photo_1759297051089-6qIrhfpSE4rACE3xXDoEJHkiCBdaeI.jpg, photo_1759292491027-KUmaPwjWqlUuXSantxQbA6yoojJAjS.jpg, photo_1759285557126-XkXHjduyNdCJ8GkKoLA3q6UNReriYf.jpg
+📏 Size 4327773: 4 photos
+🔄 photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg -> photo_.jpg
+🔄 photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg -> photo_.jpg
+🔄 photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg -> photo_.jpg
+🔄 photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4327773
+📋 Pattern "photo_.jpg": 4 photos
+✅ Found duplicate group: photo_1759299518817-JguzSurU5tkkOXBCuOucLXmaxK4nwx.jpg, photo_1759297053095-YGgWvCnZKFogAVOk22yDE7QwIvaG2J.jpg, photo_1759292492476-kMxK7kBqesRN3zPfaCbsCvKRflcALQ.jpg, photo_1759285559050-LFJJ41oEn4CIORzR76O8wlES9csTZU.jpg
+📏 Size 2980306: 3 photos
+🔄 photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg -> photo_.jpg
+🔄 photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg -> photo_.jpg
+🔄 photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 2980306
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297060096-CzuMgNTFH73wyEY8ctfzOsIi5Dl8nw.jpg, photo_1759292500184-xQ3A8rdZoUzSpvBugU687rnmEzmsfB.jpg, photo_1759285223534-wcEw6e7hmkc2TF4HIVVoqyMaRajcvo.jpg
+📏 Size 4608702: 2 photos
+🔄 photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg -> photo_.jpg
+🔄 photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4608702
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297058606-e0gOLMjS2QxXFYUTc19jW24IseOg43.jpg, photo_1759292498756-meWhazZYmEyZsVHtI9i8YZdq2Ac5ek.jpg
+📏 Size 3684489: 3 photos
+🔄 photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg -> photo_.jpg
+🔄 photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg -> photo_.jpg
+🔄 photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3684489
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297057420-g9TuHIX0RuK31wOyxO88WvPv5rljM6.jpg, photo_1759292497277-T7VnLnrqsDelKhajwjYw0SkAdGzaf6.jpg, photo_1759285225689-axMNpFsWEtPldIex2AmH9li4rhZK5o.jpg
+📏 Size 6114385: 3 photos
+🔄 photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg -> photo_.jpg
+🔄 photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg -> photo_.jpg
+🔄 photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 6114385
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297055954-9D7SmDL38s457nZqKozq8s2mLXN42J.jpg, photo_1759292495693-NMWU6LmEDclgtjLo88d2NgdexVCSWs.jpg, photo_1759285554954-FFdLPGuK40SPRM8zNrcYgaZ0kw3Xrc.jpg
+📏 Size 3792324: 3 photos
+🔄 photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg -> photo_.jpg
+🔄 photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg -> photo_.jpg
+🔄 photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 3792324
+📋 Pattern "photo_.jpg": 3 photos
+✅ Found duplicate group: photo_1759297054525-d0rlole0KREykzP133pPzpQvqA3BAZ.jpg, photo_1759292494159-q8szxVKCYrtoKLZUJepKaywONiDLkG.jpg, photo_1759285560676-4W75R4bnVZfkEBwqFLIa6UB0YuBRg1.jpg
+📏 Size 4303658: 2 photos
+🔄 photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg -> photo_.jpg
+🔄 photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg -> photo_.jpg
+🎯 Found 1 patterns for size 4303658
+📋 Pattern "photo_.jpg": 2 photos
+✅ Found duplicate group: photo_1759297049569-G252PzBwdLzlzoUWe4S0GHKJywzdus.jpg, photo_1759285219804-nFWgEeEvnzWnE4AS8Ch5AaWv4LHqfm.jpg
+📏 Size 32796: 1 photos
+📏 Size 60565: 1 photos
+📏 Size 36296: 1 photos
+🎉 Found 8 duplicate groups
+ POST /admin/photos?filter=duplicates 200 in 562ms
