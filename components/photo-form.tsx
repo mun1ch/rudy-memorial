@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Upload, Send, Loader2 } from "lucide-react";
+import { Upload, Send, Loader2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { submitPhoto } from "@/lib/actions";
 import { useState } from "react";
 
@@ -18,17 +18,54 @@ export function PhotoForm() {
     currentFile: string;
     stage: string;
   } | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const filesPerPage = 6;
 
+  // Handle file selection
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    setSelectedFiles(files);
+    setCurrentPage(1); // Reset to first page
+  };
+
+  // Remove a file from selection
+  const removeFile = (index: number) => {
+    const newFiles = selectedFiles.filter((_, i) => i !== index);
+    setSelectedFiles(newFiles);
+    
+    // Update the file input
+    const fileInput = document.getElementById('photo') as HTMLInputElement;
+    if (fileInput) {
+      const dt = new DataTransfer();
+      newFiles.forEach(file => dt.items.add(file));
+      fileInput.files = dt.files;
+    }
+  };
+
+  // Get current page files
+  const getCurrentPageFiles = () => {
+    const startIndex = (currentPage - 1) * filesPerPage;
+    const endIndex = startIndex + filesPerPage;
+    return selectedFiles.slice(startIndex, endIndex);
+  };
+
+  // Get total pages
+  const getTotalPages = () => {
+    return Math.ceil(selectedFiles.length / filesPerPage);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission
     console.log("🚀 Form submission started, setting loading state...");
     
-    // Get form data first to count files
+    // Use selectedFiles state instead of form data
+    const files = selectedFiles;
+    const totalFiles = files.length;
+    
+    // Get form data for caption and name
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const files = formData.getAll('photo') as File[];
-    const totalFiles = files.length;
     const caption = formData.get('caption') as string;
     const name = formData.get('name') as string;
     
@@ -93,6 +130,8 @@ export function PhotoForm() {
       if (successCount > 0 && errorCount === 0) {
         setSubmitSuccess(`${successCount} photo(s) uploaded successfully!`);
         form.reset();
+        setSelectedFiles([]);
+        setCurrentPage(1);
       } else if (successCount > 0 && errorCount > 0) {
         setSubmitError(`${successCount} photo(s) uploaded, ${errorCount} failed. Errors: ${errors.join(', ')}`);
       } else {
@@ -194,6 +233,7 @@ export function PhotoForm() {
                   multiple
                   required
                   disabled={isSubmitting}
+                  onChange={handleFileChange}
                   className="block w-full text-sm text-muted-foreground
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-md file:border-0
@@ -206,6 +246,74 @@ export function PhotoForm() {
               Select multiple photos at once! Max file size: 50MB each. Supported formats: JPG, PNG, HEIC, WebP, TIFF. Original quality preserved.
             </p>
           </div>
+
+          {/* Thumbnail Preview */}
+          {selectedFiles.length > 0 && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold">
+                  Selected Photos ({selectedFiles.length})
+                </h3>
+                <div className="flex items-center gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                    disabled={currentPage === 1}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <span className="text-sm text-muted-foreground">
+                    {currentPage} of {getTotalPages()}
+                  </span>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage(Math.min(getTotalPages(), currentPage + 1))}
+                    disabled={currentPage === getTotalPages()}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {getCurrentPageFiles().map((file, index) => {
+                  const globalIndex = (currentPage - 1) * filesPerPage + index;
+                  return (
+                    <div key={globalIndex} className="relative group">
+                      <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
+                        <img
+                          src={URL.createObjectURL(file)}
+                          alt={file.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <Button
+                        type="button"
+                        variant="destructive"
+                        size="icon"
+                        className="absolute -top-2 -right-2 h-6 w-6 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() => removeFile(globalIndex)}
+                      >
+                        <X className="h-3 w-3" />
+                      </Button>
+                      <div className="mt-2">
+                        <p className="text-xs font-medium truncate" title={file.name}>
+                          {file.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {(file.size / 1024 / 1024).toFixed(1)} MB
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           <div>
             <label htmlFor="caption" className="block text-sm font-medium text-foreground mb-2">
@@ -245,7 +353,11 @@ export function PhotoForm() {
             <p className="text-sm text-muted-foreground">
               By uploading, you agree that your photo will be added to the gallery
             </p>
-            <Button type="submit" className="text-lg px-6 py-3" disabled={isSubmitting}>
+            <Button 
+              type="submit" 
+              className="text-lg px-6 py-3" 
+              disabled={isSubmitting || selectedFiles.length === 0}
+            >
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -254,7 +366,7 @@ export function PhotoForm() {
               ) : (
                 <>
                   <Send className="mr-2 h-4 w-4" />
-                  Upload Photos
+                  Upload {selectedFiles.length} Photo{selectedFiles.length !== 1 ? 's' : ''}
                 </>
               )}
             </Button>

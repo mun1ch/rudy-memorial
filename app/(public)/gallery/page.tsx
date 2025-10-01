@@ -16,6 +16,7 @@ interface Photo {
   contributorName: string | null;
   fileSize: number;
   mimeType: string;
+  md5Hash: string;
   uploadedAt: string;
   approved: boolean;
 }
