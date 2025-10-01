@@ -18,64 +18,39 @@ import {
   ChevronRight,
   Loader2
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
+import { useState, useEffect } from "react";
+import { hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
 import { MobileAdminMemories } from "@/components/mobile-admin-memories";
 
-interface Memory {
-  id: string;
-  message: string;
-  contributorName: string | null;
-  submittedAt: string;
-  approved: boolean;
-  hidden?: boolean;
-}
+import { Tribute } from "@/lib/types";
+import { useTributes } from "@/lib/hooks";
+import { useProgress } from "@/lib/use-progress";
 
 function AdminMemoriesContent() {
-  const [memories, setMemories] = useState<Memory[]>([]);
+  const [memories, setMemories] = useState<Tribute[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [selectedMemories, setSelectedMemories] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<'all' | 'visible' | 'hidden'>('all');
   const [editingMemory, setEditingMemory] = useState<string | null>(null);
-  const [editForm, setEditForm] = useState({ message: '', contributorName: '' });
+  const [editForm, setEditForm] = useState({ message: '', contributorName: '' as string | null });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   
-  // Progress popup state
-  const [showProgress, setShowProgress] = useState(false);
-  const [progress, setProgress] = useState({
-    current: 0,
-    total: 0,
-    currentItem: "",
-    stage: "",
-    successCount: 0,
-    errorCount: 0,
-    errors: [] as string[]
-  });
-  const isCancelledRef = useRef(false);
+  // Progress popup state - using shared hook
+  const { showProgress, progress, isCancelledRef, startProgress, updateProgress, setShowProgress } = useProgress();
 
+  // Use shared hook instead of duplicate loading logic
+  const { tributes: hookTributes, loading: hookLoading } = useTributes();
+  
   useEffect(() => {
-    loadMemories();
-  }, []);
-
-  const loadMemories = async () => {
-    setLoading(true);
-    try {
-      const result = await getMemories();
-      if (result.success && result.tributes) {
-        setMemories(result.tributes);
-      }
-    } catch (error) {
-      console.error("Error loading memories:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    setMemories(hookTributes);
+    setLoading(hookLoading);
+  }, [hookTributes, hookLoading]);
 
   const handleHideMemory = async (memoryId: string) => {
     setActionLoading(memoryId);
@@ -169,7 +144,7 @@ function AdminMemoriesContent() {
     setCurrentPage(newPage);
   };
 
-  const startEditing = (memory: Memory) => {
+  const startEditing = (memory: Tribute) => {
     setEditingMemory(memory.id);
     setEditForm({
       message: memory.message || '',
@@ -241,15 +216,7 @@ function AdminMemoriesContent() {
     });
     
     // Initialize progress
-    setProgress({
-      current: 0,
-      total: memoryIds.length,
-      currentItem: "",
-      stage: "Hiding memories...",
-      successCount: 0,
-      errorCount: 0,
-      errors: []
-    });
+    startProgress(memoryIds.length, "Hiding memories...");
     setShowProgress(true);
     isCancelledRef.current = false;
     
@@ -261,15 +228,7 @@ function AdminMemoriesContent() {
     for (let i = 0; i < memoryIds.length; i++) {
       // Check if cancelled
       if (isCancelledRef.current) {
-        setProgress(prev => ({
-          ...prev,
-          current: memoryIds.length, // Mark as complete so popup shows close button
-          currentItem: "",
-          stage: "Hide operation cancelled",
-          successCount,
-          errorCount,
-          errors: [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]
-        }));
+        updateProgress(memoryIds.length, memoryIds.length, "", "Hide operation cancelled", successCount, errorCount, [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]);
         
         // Auto-close after 2 seconds
         setTimeout(() => {
@@ -283,14 +242,7 @@ function AdminMemoriesContent() {
       const memoryName = memoryNames[i];
       
       // Update progress
-      setProgress(prev => ({
-        ...prev,
-        current: i,
-        currentItem: memoryName,
-        successCount,
-        errorCount,
-        errors: [...errors]
-      }));
+      updateProgress(i, memoryIds.length, memoryName, "Hiding memories...", successCount, errorCount, errors);
       
       try {
         const result = await hideMemory(memoryId);
@@ -315,15 +267,7 @@ function AdminMemoriesContent() {
     }
     
     // Final progress update
-    setProgress(prev => ({
-      ...prev,
-      current: memoryIds.length,
-      currentItem: "",
-      stage: "Hide operation complete",
-      successCount,
-      errorCount,
-      errors: [...errors]
-    }));
+    updateProgress(memoryIds.length, memoryIds.length, "", "Hide operation complete", successCount, errorCount, errors);
     
     // Clear selection if all successful
     if (errorCount === 0) {
@@ -346,15 +290,7 @@ function AdminMemoriesContent() {
     });
     
     // Initialize progress
-    setProgress({
-      current: 0,
-      total: memoryIds.length,
-      currentItem: "",
-      stage: "Unhiding memories...",
-      successCount: 0,
-      errorCount: 0,
-      errors: []
-    });
+    startProgress(memoryIds.length, "Unhiding memories...");
     setShowProgress(true);
     isCancelledRef.current = false;
     
@@ -366,15 +302,7 @@ function AdminMemoriesContent() {
     for (let i = 0; i < memoryIds.length; i++) {
       // Check if cancelled
       if (isCancelledRef.current) {
-        setProgress(prev => ({
-          ...prev,
-          current: memoryIds.length, // Mark as complete so popup shows close button
-          currentItem: "",
-          stage: "Unhide operation cancelled",
-          successCount,
-          errorCount,
-          errors: [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]
-        }));
+        updateProgress(memoryIds.length, memoryIds.length, "", "Unhide operation cancelled", successCount, errorCount, [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]);
         
         // Auto-close after 2 seconds
         setTimeout(() => {
@@ -388,14 +316,7 @@ function AdminMemoriesContent() {
       const memoryName = memoryNames[i];
       
       // Update progress
-      setProgress(prev => ({
-        ...prev,
-        current: i,
-        currentItem: memoryName,
-        successCount,
-        errorCount,
-        errors: [...errors]
-      }));
+      updateProgress(i, memoryIds.length, memoryName, "Unhiding memories...", successCount, errorCount, errors);
       
       try {
         const result = await unhideMemory(memoryId);
@@ -420,20 +341,17 @@ function AdminMemoriesContent() {
     }
     
     // Final progress update
-    setProgress(prev => ({
-      ...prev,
-      current: memoryIds.length,
-      currentItem: "",
-      stage: "Unhide operation complete",
-      successCount,
-      errorCount,
-      errors: [...errors]
-    }));
+    updateProgress(memoryIds.length, memoryIds.length, "", "Unhide operation complete", successCount, errorCount, errors);
     
     // Clear selection if all successful
     if (errorCount === 0) {
       clearSelection();
     }
+    
+    // Auto-close popup after 2 seconds
+    setTimeout(() => {
+      setShowProgress(false);
+    }, 2000);
   };
 
   const handleBulkDelete = async () => {
@@ -450,15 +368,7 @@ function AdminMemoriesContent() {
     });
     
     // Initialize progress
-    setProgress({
-      current: 0,
-      total: memoryIds.length,
-      currentItem: "",
-      stage: "Deleting memories...",
-      successCount: 0,
-      errorCount: 0,
-      errors: []
-    });
+    startProgress(memoryIds.length, "Deleting memories...");
     setShowProgress(true);
     isCancelledRef.current = false;
     
@@ -470,15 +380,7 @@ function AdminMemoriesContent() {
     for (let i = 0; i < memoryIds.length; i++) {
       // Check if cancelled
       if (isCancelledRef.current) {
-        setProgress(prev => ({
-          ...prev,
-          current: memoryIds.length, // Mark as complete so popup shows close button
-          currentItem: "",
-          stage: "Delete operation cancelled",
-          successCount,
-          errorCount,
-          errors: [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]
-        }));
+        updateProgress(memoryIds.length, memoryIds.length, "", "Delete operation cancelled", successCount, errorCount, [...errors, `Operation cancelled after ${i} of ${memoryIds.length} memories`]);
         
         // Auto-close after 2 seconds
         setTimeout(() => {
@@ -492,14 +394,7 @@ function AdminMemoriesContent() {
       const memoryName = memoryNames[i];
       
       // Update progress
-      setProgress(prev => ({
-        ...prev,
-        current: i,
-        currentItem: memoryName,
-        successCount,
-        errorCount,
-        errors: [...errors]
-      }));
+      updateProgress(i, memoryIds.length, memoryName, "Deleting memories...", successCount, errorCount, errors);
       
       try {
         const result = await deleteMemory(memoryId);
@@ -522,20 +417,17 @@ function AdminMemoriesContent() {
     }
     
     // Final progress update
-    setProgress(prev => ({
-      ...prev,
-      current: memoryIds.length,
-      currentItem: "",
-      stage: "Delete operation complete",
-      successCount,
-      errorCount,
-      errors: [...errors]
-    }));
+    updateProgress(memoryIds.length, memoryIds.length, "", "Delete operation complete", successCount, errorCount, errors);
     
     // Clear selection if all successful
     if (errorCount === 0) {
       clearSelection();
     }
+    
+    // Auto-close popup after 2 seconds
+    setTimeout(() => {
+      setShowProgress(false);
+    }, 2000);
   };
 
   if (loading) {
@@ -745,7 +637,7 @@ function AdminMemoriesContent() {
                           {editingMemory === memory.id ? (
                             <div className="space-y-2">
                               <Input
-                                value={editForm.contributorName}
+                                value={editForm.contributorName || ''}
                                 onChange={(e) => setEditForm(prev => ({ ...prev, contributorName: e.target.value }))}
                                 placeholder="Contributor name..."
                                 className="text-sm"

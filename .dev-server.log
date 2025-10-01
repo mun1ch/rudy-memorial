@@ -10,8 +10,114 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 2.9s
+ ✓ Ready in 1422ms
  ○ Compiling / ...
- ✓ Compiled / in 5.1s
- GET / 200 in 7037ms
-[?25h
+ ✓ Compiled / in 2.8s
+ GET / 200 in 3954ms
+ ○ Compiling /admin/photos ...
+ ✓ Compiled /admin/photos in 979ms
+ GET /admin/photos 200 in 1266ms
+ ○ Compiling /api/photos ...
+ ✓ Compiled /api/photos in 621ms
+🔍 Finding duplicates among 0 photos
+📊 Found 0 unique file sizes
+🎉 Found 0 duplicate groups
+ POST /admin/photos 200 in 765ms
+ GET /api/photos 200 in 1217ms
+ GET /api/photos 200 in 1269ms
+🔍 Finding duplicates among 0 photos
+📊 Found 0 unique file sizes
+🎉 Found 0 duplicate groups
+ POST /admin/photos 200 in 601ms
+ ✓ Compiled /memories in 280ms
+ GET /memories 200 in 389ms
+ ○ Compiling /memories/photo ...
+ ✓ Compiled /memories/photo in 501ms
+ GET /memories/photo 200 in 696ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(FB_IMG_1758956817829.jpg, 23491 bytes)
+📁 Files received: 1 files
+📁 File 1: FB_IMG_1758956817829.jpg 23491 image/jpeg
+📝 Caption: null
+👤 Name: null
+✅ Processing 1 valid files
+💾 Starting Vercel Blob operations...
+🔄 Processing file 1/1: FB_IMG_1758956817829.jpg
+📦 File 1 converted to buffer, size: 23491
+🔍 MD5 hash for file 1: 7937f6d865d3bae4ea9332f52cff99cd
+📝 Generated filename for file 1: photo_1759306488174.jpg
+💾 Uploading file 1 to Vercel Blob...
+✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759306488174-giJ2ICcK6iBU5q93ZKGr0rCqiBC2k5.jpg
+➕ Added new photo 1 to array: photo_1759306488174
+✅ 1 photos uploaded to Vercel Blob storage
+✅ 1 photo(s) upload completed successfully!
+Email notifications disabled or no emails configured
+ POST /memories/photo 200 in 394ms
+🚀 submitPhoto called!
+📋 FormData entries:
+  photo: File(FB_IMG_1758956935792.jpg, 31018 bytes)
+📁 Files received: 1 files
+📁 File 1: FB_IMG_1758956935792.jpg 31018 image/jpeg
+📝 Caption: null
+👤 Name: null
+✅ Processing 1 valid files
+💾 Starting Vercel Blob operations...
+🔄 Processing file 1/1: FB_IMG_1758956935792.jpg
+📦 File 1 converted to buffer, size: 31018
+🔍 MD5 hash for file 1: 07dbee8758cce501427cf34a34deed0a
+📝 Generated filename for file 1: photo_1759306489159.jpg
+💾 Uploading file 1 to Vercel Blob...
+✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759306489159-3bZlqDr5mSx5kuHagbu3uCsf0IWPPR.jpg
+➕ Added new photo 1 to array: photo_1759306489159
+✅ 1 photos uploaded to Vercel Blob storage
+✅ 1 photo(s) upload completed successfully!
+Email notifications disabled or no emails configured
+ POST /memories/photo 200 in 342ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 569ms
+ GET /gallery 200 in 1110ms
+ GET /api/photos 200 in 548ms
+ ✓ Compiled /admin in 160ms
+ GET /admin 307 in 325ms
+ ✓ Compiled /admin/dashboard in 223ms
+ GET /admin/dashboard 200 in 304ms
+ ○ Compiling /api/tributes ...
+ ✓ Compiled /api/tributes in 513ms
+ GET /api/photos 200 in 649ms
+🔍 Finding duplicates among 2 photos
+📊 Found 2 unique file sizes
+📏 Size 31018: 1 photos
+📏 Size 23491: 1 photos
+🎉 Found 0 duplicate groups
+ GET /api/duplicates 200 in 1009ms
+ GET /api/tributes 200 in 1509ms
+ GET /admin/photos 200 in 81ms
+🔍 Finding duplicates among 2 photos
+📊 Found 2 unique file sizes
+📏 Size 31018: 1 photos
+📏 Size 23491: 1 photos
+🎉 Found 0 duplicate groups
+ POST /admin/photos 200 in 301ms
+🔍 Finding duplicates among 2 photos
+📊 Found 2 unique file sizes
+📏 Size 31018: 1 photos
+📏 Size 23491: 1 photos
+🎉 Found 0 duplicate groups
+ POST /admin/photos 200 in 178ms
+ GET /api/photos 200 in 507ms
+ GET /api/photos 200 in 571ms
+ GET /api/photos 200 in 593ms
+ GET /api/photos 200 in 608ms
+🔍 Finding duplicates among 2 photos
+📊 Found 2 unique file sizes
+📏 Size 31018: 1 photos
+📏 Size 23491: 1 photos
+🎉 Found 0 duplicate groups
+ POST /admin/photos 200 in 169ms
+🔍 Finding duplicates among 2 photos
+📊 Found 2 unique file sizes
+📏 Size 31018: 1 photos
+📏 Size 23491: 1 photos
+🎉 Found 0 duplicate groups
+ POST /admin/photos 200 in 281ms

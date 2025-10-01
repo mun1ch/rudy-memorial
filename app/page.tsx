@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Eye, Heart, Camera, Settings } from "lucide-react";
+import { Eye, Heart, Camera } from "lucide-react";
 
 export default function HomePage() {
   return (

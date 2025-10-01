@@ -1,34 +1,16 @@
 import { put, list } from '@vercel/blob';
+import { Photo, Tribute, PhotosResponse, TributesResponse } from './types';
 
 // No more JSON files - everything uses blob metadata
 
-export interface Photo {
-  id: string;
-  fileName: string;
-  url: string;
-  caption: string | null;
-  contributorName: string | null;
-  fileSize: number;
-  mimeType: string;
-  md5Hash: string;
-  uploadedAt: string;
-  approved: boolean;
-  hidden?: boolean;
-}
-
-export interface Tribute {
-  id: string;
-  message: string;
-  contributorName: string;
-  submittedAt: string;
-  approved: boolean;
-  hidden: boolean;
-}
-
 // Photos storage
-export async function getPhotos(): Promise<Photo[]> {
+export async function getPhotos(): Promise<PhotosResponse> {
   try {
-    const { blobs } = await list();
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    if (!token) {
+      throw new Error('BLOB_READ_WRITE_TOKEN environment variable is not set');
+    }
+    const { blobs } = await list({ token });
     
     // Filter for photo files (files that start with 'photo_' and are images)
     const photoBlobs = blobs.filter(blob => 
@@ -65,10 +47,11 @@ export async function getPhotos(): Promise<Photo[]> {
     });
     
     // Sort by upload time (newest first)
-    return photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+    const sortedPhotos = photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+    return { success: true, photos: sortedPhotos };
   } catch (error) {
     console.error('Error reading photos from Vercel Blob:', error);
-    return [];
+    return { success: false, error: 'Failed to fetch photos' };
   }
 }
 
@@ -182,9 +165,13 @@ export async function unhidePhoto(photoId: string): Promise<void> {
 }
 
 // Tributes storage - using individual files like photos
-export async function getTributes(): Promise<Tribute[]> {
+export async function getTributes(): Promise<TributesResponse> {
   try {
-    const { blobs } = await list();
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    if (!token) {
+      throw new Error('BLOB_READ_WRITE_TOKEN environment variable is not set');
+    }
+    const { blobs } = await list({ token });
     
     // Filter for tribute files (files that start with 'tribute_' and are not hidden)
     const tributeBlobs = blobs.filter(blob => 
@@ -208,10 +195,11 @@ export async function getTributes(): Promise<Tribute[]> {
     }
     
     // Sort by submission time (newest first)
-    return tributes.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
+    const sortedTributes = tributes.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
+    return { success: true, tributes: sortedTributes };
   } catch (error) {
     console.error('Error reading tributes from Vercel Blob:', error);
-    return [];
+    return { success: false, error: 'Failed to fetch tributes' };
   }
 }
 
@@ -222,6 +210,10 @@ export async function saveTributes(): Promise<void> {
 
 export async function addTribute(tribute: Tribute): Promise<void> {
   try {
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    if (!token) {
+      throw new Error('BLOB_READ_WRITE_TOKEN environment variable is not set');
+    }
     
     // Create a unique filename using timestamp and ID
     const filename = `tribute_${Date.now()}_${tribute.id}`;
@@ -230,7 +222,8 @@ export async function addTribute(tribute: Tribute): Promise<void> {
     
     await put(filename, blob, {
       access: 'public',
-      addRandomSuffix: false
+      addRandomSuffix: false,
+      token
     });
   } catch (error) {
     console.error("💥 Error saving tribute:", error);
@@ -239,16 +232,19 @@ export async function addTribute(tribute: Tribute): Promise<void> {
 }
 
 export async function updateTribute(tributeId: string, updates: Partial<Tribute>): Promise<void> {
-  const tributes = await getTributes();
-  const index = tributes.findIndex(t => t.id === tributeId);
-  if (index !== -1) {
-    tributes[index] = { ...tributes[index], ...updates };
-    await saveTributes();
+  const result = await getTributes();
+  if (result.success && result.tributes) {
+    const tributes = result.tributes;
+    const index = tributes.findIndex(t => t.id === tributeId);
+    if (index !== -1) {
+      tributes[index] = { ...tributes[index], ...updates };
+      await saveTributes();
+    }
   }
 }
 
 export async function deleteTribute(tributeId: string): Promise<void> {
-  const tributes = await getTributes();
-  const filteredTributes = tributes.filter(t => t.id !== tributeId);
+  // Note: This function is legacy and may not work properly with individual files
+  // Individual tribute files should be deleted directly from blob storage
   await saveTributes();
 }

@@ -2,46 +2,14 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Heart } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-
-interface Tribute {
-  id: string;
-  message: string;
-  contributorName: string;
-  submittedAt: string;
-  approved: boolean;
-  hidden?: boolean;
-}
+import { useTributes } from "@/lib/hooks";
 
 export default function MemorialWallPage() {
   console.log('🎬 Memory wall component rendered');
-  const [tributes, setTributes] = useState<Tribute[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { tributes, loading } = useTributes();
 
-  useEffect(() => {
-    console.log('🚀 Memory wall useEffect triggered');
-    const loadTributes = async () => {
-      try {
-        console.log('📡 Fetching tributes from /api/tributes...');
-        const response = await fetch('/api/tributes');
-        console.log('📡 Response status:', response.status);
-        if (response.ok) {
-          const data = await response.json();
-          console.log('💬 Received tributes:', data.length, 'tributes');
-          setTributes(data);
-        }
-      } catch (error) {
-        console.error("💥 Error loading tributes:", error);
-      } finally {
-        console.log('✅ Setting loading to false');
-        setLoading(false);
-      }
-    };
-
-    loadTributes();
-  }, []);
 
   return (
     <div className="container py-4">

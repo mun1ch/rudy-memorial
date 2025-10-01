@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Camera } from "lucide-react";
 import Link from "next/link";
 import { WordsForm } from "@/components/words-form";
+import { Camera } from "lucide-react";
 
 export default function WordsPage() {
   return (

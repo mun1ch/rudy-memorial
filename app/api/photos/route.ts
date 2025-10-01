@@ -1,18 +1,15 @@
 import { NextResponse } from 'next/server';
-import { Photo } from '@/lib/storage';
+import { getPhotos } from '@/lib/storage';
 
 export async function GET() {
   try {
-    // Read photos from Vercel Blob storage
-    const { getPhotos } = await import('@/lib/storage');
-    const photos = await getPhotos();
-    
-    // Filter out hidden photos for public gallery
-    const visiblePhotos = photos.filter((photo: Photo) => !photo.hidden);
-    
-    return NextResponse.json(visiblePhotos);
-  } catch (error: unknown) {
-    console.error('Error reading photos:', error);
-    return NextResponse.json([], { status: 500 });
+    const result = await getPhotos();
+    return NextResponse.json(result);
+  } catch (error) {
+    console.error('Error fetching photos:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to fetch photos' },
+      { status: 500 }
+    );
   }
 }

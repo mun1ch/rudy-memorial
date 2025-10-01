@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Users, Image, MessageCircle, Settings, ArrowLeft } from "lucide-react";
+import { Users, Image as ImageIcon, MessageCircle, Settings, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { LogoutButton } from "@/components/logout-button";
 import { usePathname } from "next/navigation";
@@ -54,7 +54,7 @@ export default function AdminLayout({
               href="/admin/photos"
               className="flex items-center space-x-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground"
             >
-              <Image className="h-4 w-4" />
+              <ImageIcon className="h-4 w-4" />
               <span>Photos</span>
             </Link>
             <Link

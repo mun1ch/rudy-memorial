@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -289,9 +290,11 @@ export function PhotoForm() {
                   return (
                     <div key={globalIndex} className="relative group">
                       <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-                        <img
+                        <Image
                           src={URL.createObjectURL(file)}
                           alt={file.name}
+                          width={200}
+                          height={200}
                           className="w-full h-full object-cover"
                         />
                       </div>

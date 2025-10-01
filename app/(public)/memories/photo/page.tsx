@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Camera, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { PhotoForm } from "@/components/photo-form";
 

@@ -16,20 +16,15 @@ import {
   Filter,
   Loader2
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
+import { useState, useEffect } from "react";
+import { hideMemory, unhideMemory, deleteMemory, editMemory } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
 
-interface Tribute {
-  id: string;
-  message: string;
-  contributorName: string;
-  submittedAt: string;
-  approved: boolean;
-  hidden?: boolean;
-}
+import { Tribute } from "@/lib/types";
+import { useTributes } from "@/lib/hooks";
+import { useProgress } from "@/lib/use-progress";
 
 export function MobileAdminMemories() {
   const [memories, setMemories] = useState<Tribute[]>([]);
@@ -41,36 +36,16 @@ export function MobileAdminMemories() {
   const [editMessage, setEditMessage] = useState("");
   const [editName, setEditName] = useState("");
   
-  // Progress popup state
-  const [showProgress, setShowProgress] = useState(false);
-  const [progress, setProgress] = useState({
-    current: 0,
-    total: 0,
-    currentItem: "",
-    stage: "",
-    successCount: 0,
-    errorCount: 0,
-    errors: [] as string[]
-  });
-  const isCancelledRef = useRef(false);
+  // Progress popup state - using shared hook
+  const { showProgress, progress, isCancelledRef, setShowProgress, setProgress } = useProgress();
 
+  // Use shared hook instead of duplicate loading logic
+  const { tributes: hookTributes, loading: hookLoading } = useTributes();
+  
   useEffect(() => {
-    loadMemories();
-  }, []);
-
-  const loadMemories = async () => {
-    try {
-      setLoading(true);
-      const result = await getMemories();
-      if (result.tributes) {
-        setMemories(result.tributes);
-      }
-    } catch (error) {
-      console.error("Error loading memories:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    setMemories(hookTributes);
+    setLoading(hookLoading);
+  }, [hookTributes, hookLoading]);
 
   const getFilteredMemories = () => {
     let filtered = memories;
@@ -82,7 +57,7 @@ export function MobileAdminMemories() {
     if (searchTerm) {
       filtered = filtered.filter(memory => 
         memory.message.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        memory.contributorName.toLowerCase().includes(searchTerm.toLowerCase())
+        (memory.contributorName && memory.contributorName.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
     
@@ -264,7 +239,7 @@ export function MobileAdminMemories() {
   const handleEditMemory = (memory: Tribute) => {
     setEditingMemory(memory.id);
     setEditMessage(memory.message);
-    setEditName(memory.contributorName);
+    setEditName(memory.contributorName || '');
   };
 
   const handleSaveEdit = async () => {

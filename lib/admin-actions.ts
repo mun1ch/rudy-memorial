@@ -1,35 +1,11 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Photo, Tribute } from "./storage";
+import { Photo, Tribute } from "./types";
 
 // Admin actions for managing photos and memories
 
-export async function getPhotos() {
-  try {
-    // Read photos from Vercel Blob storage
-    const { getPhotos: getPhotosFromStorage } = await import('./storage');
-    const photos = await getPhotosFromStorage();
-    
-    return { success: true, photos };
-  } catch (error) {
-    console.error("Error fetching photos:", error);
-    return { success: false, error: "Failed to fetch photos" };
-  }
-}
 
-export async function getMemories() {
-  try {
-    // Read tributes from Vercel Blob storage
-    const { getTributes } = await import('./storage');
-    const tributes = await getTributes();
-    
-    return { success: true, tributes };
-  } catch (error) {
-    console.error("Error fetching memories:", error);
-    return { success: false, error: "Failed to fetch memories" };
-  }
-}
 
 export async function hidePhoto(photoId: string) {
   try {
@@ -208,7 +184,13 @@ export async function editPhoto(photoId: string, caption: string | null, contrib
   try {
     // Read photos from Vercel Blob storage
     const { getPhotos, savePhotos } = await import('./storage');
-    const photos = await getPhotos();
+    const result = await getPhotos();
+    
+    if (!result.success || !result.photos) {
+      return { success: false, error: "Failed to load photos" };
+    }
+    
+    const photos = result.photos;
     
     // Find and update the photo
     const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
@@ -296,8 +278,13 @@ export async function findDuplicatePhotos() {
   try {
     // Read photos from Vercel Blob storage
     const { getPhotos } = await import('./storage');
-    const photos = await getPhotos();
+    const result = await getPhotos();
     
+    if (!result.success || !result.photos) {
+      return { success: false, error: "Failed to load photos" };
+    }
+    
+    const photos = result.photos;
     console.log(`🔍 Finding duplicates among ${photos.length} photos`);
     
     // Find duplicates based on file size and similar filenames

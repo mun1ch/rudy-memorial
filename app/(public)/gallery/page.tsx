@@ -10,26 +10,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useFullscreen } from "@/lib/fullscreen-context";
 import { MobileDownloadBar } from "@/components/mobile-download-bar";
 import { DownloadProgressPopup } from "@/components/download-progress-popup";
-
-interface Photo {
-  id: string;
-  fileName: string;
-  url: string;
-  caption: string | null;
-  contributorName: string | null;
-  fileSize: number;
-  mimeType: string;
-  md5Hash: string;
-  uploadedAt: string;
-  approved: boolean;
-}
+import { Photo } from "@/lib/types";
+import { usePhotos } from "@/lib/hooks";
 
 // Global auto-play state - completely independent of React
 let playInterval: NodeJS.Timeout | null = null;
 
 export default function GalleryPage() {
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { photos, loading } = usePhotos();
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const { isFullscreen, setIsFullscreen } = useFullscreen();
   const [isPlaying, setIsPlaying] = useState(false);
@@ -50,8 +38,7 @@ export default function GalleryPage() {
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
   const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
 
-  // Centralized photo list - ALWAYS in the same order (newest first)
-  const getPhotos = useCallback(() => photos, [photos]);
+  // Photos are already sorted by usePhotos hook - NO MORE DUPLICATION!
 
   // Get grid classes based on selected size
   const getGridClasses = () => {
@@ -274,26 +261,7 @@ export default function GalleryPage() {
     }
   };
 
-  useEffect(() => {
-    // Fetch photos from the API endpoint
-    const fetchPhotos = async () => {
-      try {
-        const res = await fetch('/api/photos');
-        const data = await res.json();
-        // Sort photos chronologically (newest first) - NEVER CHANGE THIS ORDER
-        const sortedPhotos = data.sort((a: Photo, b: Photo) => 
-          new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
-        );
-        setPhotos(sortedPhotos);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching photos:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchPhotos();
-  }, []);
+  // Photos are now loaded via usePhotos hook - NO MORE DUPLICATION!
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -338,7 +306,7 @@ export default function GalleryPage() {
   const goToPreviousPhotoManual = useCallback(() => {
     stopAutoPlay();
     if (!selectedPhoto) return;
-    const currentPhotos = getPhotos();
+    const currentPhotos = photos;
     const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
     const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentPhotos.length - 1;
     currentIndexRef.current = previousIndex;
@@ -347,12 +315,12 @@ export default function GalleryPage() {
     
     // Pre-fetch next 1-2 photos for smoother slideshow
     preloadNextPhotos(currentPhotos, previousIndex);
-  }, [selectedPhoto, stopAutoPlay, getPhotos, preloadNextPhotos]);
+  }, [selectedPhoto, stopAutoPlay, photos, preloadNextPhotos]);
 
   const goToNextPhotoManual = useCallback(() => {
     stopAutoPlay();
     if (!selectedPhoto) return;
-    const currentPhotos = getPhotos();
+    const currentPhotos = photos;
     const currentIndex = currentPhotos.findIndex(photo => photo.id === selectedPhoto.id);
     const nextIndex = currentIndex < currentPhotos.length - 1 ? currentIndex + 1 : 0;
     currentIndexRef.current = nextIndex;
@@ -361,10 +329,10 @@ export default function GalleryPage() {
     
     // Pre-fetch next 1-2 photos for smoother slideshow
     preloadNextPhotos(currentPhotos, nextIndex);
-  }, [selectedPhoto, stopAutoPlay, getPhotos, preloadNextPhotos]);
+  }, [selectedPhoto, stopAutoPlay, photos, preloadNextPhotos]);
 
   const startAutoPlay = useCallback(() => {
-    const currentPhotos = getPhotos();
+    const currentPhotos = photos;
     if (currentPhotos.length <= 1) return;
 
     setIsPlaying(true);
@@ -387,7 +355,7 @@ export default function GalleryPage() {
     // Start new interval with current interval value
     const intervalMs = autoPlayIntervalRef.current * 1000;
     playInterval = setInterval(() => {
-      const currentPhotos = getPhotos();
+      const currentPhotos = photos;
       currentIndexRef.current = (currentIndexRef.current + 1) % currentPhotos.length;
       setCurrentIndex(currentIndexRef.current);
       setSelectedPhoto(currentPhotos[currentIndexRef.current]);
@@ -395,7 +363,7 @@ export default function GalleryPage() {
       // Pre-fetch next photos during auto-play
       preloadNextPhotos(currentPhotos, currentIndexRef.current);
     }, intervalMs);
-  }, [selectedPhoto, getPhotos, preloadNextPhotos]);
+  }, [selectedPhoto, photos, preloadNextPhotos]);
 
   const toggleAutoPlay = useCallback(() => {
     if (isPlaying) {
@@ -679,7 +647,7 @@ export default function GalleryPage() {
                     <option value="large">Large</option>
                   </select>
                   <span className="text-xs sm:text-sm text-muted-foreground">
-                    {getPhotos().length} beautiful memories
+                    {photos.length} beautiful memories
                   </span>
                 </div>
               </div>
@@ -687,7 +655,7 @@ export default function GalleryPage() {
 
             {/* Responsive Grid with Lazy Loading */}
             <div className={`grid ${getGridClasses()} gap-2 sm:gap-6`}>
-              {getPhotos().map((photo, index) => (
+              {photos.map((photo, index) => (
                 <motion.div
                   key={photo.id}
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -704,7 +672,7 @@ export default function GalleryPage() {
                     } else {
                       setSelectedPhoto(photo);
                       // Pre-fetch next photos when slideshow opens
-                      const currentPhotos = getPhotos();
+                      const currentPhotos = photos;
                       const currentIndex = currentPhotos.findIndex(p => p.id === photo.id);
                       preloadNextPhotos(currentPhotos, currentIndex);
                     }
@@ -850,7 +818,7 @@ export default function GalleryPage() {
             {/* Control Buttons - Show/hide based on user interaction */}
             <div className={`absolute top-2 right-2 sm:top-2 sm:right-2 flex items-center gap-1 sm:gap-2 z-20 transition-opacity duration-300 ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}>
                   {/* Auto-play Interval Selector - Only show when not fullscreen */}
-                  {!isFullscreen && getPhotos().length > 1 && (
+                  {!isFullscreen && photos.length > 1 && (
                 <select
                   value={autoPlayInterval}
                   onChange={(e) => {
@@ -875,7 +843,7 @@ export default function GalleryPage() {
               )}
                   
                   {/* Auto-play Button */}
-                  {getPhotos().length > 1 && (
+                  {photos.length > 1 && (
                 <button
                   onClick={toggleAutoPlay}
                   className="text-white/80 hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
@@ -906,12 +874,12 @@ export default function GalleryPage() {
 
             {/* Photo Counter */}
                 <div className="absolute top-2 left-2 sm:top-2 sm:left-2 text-white/80 text-xs sm:text-sm z-20">
-                  {getPhotos().findIndex(photo => photo.id === selectedPhoto.id) + 1} of {getPhotos().length}
+                  {photos.findIndex(photo => photo.id === selectedPhoto.id) + 1} of {photos.length}
                   {isPlaying && <span className="ml-2 text-xs">• Auto-playing</span>}
                 </div>
             
             {/* Navigation Arrows - Outside the photo */}
-            {getPhotos().length > 1 && (
+            {photos.length > 1 && (
               <>
                     <button
                       onClick={goToPreviousPhotoManual}
@@ -942,7 +910,7 @@ export default function GalleryPage() {
                   ease: "easeInOut"
                 }}
               >
-                {getPhotos().map((photo) => (
+                {photos.map((photo) => (
                   <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent" style={{ backgroundColor: 'transparent' }}>
                     <Image
                       src={photo.url}

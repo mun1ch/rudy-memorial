@@ -24,31 +24,18 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
+import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
+import { usePhotos } from "@/lib/hooks";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
 import { MobileAdminPhotos } from "@/components/mobile-admin-photos";
-
-interface Photo {
-  id: string;
-  fileName: string;
-  url: string;
-  caption: string | null;
-  contributorName: string | null;
-  fileSize: number;
-  mimeType: string;
-  md5Hash?: string;
-  uploadedAt: string;
-  approved: boolean;
-  hidden?: boolean;
-}
+import { Photo } from "@/lib/types";
 
 function AdminPhotosContent() {
   const searchParams = useSearchParams();
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { photos, loading, reload: reloadPhotos } = usePhotos();
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [showProgress, setShowProgress] = useState(false);
   const [progress, setProgress] = useState({
@@ -71,7 +58,6 @@ function AdminPhotosContent() {
   const [duplicatesLoading, setDuplicatesLoading] = useState(false);
 
   useEffect(() => {
-    loadPhotos();
     loadDuplicates(); // Load duplicates on page load
     
     // Check for filter parameter in URL
@@ -99,28 +85,13 @@ function AdminPhotosContent() {
     }
   };
 
-  const loadPhotos = async () => {
-    setLoading(true);
-    try {
-      const result = await getPhotos();
-      if (result.success && result.photos) {
-        setPhotos(result.photos);
-      }
-    } catch (error) {
-      console.error("Error loading photos:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleHidePhoto = async (photoId: string) => {
     setActionLoading(photoId);
     try {
       const result = await hidePhoto(photoId);
       if (result.success) {
-        setPhotos(prev => prev.map(photo => 
-          photo.id === photoId ? { ...photo, hidden: true } : photo
-        ));
+        reloadPhotos();
       }
     } catch (error) {
       console.error("Error hiding photo:", error);
@@ -134,9 +105,7 @@ function AdminPhotosContent() {
     try {
       const result = await unhidePhoto(photoId);
       if (result.success) {
-        setPhotos(prev => prev.map(photo => 
-          photo.id === photoId ? { ...photo, hidden: false } : photo
-        ));
+        reloadPhotos();
       }
     } catch (error) {
       console.error("Error unhiding photo:", error);
@@ -169,7 +138,7 @@ function AdminPhotosContent() {
     try {
       const result = await deletePhoto(photoId);
       if (result.success) {
-        setPhotos(prev => prev.filter(photo => photo.id !== photoId));
+        reloadPhotos();
         // Remove from selected photos if it was selected
         setSelectedPhotos(prev => {
           const newSet = new Set(prev);
@@ -300,10 +269,8 @@ function AdminPhotosContent() {
         const result = await hidePhoto(photoId);
         if (result.success) {
           successCount++;
-          // Update local state immediately
-          setPhotos(prev => prev.map(photo => 
-            photo.id === photoId ? { ...photo, hidden: true } : photo
-          ));
+          // Reload photos to get updated state
+          reloadPhotos();
         } else {
           errorCount++;
           errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
@@ -405,10 +372,8 @@ function AdminPhotosContent() {
         const result = await unhidePhoto(photoId);
         if (result.success) {
           successCount++;
-          // Update local state immediately
-          setPhotos(prev => prev.map(photo => 
-            photo.id === photoId ? { ...photo, hidden: false } : photo
-          ));
+          // Reload photos to get updated state
+          reloadPhotos();
         } else {
           errorCount++;
           errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
@@ -514,8 +479,8 @@ function AdminPhotosContent() {
         const result = await deletePhoto(photoId);
         if (result.success) {
           successCount++;
-          // Remove from local state immediately
-          setPhotos(prev => prev.filter(photo => photo.id !== photoId));
+          // Reload photos to get updated state
+          reloadPhotos();
         } else {
           errorCount++;
           errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
@@ -628,12 +593,8 @@ function AdminPhotosContent() {
       );
       
       if (result.success) {
-        // Update local state
-        setPhotos(prev => prev.map(photo => 
-          photo.id === photoId 
-            ? { ...photo, caption: editForm.caption || null, contributorName: editForm.contributorName || null }
-            : photo
-        ));
+        // Reload photos to get updated state
+        reloadPhotos();
 
         setEditingPhoto(null);
         setEditForm({ caption: '', contributorName: '' });

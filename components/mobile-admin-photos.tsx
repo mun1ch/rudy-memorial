@@ -17,25 +17,15 @@ import {
   Filter,
   Loader2
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
+import { useState, useEffect } from "react";
+import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
 
-interface Photo {
-  id: string;
-  fileName: string;
-  url: string;
-  caption: string | null;
-  contributorName: string | null;
-  fileSize: number;
-  mimeType: string;
-  md5Hash?: string;
-  uploadedAt: string;
-  approved: boolean;
-  hidden?: boolean;
-}
+import { Photo } from "@/lib/types";
+import { usePhotos } from "@/lib/hooks";
+import { useProgress } from "@/lib/use-progress";
 
 export function MobileAdminPhotos() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -49,42 +39,26 @@ export function MobileAdminPhotos() {
   const [duplicates, setDuplicates] = useState<Array<{ hash: string; photos: Photo[] }>>([]);
   const [showDuplicates, setShowDuplicates] = useState(false);
   
-  // Progress popup state
-  const [showProgress, setShowProgress] = useState(false);
-  const [progress, setProgress] = useState({
-    current: 0,
-    total: 0,
-    currentItem: "",
-    stage: "",
-    successCount: 0,
-    errorCount: 0,
-    errors: [] as string[]
-  });
-  const isCancelledRef = useRef(false);
+  // Progress popup state - using shared hook
+  const { showProgress, progress, isCancelledRef, setShowProgress, setProgress } = useProgress();
+
+  // Use shared hook instead of duplicate loading logic
+  const { photos: hookPhotos, loading: hookLoading } = usePhotos();
+  
+  useEffect(() => {
+    setPhotos(hookPhotos);
+    setLoading(hookLoading);
+  }, [hookPhotos, hookLoading]);
 
   useEffect(() => {
-    loadPhotos();
-  }, []);
-
-  const loadPhotos = async () => {
-    try {
-      setLoading(true);
-      const result = await getPhotos();
-      if (result.photos) {
-        setPhotos(result.photos);
-      }
-      
-      // Load duplicates
+    const loadDuplicates = async () => {
       const duplicateResult = await findDuplicatePhotos();
       if (duplicateResult.success && duplicateResult.duplicates) {
         setDuplicates(duplicateResult.duplicates);
       }
-    } catch (error) {
-      console.error("Error loading photos:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+    loadDuplicates();
+  }, []);
 
   const getFilteredPhotos = () => {
     let filtered = photos;
