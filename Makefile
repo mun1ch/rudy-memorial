@@ -6,7 +6,7 @@ PID_FILE := .dev-server.pid
 # Start the development server (includes build)
 start:
 	@echo "Building and starting development server..."
-	npm run build
+	@npm run build
 	@echo "Checking for existing processes on port 6464..."
 	@if lsof -ti:6464 > /dev/null 2>&1; then \
 		echo "Port 6464 is in use, killing existing process..."; \
@@ -19,8 +19,17 @@ start:
 	@nohup npm run dev > .dev-server.log 2>&1 & echo $$! > $(PID_FILE)
 	@echo "Development server started with PID $$(cat $(PID_FILE))"
 	@echo "Waiting for server to start..."
-	@sleep 3
-	@echo "Server running at http://localhost:6464"
+	@sleep 5
+	@echo "Checking if server is responding..."
+	@for i in 1 2 3 4 5; do \
+		if curl -s http://localhost:6464 > /dev/null 2>&1; then \
+			echo "✅ Server is responding at http://localhost:6464"; \
+			break; \
+		else \
+			echo "⏳ Waiting for server... (attempt $$i/5)"; \
+			sleep 2; \
+		fi; \
+	done
 	@echo "Logs available at .dev-server.log"
 
 # Stop the development server

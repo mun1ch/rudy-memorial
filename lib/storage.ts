@@ -31,60 +31,46 @@ export interface Tribute {
 export async function getPhotos(): Promise<Photo[]> {
   try {
     const { blobs } = await list();
-    const photosBlob = blobs.find(blob => blob.pathname === PHOTOS_BLOB_KEY);
     
-    if (!photosBlob) {
-      return [];
-    }
+    // Filter for photo files (files that start with 'photo_' and are images)
+    const photoBlobs = blobs.filter(blob => 
+      blob.pathname.startsWith('photo_') && 
+      (blob.pathname.endsWith('.jpg') || blob.pathname.endsWith('.jpeg') || blob.pathname.endsWith('.png') || blob.pathname.endsWith('.gif'))
+    );
     
-    const response = await fetch(photosBlob.url);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch photos: ${response.status}`);
-    }
-    const photos = await response.json();
-    return (photos as Photo[]).sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+    // Convert blob files to Photo objects
+    const photos: Photo[] = photoBlobs.map(blob => {
+      // Extract timestamp from filename (photo_1759272581990.jpg -> 1759272581990)
+      const timestampMatch = blob.pathname.match(/photo_(\d+)/);
+      const timestamp = timestampMatch ? parseInt(timestampMatch[1]) : Date.now();
+      
+      return {
+        id: blob.pathname.replace(/\.[^/.]+$/, ""), // Remove file extension
+        fileName: blob.pathname,
+        url: blob.url,
+        caption: null,
+        contributorName: null,
+        fileSize: blob.size,
+        mimeType: blob.pathname.endsWith('.png') ? 'image/png' : 
+                  blob.pathname.endsWith('.gif') ? 'image/gif' : 'image/jpeg',
+        md5Hash: '', // We don't have this from blob metadata
+        uploadedAt: new Date(timestamp).toISOString(),
+        approved: true
+      };
+    });
+    
+    // Sort by upload time (newest first)
+    return photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
   } catch (error) {
     console.error('Error reading photos from Vercel Blob:', error);
     return [];
   }
 }
 
-export async function savePhotos(photos: Photo[]): Promise<void> {
-  try {
-    const jsonString = JSON.stringify(photos, null, 2);
-    const blob = new Blob([jsonString], { type: 'application/json' });
-    
-    await put('photos.json', blob, {
-      access: 'public',
-      addRandomSuffix: false,
-      allowOverwrite: true
-    });
-  } catch (error) {
-    console.error('Error saving photos:', error);
-    throw error;
-  }
-}
+// No longer needed - photos are stored as individual files
 
-export async function addPhoto(photo: Photo): Promise<void> {
-  const photos = await getPhotos();
-  photos.push(photo);
-  await savePhotos(photos);
-}
-
-export async function updatePhoto(photoId: string, updates: Partial<Photo>): Promise<void> {
-  const photos = await getPhotos();
-  const index = photos.findIndex(p => p.id === photoId);
-  if (index !== -1) {
-    photos[index] = { ...photos[index], ...updates };
-    await savePhotos(photos);
-  }
-}
-
-export async function deletePhoto(photoId: string): Promise<void> {
-  const photos = await getPhotos();
-  const filteredPhotos = photos.filter(p => p.id !== photoId);
-  await savePhotos(filteredPhotos);
-}
+// Photo management functions removed - photos are now individual files
+// To delete a photo, use the Vercel Blob API directly
 
 // Tributes storage
 export async function getTributes(): Promise<Tribute[]> {

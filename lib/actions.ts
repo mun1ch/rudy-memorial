@@ -154,11 +154,6 @@ export async function submitPhoto(formData: FormData) {
     // Store photos using Vercel Blob storage
     console.log("💾 Starting Vercel Blob operations...");
     
-    // Get existing photos from Vercel Blob storage
-    const { getPhotos } = await import('./storage');
-    const photos = await getPhotos();
-    console.log("📖 Loaded existing photos:", photos.length);
-    
     // Process each file
     const newPhotos = [];
     const baseTimestamp = Date.now();
@@ -226,14 +221,7 @@ export async function submitPhoto(formData: FormData) {
       throw new Error("Failed to process any photos. Please check your files and try again.");
     }
     
-    // Add all new photos to the main photos array
-    photos.push(...newPhotos);
-    console.log(`✅ Added ${newPhotos.length} photos to gallery`);
-    
-    // Save photos using Vercel Blob storage
-    const { savePhotos } = await import('./storage');
-    await savePhotos(photos);
-    console.log("💾 Photos saved to Vercel Blob storage");
+    console.log(`✅ ${newPhotos.length} photos uploaded to Vercel Blob storage`);
     
     console.log(`✅ ${newPhotos.length} photo(s) upload completed successfully!`);
     
