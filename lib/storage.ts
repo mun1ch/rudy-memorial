@@ -18,33 +18,57 @@ export async function getPhotos(): Promise<PhotosResponse> {
       (blob.pathname.endsWith('.jpg') || blob.pathname.endsWith('.jpeg') || blob.pathname.endsWith('.png') || blob.pathname.endsWith('.gif'))
     );
     
-    // Convert blob files to Photo objects
-    const photos: Photo[] = photoBlobs.map(blob => {
-      // Extract timestamp from filename (photo_1759272581990.jpg -> 1759272581990)
-      const timestampMatch = blob.pathname.match(/photo_(\d+)/);
-      const timestamp = timestampMatch ? parseInt(timestampMatch[1]) : Date.now();
-      
-      const photoId = blob.pathname.replace(/\.[^/.]+$/, ""); // Remove file extension
-      
-      // Check if photo is hidden by looking at filename pattern
-      // Hidden photos have "_hidden" in their filename
-      const isHidden = blob.pathname.includes('_hidden');
-      
-      return {
-        id: photoId,
-        fileName: blob.pathname,
-        url: blob.url,
-        caption: null,
-        contributorName: null,
-        fileSize: blob.size,
-        mimeType: blob.pathname.endsWith('.png') ? 'image/png' : 
-                  blob.pathname.endsWith('.gif') ? 'image/gif' : 'image/jpeg',
-        md5Hash: '', // We don't have this from blob metadata
-        uploadedAt: new Date(timestamp).toISOString(),
-        approved: true,
-        hidden: isHidden
-      };
-    });
+    // Load photos with their metadata
+    const photos: Photo[] = await Promise.all(
+      photoBlobs.map(async (blob) => {
+        // Extract timestamp from filename (photo_1759272581990.jpg -> 1759272581990)
+        const timestampMatch = blob.pathname.match(/photo_(\d+)/);
+        const timestamp = timestampMatch ? parseInt(timestampMatch[1]) : Date.now();
+        
+        const photoId = blob.pathname.replace(/\.[^/.]+$/, ""); // Remove file extension
+        
+        // Check if photo is hidden by looking at filename pattern
+        const isHidden = blob.pathname.includes('_hidden');
+        
+        // Try to load metadata from corresponding JSON file
+        let metadata = {
+          caption: null,
+          contributorName: null
+        };
+        
+        try {
+          const metadataFilename = `${photoId}_meta.json`;
+          const metadataBlob = blobs.find(b => b.pathname === metadataFilename);
+          if (metadataBlob) {
+            const response = await fetch(metadataBlob.url);
+            if (response.ok) {
+              const metadataData = await response.json();
+              metadata = {
+                caption: metadataData.caption || null,
+                contributorName: metadataData.contributorName || null
+              };
+            }
+          }
+        } catch (error) {
+          console.warn(`Failed to load metadata for ${photoId}:`, error);
+        }
+        
+        return {
+          id: photoId,
+          fileName: blob.pathname,
+          url: blob.url,
+          caption: metadata.caption,
+          contributorName: metadata.contributorName,
+          fileSize: blob.size,
+          mimeType: blob.pathname.endsWith('.png') ? 'image/png' : 
+                    blob.pathname.endsWith('.gif') ? 'image/gif' : 'image/jpeg',
+          md5Hash: '', // We don't have this from blob metadata
+          uploadedAt: new Date(timestamp).toISOString(),
+          approved: true,
+          hidden: isHidden
+        };
+      })
+    );
     
     // Sort by upload time (newest first)
     const sortedPhotos = photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
@@ -77,9 +101,17 @@ export async function deletePhoto(photoId: string): Promise<void> {
       throw new Error(`Photo with ID ${photoId} not found`);
     }
     
-    // Delete the blob file
+    // Delete the photo file
     await del(photoBlob.url);
     console.log(`Deleted photo file: ${photoBlob.pathname}`);
+    
+    // Also delete the metadata JSON file
+    const metadataFilename = `${photoId}_meta.json`;
+    const metadataBlob = blobs.find(blob => blob.pathname === metadataFilename);
+    if (metadataBlob) {
+      await del(metadataBlob.url);
+      console.log(`Deleted metadata file: ${metadataFilename}`);
+    }
   } catch (error) {
     console.error('Error deleting photo:', error);
     throw error;

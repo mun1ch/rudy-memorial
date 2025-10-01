@@ -182,28 +182,26 @@ export async function deleteMemory(memoryId: string) {
 
 export async function editPhoto(photoId: string, caption: string | null, contributorName: string | null) {
   try {
-    // Read photos from Vercel Blob storage
-    const { getPhotos, savePhotos } = await import('./storage');
-    const result = await getPhotos();
+    // Update metadata JSON file
+    const { put } = await import('@vercel/blob');
+    const metadataFilename = `${photoId}_meta.json`;
     
-    if (!result.success || !result.photos) {
-      return { success: false, error: "Failed to load photos" };
-    }
+    const metadata = {
+      caption: caption || null,
+      contributorName: contributorName || null,
+      updatedAt: new Date().toISOString()
+    };
     
-    const photos = result.photos;
+    const metadataBlob = new Blob([JSON.stringify(metadata, null, 2)], { 
+      type: 'application/json' 
+    });
     
-    // Find and update the photo
-    const photoIndex = photos.findIndex((photo: Photo) => photo.id === photoId);
-    if (photoIndex === -1) {
-      return { success: false, error: "Photo not found" };
-    }
+    await put(metadataFilename, metadataBlob, {
+      access: 'public',
+      addRandomSuffix: false
+    });
     
-    photos[photoIndex].caption = caption;
-    photos[photoIndex].contributorName = contributorName;
-    
-    // Save photos using Vercel Blob storage
-    await savePhotos();
-    console.log("Photos saved to Vercel Blob storage");
+    console.log(`✅ Metadata updated for photo ${photoId}:`, metadataFilename);
     
     revalidatePath("/gallery");
     revalidatePath("/admin/dashboard");

@@ -742,28 +742,6 @@ export default function GalleryPage() {
                         </div>
                       </div>
 
-                      {/* Caption Overlay */}
-                      {(photo.caption || photo.contributorName) && (
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          {photo.caption && (
-                            <p className="text-sm font-medium mb-1 line-clamp-2">
-                              {photo.caption}
-                            </p>
-                          )}
-                          <div className="flex items-center gap-4 text-xs text-white/80">
-                            {photo.contributorName && (
-                              <div className="flex items-center gap-1">
-                                <User className="h-3 w-3" />
-                                <span>{photo.contributorName}</span>
-                              </div>
-                            )}
-                            <div className="flex items-center gap-1">
-                              <Calendar className="h-3 w-3" />
-                              <span>{formatDate(photo.uploadedAt)}</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
                     </CardContent>
                   </Card>
                 </motion.div>

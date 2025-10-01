@@ -192,10 +192,32 @@ export async function submitPhoto(formData: FormData) {
       });
       console.log(`✅ File ${i + 1} uploaded to Vercel Blob:`, blob.url);
       
+      // Extract the actual filename from the blob URL to get the photo ID
+      const actualFileName = blob.url.split('/').pop()?.split('.')[0] || `photo_${timestamp}`;
+      const photoId = actualFileName;
+      
+      // Save metadata as JSON file
+      const metadataFilename = `${photoId}_meta.json`;
+      const metadata = {
+        caption: validatedData.caption || null,
+        contributorName: validatedData.name || null,
+        uploadedAt: new Date(timestamp).toISOString()
+      };
+      
+      const metadataBlob = new Blob([JSON.stringify(metadata, null, 2)], { 
+        type: 'application/json' 
+      });
+      
+      await put(metadataFilename, metadataBlob, {
+        access: 'public',
+        addRandomSuffix: false
+      });
+      console.log(`✅ Metadata saved for file ${i + 1}:`, metadataFilename);
+      
       // Add new photo to array
       const newPhoto = {
-        id: `photo_${timestamp}`,
-        fileName,
+        id: photoId,
+        fileName: actualFileName,
         url: blob.url,
         caption: validatedData.caption || null,
         contributorName: validatedData.name || null,
