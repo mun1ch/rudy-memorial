@@ -46,6 +46,9 @@ export default function GalleryPage() {
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [downloadPhase, setDownloadPhase] = useState<'preparing' | 'downloading' | null>(null);
   const [isDownloadCancelled, setIsDownloadCancelled] = useState(false);
+  const [showControls, setShowControls] = useState(false);
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
 
   // Centralized photo list - ALWAYS in the same order (newest first)
   const getPhotos = useCallback(() => photos, [photos]);
@@ -110,6 +113,67 @@ export default function GalleryPage() {
     setDownloadProgress(0);
     setDownloadPhase(null);
   };
+
+  // Touch gesture handlers for mobile slideshow navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    });
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    });
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const deltaX = touchStart.x - touchEnd.x;
+    const deltaY = touchStart.y - touchEnd.y;
+    const isLeftSwipe = deltaX > 50;
+    const isRightSwipe = deltaX < -50;
+    const isVerticalSwipe = Math.abs(deltaY) > Math.abs(deltaX);
+    
+    // Only handle horizontal swipes
+    if (!isVerticalSwipe) {
+      if (isLeftSwipe) {
+        goToNextPhotoManual();
+        setShowControls(true);
+      } else if (isRightSwipe) {
+        goToPreviousPhotoManual();
+        setShowControls(true);
+      }
+    }
+    
+    // Show controls on any touch interaction
+    setShowControls(true);
+    
+    // Hide controls after 3 seconds
+    setTimeout(() => {
+      setShowControls(false);
+    }, 3000);
+  };
+
+  const handleSlideClick = () => {
+    setShowControls(!showControls);
+  };
+
+  // Show controls initially when slideshow opens
+  useEffect(() => {
+    if (selectedPhoto) {
+      setShowControls(true);
+      // Hide controls after 3 seconds
+      const timer = setTimeout(() => {
+        setShowControls(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedPhoto]);
 
   // Download functions
   const downloadPhotos = async () => {
@@ -423,67 +487,82 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
-      {/* Hero Section */}
+      {/* Hero Section - Typography-First Design */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/3"></div>
-        <div className="container relative py-3 md:py-4">
-          <div className="text-center max-w-2xl mx-auto">
-            <Camera className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2" />
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
-              Memory Gallery
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5"></div>
+        <div className="container relative py-12 md:py-16">
+          <div className="text-center">
+            {/* Hero Title - Properly Sized Typography */}
+            <div className="max-w-4xl mx-auto mb-6">
+              <h1 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight tracking-tight">
+                Memory{" "}
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Gallery
+                </span>
             </h1>
-            <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
-              A beautiful collection of moments that capture Rudy&apos;s spirit.
-            </p>
-            <div className="grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 mt-4 sm:mt-8">
-              <Card className="hover:scale-105 transition-transform duration-200">
-                <CardContent className="pt-2 sm:pt-6 text-center p-2 sm:p-6">
-                  <Upload className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
-                  <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-2">
-                    <span className="sm:hidden">Upload</span>
-                    <span className="hidden sm:inline">Share Your Photos</span>
-                  </h3>
-                  <p className="text-muted-foreground mb-2 sm:mb-4 text-xs sm:text-base hidden sm:block">
-                    Help preserve special moments
-                  </p>
-                  <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                    <Link href="/memories/photo">
-                      <Upload className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      <span className="hidden sm:inline">Share Photos</span>
-                      <span className="sm:hidden">Share</span>
+            </div>
+            
+            {/* Hero Description - Properly Sized Typography */}
+            <div className="max-w-3xl mx-auto mb-8">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                A beautiful collection of moments that capture Rudy&apos;s spirit and preserve precious memories for all to cherish.
+              </p>
+            </div>
+            {/* Action Cards - Mobile Optimized */}
+            <div className="max-w-4xl mx-auto">
+              <div className="grid gap-3 sm:gap-6 grid-cols-2 md:grid-cols-2">
+                <Card className="hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <CardContent className="p-3 sm:p-6 text-center">
+                    <Upload className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2 sm:mb-4" />
+                    <h3 className="text-sm sm:text-lg font-semibold text-foreground mb-2 sm:mb-3">
+                      <span className="sm:hidden">Share Photos</span>
+                      <span className="hidden sm:inline">Share Your Photos</span>
+                    </h3>
+                    <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed hidden sm:block">
+                      Help preserve special moments and memories
+                    </p>
+                    <Button asChild size="sm" className="w-full text-xs sm:text-sm">
+                      <Link href="/memories/photo">
+                        <Upload className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                        <span className="sm:hidden">Share</span>
+                        <span className="hidden sm:inline">Share Photos</span>
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
               {photos.length > 0 && (
-                <Card className="hover:scale-105 transition-transform duration-200">
-                  <CardContent className="pt-2 sm:pt-6 text-center p-2 sm:p-6">
-                    <Play className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
-                    <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-2">Start Slideshow</h3>
-                    <p className="text-muted-foreground mb-2 sm:mb-4 text-xs sm:text-base hidden sm:block">
-                      View all photos in a beautiful slideshow
+                  <Card className="hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <CardContent className="p-3 sm:p-6 text-center">
+                      <Play className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2 sm:mb-4" />
+                      <h3 className="text-sm sm:text-lg font-semibold text-foreground mb-2 sm:mb-3">
+                        <span className="sm:hidden">Slideshow</span>
+                        <span className="hidden sm:inline">View Slideshow</span>
+                      </h3>
+                      <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed hidden sm:block">
+                        Watch memories come to life
                     </p>
                     <Button 
                       onClick={startSlideshow}
-                      size="sm"
-                      className="w-full min-h-[44px] text-xs sm:text-base"
+                        size="sm"
+                        className="w-full text-xs sm:text-sm"
                     >
-                      <Play className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      <span className="hidden sm:inline">Start Slideshow</span>
-                      <span className="sm:hidden">Slideshow</span>
+                        <Play className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                        <span className="sm:hidden">Start</span>
+                        <span className="hidden sm:inline">Start Slideshow</span>
                     </Button>
                   </CardContent>
                 </Card>
               )}
             </div>
+            </div>
             
-            {/* Mobile Download Button - Only show on mobile when not in selection mode */}
+            {/* Mobile Download Button - Refined Typography */}
             {!isSelectionMode && (
-              <div className="mt-6 sm:hidden">
+              <div className="mt-8 sm:hidden">
                 <Button
                   onClick={toggleSelectionMode}
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-primary hover:bg-primary/90"
+                  className="w-full flex items-center justify-center gap-2 py-4 text-lg font-semibold bg-primary hover:bg-primary/90"
                 >
                   <Download className="h-5 w-5" />
                   Download Photos
@@ -498,14 +577,21 @@ export default function GalleryPage() {
       <div className="container py-12">
         {photos.length > 0 ? (
           <>
-            {/* Stats and Grid Size Selector */}
-            <div className="flex items-center justify-between mb-6 sm:mb-12">
-              <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-3 py-2 sm:px-6 sm:py-3">
-                <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
-                <span className="text-xs sm:text-sm font-medium">
-                  {photos.length} precious memories shared
+            {/* Gallery Header - Properly Sized Typography */}
+            <div className="text-center mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3">
+                Photo Collection
+              </h2>
+              <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-4 py-2">
+                <Heart className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium text-muted-foreground">
+                  {photos.length} {photos.length === 1 ? "precious memory" : "precious memories"} preserved
                 </span>
               </div>
+            </div>
+
+            {/* Stats and Grid Size Selector */}
+            <div className="flex items-center justify-between mb-8">
               
               {/* Grid Size Selector and Selection Controls */}
               <div className="flex items-center gap-4">
@@ -568,7 +654,7 @@ export default function GalleryPage() {
               </div>
             </div>
 
-            {/* Responsive Grid */}
+            {/* Responsive Grid with Lazy Loading */}
             <div className={`grid ${getGridClasses()} gap-2 sm:gap-6`}>
               {getPhotos().map((photo, index) => (
                 <motion.div
@@ -619,6 +705,7 @@ export default function GalleryPage() {
                           quality={100}
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          loading={index < 12 ? "eager" : "lazy"}
                         />
                         
                         {/* Overlay - Always visible on mobile, hover on desktop */}
@@ -682,14 +769,23 @@ export default function GalleryPage() {
             </div>
           </>
         ) : (
-          /* Empty State */
-          <div className="text-center py-20">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-muted/50 rounded-full mb-8">
-              <Camera className="h-12 w-12 text-muted-foreground" />
+          /* Empty State - Properly Sized Typography */
+          <div className="text-center py-12">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full mb-6">
+              <Camera className="h-10 w-10 text-primary" />
             </div>
-            <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-              Be the first to share a beautiful memory of Rudy. Your photos will help create a lasting tribute.
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4">
+              No Photos Yet
+            </h3>
+            <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-lg mx-auto leading-relaxed">
+              Be the first to share a beautiful memory of Rudy. Your photos will help create a lasting tribute that celebrates his life.
             </p>
+            <Button asChild size="default" className="px-6 py-2">
+              <Link href="/memories/photo">
+                <Upload className="mr-2 h-4 w-4" />
+                Share Your First Photo
+              </Link>
+            </Button>
           </div>
         )}
       </div>
@@ -712,10 +808,13 @@ export default function GalleryPage() {
             onClick={(e) => {
               if (e.target === e.currentTarget) setSelectedPhoto(null);
             }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
           <div className={`relative z-10 bg-transparent ${isFullscreen ? 'w-full h-full' : 'w-full h-full sm:max-w-4xl sm:max-h-full'}`} style={{ backgroundColor: 'transparent' }}>
-            {/* Control Buttons */}
-            <div className="absolute top-2 right-2 sm:top-2 sm:right-2 flex items-center gap-1 sm:gap-2 z-20">
+            {/* Control Buttons - Show/hide based on user interaction */}
+            <div className={`absolute top-2 right-2 sm:top-2 sm:right-2 flex items-center gap-1 sm:gap-2 z-20 transition-opacity duration-300 ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}>
                   {/* Auto-play Interval Selector - Only show when not fullscreen */}
                   {!isFullscreen && getPhotos().length > 1 && (
                 <select
@@ -782,7 +881,7 @@ export default function GalleryPage() {
               <>
                     <button
                       onClick={goToPreviousPhotoManual}
-                      className="absolute left-2 sm:-left-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center"
+                      className={`absolute left-2 sm:-left-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}
                       aria-label="Previous photo"
                     >
                       <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all duration-300" />
@@ -790,7 +889,7 @@ export default function GalleryPage() {
 
                     <button
                       onClick={goToNextPhotoManual}
-                      className="absolute right-2 sm:-right-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center"
+                      className={`absolute right-2 sm:-right-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}
                       aria-label="Next photo"
                     >
                       <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all duration-300" />
@@ -817,9 +916,10 @@ export default function GalleryPage() {
                       width={1000}
                       height={800}
                       quality={100}
-                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} ${isFullscreen ? 'rounded-lg' : ''} bg-transparent`}
+                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} ${isFullscreen ? 'rounded-lg' : ''} bg-transparent cursor-pointer`}
                       style={{ backgroundColor: 'transparent' }}
                       priority={photo.id === selectedPhoto?.id}
+                      onClick={handleSlideClick}
                     />
                   </div>
                 ))}

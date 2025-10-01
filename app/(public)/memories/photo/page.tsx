@@ -8,13 +8,13 @@ export default function PhotoUploadPage() {
     <div className="container py-4">
       <div className="mx-auto max-w-2xl">
 
-        <div className="mb-6 text-center">
-          <Camera className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-3" />
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-            Share a Photo
+        <div className="mb-8 text-center">
+          <Camera className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-4" />
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
+            Share Your Photos
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-muted-foreground">
-            Upload a photo to help preserve a special memory of Rudy
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Upload photos to help preserve special memories of Rudy
           </p>
         </div>
 

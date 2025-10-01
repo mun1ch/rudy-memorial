@@ -12,12 +12,12 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
   return (
     <div className="container py-4">
       <div className="mx-auto max-w-4xl">
-        <div className="mb-6 text-center">
-          <Heart className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-3" />
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+        <div className="mb-8 text-center">
+          <Heart className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-4" />
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
             Share Your Memory
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Help us celebrate Rudy&apos;s life by sharing your photos, stories, or both
           </p>
         </div>
