@@ -46,3 +46,4 @@
  GET /api/photos 200 in 495ms
  GET /api/photos 200 in 521ms
  ✓ Compiled in 133ms
+ ✓ Compiled in 58ms

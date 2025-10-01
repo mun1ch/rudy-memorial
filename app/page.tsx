@@ -20,7 +20,7 @@ export default function HomePage() {
         </h1>
         
         {/* Hero Description - Better sizing */}
-        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-lg mx-auto leading-relaxed font-light">
+        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-light">
           A place to remember, share, and celebrate the life of someone special. Join us in celebrating Rudy&apos;s life by sharing your memories, photos, and moments that keep his spirit alive.
         </p>
       </div>
