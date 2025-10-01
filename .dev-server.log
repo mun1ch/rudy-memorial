@@ -2,110 +2,14 @@
 > rudy_site@0.1.0 dev
 > next dev --turbopack --port 6464
 
-   ▲ Next.js 15.5.4 (Turbopack)
-   - Local:        http://localhost:6464
-   - Network:      http://10.0.0.7:6464
-   - Environments: .env.local
-   - Experiments (use with caution):
-     · serverActions
-
- ✓ Starting...
- ✓ Ready in 1494ms
- ○ Compiling / ...
- ✓ Compiled / in 2.9s
- GET / 200 in 3575ms
- ○ Compiling /admin/memories ...
- ✓ Compiled /admin/memories in 741ms
- GET /admin/memories 200 in 917ms
- ✓ Compiled /api/tributes in 321ms
- GET /api/tributes 200 in 1710ms
- GET /api/tributes 200 in 1863ms
- GET / 200 in 65ms
- GET / 200 in 75ms
- ✓ Compiled /memories in 222ms
- GET /memories 200 in 283ms
- ✓ Compiled /memories/photo in 386ms
- GET /memories/photo 200 in 478ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(20230514_113123.jpg, 4079796 bytes)
-  caption: Asdada
-  name: Asdada
-📁 Files received: 1 files
-📁 File 1: 20230514_113123.jpg 4079796 image/jpeg
-📝 Caption: Asdada
-👤 Name: Asdada
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-🔄 Processing file 1/1: 20230514_113123.jpg
-📦 File 1 converted to buffer, size: 4079796
-🔍 MD5 hash for file 1: a8f9005273bd7d291005d657184146ee
-📝 Generated filename for file 1: photo_1759306912412.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759306912412-rngclaqAva9xfnyeTQDanir6MIyryR.jpg
-✅ Metadata saved for file 1: photo_1759306912412_meta.json
-➕ Added new photo 1 to array: photo_1759306912412
-✅ 1 photos uploaded to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 1449ms
- ○ Compiling /gallery ...
- ✓ Compiled /gallery in 762ms
- GET /gallery 200 in 1131ms
- ✓ Compiled /api/photos in 180ms
- GET /api/photos 200 in 719ms
- GET /api/photos 200 in 589ms
- GET /memories 200 in 269ms
- ✓ Compiled /admin in 288ms
- GET /admin 307 in 424ms
- ✓ Compiled /admin/dashboard in 250ms
- GET /admin/dashboard 200 in 339ms
- ✓ Compiled /api/duplicates in 246ms
- GET /api/photos 200 in 489ms
-🔍 Finding duplicates among 4 photos
-📊 Found 4 unique file sizes
-📏 Size 4079796: 1 photos
-📏 Size 4428916: 1 photos
-📏 Size 31018: 1 photos
-📏 Size 23491: 1 photos
-🎉 Found 0 duplicate groups
- GET /api/duplicates 200 in 862ms
- GET /api/tributes 200 in 1520ms
- GET /api/photos 200 in 380ms
- GET /gallery 200 in 124ms
- GET /api/photos 200 in 416ms
- GET /api/photos 200 in 450ms
- GET /memories/photo 200 in 115ms
- GET /memories/photo 200 in 576ms
-🚀 submitPhoto called!
-📋 FormData entries:
-  photo: File(FB_IMG_1758956782216.jpg, 60565 bytes)
-  caption: asdada
-  name: asdada
-📁 Files received: 1 files
-📁 File 1: FB_IMG_1758956782216.jpg 60565 image/jpeg
-📝 Caption: asdada
-👤 Name: asdada
-✅ Processing 1 valid files
-💾 Starting Vercel Blob operations...
-🔄 Processing file 1/1: FB_IMG_1758956782216.jpg
-📦 File 1 converted to buffer, size: 60565
-🔍 MD5 hash for file 1: 825919858dc6d7c058739bc68c403597
-📝 Generated filename for file 1: photo_1759307020525.jpg
-💾 Uploading file 1 to Vercel Blob...
-✅ File 1 uploaded to Vercel Blob: https://lt85jnif42oqcn3o.public.blob.vercel-storage.com/photo_1759307020525-oblv6GK8PF7HER7qvbYakh7RdKSZA7.jpg
-✅ Metadata saved for file 1: photo_1759307020525_meta.json
-➕ Added new photo 1 to array: photo_1759307020525
-✅ 1 photos uploaded to Vercel Blob storage
-✅ 1 photo(s) upload completed successfully!
-Email notifications disabled or no emails configured
- POST /memories/photo 200 in 660ms
- GET /gallery 200 in 142ms
- GET /api/photos 200 in 707ms
- GET /api/photos 200 in 451ms
- GET /api/photos 200 in 442ms
- GET /api/photos 200 in 733ms
- ✓ Compiled in 194ms
- GET /gallery 200 in 330ms
- GET / 200 in 530ms
+ ⨯ Failed to start server
+Error: listen EADDRINUSE: address already in use :::6464
+    at <unknown> (Error: listen EADDRINUSE: address already in use :::6464)
+    at new Promise (<anonymous>) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 6464
+}
 [?25h
