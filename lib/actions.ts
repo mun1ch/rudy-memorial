@@ -148,8 +148,8 @@ export async function submitPhoto(formData: FormData) {
 
     console.log(`✅ Processing ${validFiles.length} valid files`);
 
-    const captionValue = caption === "" ? undefined : caption;
-    const nameValue = name === "" ? undefined : name;
+    const captionValue = caption === "" || caption === null ? undefined : caption;
+    const nameValue = name === "" || name === null ? undefined : name;
 
     // Store photos using Vercel Blob storage
     console.log("💾 Starting Vercel Blob operations...");

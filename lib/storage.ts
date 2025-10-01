@@ -1,5 +1,9 @@
 import { put, list } from '@vercel/blob';
 
+// Blob storage keys
+const PHOTOS_BLOB_KEY = 'photos.json';
+const TRIBUTES_BLOB_KEY = 'tributes.json';
+
 export interface Photo {
   id: string;
   fileName: string;
@@ -27,17 +31,20 @@ export interface Tribute {
 export async function getPhotos(): Promise<Photo[]> {
   try {
     const { blobs } = await list();
-    const photosBlob = blobs.find(blob => blob.pathname === 'photos.json');
+    const photosBlob = blobs.find(blob => blob.pathname === PHOTOS_BLOB_KEY);
     
     if (!photosBlob) {
       return [];
     }
     
     const response = await fetch(photosBlob.url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch photos: ${response.status}`);
+    }
     const photos = await response.json();
-    return photos;
+    return (photos as Photo[]).sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
   } catch (error) {
-    console.error('Error getting photos:', error);
+    console.error('Error reading photos from Vercel Blob:', error);
     return [];
   }
 }
@@ -83,17 +90,20 @@ export async function deletePhoto(photoId: string): Promise<void> {
 export async function getTributes(): Promise<Tribute[]> {
   try {
     const { blobs } = await list();
-    const tributesBlob = blobs.find(blob => blob.pathname === 'tributes.json');
+    const tributesBlob = blobs.find(blob => blob.pathname === TRIBUTES_BLOB_KEY);
     
     if (!tributesBlob) {
       return [];
     }
     
     const response = await fetch(tributesBlob.url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch tributes: ${response.status}`);
+    }
     const tributes = await response.json();
-    return tributes;
+    return (tributes as Tribute[]).sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
   } catch (error) {
-    console.error('Error getting tributes:', error);
+    console.error('Error reading tributes from Vercel Blob:', error);
     return [];
   }
 }
