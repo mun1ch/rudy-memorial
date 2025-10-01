@@ -169,10 +169,61 @@ function AdminDashboard() {
 }
 
 export default function AdminDashboardPage() {
+  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [memories, setMemories] = useState<Memory[]>([]);
+  const [duplicates, setDuplicates] = useState<{ hash: string; photos: Photo[] }[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    setLoading(true);
+    try {
+      const [photosResult, memoriesResult, duplicatesResult] = await Promise.all([
+        getPhotos(),
+        getMemories(),
+        findDuplicatePhotos()
+      ]);
+      
+      if (photosResult.success && photosResult.photos) {
+        setPhotos(photosResult.photos);
+      }
+      
+      if (memoriesResult.success && memoriesResult.tributes) {
+        setMemories(memoriesResult.tributes);
+      }
+      
+      if (duplicatesResult.success && duplicatesResult.duplicates) {
+        setDuplicates(duplicatesResult.duplicates);
+      }
+    } catch (error) {
+      console.error("Error loading data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="container py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+          <p className="text-muted-foreground">Loading admin dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="sm:hidden">
-        <MobileAdminDashboard />
+        <MobileAdminDashboard 
+          photos={photos}
+          memories={memories}
+          duplicates={duplicates}
+        />
       </div>
       <div className="hidden sm:block">
         <AdminDashboard />

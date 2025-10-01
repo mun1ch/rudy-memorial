@@ -21,6 +21,8 @@ import { getMemories, hideMemory, unhideMemory, deleteMemory, editMemory } from 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 interface Tribute {
   id: string;
@@ -300,7 +302,12 @@ export function MobileAdminMemories() {
   }
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-3 space-y-3 max-w-full overflow-x-hidden">
+      {/* Back Button */}
+      <Link href="/admin" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <ArrowLeft className="h-4 w-4" />
+        Back to Admin
+      </Link>
       {/* Search and Filter Bar */}
       <div className="space-y-3">
         <div className="relative">
@@ -341,32 +348,32 @@ export function MobileAdminMemories() {
             </Button>
           </div>
           
-          <div className="flex gap-2">
+          <div className="grid grid-cols-3 gap-2">
             <Button
               variant="destructive"
               size="sm"
               onClick={handleBulkDelete}
-              className="flex-1 h-10"
+              className="h-10 text-xs"
             >
-              <Trash2 className="mr-2 h-4 w-4" />
+              <Trash2 className="mr-1 h-3 w-3" />
               Delete
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={handleBulkHide}
-              className="flex-1 h-10"
+              className="h-10 text-xs"
             >
-              <EyeOff className="mr-2 h-4 w-4" />
+              <EyeOff className="mr-1 h-3 w-3" />
               Hide
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={handleBulkUnhide}
-              className="flex-1 h-10"
+              className="h-10 text-xs"
             >
-              <Eye className="mr-2 h-4 w-4" />
+              <Eye className="mr-1 h-3 w-3" />
               Unhide
             </Button>
           </div>
@@ -379,27 +386,27 @@ export function MobileAdminMemories() {
           variant="outline"
           size="sm"
           onClick={handleSelectAll}
-          className="h-10"
+          className="h-10 text-xs"
         >
           {selectedMemories.size === filteredMemories.length ? (
-            <Square className="mr-2 h-4 w-4" />
+            <Square className="mr-1 h-3 w-3" />
           ) : (
-            <CheckSquare className="mr-2 h-4 w-4" />
+            <CheckSquare className="mr-1 h-3 w-3" />
           )}
-          Select All ({filteredMemories.length})
+          All ({filteredMemories.length})
         </Button>
         
-        <span className="text-sm text-muted-foreground">
+        <span className="text-xs text-muted-foreground">
           {filteredMemories.length} memor{filteredMemories.length !== 1 ? 'ies' : 'y'}
         </span>
       </div>
 
       {/* Memories List */}
-      <div className="space-y-3">
+      <div className="space-y-2">
         {filteredMemories.map((memory) => (
           <div
             key={memory.id}
-            className={`border rounded-lg p-3 space-y-3 ${
+            className={`border rounded-lg p-2 space-y-2 ${
               selectedMemories.has(memory.id) ? 'border-primary bg-primary/5' : 'border-border'
             }`}
           >
@@ -426,7 +433,7 @@ export function MobileAdminMemories() {
                   <span className="truncate">{memory.contributorName}</span>
                 </div>
                 
-                <p className="text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed line-clamp-3">
                   {memory.message}
                 </p>
               </div>

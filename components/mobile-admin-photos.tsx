@@ -22,6 +22,8 @@ import { getPhotos, hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicat
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 interface Photo {
   id: string;
@@ -315,7 +317,12 @@ export function MobileAdminPhotos() {
   }
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-3 space-y-3 max-w-full overflow-x-hidden">
+      {/* Back Button */}
+      <Link href="/admin" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <ArrowLeft className="h-4 w-4" />
+        Back to Admin
+      </Link>
       {/* Search and Filter Bar */}
       <div className="space-y-3">
         <div className="relative">
@@ -370,32 +377,32 @@ export function MobileAdminPhotos() {
             </Button>
           </div>
           
-          <div className="flex gap-2">
+          <div className="grid grid-cols-3 gap-2">
             <Button
               variant="destructive"
               size="sm"
               onClick={handleBulkDelete}
-              className="flex-1 h-10"
+              className="h-10 text-xs"
             >
-              <Trash2 className="mr-2 h-4 w-4" />
+              <Trash2 className="mr-1 h-3 w-3" />
               Delete
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={handleBulkHide}
-              className="flex-1 h-10"
+              className="h-10 text-xs"
             >
-              <EyeOff className="mr-2 h-4 w-4" />
+              <EyeOff className="mr-1 h-3 w-3" />
               Hide
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={handleBulkUnhide}
-              className="flex-1 h-10"
+              className="h-10 text-xs"
             >
-              <Eye className="mr-2 h-4 w-4" />
+              <Eye className="mr-1 h-3 w-3" />
               Unhide
             </Button>
           </div>
@@ -408,17 +415,17 @@ export function MobileAdminPhotos() {
           variant="outline"
           size="sm"
           onClick={handleSelectAll}
-          className="h-10"
+          className="h-10 text-xs"
         >
           {selectedPhotos.size === filteredPhotos.length ? (
-            <Square className="mr-2 h-4 w-4" />
+            <Square className="mr-1 h-3 w-3" />
           ) : (
-            <CheckSquare className="mr-2 h-4 w-4" />
+            <CheckSquare className="mr-1 h-3 w-3" />
           )}
-          Select All ({filteredPhotos.length})
+          All ({filteredPhotos.length})
         </Button>
         
-        <span className="text-sm text-muted-foreground">
+        <span className="text-xs text-muted-foreground">
           {filteredPhotos.length} photo{filteredPhotos.length !== 1 ? 's' : ''}
         </span>
       </div>
@@ -428,17 +435,17 @@ export function MobileAdminPhotos() {
         {filteredPhotos.map((photo) => (
           <div
             key={photo.id}
-            className={`border rounded-lg p-3 space-y-3 ${
+            className={`border rounded-lg p-2 space-y-2 ${
               selectedPhotos.has(photo.id) ? 'border-primary bg-primary/5' : 'border-border'
             }`}
           >
             {/* Photo Header */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-start gap-3">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSelectPhoto(photo.id)}
-                className="h-8 w-8 p-0"
+                className="h-8 w-8 p-0 mt-1"
               >
                 {selectedPhotos.has(photo.id) ? (
                   <CheckSquare className="h-4 w-4" />
@@ -459,16 +466,16 @@ export function MobileAdminPhotos() {
               
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium truncate">{photo.fileName}</p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
                   <Calendar className="h-3 w-3" />
                   <span>{new Date(photo.uploadedAt).toLocaleDateString()}</span>
-                  {photo.contributorName && (
-                    <>
-                      <User className="h-3 w-3" />
-                      <span className="truncate">{photo.contributorName}</span>
-                    </>
-                  )}
                 </div>
+                {photo.contributorName && (
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <User className="h-3 w-3" />
+                    <span className="truncate">{photo.contributorName}</span>
+                  </div>
+                )}
               </div>
               
               <div className="flex gap-1">

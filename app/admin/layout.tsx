@@ -15,7 +15,7 @@ export default function AdminLayout({
       <header className="border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-semibold text-foreground">
+            <h1 className="hidden sm:block text-xl font-semibold text-foreground">
               Admin Dashboard
             </h1>
           </div>
@@ -32,8 +32,8 @@ export default function AdminLayout({
       </header>
 
       <div className="container flex">
-        {/* Admin Sidebar */}
-        <aside className="w-64 border-r bg-background p-6">
+        {/* Admin Sidebar - Hidden on Mobile */}
+        <aside className="hidden sm:block w-64 border-r bg-background p-6">
           <nav className="space-y-2">
             <Link
               href="/admin/dashboard"
@@ -67,7 +67,7 @@ export default function AdminLayout({
         </aside>
 
         {/* Admin Content */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-4 sm:p-6">
           {children}
         </main>
       </div>

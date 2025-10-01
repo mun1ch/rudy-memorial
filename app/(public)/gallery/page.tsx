@@ -538,14 +538,15 @@ export default function GalleryPage() {
                 }}
               >
                 {getPhotos().map((photo) => (
-                  <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent">
+                  <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent" style={{ backgroundColor: 'transparent' }}>
                     <Image
                       src={photo.url}
                       alt={photo.caption || "Photo of Rudy"}
                       width={1000}
                       height={800}
                       quality={100}
-                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} rounded-lg shadow-2xl bg-transparent`}
+                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} ${isFullscreen ? 'rounded-lg' : ''} bg-transparent`}
+                      style={{ backgroundColor: 'transparent' }}
                       priority={photo.id === selectedPhoto?.id}
                     />
                   </div>
