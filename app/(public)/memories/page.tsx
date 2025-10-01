@@ -12,14 +12,12 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
   return (
     <div className="container py-4">
       <div className="mx-auto max-w-4xl">
-        <div className="mb-8 text-center">
-          <Heart className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-4" />
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
-            Share Your Memory
-          </h1>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Help us celebrate Rudy&apos;s life by sharing your photos, stories, or both
-          </p>
+        {/* Tab Indicator */}
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <span className="text-primary">Share Memory</span>
+            <div className="w-8 h-px bg-gradient-to-r from-primary to-transparent"></div>
+          </div>
         </div>
 
         {/* Success Message */}
@@ -44,45 +42,53 @@ export default async function MemoriesPage({ searchParams }: MemoriesPageProps) 
           </Card>
         )}
 
-        {/* Choice Cards */}
-        <div className="grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 mb-6 sm:mb-12">
-          <Card className="memory-card hover:scale-105 transition-transform duration-200">
-            <CardHeader className="text-center p-2 sm:p-6">
-              <Camera className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
-              <CardTitle className="text-sm sm:text-2xl">Share a Photo</CardTitle>
-              <CardDescription className="text-xs sm:text-sm hidden sm:block">
-                Upload a photo with an optional caption
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center p-2 sm:p-6 pt-0">
-              <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                <Link href="/memories/photo">
-                  <Camera className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                  <span className="hidden sm:inline">Share Photo</span>
-                  <span className="sm:hidden">Photo</span>
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
+        {/* Choice Cards - Compact Design */}
+        <div className="max-w-lg mx-auto">
+          <div className="grid gap-2 grid-cols-2">
+            <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
+              <CardContent className="p-3 text-center">
+                <div className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-primary/10 to-primary/5 mb-2 group-hover:scale-110 transition-transform duration-300">
+                  <Camera className="h-3 w-3 text-primary" />
+                </div>
+                <h3 className="text-xs font-semibold text-foreground mb-1">
+                  <span className="sm:hidden">Share Photo</span>
+                  <span className="hidden sm:inline">Share a Photo</span>
+                </h3>
+                <p className="text-muted-foreground mb-2 text-xs leading-tight hidden sm:block">
+                  Upload a photo with an optional caption
+                </p>
+                <Button asChild size="sm" className="w-full text-xs font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm hover:shadow-md transition-all duration-300 h-7">
+                  <Link href="/memories/photo">
+                    <Camera className="mr-1 h-2 w-2" />
+                    <span className="sm:hidden">Photo</span>
+                    <span className="hidden sm:inline">Share Photo</span>
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
 
-          <Card className="memory-card hover:scale-105 transition-transform duration-200">
-            <CardHeader className="text-center p-2 sm:p-6">
-              <MessageCircle className="mx-auto h-6 w-6 sm:h-12 sm:w-12 text-primary mb-1 sm:mb-4" />
-              <CardTitle className="text-sm sm:text-2xl">Share Words</CardTitle>
-              <CardDescription className="text-xs sm:text-sm hidden sm:block">
-                Write a memory, story, or tribute to share with others
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center p-2 sm:p-6 pt-0">
-              <Button asChild size="sm" className="w-full min-h-[44px] text-xs sm:text-base">
-                <Link href="/memories/words">
-                  <MessageCircle className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+            <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
+              <CardContent className="p-3 text-center">
+                <div className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-secondary/10 to-secondary/5 mb-2 group-hover:scale-110 transition-transform duration-300">
+                  <MessageCircle className="h-3 w-3 text-secondary" />
+                </div>
+                <h3 className="text-xs font-semibold text-foreground mb-1">
+                  <span className="sm:hidden">Share Words</span>
                   <span className="hidden sm:inline">Share Words</span>
-                  <span className="sm:hidden">Words</span>
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
+                </h3>
+                <p className="text-muted-foreground mb-2 text-xs leading-tight hidden sm:block">
+                  Write a memory, story, or tribute to share with others
+                </p>
+                <Button asChild size="sm" className="w-full text-xs font-medium bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-sm hover:shadow-md transition-all duration-300 h-7">
+                  <Link href="/memories/words">
+                    <MessageCircle className="mr-1 h-2 w-2" />
+                    <span className="sm:hidden">Words</span>
+                    <span className="hidden sm:inline">Share Words</span>
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

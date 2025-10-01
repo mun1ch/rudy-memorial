@@ -487,88 +487,94 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
-      {/* Hero Section - Typography-First Design */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5"></div>
-        <div className="container relative py-12 md:py-16">
-          <div className="text-center">
-            {/* Hero Title - Properly Sized Typography */}
-            <div className="max-w-4xl mx-auto mb-6">
-              <h1 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight tracking-tight">
-                Memory{" "}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Gallery
-                </span>
-            </h1>
-            </div>
-            
-            {/* Hero Description - Properly Sized Typography */}
-            <div className="max-w-3xl mx-auto mb-8">
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                A beautiful collection of moments that capture Rudy&apos;s spirit and preserve precious memories for all to cherish.
-              </p>
-            </div>
-            {/* Action Cards - Mobile Optimized */}
-            <div className="max-w-4xl mx-auto">
-              <div className="grid gap-3 sm:gap-6 grid-cols-2 md:grid-cols-2">
-                <Card className="hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <CardContent className="p-3 sm:p-6 text-center">
-                    <Upload className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2 sm:mb-4" />
-                    <h3 className="text-sm sm:text-lg font-semibold text-foreground mb-2 sm:mb-3">
-                      <span className="sm:hidden">Share Photos</span>
-                      <span className="hidden sm:inline">Share Your Photos</span>
+      {/* Tab Indicator */}
+      <div className="container py-4">
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <span className="text-primary">Gallery</span>
+            <div className="w-8 h-px bg-gradient-to-r from-primary to-transparent"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Hero Section - Ultra Compact Mobile Design */}
+      <div className="container py-2 sm:py-6">
+        <div className="text-center">
+            {/* Action Cards - Ultra Compact Mobile Design */}
+            <div className="max-w-lg mx-auto mb-2 sm:mb-6">
+              <div className="grid gap-1 sm:gap-2 grid-cols-3 sm:grid-cols-3">
+                <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
+                  <CardContent className="p-2 sm:p-3 text-center">
+                    <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-gradient-to-br from-primary/10 to-primary/5 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <Upload className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary" />
+                    </div>
+                    <h3 className="text-xs font-semibold text-foreground mb-1">
+                      <span className="sm:hidden">Upload</span>
+                      <span className="hidden sm:inline">Upload Photos</span>
                     </h3>
-                    <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed hidden sm:block">
-                      Help preserve special moments and memories
+                    <p className="text-muted-foreground mb-1 sm:mb-2 text-xs leading-tight hidden sm:block">
+                      Add new photos to the gallery
                     </p>
-                    <Button asChild size="sm" className="w-full text-xs sm:text-sm">
+                    <Button asChild size="sm" className="w-full text-xs font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm hover:shadow-md transition-all duration-300 h-6 sm:h-7">
                       <Link href="/memories/photo">
-                        <Upload className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                        <span className="sm:hidden">Share</span>
-                        <span className="hidden sm:inline">Share Photos</span>
+                        <Upload className="mr-1 h-2 w-2" />
+                        <span className="sm:hidden">Upload</span>
+                        <span className="hidden sm:inline">Upload Photos</span>
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              {photos.length > 0 && (
-                  <Card className="hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                    <CardContent className="p-3 sm:p-6 text-center">
-                      <Play className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2 sm:mb-4" />
-                      <h3 className="text-sm sm:text-lg font-semibold text-foreground mb-2 sm:mb-3">
-                        <span className="sm:hidden">Slideshow</span>
-                        <span className="hidden sm:inline">View Slideshow</span>
-                      </h3>
-                      <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed hidden sm:block">
-                        Watch memories come to life
+                <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
+                  <CardContent className="p-2 sm:p-3 text-center">
+                    <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-gradient-to-br from-accent/10 to-accent/5 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <Download className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-accent" />
+                    </div>
+                    <h3 className="text-xs font-semibold text-foreground mb-1">
+                      <span className="sm:hidden">Download</span>
+                      <span className="hidden sm:inline">Download Photos</span>
+                    </h3>
+                    <p className="text-muted-foreground mb-1 sm:mb-2 text-xs leading-tight hidden sm:block">
+                      Download selected photos
                     </p>
                     <Button 
-                      onClick={startSlideshow}
-                        size="sm"
-                        className="w-full text-xs sm:text-sm"
+                      onClick={() => setIsSelectionMode(true)}
+                      size="sm" 
+                      className="w-full text-xs font-medium bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 shadow-sm hover:shadow-md transition-all duration-300 h-6 sm:h-7"
                     >
-                        <Play className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                        <span className="sm:hidden">Start</span>
+                      <Download className="mr-1 h-2 w-2" />
+                      <span className="sm:hidden">Download</span>
+                      <span className="hidden sm:inline">Download Photos</span>
+                    </Button>
+                </CardContent>
+              </Card>
+
+              {photos.length > 0 && (
+                  <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
+                    <CardContent className="p-2 sm:p-3 text-center">
+                      <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-gradient-to-br from-secondary/10 to-secondary/5 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-secondary" />
+                      </div>
+                      <h3 className="text-xs font-semibold text-foreground mb-1">
+                        <span className="sm:hidden">Slideshow</span>
+                        <span className="hidden sm:inline">Slideshow</span>
+                      </h3>
+                      <p className="text-muted-foreground mb-1 sm:mb-2 text-xs leading-tight hidden sm:block">
+                        Watch photos in slideshow
+                      </p>
+                      <Button 
+                        onClick={startSlideshow}
+                        size="sm"
+                        className="w-full text-xs font-medium bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-sm hover:shadow-md transition-all duration-300 h-6 sm:h-7"
+                      >
+                        <Play className="mr-1 h-2 w-2" />
+                        <span className="sm:hidden">Slideshow</span>
                         <span className="hidden sm:inline">Start Slideshow</span>
                     </Button>
                   </CardContent>
                 </Card>
               )}
             </div>
-            </div>
-            
-            {/* Mobile Download Button - Refined Typography */}
-            {!isSelectionMode && (
-              <div className="mt-8 sm:hidden">
-                <Button
-                  onClick={toggleSelectionMode}
-                  className="w-full flex items-center justify-center gap-2 py-4 text-lg font-semibold bg-primary hover:bg-primary/90"
-                >
-                  <Download className="h-5 w-5" />
-                  Download Photos
-                </Button>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -577,18 +583,6 @@ export default function GalleryPage() {
       <div className="container py-12">
         {photos.length > 0 ? (
           <>
-            {/* Gallery Header - Properly Sized Typography */}
-            <div className="text-center mb-8">
-              <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3">
-                Photo Collection
-              </h2>
-              <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-full px-4 py-2">
-                <Heart className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-muted-foreground">
-                  {photos.length} {photos.length === 1 ? "precious memory" : "precious memories"} preserved
-                </span>
-              </div>
-            </div>
 
             {/* Stats and Grid Size Selector */}
             <div className="flex items-center justify-between mb-8">
@@ -769,20 +763,20 @@ export default function GalleryPage() {
             </div>
           </>
         ) : (
-          /* Empty State - Properly Sized Typography */
-          <div className="text-center py-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full mb-6">
-              <Camera className="h-10 w-10 text-primary" />
+          /* Empty State - Premium Modern Design */
+          <div className="text-center py-20">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl mb-8 shadow-xl">
+              <Camera className="h-12 w-12 text-primary" />
             </div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4">
+            <h3 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
               No Photos Yet
             </h3>
-            <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-lg mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Be the first to share a beautiful memory of Rudy. Your photos will help create a lasting tribute that celebrates his life.
             </p>
-            <Button asChild size="default" className="px-6 py-2">
+            <Button asChild size="lg" className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-xl hover:shadow-2xl transition-all duration-300">
               <Link href="/memories/photo">
-                <Upload className="mr-2 h-4 w-4" />
+                <Upload className="mr-2 h-5 w-5" />
                 Share Your First Photo
               </Link>
             </Button>

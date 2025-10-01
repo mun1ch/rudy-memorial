@@ -152,18 +152,18 @@ export function PhotoForm() {
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader className="p-4 sm:p-6">
-        <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-          <Upload className="h-5 w-5 sm:h-6 sm:w-6" />
-          Upload Your Photo
+    <Card className="w-full max-w-2xl mx-auto">
+      <CardHeader className="p-3 sm:p-6">
+        <CardTitle className="flex items-center gap-2 text-base sm:text-xl">
+          <Upload className="h-4 w-4 sm:h-6 sm:w-6" />
+          Upload Your Photos
         </CardTitle>
-        <CardDescription className="text-sm sm:text-base">
-          Your photo will be added directly to the gallery
+        <CardDescription className="text-xs sm:text-base">
+          Your photos will be added directly to the gallery
         </CardDescription>
       </CardHeader>
-          <form onSubmit={handleSubmit} className="space-y-6">
-        <CardContent className="space-y-4 sm:space-y-6 p-4 sm:p-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        <CardContent className="space-y-3 sm:space-y-6 p-3 sm:p-6">
           {submitError && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
               <p className="text-red-700 text-sm">{submitError}</p>
@@ -225,26 +225,30 @@ export function PhotoForm() {
             <label htmlFor="photo" className="block text-sm font-medium text-foreground mb-2">
               Photos <span className="text-destructive">*</span>
             </label>
-                <Input
-                  id="photo"
-                  name="photo"
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  required
-                  disabled={isSubmitting}
-                  onChange={handleFileChange}
-                  className="block w-full text-sm text-muted-foreground h-12
-                    file:mr-4 file:py-3 file:px-4
-                    file:rounded-md file:border-0
-                    file:text-sm file:font-semibold
-                    file:bg-primary file:text-primary-foreground
-                    hover:file:bg-primary/90
-                    disabled:opacity-50 disabled:cursor-not-allowed"
-                />
-            <p className="mt-2 text-sm text-muted-foreground">
-              Select multiple photos at once! Max file size: 50MB each. Supported formats: JPG, PNG, HEIC, WebP, TIFF. Original quality preserved.
-            </p>
+            <div className="flex gap-3">
+              <Input
+                id="photo"
+                name="photo"
+                type="file"
+                accept="image/*"
+                multiple
+                required
+                disabled={isSubmitting}
+                onChange={handleFileChange}
+                className="flex-1 text-sm text-muted-foreground h-14 sm:h-12
+                  file:hidden
+                  disabled:opacity-50 disabled:cursor-not-allowed
+                  cursor-pointer"
+              />
+              <Button
+                type="button"
+                onClick={() => document.getElementById('photo')?.click()}
+                disabled={isSubmitting}
+                className="h-14 sm:h-12 px-6 sm:px-4 whitespace-nowrap"
+              >
+                Browse
+              </Button>
+            </div>
           </div>
 
           {/* Thumbnail Preview */}
@@ -279,7 +283,7 @@ export function PhotoForm() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-1.5 sm:gap-4">
                 {getCurrentPageFiles().map((file, index) => {
                   const globalIndex = (currentPage - 1) * filesPerPage + index;
                   return (
@@ -295,10 +299,10 @@ export function PhotoForm() {
                         type="button"
                         variant="destructive"
                         size="icon"
-                        className="absolute -top-2 -right-2 h-6 w-6 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute -top-1 -right-1 h-5 w-5 sm:h-6 sm:w-6 rounded-full opacity-70 group-hover:opacity-100 transition-opacity"
                         onClick={() => removeFile(globalIndex)}
                       >
-                        <X className="h-3 w-3" />
+                        <X className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                       </Button>
                       <div className="mt-2">
                         <p className="text-xs font-medium truncate" title={file.name}>
@@ -316,24 +320,24 @@ export function PhotoForm() {
           )}
 
           <div>
-            <label htmlFor="caption" className="block text-sm font-medium text-foreground mb-2">
+            <label htmlFor="caption" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
               Caption (Optional)
             </label>
             <Textarea
               id="caption"
               name="caption"
-              rows={3}
-              placeholder="Add a caption for your photo..."
+              rows={2}
+              placeholder="Add a caption for your photos..."
               disabled={isSubmitting}
-              className="resize-y disabled:opacity-50 disabled:cursor-not-allowed"
+              className="resize-y disabled:opacity-50 disabled:cursor-not-allowed text-sm"
             />
-            <p className="mt-2 text-sm text-muted-foreground">
-              A short description or memory associated with this photo.
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">
+              A short description or memory associated with these photos.
             </p>
           </div>
 
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+            <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
               Your Name (Optional)
             </label>
             <Input
@@ -342,10 +346,10 @@ export function PhotoForm() {
               type="text"
               placeholder="e.g., John Doe"
               disabled={isSubmitting}
-              className="disabled:opacity-50 disabled:cursor-not-allowed"
+              className="disabled:opacity-50 disabled:cursor-not-allowed text-sm h-10 sm:h-11"
             />
-            <p className="mt-2 text-sm text-muted-foreground">
-              Your name will be displayed with the photo if provided
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">
+              Your name will be displayed with the photos if provided
             </p>
           </div>
 
@@ -355,7 +359,7 @@ export function PhotoForm() {
             </p>
             <Button 
               type="submit" 
-              className="w-full sm:w-auto text-base sm:text-lg px-6 py-3 h-12 sm:h-auto" 
+              className="w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-3 h-11 sm:h-auto" 
               disabled={isSubmitting || selectedFiles.length === 0}
             >
               {isSubmitting ? (

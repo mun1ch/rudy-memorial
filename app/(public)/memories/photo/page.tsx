@@ -7,15 +7,12 @@ export default function PhotoUploadPage() {
   return (
     <div className="container py-4">
       <div className="mx-auto max-w-2xl">
-
-        <div className="mb-8 text-center">
-          <Camera className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-primary mb-4" />
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
-            Share Your Photos
-          </h1>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Upload photos to help preserve special memories of Rudy
-          </p>
+        {/* Tab Indicator */}
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <span className="text-primary">Share Photos</span>
+            <div className="w-8 h-px bg-gradient-to-r from-primary to-transparent"></div>
+          </div>
         </div>
 
         {/* Photo Upload Form */}

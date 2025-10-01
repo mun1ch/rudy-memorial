@@ -46,22 +46,22 @@ export default function MemorialWallPage() {
   return (
     <div className="container py-4">
       <div className="mx-auto max-w-4xl">
-        <div className="mb-4 text-center">
-          <Heart className="mx-auto h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2" />
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
-            Memorial Wall
-          </h1>
-          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
-            Memories and tributes shared by friends and family
-          </p>
-          <div className="mt-3">
-            <Button asChild size="default" className="min-h-[44px]">
-              <Link href="/memories/words">
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Share Your Memory
-              </Link>
-            </Button>
+        {/* Tab Indicator */}
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <span className="text-primary">Memorial Wall</span>
+            <div className="w-8 h-px bg-gradient-to-r from-primary to-transparent"></div>
           </div>
+        </div>
+
+        {/* Share Button */}
+        <div className="text-center mb-6">
+          <Button asChild size="default" className="min-h-[44px]">
+            <Link href="/memories/words">
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Share Your Memory
+            </Link>
+          </Button>
         </div>
 
         {loading ? (
