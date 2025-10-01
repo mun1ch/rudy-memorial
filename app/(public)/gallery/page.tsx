@@ -503,74 +503,77 @@ export default function GalleryPage() {
             {/* Action Cards - Ultra Compact Mobile Design */}
             <div className="max-w-lg mx-auto mb-2 sm:mb-6">
               <div className="grid gap-1 sm:gap-2 grid-cols-3 sm:grid-cols-3">
-                <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
-                  <CardContent className="p-2 sm:p-3 text-center">
-                    <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-gradient-to-br from-primary/10 to-primary/5 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                      <Upload className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary" />
+                <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 backdrop-blur-sm hover:from-primary/10 hover:to-primary/15">
+                  <CardContent className="p-1 sm:p-3 text-center">
+                    <div className="hidden sm:block">
+                      <div className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-primary/20 to-primary/10 mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <Upload className="h-3 w-3 text-primary" />
+                      </div>
+                      <h3 className="text-xs font-semibold text-foreground mb-1">
+                        Upload Photos
+                      </h3>
+                      <p className="text-muted-foreground mb-2 text-xs leading-tight">
+                        Add new photos to the gallery
+                      </p>
                     </div>
-                    <h3 className="text-xs font-semibold text-foreground mb-1">
-                      <span className="sm:hidden">Upload</span>
-                      <span className="hidden sm:inline">Upload Photos</span>
-                    </h3>
-                    <p className="text-muted-foreground mb-1 sm:mb-2 text-xs leading-tight hidden sm:block">
-                      Add new photos to the gallery
-                    </p>
-                    <Button asChild size="sm" className="w-full text-xs font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm hover:shadow-md transition-all duration-300 h-6 sm:h-7">
+                    <Button asChild size="sm" className="w-full text-xs font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm hover:shadow-md transition-all duration-300 h-8 sm:h-7">
                       <Link href="/memories/photo">
-                        <Upload className="mr-1 h-2 w-2" />
+                        <Upload className="mr-1 h-4 w-4 sm:h-3 sm:w-3" />
                         <span className="sm:hidden">Upload</span>
                         <span className="hidden sm:inline">Upload Photos</span>
-                    </Link>
-                  </Button>
+                      </Link>
+                    </Button>
                 </CardContent>
               </Card>
 
-                <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
-                  <CardContent className="p-2 sm:p-3 text-center">
-                    <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-gradient-to-br from-accent/10 to-accent/5 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                      <Download className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-accent" />
+                <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 backdrop-blur-sm hover:from-accent/10 hover:to-accent/15">
+                  <CardContent className="p-1 sm:p-3 text-center">
+                    <div className="hidden sm:block">
+                      <div className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-accent/20 to-accent/10 mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <Download className="h-3 w-3 text-accent" />
+                      </div>
+                      <h3 className="text-xs font-semibold text-foreground mb-1">
+                        Download Photos
+                      </h3>
+                      <p className="text-muted-foreground mb-2 text-xs leading-tight">
+                        Download selected photos
+                      </p>
                     </div>
-                    <h3 className="text-xs font-semibold text-foreground mb-1">
-                      <span className="sm:hidden">Download</span>
-                      <span className="hidden sm:inline">Download Photos</span>
-                    </h3>
-                    <p className="text-muted-foreground mb-1 sm:mb-2 text-xs leading-tight hidden sm:block">
-                      Download selected photos
-                    </p>
                     <Button 
                       onClick={() => setIsSelectionMode(true)}
                       size="sm" 
-                      className="w-full text-xs font-medium bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 shadow-sm hover:shadow-md transition-all duration-300 h-6 sm:h-7"
+                      className="w-full text-xs font-medium bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 shadow-sm hover:shadow-md transition-all duration-300 h-8 sm:h-7"
                     >
-                      <Download className="mr-1 h-2 w-2" />
+                      <Download className="mr-1 h-4 w-4 sm:h-3 sm:w-3" />
                       <span className="sm:hidden">Download</span>
                       <span className="hidden sm:inline">Download Photos</span>
                     </Button>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
 
-              {photos.length > 0 && (
-                  <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-sm hover:shadow-md border-0 bg-gradient-to-br from-card/95 to-card/85 backdrop-blur-sm">
-                    <CardContent className="p-2 sm:p-3 text-center">
-                      <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-gradient-to-br from-secondary/10 to-secondary/5 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                        <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-secondary" />
+                {photos.length > 0 && (
+                  <Card className="group hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 backdrop-blur-sm hover:from-secondary/10 hover:to-secondary/15">
+                    <CardContent className="p-1 sm:p-3 text-center">
+                      <div className="hidden sm:block">
+                        <div className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-secondary/20 to-secondary/10 mb-2 group-hover:scale-110 transition-transform duration-300">
+                          <Play className="h-3 w-3 text-secondary" />
+                        </div>
+                        <h3 className="text-xs font-semibold text-foreground mb-1">
+                          Slideshow
+                        </h3>
+                        <p className="text-muted-foreground mb-2 text-xs leading-tight">
+                          Watch photos in slideshow
+                        </p>
                       </div>
-                      <h3 className="text-xs font-semibold text-foreground mb-1">
-                        <span className="sm:hidden">Slideshow</span>
-                        <span className="hidden sm:inline">Slideshow</span>
-                      </h3>
-                      <p className="text-muted-foreground mb-1 sm:mb-2 text-xs leading-tight hidden sm:block">
-                        Watch photos in slideshow
-                      </p>
                       <Button 
                         onClick={startSlideshow}
                         size="sm"
-                        className="w-full text-xs font-medium bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-sm hover:shadow-md transition-all duration-300 h-6 sm:h-7"
+                        className="w-full text-xs font-medium bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-sm hover:shadow-md transition-all duration-300 h-8 sm:h-7"
                       >
-                        <Play className="mr-1 h-2 w-2" />
+                        <Play className="mr-1 h-4 w-4 sm:h-3 sm:w-3" />
                         <span className="sm:hidden">Slideshow</span>
                         <span className="hidden sm:inline">Start Slideshow</span>
-                    </Button>
+                      </Button>
                   </CardContent>
                 </Card>
               )}
