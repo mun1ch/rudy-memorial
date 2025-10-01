@@ -10,40 +10,39 @@
      · serverActions
 
  ✓ Starting...
- ✓ Ready in 1032ms
+ ✓ Ready in 2.4s
  ○ Compiling / ...
- ✓ Compiled / in 2.3s
- GET / 200 in 2835ms
+ ✓ Compiled / in 2.6s
+ GET / 200 in 3631ms
+ GET / 200 in 114ms
+ GET / 200 in 115ms
+ ✓ Compiled in 123ms
  ○ Compiling /gallery ...
- ✓ Compiled /gallery in 1071ms
- GET /gallery 200 in 1221ms
- ✓ Compiled /api/photos in 389ms
- GET /api/photos 200 in 874ms
- ✓ Compiled in 352ms
- GET /gallery 200 in 216ms
- GET /api/photos 200 in 460ms
- ✓ Compiled in 99ms
- ✓ Compiled in 144ms
- GET /gallery 200 in 267ms
- GET /api/photos 200 in 676ms
- ✓ Compiled in 377ms
- GET /api/photos 200 in 629ms
- GET / 200 in 129ms
- ✓ Compiled /icon.svg in 121ms
- GET /icon.svg?icon.5e81ae7e.svg 200 in 365ms
- ✓ Compiled in 119ms
- GET / 200 in 81ms
- GET / 200 in 84ms
- ✓ Compiled in 97ms
- ✓ Compiled in 95ms
- ✓ Compiled in 95ms
- ✓ Compiled in 83ms
- ✓ Compiled in 99ms
- ✓ Compiled in 74ms
- ✓ Compiled in 113ms
- GET / 200 in 284ms
- GET /gallery 200 in 123ms
- GET /api/photos 200 in 495ms
- GET /api/photos 200 in 521ms
- ✓ Compiled in 133ms
- ✓ Compiled in 58ms
+ ✓ Compiled /gallery in 875ms
+ GET /gallery 200 in 983ms
+ ✓ Compiled /api/photos in 473ms
+ GET /api/photos 200 in 1470ms
+ GET /api/photos 200 in 1643ms
+ ✓ Compiled /memorial-wall in 208ms
+ GET /memorial-wall 200 in 273ms
+ ✓ Compiled /api/tributes in 166ms
+ GET /api/tributes 200 in 1291ms
+ GET /api/tributes 200 in 1453ms
+ GET / 200 in 252ms
+ GET /memorial-wall 200 in 136ms
+ ✓ Compiled in 78ms
+ ✓ Compiled /memories in 191ms
+ GET /memories 200 in 252ms
+ GET /gallery 200 in 73ms
+ GET /api/photos 200 in 464ms
+ GET /api/photos 200 in 458ms
+ GET / 200 in 137ms
+ GET /memories 200 in 76ms
+ GET / 200 in 166ms
+ GET /memorial-wall 200 in 101ms
+ GET /api/tributes 200 in 1100ms
+ GET /api/tributes 200 in 1124ms
+ GET / 200 in 69ms
+ GET /api/tributes 200 in 974ms
+ GET /api/tributes 200 in 1098ms
+ GET / 200 in 97ms

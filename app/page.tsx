@@ -10,19 +10,23 @@ export default function HomePage() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.01)_0%,transparent_70%)]"></div>
       
       {/* Main content container with proper margins */}
-      <div className="relative z-10 text-center max-w-lg mx-auto">
+      <div className="relative z-10 text-center">
         {/* Hero Title - Single line, properly sized */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight tracking-tight whitespace-nowrap">
-          In Memory of{" "}
-          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Rudy
-          </span>
-        </h1>
+        <div className="max-w-lg mx-auto mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight whitespace-nowrap">
+            In Memory of{" "}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Rudy
+            </span>
+          </h1>
+        </div>
         
-        {/* Hero Description - Better sizing */}
-        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-          A place to remember, share, and celebrate the life of someone special. Join us in celebrating Rudy&apos;s life by sharing your memories, photos, and moments that keep his spirit alive.
-        </p>
+        {/* Hero Description - Wider than title */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
+            A place to remember, share, and celebrate the life of someone special. Join us in celebrating Rudy&apos;s life by sharing your memories, photos, and moments that keep his spirit alive.
+          </p>
+        </div>
       </div>
       
       {/* Navigation with proper spacing and borders */}
