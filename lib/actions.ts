@@ -125,14 +125,10 @@ export async function submitPhoto(formData: FormData) {
       throw new Error("Please select at least one photo to upload.");
     }
 
-    // Filter out empty files and validate file types
+    // Filter out empty files only; allow all types (we'll derive contentType by extension)
     const validFiles = files.filter(file => {
       if (file.size === 0) {
         console.log(`⚠️ Skipping empty file: ${file.name}`);
-        return false;
-      }
-      if (!file.type.startsWith('image/')) {
-        console.log(`⚠️ Skipping non-image file: ${file.name} (${file.type})`);
         return false;
       }
       return true;
@@ -141,8 +137,7 @@ export async function submitPhoto(formData: FormData) {
     if (validFiles.length === 0) {
       const totalFiles = files.length;
       const emptyFiles = files.filter(f => f.size === 0).length;
-      const invalidTypes = files.filter(f => !f.type.startsWith('image/')).length;
-      throw new Error(`No valid image files found. Total files: ${totalFiles}, Empty files: ${emptyFiles}, Invalid types: ${invalidTypes}. Please select valid image files.`);
+      throw new Error(`No valid files found. Total files: ${totalFiles}, Empty files: ${emptyFiles}. Please select non-empty files.`);
     }
 
     console.log(`✅ Processing ${validFiles.length} valid files`);
@@ -157,6 +152,49 @@ export async function submitPhoto(formData: FormData) {
     const newPhotos = [];
     const baseTimestamp = Date.now();
     
+    // Helper to derive contentType from extension when browser does not provide one
+    const getContentTypeFromExtension = (ext: string): string => {
+      const e = ext.toLowerCase();
+      switch (e) {
+        case 'jpg':
+        case 'jpeg':
+          return 'image/jpeg';
+        case 'png':
+          return 'image/png';
+        case 'gif':
+          return 'image/gif';
+        case 'webp':
+          return 'image/webp';
+        case 'heic':
+          return 'image/heic';
+        case 'heif':
+          return 'image/heif';
+        case 'tif':
+        case 'tiff':
+          return 'image/tiff';
+        case 'dng':
+          return 'image/x-adobe-dng';
+        case 'cr2':
+          return 'image/x-canon-cr2';
+        case 'nef':
+          return 'image/x-nikon-nef';
+        case 'arw':
+          return 'image/x-sony-arw';
+        case 'raf':
+          return 'image/x-fuji-raf';
+        case 'orf':
+          return 'image/x-olympus-orf';
+        case 'rw2':
+          return 'image/x-panasonic-rw2';
+        case 'srw':
+          return 'image/x-samsung-srw';
+        case 'raw':
+          return 'application/octet-stream';
+        default:
+          return 'application/octet-stream';
+      }
+    };
+
     for (let i = 0; i < validFiles.length; i++) {
       const file = validFiles[i];
       console.log(`🔄 Processing file ${i + 1}/${validFiles.length}: ${file.name}`);
@@ -186,10 +224,28 @@ export async function submitPhoto(formData: FormData) {
       // Upload file to Vercel Blob storage
       console.log(`💾 Uploading file ${i + 1} to Vercel Blob...`);
       const { put } = await import('@vercel/blob');
-      const blob = await put(fileName, fileBuffer, {
-        access: 'public',
-        addRandomSuffix: true
-      });
+      const token = process.env.BLOB_READ_WRITE_TOKEN;
+      if (!token) {
+        console.error("❌ Missing BLOB_READ_WRITE_TOKEN env var");
+        throw new Error("Storage token not configured");
+      }
+      let blob;
+      try {
+        const derivedContentType = getContentTypeFromExtension(fileExtension);
+        blob = await put(fileName, fileBuffer, {
+          access: 'public',
+          addRandomSuffix: true,
+          contentType: validatedData.file.type || derivedContentType,
+          token
+        });
+      } catch (uploadError) {
+        console.error("💥 Blob put failed", {
+          message: (uploadError as any)?.message,
+          name: (uploadError as any)?.name,
+          stack: (uploadError as any)?.stack,
+        });
+        throw uploadError;
+      }
       console.log(`✅ File ${i + 1} uploaded to Vercel Blob:`, blob.url);
       
       // Extract the actual filename from the blob URL to get the photo ID
@@ -210,7 +266,9 @@ export async function submitPhoto(formData: FormData) {
       
       await put(metadataFilename, metadataBlob, {
         access: 'public',
-        addRandomSuffix: false
+        addRandomSuffix: false,
+        contentType: 'application/json',
+        token
       });
       console.log(`✅ Metadata saved for file ${i + 1}:`, metadataFilename);
       

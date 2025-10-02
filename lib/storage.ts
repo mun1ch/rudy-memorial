@@ -12,10 +12,9 @@ export async function getPhotos(): Promise<PhotosResponse> {
     }
     const { blobs } = await list({ token });
     
-    // Filter for photo files (files that start with 'photo_' and are images)
+    // Filter for photo files (files that start with 'photo_' and are not metadata json)
     const photoBlobs = blobs.filter(blob => 
-      blob.pathname.startsWith('photo_') && 
-      (blob.pathname.endsWith('.jpg') || blob.pathname.endsWith('.jpeg') || blob.pathname.endsWith('.png') || blob.pathname.endsWith('.gif'))
+      blob.pathname.startsWith('photo_') && !blob.pathname.endsWith('_meta.json')
     );
     
     // Load photos with their metadata
@@ -60,8 +59,25 @@ export async function getPhotos(): Promise<PhotosResponse> {
           caption: metadata.caption,
           contributorName: metadata.contributorName,
           fileSize: blob.size,
-          mimeType: blob.pathname.endsWith('.png') ? 'image/png' : 
-                    blob.pathname.endsWith('.gif') ? 'image/gif' : 'image/jpeg',
+          mimeType: (() => {
+            const p = blob.pathname.toLowerCase();
+            if (p.endsWith('.png')) return 'image/png';
+            if (p.endsWith('.gif')) return 'image/gif';
+            if (p.endsWith('.heic')) return 'image/heic';
+            if (p.endsWith('.heif')) return 'image/heif';
+            if (p.endsWith('.webp')) return 'image/webp';
+            if (p.endsWith('.tif') || p.endsWith('.tiff')) return 'image/tiff';
+            if (p.endsWith('.dng')) return 'image/x-adobe-dng';
+            if (p.endsWith('.cr2')) return 'image/x-canon-cr2';
+            if (p.endsWith('.nef')) return 'image/x-nikon-nef';
+            if (p.endsWith('.arw')) return 'image/x-sony-arw';
+            if (p.endsWith('.raf')) return 'image/x-fuji-raf';
+            if (p.endsWith('.orf')) return 'image/x-olympus-orf';
+            if (p.endsWith('.rw2')) return 'image/x-panasonic-rw2';
+            if (p.endsWith('.srw')) return 'image/x-samsung-srw';
+            if (p.endsWith('.jpg') || p.endsWith('.jpeg')) return 'image/jpeg';
+            return 'application/octet-stream';
+          })(),
           md5Hash: '', // We don't have this from blob metadata
           uploadedAt: new Date(timestamp).toISOString(),
           approved: true,

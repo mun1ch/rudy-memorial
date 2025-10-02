@@ -45,3 +45,6 @@ next-env.d.ts
 .dev-server.log
 .dev-server.pid
 *.pid
+*.log
+.*.log
+.dev-server.log
