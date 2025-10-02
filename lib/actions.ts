@@ -317,8 +317,8 @@ export async function submitPhoto(formData: FormData) {
     revalidatePath("/gallery");
     revalidatePath("/memories");
     
-    // Return success response instead of redirecting
-    return { success: true, message: `${newPhotos.length} photo(s) uploaded successfully!` };
+    // Return success response with uploaded photos for client-side verification
+    return { success: true, message: `${newPhotos.length} photo(s) uploaded successfully!`, photos: newPhotos };
   } catch (error) {
     console.error("❌ Error submitting photo:", error);
     if (error instanceof Error) {

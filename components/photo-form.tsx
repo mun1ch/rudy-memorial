@@ -100,6 +100,9 @@ export function PhotoForm() {
           
           console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name} (${file.size} bytes, ${file.type})`);
           const result = await submitPhoto(singleFileFormData);
+          if (!result?.success || !Array.isArray(result.photos) || result.photos.length === 0) {
+            throw new Error('Server reported success but returned no photos');
+          }
           
           if (result?.success) {
             successCount++;
@@ -189,9 +192,14 @@ export function PhotoForm() {
                             <p className="text-gray-600 text-sm mt-1">
                               {uploadProgress.current} of {uploadProgress.total} complete
                             </p>
-                            <p className="text-gray-500 text-xs mt-1 truncate">
-                              {uploadProgress.stage}: {uploadProgress.currentFile}
-                            </p>
+                            <div className="text-gray-500 text-xs mt-1 max-w-full">
+                              <span className="block truncate sm:hidden" title={uploadProgress.currentFile}>
+                                {uploadProgress.stage}: {uploadProgress.currentFile}
+                              </span>
+                              <span className="hidden sm:block break-all whitespace-normal" title={uploadProgress.currentFile}>
+                                {uploadProgress.stage}: {uploadProgress.currentFile}
+                              </span>
+                            </div>
                             <div className="mt-3">
                               <div className="w-full bg-gray-200 rounded-full h-2">
                                 <div 
