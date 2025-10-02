@@ -239,11 +239,7 @@ export async function submitPhoto(formData: FormData) {
           token
         });
       } catch (uploadError) {
-        console.error("💥 Blob put failed", {
-          message: (uploadError as any)?.message,
-          name: (uploadError as any)?.name,
-          stack: (uploadError as any)?.stack,
-        });
+        console.error("💥 Blob put failed", uploadError);
         throw uploadError;
       }
       console.log(`✅ File ${i + 1} uploaded to Vercel Blob:`, blob.url);

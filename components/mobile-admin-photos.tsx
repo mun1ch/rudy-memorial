@@ -43,7 +43,7 @@ export function MobileAdminPhotos() {
   const { showProgress, progress, isCancelledRef, setShowProgress, setProgress } = useProgress();
 
   // Use shared hook instead of duplicate loading logic
-  const { photos: hookPhotos, loading: hookLoading, reload: reloadPhotos } = usePhotos();
+  const { photos: hookPhotos, loading: hookLoading } = usePhotos();
   
   useEffect(() => {
     setPhotos(hookPhotos);

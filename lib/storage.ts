@@ -279,11 +279,11 @@ export async function addTribute(tribute: Tribute): Promise<void> {
   }
 }
 
-export async function updateTribute(tributeId: string, updates: Partial<Tribute>): Promise<void> {
+export async function updateTribute(_tributeId: string, updates: Partial<Tribute>): Promise<void> {
   const result = await getTributes();
   if (result.success && result.tributes) {
     const tributes = result.tributes;
-    const index = tributes.findIndex(t => t.id === tributeId);
+    const index = tributes.findIndex(t => t.id === _tributeId);
     if (index !== -1) {
       tributes[index] = { ...tributes[index], ...updates };
       await saveTributes();
