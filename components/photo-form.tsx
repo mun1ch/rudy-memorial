@@ -94,7 +94,11 @@ export function PhotoForm() {
         
         try {
           console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name} (${file.size} bytes, ${file.type})`);
-          const blobResult = await upload(file.name, file, {
+          const ext = (file.name.split('.').pop() || 'bin').toLowerCase();
+          const timestamp = Date.now();
+          const random = Math.random().toString(36).slice(2, 10);
+          const uniquePath = `photo_${timestamp}-${random}.${ext}`;
+          const blobResult = await upload(uniquePath, file, {
             access: 'public',
             handleUploadUrl: '/api/upload',
           });
