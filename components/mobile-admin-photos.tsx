@@ -18,7 +18,7 @@ import {
   Loader2
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
+import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos, revalidateAdminData } from "@/lib/admin-actions";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
@@ -131,7 +131,7 @@ export function MobileAdminPhotos() {
       }));
 
       try {
-        await deletePhoto(photoId);
+        await deletePhoto(photoId, { skipRevalidate: true });
         setProgress(prev => ({ ...prev, successCount: prev.successCount + 1 }));
         setPhotos(prev => prev.filter(p => p.id !== photoId));
       } catch (error) {
@@ -143,6 +143,8 @@ export function MobileAdminPhotos() {
       }
     }
 
+    // Single revalidate after batch completes
+    await revalidateAdminData();
     setProgress(prev => ({ ...prev, stage: "Delete operation complete" }));
     setSelectedPhotos(new Set());
     setTimeout(() => setShowProgress(false), 2000);
@@ -182,7 +184,7 @@ export function MobileAdminPhotos() {
       }));
 
       try {
-        await hidePhoto(photoId);
+        await hidePhoto(photoId, { skipRevalidate: true });
         setProgress(prev => ({ ...prev, successCount: prev.successCount + 1 }));
         setPhotos(prev => prev.map(p => p.id === photoId ? { ...p, hidden: true } : p));
       } catch (error) {
@@ -194,6 +196,8 @@ export function MobileAdminPhotos() {
       }
     }
 
+    // Single revalidate after batch completes
+    await revalidateAdminData();
     setProgress(prev => ({ ...prev, stage: "Hide operation complete" }));
     setSelectedPhotos(new Set());
     setTimeout(() => setShowProgress(false), 2000);
@@ -233,7 +237,7 @@ export function MobileAdminPhotos() {
       }));
 
       try {
-        await unhidePhoto(photoId);
+        await unhidePhoto(photoId, { skipRevalidate: true });
         setProgress(prev => ({ ...prev, successCount: prev.successCount + 1 }));
         setPhotos(prev => prev.map(p => p.id === photoId ? { ...p, hidden: false } : p));
       } catch (error) {
@@ -245,6 +249,8 @@ export function MobileAdminPhotos() {
       }
     }
 
+    // Single revalidate after batch completes
+    await revalidateAdminData();
     setProgress(prev => ({ ...prev, stage: "Unhide operation complete" }));
     setSelectedPhotos(new Set());
     setTimeout(() => setShowProgress(false), 2000);
@@ -465,7 +471,15 @@ export function MobileAdminPhotos() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => photo.hidden ? unhidePhoto(photo.id) : hidePhoto(photo.id)}
+                onClick={async () => {
+                  if (photo.hidden) {
+                    await unhidePhoto(photo.id, { skipRevalidate: true });
+                    setPhotos(prev => prev.map(p => p.id === photo.id ? { ...p, hidden: false } : p));
+                  } else {
+                    await hidePhoto(photo.id, { skipRevalidate: true });
+                    setPhotos(prev => prev.map(p => p.id === photo.id ? { ...p, hidden: true } : p));
+                  }
+                }}
                 className="h-6 w-6 p-0 flex-1"
               >
                 {photo.hidden ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
@@ -473,7 +487,10 @@ export function MobileAdminPhotos() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => deletePhoto(photo.id)}
+                onClick={async () => {
+                  await deletePhoto(photo.id, { skipRevalidate: true });
+                  setPhotos(prev => prev.filter(p => p.id !== photo.id));
+                }}
                 className="h-6 w-6 p-0 flex-1 text-destructive hover:text-destructive"
               >
                 <Trash2 className="h-3 w-3" />

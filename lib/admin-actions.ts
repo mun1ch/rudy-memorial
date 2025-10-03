@@ -7,14 +7,17 @@ import { Photo, Tribute } from "./types";
 
 
 
-export async function hidePhoto(photoId: string) {
+export async function hidePhoto(photoId: string, options?: { skipRevalidate?: boolean }) {
   try {
     // Hide photo using new individual file system
     const { hidePhoto: hidePhotoFromStorage } = await import('./storage');
     await hidePhotoFromStorage(photoId);
     
-    revalidatePath("/gallery");
-    revalidatePath("/admin/dashboard");
+    if (!options?.skipRevalidate) {
+      revalidatePath("/gallery");
+      revalidatePath("/admin/dashboard");
+      revalidatePath("/admin/photos");
+    }
     
     return { success: true };
   } catch (error) {
@@ -23,14 +26,17 @@ export async function hidePhoto(photoId: string) {
   }
 }
 
-export async function unhidePhoto(photoId: string) {
+export async function unhidePhoto(photoId: string, options?: { skipRevalidate?: boolean }) {
   try {
     // Unhide photo using new individual file system
     const { unhidePhoto: unhidePhotoFromStorage } = await import('./storage');
     await unhidePhotoFromStorage(photoId);
     
-    revalidatePath("/gallery");
-    revalidatePath("/admin/dashboard");
+    if (!options?.skipRevalidate) {
+      revalidatePath("/gallery");
+      revalidatePath("/admin/dashboard");
+      revalidatePath("/admin/photos");
+    }
     
     return { success: true };
   } catch (error) {
@@ -39,7 +45,7 @@ export async function unhidePhoto(photoId: string) {
   }
 }
 
-export async function deletePhoto(photoId: string) {
+export async function deletePhoto(photoId: string, options?: { skipRevalidate?: boolean }) {
   try {
     console.log(`🗑️ Starting delete operation for photo: ${photoId}`);
     
@@ -47,14 +53,29 @@ export async function deletePhoto(photoId: string) {
     const { deletePhoto: deletePhotoFromStorage } = await import('./storage');
     await deletePhotoFromStorage(photoId);
     
-    revalidatePath("/gallery");
-    revalidatePath("/admin/dashboard");
+    if (!options?.skipRevalidate) {
+      revalidatePath("/gallery");
+      revalidatePath("/admin/dashboard");
+      revalidatePath("/admin/photos");
+    }
     
     console.log(`🎉 Successfully deleted photo: ${photoId}`);
     return { success: true };
   } catch (error) {
     console.error(`💥 Error deleting photo ${photoId}:`, error);
     return { success: false, error: `Failed to delete photo: ${error instanceof Error ? error.message : 'Unknown error'}` };
+  }
+}
+
+export async function revalidateAdminData() {
+  try {
+    revalidatePath("/gallery");
+    revalidatePath("/admin/dashboard");
+    revalidatePath("/admin/photos");
+    return { success: true };
+  } catch (error) {
+    console.error("Error revalidating admin data:", error);
+    return { success: false, error: "Failed to revalidate" };
   }
 }
 

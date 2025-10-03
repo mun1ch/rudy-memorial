@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Eye, Heart, Camera } from "lucide-react";
 
 export default function HomePage() {
@@ -21,6 +22,19 @@ export default function HomePage() {
           </h1>
         </div>
         
+        {/* Insert photo between title and description */}
+        <div className="max-w-xl mx-auto mb-8">
+          <Image
+            src="/pxl-home.jpg"
+            alt="Rudy smiling with family"
+            width={3000}
+            height={2000}
+            priority
+            className="w-full h-auto rounded-xl border border-border/50 shadow-lg object-contain"
+            sizes="(max-width: 768px) 90vw, 35vw"
+          />
+        </div>
+
         {/* Hero Description - Wider than title */}
         <div className="max-w-4xl mx-auto mb-12">
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
