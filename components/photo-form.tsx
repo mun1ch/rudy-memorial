@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Upload, Send, Loader2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { submitPhoto } from "@/lib/actions";
+import { upload } from "@vercel/blob/client";
 import { useState } from "react";
 
 export function PhotoForm() {
@@ -80,7 +81,7 @@ export function PhotoForm() {
     const errors: string[] = [];
     
     try {
-      // Upload files sequentially with REAL progress tracking
+      // Upload files sequentially with REAL progress tracking (direct-to-Blob)
       for (let i = 0; i < totalFiles; i++) {
         const file = files[i];
         
@@ -92,14 +93,18 @@ export function PhotoForm() {
         });
         
         try {
-          // Create individual form data for this file
-          const singleFileFormData = new FormData();
-          singleFileFormData.append('photo', file);
-          if (caption) singleFileFormData.append('caption', caption);
-          if (name) singleFileFormData.append('name', name);
-          
           console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name} (${file.size} bytes, ${file.type})`);
-          const result = await submitPhoto(singleFileFormData);
+          const blobResult = await upload(file.name, file, {
+            access: 'public',
+            handleUploadUrl: '/api/upload',
+          });
+
+          // Now submit metadata to server action
+          const metaForm = new FormData();
+          if (caption) metaForm.append('caption', caption);
+          if (name) metaForm.append('name', name);
+          metaForm.append('blobs', JSON.stringify([{ url: blobResult.url, pathname: blobResult.pathname, contentType: file.type, size: file.size }]));
+          const result = await submitPhoto(metaForm);
           if (!result?.success || !Array.isArray(result.photos) || result.photos.length === 0) {
             throw new Error('Server reported success but returned no photos');
           }

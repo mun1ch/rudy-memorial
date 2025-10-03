@@ -436,12 +436,14 @@ export default function GalleryPage() {
     } else {
       document.body.style.overflow = 'unset';
       stopAutoPlay(); // Stop auto-play when closing lightbox
+      // Reset slideshow index when exiting
+      currentIndexRef.current = 0;
+      setCurrentIndex(0);
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
-      // DON'T stop auto-play here - it was stopping every time selectedPhoto changed!
     };
   }, [selectedPhoto, handleKeyDown, stopAutoPlay]);
 
@@ -670,11 +672,14 @@ export default function GalleryPage() {
                     if (isSelectionMode) {
                       togglePhotoSelection(photo.id);
                     } else {
+                      // Set index to clicked photo and open lightbox
+                      const currentPhotos = photos;
+                      const clickedIndex = currentPhotos.findIndex(p => p.id === photo.id);
+                      currentIndexRef.current = clickedIndex !== -1 ? clickedIndex : 0;
+                      setCurrentIndex(currentIndexRef.current);
                       setSelectedPhoto(photo);
                       // Pre-fetch next photos when slideshow opens
-                      const currentPhotos = photos;
-                      const currentIndex = currentPhotos.findIndex(p => p.id === photo.id);
-                      preloadNextPhotos(currentPhotos, currentIndex);
+                      preloadNextPhotos(currentPhotos, currentIndexRef.current);
                     }
                   }}
                 >
