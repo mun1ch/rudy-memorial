@@ -45,7 +45,14 @@ export default function HomePage() {
       
       {/* Navigation with proper spacing and borders */}
       <div className="relative z-10 mt-6">
-        <nav className="flex items-center justify-center gap-8 sm:gap-12">
+        <nav className="flex flex-col items-center justify-center gap-4 sm:gap-6">
+          <Link 
+            href="/memorial-service"
+            className="inline-flex items-center justify-center rounded-full px-6 py-2.5 bg-gradient-to-r from-stone-50 via-amber-50 to-orange-50 text-stone-700 font-semibold border border-stone-200 ring-1 ring-stone-100 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:scale-[1.015] hover:ring-stone-200 will-change-transform"
+          >
+            Memorial Service
+          </Link>
+          <div className="flex items-center justify-center gap-8 sm:gap-12">
           <Link 
             href="/gallery"
             className="group flex flex-col items-center gap-2 transition-all duration-300 hover:scale-105"
@@ -81,6 +88,7 @@ export default function HomePage() {
               Memorial Wall
             </span>
           </Link>
+          </div>
         </nav>
       </div>
     </div>
