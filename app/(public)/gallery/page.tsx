@@ -16,6 +16,12 @@ import { usePhotos } from "@/lib/hooks";
 // Global auto-play state - completely independent of React
 let playInterval: NodeJS.Timeout | null = null;
 
+// Sliding-window prefetch configuration
+const PREFETCH_WINDOW_BEHIND = 2;
+const PREFETCH_WINDOW_AHEAD = 4;
+const PREFETCH_MAX_CONCURRENCY = 2;
+const PREFETCH_MAX_BYTES = 120 * 1024 * 1024; // ~120MB cap
+
 export default function GalleryPage() {
   const { photos, loading } = usePhotos();
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
@@ -37,6 +43,98 @@ export default function GalleryPage() {
   const [showControls, setShowControls] = useState(false);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
   const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
+  
+  // In-memory LRU cache of object URLs for prefetching
+  const cacheRef = useRef(new Map<string, { url: string; size: number; lastUsed: number }>());
+  const totalBytesRef = useRef(0);
+  const inFlightRef = useRef(new Map<string, AbortController>());
+  const concurrencyRef = useRef(0);
+  const [cacheBump, setCacheBump] = useState(0); // force render when cache updates
+
+  const getWindowIndices = useCallback((center: number) => {
+    const indices: number[] = [];
+    const len = photos.length;
+    if (len === 0) return indices;
+    for (let i = PREFETCH_WINDOW_BEHIND; i > 0; i--) {
+      indices.push((center - i + len) % len);
+    }
+    indices.push(center);
+    for (let i = 1; i <= PREFETCH_WINDOW_AHEAD; i++) {
+      indices.push((center + i) % len);
+    }
+    return indices;
+  }, [photos.length]);
+
+  const evictIfNeeded = useCallback(() => {
+    const cache = cacheRef.current;
+    while (totalBytesRef.current > PREFETCH_MAX_BYTES && cache.size > 0) {
+      let lruKey: string | null = null;
+      let lruTime = Infinity;
+      for (const [key, val] of cache.entries()) {
+        if (val.lastUsed < lruTime) {
+          lruTime = val.lastUsed;
+          lruKey = key;
+        }
+      }
+      if (!lruKey) break;
+      const entry = cache.get(lruKey);
+      if (entry) {
+        URL.revokeObjectURL(entry.url);
+        totalBytesRef.current -= entry.size;
+      }
+      cache.delete(lruKey);
+    }
+  }, []);
+
+  const prefetchOne = useCallback(async (photo: Photo) => {
+    if (cacheRef.current.has(photo.id) || inFlightRef.current.has(photo.id)) return;
+    if (concurrencyRef.current >= PREFETCH_MAX_CONCURRENCY) return;
+    const controller = new AbortController();
+    inFlightRef.current.set(photo.id, controller);
+    concurrencyRef.current += 1;
+    try {
+      const res = await fetch(photo.url, { signal: controller.signal });
+      if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
+      const blob = await res.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const size = blob.size || 0;
+      cacheRef.current.set(photo.id, { url: objectUrl, size, lastUsed: Date.now() });
+      totalBytesRef.current += size;
+      evictIfNeeded();
+      setCacheBump(v => v + 1);
+    } catch {
+      // Ignore aborted/failed prefetch
+    } finally {
+      inFlightRef.current.delete(photo.id);
+      concurrencyRef.current = Math.max(0, concurrencyRef.current - 1);
+    }
+  }, [evictIfNeeded]);
+
+  const schedulePrefetch = useCallback((centerIndex: number) => {
+    const desired = new Set<string>();
+    const indices = getWindowIndices(centerIndex);
+    indices.forEach(i => { const p = photos[i]; if (p) desired.add(p.id); });
+    // Abort in-flight not needed
+    for (const [id, ctrl] of inFlightRef.current.entries()) {
+      if (!desired.has(id)) {
+        ctrl.abort();
+        inFlightRef.current.delete(id);
+      }
+    }
+    // Queue prefetch for desired indices
+    indices.forEach(i => { const p = photos[i]; if (p && !cacheRef.current.has(p.id)) prefetchOne(p); });
+  }, [getWindowIndices, photos, prefetchOne]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      for (const [, ctrl] of inFlightRef.current) ctrl.abort();
+      inFlightRef.current.clear();
+      for (const [, entry] of cacheRef.current) URL.revokeObjectURL(entry.url);
+      cacheRef.current.clear();
+      totalBytesRef.current = 0;
+    };
+  }, []);
 
   // Photos are already sorted by usePhotos hook - NO MORE DUPLICATION!
 
@@ -313,9 +411,9 @@ export default function GalleryPage() {
     setCurrentIndex(previousIndex);
     setSelectedPhoto(currentPhotos[previousIndex]);
     
-    // Pre-fetch next 1-2 photos for smoother slideshow
-    preloadNextPhotos(currentPhotos, previousIndex);
-  }, [selectedPhoto, stopAutoPlay, photos, preloadNextPhotos]);
+    // Schedule prefetch for new window
+    schedulePrefetch(previousIndex);
+  }, [selectedPhoto, stopAutoPlay, photos, schedulePrefetch]);
 
   const goToNextPhotoManual = useCallback(() => {
     stopAutoPlay();
@@ -327,9 +425,9 @@ export default function GalleryPage() {
     setCurrentIndex(nextIndex);
     setSelectedPhoto(currentPhotos[nextIndex]);
     
-    // Pre-fetch next 1-2 photos for smoother slideshow
-    preloadNextPhotos(currentPhotos, nextIndex);
-  }, [selectedPhoto, stopAutoPlay, photos, preloadNextPhotos]);
+    // Schedule prefetch for new window
+    schedulePrefetch(nextIndex);
+  }, [selectedPhoto, stopAutoPlay, photos, schedulePrefetch]);
 
   const startAutoPlay = useCallback(() => {
     const currentPhotos = photos;
@@ -352,6 +450,9 @@ export default function GalleryPage() {
       clearInterval(playInterval);
     }
 
+    // Prime cache for initial window
+    schedulePrefetch(currentIndexRef.current);
+
     // Start new interval with current interval value
     const intervalMs = autoPlayIntervalRef.current * 1000;
     playInterval = setInterval(() => {
@@ -361,9 +462,9 @@ export default function GalleryPage() {
       setSelectedPhoto(currentPhotos[currentIndexRef.current]);
       
       // Pre-fetch next photos during auto-play
-      preloadNextPhotos(currentPhotos, currentIndexRef.current);
+      schedulePrefetch(currentIndexRef.current);
     }, intervalMs);
-  }, [selectedPhoto, photos, preloadNextPhotos]);
+  }, [selectedPhoto, photos, schedulePrefetch]);
 
   const toggleAutoPlay = useCallback(() => {
     if (isPlaying) {
@@ -678,8 +779,8 @@ export default function GalleryPage() {
                       currentIndexRef.current = clickedIndex !== -1 ? clickedIndex : 0;
                       setCurrentIndex(currentIndexRef.current);
                       setSelectedPhoto(photo);
-                      // Pre-fetch next photos when slideshow opens
-                      preloadNextPhotos(currentPhotos, currentIndexRef.current);
+                      // Prefetch around clicked photo
+                      schedulePrefetch(currentIndexRef.current);
                     }
                   }}
                 >
@@ -707,7 +808,7 @@ export default function GalleryPage() {
                       {/* Image Container */}
                       <div className="relative h-full overflow-hidden">
                         <Image
-                          src={photo.url}
+                          src={(cacheRef.current.get(photo.id)?.url) || photo.url}
                           alt={photo.caption || "Photo of Rudy"}
                           fill
                           quality={100}
@@ -896,7 +997,7 @@ export default function GalleryPage() {
                 {photos.map((photo) => (
                   <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent" style={{ backgroundColor: 'transparent' }}>
                     <Image
-                      src={photo.url}
+                      src={(cacheRef.current.get(photo.id)?.url) || photo.url}
                       alt={photo.caption || "Photo of Rudy"}
                       width={1000}
                       height={800}
