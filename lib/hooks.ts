@@ -82,7 +82,11 @@ export function useTributes() {
       const response = await fetch('/api/tributes');
       const result = await response.json();
       if (result.success && result.tributes) {
-        setTributes(result.tributes);
+        // Sort by submittedAt in descending order (newest first)
+        const sortedTributes = result.tributes.sort((a: Tribute, b: Tribute) => 
+          new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
+        );
+        setTributes(sortedTributes);
       }
     } catch (error) {
       console.error("Error loading tributes:", error);

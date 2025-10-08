@@ -46,7 +46,7 @@ export default function MemorialWallPage() {
           <>
             {/* Tributes Grid */}
             <div className="space-y-3 sm:space-y-6">
-              {tributes.filter(tribute => !tribute.hidden).reverse().map((tribute) => (
+              {tributes.filter(tribute => !tribute.hidden).map((tribute) => (
                 <Card key={tribute.id} className="overflow-hidden">
                   <CardContent className="p-3 sm:p-6">
                     <div className="flex items-start gap-2 sm:gap-4">
