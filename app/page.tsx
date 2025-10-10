@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Eye, Heart, Camera } from "lucide-react";
+import { Eye, Heart, Camera, Calendar, Video } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -46,12 +46,29 @@ export default function HomePage() {
       {/* Navigation with proper spacing and borders */}
       <div className="relative z-10 mt-6">
         <nav className="flex flex-col items-center justify-center gap-4 sm:gap-6">
-          <Link 
-            href="/memorial-service"
-            className="inline-flex items-center justify-center rounded-full px-6 py-2.5 bg-gradient-to-r from-stone-50 via-amber-50 to-orange-50 text-stone-700 font-semibold border border-stone-200 ring-1 ring-stone-100 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:scale-[1.015] hover:ring-stone-200 will-change-transform"
-          >
-            Memorial Service
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link 
+              href="/memorial-service"
+              className="group flex flex-col items-center gap-2.5 rounded-2xl px-6 py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[140px]"
+            >
+              <Calendar className="h-7 w-7 text-stone-700" />
+              <span className="text-xs font-semibold text-stone-700 text-center">
+                Memorial<br/>Service
+              </span>
+            </Link>
+            
+            <a 
+              href="https://stmgaparish.org/livestream"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-2.5 rounded-2xl px-6 py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[140px]"
+            >
+              <Video className="h-7 w-7 text-stone-700" />
+              <span className="text-xs font-semibold text-stone-700 text-center">
+                Memorial<br/>Livestream
+              </span>
+            </a>
+          </div>
           <div className="flex items-center justify-center gap-8 sm:gap-12">
           <Link 
             href="/gallery"
