@@ -36,8 +36,17 @@ export default function GalleryPage() {
   const [gridSize, setGridSize] = useState<'small' | 'medium' | 'large'>('medium');
   const [sortOrder, setSortOrder] = useState<'random' | 'newest' | 'oldest'>('random');
   
-  // Apply sorting using shared utility
+  // CRITICAL: 'photos' is the FULL array (all photos after sorting)
+  // This is used for counts, slideshow navigation, and multi-select
   const photos = useMemo(() => sortPhotos(rawPhotos, sortOrder), [rawPhotos, sortOrder]);
+  
+  // Pagination state for infinite scroll
+  const [displayCount, setDisplayCount] = useState(4);
+  const BATCH_SIZE = 4;
+  
+  // CRITICAL: 'visiblePhotos' is the PAGINATED array for rendering only
+  // Only this subset is rendered to the DOM for performance
+  const visiblePhotos = useMemo(() => photos.slice(0, displayCount), [photos, displayCount]);
   
   // Multi-select state
   const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
@@ -141,6 +150,35 @@ export default function GalleryPage() {
       totalBytesRef.current = 0;
     };
   }, []);
+
+  // Intersection Observer for infinite scroll pagination
+  const lastPhotoRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (!lastPhotoRef.current || loading) return;
+    
+    // Don't observe if all photos are already loaded
+    if (displayCount >= photos.length) return;
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When last photo becomes visible, load more
+        if (entry.isIntersecting && displayCount < photos.length) {
+          setDisplayCount(prev => Math.min(prev + BATCH_SIZE, photos.length));
+        }
+      },
+      {
+        rootMargin: '200px', // Start loading 200px before reaching the bottom
+        threshold: 0.1
+      }
+    );
+    
+    observer.observe(lastPhotoRef.current);
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [displayCount, photos.length, loading, BATCH_SIZE]);
 
   // Photos are already sorted by usePhotos hook - NO MORE DUPLICATION!
 
@@ -777,7 +815,8 @@ export default function GalleryPage() {
 
             {/* Responsive Grid with Lazy Loading */}
             <div className={`grid ${getGridClasses()} gap-2 sm:gap-6`}>
-              {photos.map((photo, index) => (
+              {/* CRITICAL: Render only visiblePhotos (paginated), but use full photos array for navigation */}
+              {visiblePhotos.map((photo, index) => (
                 <motion.div
                   key={photo.id}
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -792,7 +831,7 @@ export default function GalleryPage() {
                     if (isSelectionMode) {
                       togglePhotoSelection(photo.id);
                     } else {
-                      // Set index to clicked photo and open lightbox
+                      // IMPORTANT: Use full photos array for slideshow navigation
                       const currentPhotos = photos;
                       const clickedIndex = currentPhotos.findIndex(p => p.id === photo.id);
                       currentIndexRef.current = clickedIndex !== -1 ? clickedIndex : 0;
@@ -872,6 +911,16 @@ export default function GalleryPage() {
                 </motion.div>
               ))}
             </div>
+            
+            {/* Infinite scroll sentinel - triggers when visible to load more photos */}
+            {displayCount < photos.length && (
+              <div 
+                ref={lastPhotoRef}
+                className="w-full h-20 flex items-center justify-center"
+              >
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              </div>
+            )}
           </>
         ) : (
           /* Empty State - Premium Modern Design */
