@@ -751,7 +751,7 @@ export default function GalleryPage() {
                     <option value="large">Large</option>
                   </select>
                   <span className="text-xs sm:text-sm text-muted-foreground">
-                    {photos.length} beautiful memories
+                    {photos.length} beautiful memories (in random order)
                   </span>
                 </div>
               </div>

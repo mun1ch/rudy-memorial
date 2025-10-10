@@ -4,6 +4,7 @@ import "./globals.css";
 import { MobileNav } from "@/components/mobile-nav";
 import { ConditionalLayout, ConditionalFooter } from "@/components/conditional-layout";
 import { FullscreenProvider } from "@/lib/fullscreen-context";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({
             </ConditionalFooter>
           </div>
         </FullscreenProvider>
+        <Analytics />
       </body>
     </html>
   );
