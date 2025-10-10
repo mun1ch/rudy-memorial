@@ -27,14 +27,18 @@ export function PhotoForm() {
 
   // Handle file selection
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
-    setSelectedFiles(files);
-    setCurrentPage(1); // Reset to first page
+    const newFiles = Array.from(e.target.files || []);
     
-    // Generate thumbnails for HEIC files
-    const newThumbnailUrls = new Map<number, string>();
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
+    // Append to existing files instead of replacing
+    const existingFileCount = selectedFiles.length;
+    const allFiles = [...selectedFiles, ...newFiles];
+    setSelectedFiles(allFiles);
+    
+    // Generate thumbnails for HEIC files (only for new files)
+    const newThumbnailUrls = new Map(thumbnailUrls); // Copy existing thumbnails
+    for (let i = 0; i < newFiles.length; i++) {
+      const file = newFiles[i];
+      const fileIndex = existingFileCount + i; // Adjust index for appended files
       const { isHeicFile } = await import('@/lib/heic-utils');
       
       if (isHeicFile(file.name, file.type)) {
@@ -52,7 +56,7 @@ export function PhotoForm() {
           
           const blob = new Blob([jpegBuffer], { type: 'image/jpeg' });
           const url = URL.createObjectURL(blob);
-          newThumbnailUrls.set(i, url);
+          newThumbnailUrls.set(fileIndex, url);
         } catch (error) {
           console.error('Failed to generate HEIC thumbnail:', error);
           // Fall back to regular blob URL (will show broken image)
@@ -60,6 +64,9 @@ export function PhotoForm() {
       }
     }
     setThumbnailUrls(newThumbnailUrls);
+    
+    // Reset file input value so the same file can be selected again
+    e.target.value = '';
   };
 
   // Remove a file from selection
@@ -68,10 +75,21 @@ export function PhotoForm() {
     const thumbnailUrl = thumbnailUrls.get(index);
     if (thumbnailUrl) {
       URL.revokeObjectURL(thumbnailUrl);
-      const newThumbnailUrls = new Map(thumbnailUrls);
-      newThumbnailUrls.delete(index);
-      setThumbnailUrls(newThumbnailUrls);
     }
+    
+    // Re-index thumbnails: shift all indices greater than the removed index down by 1
+    const newThumbnailUrls = new Map<number, string>();
+    thumbnailUrls.forEach((url, idx) => {
+      if (idx < index) {
+        // Keep indices before removed item unchanged
+        newThumbnailUrls.set(idx, url);
+      } else if (idx > index) {
+        // Shift indices after removed item down by 1
+        newThumbnailUrls.set(idx - 1, url);
+      }
+      // Skip the removed index
+    });
+    setThumbnailUrls(newThumbnailUrls);
     
     const newFiles = selectedFiles.filter((_, i) => i !== index);
     setSelectedFiles(newFiles);
@@ -104,6 +122,12 @@ export function PhotoForm() {
     // Use selectedFiles state instead of form data
     const files = selectedFiles;
     const totalFiles = files.length;
+    
+    // Validate that files are selected
+    if (totalFiles === 0) {
+      setSubmitError("Please select at least one photo to upload.");
+      return;
+    }
     
     // Get form data for caption and name
     const form = e.currentTarget;
@@ -154,13 +178,12 @@ export function PhotoForm() {
               body: formData
             });
             
-            if (!conversionResponse.ok) {
-              throw new Error(`HEIC conversion failed: ${conversionResponse.statusText}`);
-            }
-            
             const conversionResult = await conversionResponse.json();
-            if (!conversionResult.success) {
-              throw new Error(conversionResult.error || 'HEIC conversion failed');
+            
+            if (!conversionResponse.ok || !conversionResult.success) {
+              const errorMsg = conversionResult.error || conversionResponse.statusText || 'HEIC conversion failed';
+              console.error(`[HEIC Upload] Conversion failed:`, errorMsg);
+              throw new Error(`HEIC conversion failed: ${errorMsg}`);
             }
             
             blobResult = {
@@ -339,7 +362,6 @@ export function PhotoForm() {
                 type="file"
                 accept="image/*,.heic,.heif"
                 multiple
-                required
                 disabled={isSubmitting}
                 onChange={handleFileChange}
                 className="flex-1 text-sm text-muted-foreground h-14 sm:h-12

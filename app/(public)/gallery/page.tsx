@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause, Grid3X3, Download, Check, Square } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFullscreen } from "@/lib/fullscreen-context";
 import { MobileDownloadBar } from "@/components/mobile-download-bar";
@@ -13,6 +13,7 @@ import { DownloadProgressPopup } from "@/components/download-progress-popup";
 import { Photo } from "@/lib/types";
 import { usePhotos } from "@/lib/hooks";
 import { transformHeicUrl } from "@/lib/heic-utils";
+import { sortPhotos } from "@/lib/utils";
 
 // Global auto-play state - completely independent of React
 let playInterval: NodeJS.Timeout | null = null;
@@ -24,7 +25,7 @@ const PREFETCH_MAX_CONCURRENCY = 3; // Increased concurrent fetches
 const PREFETCH_MAX_BYTES = 200 * 1024 * 1024; // ~200MB cap for larger window
 
 export default function GalleryPage() {
-  const { photos, loading } = usePhotos();
+  const { photos: rawPhotos, loading } = usePhotos();
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const { isFullscreen, setIsFullscreen } = useFullscreen();
   const [isPlaying, setIsPlaying] = useState(false);
@@ -33,6 +34,10 @@ export default function GalleryPage() {
   const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
   const autoPlayIntervalRef = useRef(3);
   const [gridSize, setGridSize] = useState<'small' | 'medium' | 'large'>('medium');
+  const [sortOrder, setSortOrder] = useState<'random' | 'newest' | 'oldest'>('random');
+  
+  // Apply sorting using shared utility
+  const photos = useMemo(() => sortPhotos(rawPhotos, sortOrder), [rawPhotos, sortOrder]);
   
   // Multi-select state
   const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
@@ -738,6 +743,19 @@ export default function GalleryPage() {
                   )}
                 </div>
                 
+                {/* Sort Order Selector */}
+                <div className="flex items-center gap-2">
+                  <select
+                    value={sortOrder}
+                    onChange={(e) => setSortOrder(e.target.value as 'random' | 'newest' | 'oldest')}
+                    className="text-xs sm:text-sm bg-background border border-border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-primary"
+                  >
+                    <option value="random">Random</option>
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                  </select>
+                </div>
+                
                 {/* Grid Size Selector */}
                 <div className="flex items-center gap-2">
                   <Grid3X3 className="h-4 w-4 text-muted-foreground" />
@@ -751,7 +769,7 @@ export default function GalleryPage() {
                     <option value="large">Large</option>
                   </select>
                   <span className="text-xs sm:text-sm text-muted-foreground">
-                    {photos.length} beautiful memories (in random order)
+                    {photos.length} beautiful memories
                   </span>
                 </div>
               </div>

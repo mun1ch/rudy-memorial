@@ -33,6 +33,7 @@ import Link from "next/link";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
 import { MobileAdminPhotos } from "@/components/mobile-admin-photos";
 import { Photo } from "@/lib/types";
+import { sortPhotos } from "@/lib/utils";
 
 function AdminPhotosContent() {
   const searchParams = useSearchParams();
@@ -55,6 +56,7 @@ function AdminPhotosContent() {
   const [editForm, setEditForm] = useState({ caption: '', contributorName: '' });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
   const [duplicates, setDuplicates] = useState<{ hash: string; photos: Photo[] }[]>([]);
   const [duplicatesLoading, setDuplicatesLoading] = useState(false);
   const [expandedPhoto, setExpandedPhoto] = useState<Photo | null>(null);
@@ -271,8 +273,6 @@ function AdminPhotosContent() {
         const result = await hidePhoto(photoId);
         if (result.success) {
           successCount++;
-          // Reload photos to get updated state
-          reloadPhotos();
         } else {
           errorCount++;
           errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
@@ -297,6 +297,9 @@ function AdminPhotosContent() {
       errorCount,
       errors: [...errors]
     }));
+    
+    // Reload photos once after all operations are complete
+    reloadPhotos();
     
     // Clear selection if all successful
     if (errorCount === 0) {
@@ -374,8 +377,6 @@ function AdminPhotosContent() {
         const result = await unhidePhoto(photoId);
         if (result.success) {
           successCount++;
-          // Reload photos to get updated state
-          reloadPhotos();
         } else {
           errorCount++;
           errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
@@ -400,6 +401,9 @@ function AdminPhotosContent() {
       errorCount,
       errors: [...errors]
     }));
+    
+    // Reload photos once after all operations are complete
+    reloadPhotos();
     
     // Clear selection if all successful
     if (errorCount === 0) {
@@ -481,8 +485,6 @@ function AdminPhotosContent() {
         const result = await deletePhoto(photoId);
         if (result.success) {
           successCount++;
-          // Reload photos to get updated state
-          reloadPhotos();
         } else {
           errorCount++;
           errors.push(`${photoName}: ${result.error || 'Unknown error'}`);
@@ -507,6 +509,9 @@ function AdminPhotosContent() {
       errorCount,
       errors: [...errors]
     }));
+    
+    // Reload photos once after all deletions are complete
+    reloadPhotos();
     
     // Clear selection if all successful
     if (errorCount === 0) {
@@ -538,17 +543,24 @@ function AdminPhotosContent() {
   };
 
   const getFilteredPhotos = () => {
+    let filtered: Photo[];
     switch (filter) {
       case 'visible':
-        return photos.filter(photo => !photo.hidden);
+        filtered = photos.filter(photo => !photo.hidden);
+        break;
       case 'hidden':
-        return photos.filter(photo => photo.hidden);
+        filtered = photos.filter(photo => photo.hidden);
+        break;
       case 'duplicates':
         // Flatten all duplicate groups into a single array
-        return duplicates.flatMap(duplicate => duplicate.photos);
+        filtered = duplicates.flatMap(duplicate => duplicate.photos);
+        break;
       default:
-        return photos;
+        filtered = photos;
     }
+    
+    // Use shared sorting utility
+    return sortPhotos(filtered, sortOrder);
   };
 
   const getPaginatedPhotos = () => {
@@ -837,18 +849,34 @@ function AdminPhotosContent() {
                   )}
                 </CardDescription>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">Show:</span>
-                <select
-                  value={pageSize}
-                  onChange={(e) => handlePageSizeChange(Number(e.target.value))}
-                  className="px-3 py-1 border border-border rounded-md text-sm bg-background"
-                >
-                  <option value={10}>10</option>
-                  <option value={50}>50</option>
-                  <option value={100}>100</option>
-                  <option value={getFilteredPhotos().length}>ALL</option>
-                </select>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground">Sort:</span>
+                  <select
+                    value={sortOrder}
+                    onChange={(e) => {
+                      setSortOrder(e.target.value as 'newest' | 'oldest');
+                      setCurrentPage(1); // Reset to first page when changing sort
+                    }}
+                    className="px-3 py-1 border border-border rounded-md text-sm bg-background"
+                  >
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                  </select>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground">Show:</span>
+                  <select
+                    value={pageSize}
+                    onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                    className="px-3 py-1 border border-border rounded-md text-sm bg-background"
+                  >
+                    <option value={10}>10</option>
+                    <option value={50}>50</option>
+                    <option value={100}>100</option>
+                    <option value={getFilteredPhotos().length}>ALL</option>
+                  </select>
+                </div>
               </div>
             </div>
           </CardHeader>
