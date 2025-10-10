@@ -6,7 +6,7 @@ import { Eye, Heart, Camera, Calendar, Video } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 sm:px-12 relative">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 sm:px-12 py-8 sm:py-12 relative">
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.01)_0%,transparent_70%)]"></div>
       
@@ -46,13 +46,13 @@ export default function HomePage() {
       {/* Navigation with proper spacing and borders */}
       <div className="relative z-10 mt-6">
         <nav className="flex flex-col items-center justify-center gap-4 sm:gap-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-row items-center justify-center gap-3 sm:gap-4">
             <Link 
               href="/memorial-service"
-              className="group flex flex-col items-center gap-2.5 rounded-2xl px-6 py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[140px]"
+              className="group flex flex-col items-center gap-2 sm:gap-2.5 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[120px] sm:min-w-[140px]"
             >
-              <Calendar className="h-7 w-7 text-stone-700" />
-              <span className="text-xs font-semibold text-stone-700 text-center">
+              <Calendar className="h-6 w-6 sm:h-7 sm:w-7 text-stone-700" />
+              <span className="text-[10px] sm:text-xs font-semibold text-stone-700 text-center leading-tight">
                 Memorial<br/>Service
               </span>
             </Link>
@@ -61,10 +61,10 @@ export default function HomePage() {
               href="https://stmgaparish.org/livestream"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-2.5 rounded-2xl px-6 py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[140px]"
+              className="group flex flex-col items-center gap-2 sm:gap-2.5 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[120px] sm:min-w-[140px]"
             >
-              <Video className="h-7 w-7 text-stone-700" />
-              <span className="text-xs font-semibold text-stone-700 text-center">
+              <Video className="h-6 w-6 sm:h-7 sm:w-7 text-stone-700" />
+              <span className="text-[10px] sm:text-xs font-semibold text-stone-700 text-center leading-tight">
                 Memorial<br/>Livestream
               </span>
             </a>
