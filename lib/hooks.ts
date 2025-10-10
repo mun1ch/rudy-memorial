@@ -44,6 +44,16 @@ export function useAdminData() {
   return { photos, memories, duplicates, loading, reload: loadData };
 }
 
+// Fisher-Yates shuffle algorithm for true randomness
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 // Shared photo data hook
 export function usePhotos() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -55,7 +65,9 @@ export function usePhotos() {
       const response = await fetch('/api/photos');
       const result = await response.json();
       if (result.success && result.photos) {
-        setPhotos(result.photos);
+        // Fisher-Yates shuffle for proper random distribution
+        const shuffled = shuffleArray(result.photos);
+        setPhotos(shuffled);
       }
     } catch (error) {
       console.error("Error loading photos:", error);
