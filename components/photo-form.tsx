@@ -22,17 +22,57 @@ export function PhotoForm() {
   } | null>(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [thumbnailUrls, setThumbnailUrls] = useState<Map<number, string>>(new Map());
   const filesPerPage = 6;
 
   // Handle file selection
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     setSelectedFiles(files);
     setCurrentPage(1); // Reset to first page
+    
+    // Generate thumbnails for HEIC files
+    const newThumbnailUrls = new Map<number, string>();
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const { isHeicFile } = await import('@/lib/heic-utils');
+      
+      if (isHeicFile(file.name, file.type)) {
+        // Convert HEIC to JPEG for thumbnail preview only
+        try {
+          const convert = (await import('heic-convert/browser')).default;
+          const arrayBuffer = await file.arrayBuffer();
+          const buffer = new Uint8Array(arrayBuffer);
+          
+          const jpegBuffer = await convert({
+            buffer: buffer,
+            format: 'JPEG',
+            quality: 0.6 // Lower quality for thumbnails
+          });
+          
+          const blob = new Blob([jpegBuffer], { type: 'image/jpeg' });
+          const url = URL.createObjectURL(blob);
+          newThumbnailUrls.set(i, url);
+        } catch (error) {
+          console.error('Failed to generate HEIC thumbnail:', error);
+          // Fall back to regular blob URL (will show broken image)
+        }
+      }
+    }
+    setThumbnailUrls(newThumbnailUrls);
   };
 
   // Remove a file from selection
   const removeFile = (index: number) => {
+    // Clean up thumbnail URL if it exists
+    const thumbnailUrl = thumbnailUrls.get(index);
+    if (thumbnailUrl) {
+      URL.revokeObjectURL(thumbnailUrl);
+      const newThumbnailUrls = new Map(thumbnailUrls);
+      newThumbnailUrls.delete(index);
+      setThumbnailUrls(newThumbnailUrls);
+    }
+    
     const newFiles = selectedFiles.filter((_, i) => i !== index);
     setSelectedFiles(newFiles);
     
@@ -85,29 +125,73 @@ export function PhotoForm() {
       for (let i = 0; i < totalFiles; i++) {
         const file = files[i];
         
+        // Check if this is a HEIC file
+        const { isHeicFile } = await import('@/lib/heic-utils');
+        const isHEIC = isHeicFile(file.name, file.type);
+        
         setUploadProgress({
           current: i + 1,
           total: totalFiles,
           currentFile: file.name,
-          stage: "Uploading"
+          stage: isHEIC ? "Converting" : "Uploading"
         });
         
         try {
           console.log(`📤 Uploading file ${i + 1}/${totalFiles}: ${file.name} (${file.size} bytes, ${file.type})`);
-          const ext = (file.name.split('.').pop() || 'bin').toLowerCase();
-          const timestamp = Date.now();
-          const random = Math.random().toString(36).slice(2, 10);
-          const uniquePath = `photo_${timestamp}-${random}.${ext}`;
-          const blobResult = await upload(uniquePath, file, {
-            access: 'public',
-            handleUploadUrl: '/api/upload',
-          });
+          
+          let blobResult: { url: string; pathname: string };
+          let contentType: string;
+          let size: number;
+          
+          if (isHEIC) {
+            // Use server-side conversion for HEIC files
+            console.log(`🔄 HEIC detected, using server-side conversion`);
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            const conversionResponse = await fetch('/api/convert-heic-upload', {
+              method: 'POST',
+              body: formData
+            });
+            
+            if (!conversionResponse.ok) {
+              throw new Error(`HEIC conversion failed: ${conversionResponse.statusText}`);
+            }
+            
+            const conversionResult = await conversionResponse.json();
+            if (!conversionResult.success) {
+              throw new Error(conversionResult.error || 'HEIC conversion failed');
+            }
+            
+            blobResult = {
+              url: conversionResult.url,
+              pathname: conversionResult.pathname
+            };
+            contentType = conversionResult.contentType;
+            size = conversionResult.size;
+            
+            console.log(`✅ HEIC converted: ${file.name} → ${conversionResult.convertedFileName}`);
+          } else {
+            // Direct upload for non-HEIC files
+            const ext = (file.name.split('.').pop() || 'bin').toLowerCase();
+            const timestamp = Date.now();
+            const random = Math.random().toString(36).slice(2, 10);
+            const uniquePath = `photo_${timestamp}-${random}.${ext}`;
+            const uploadResult = await upload(uniquePath, file, {
+              access: 'public',
+              handleUploadUrl: '/api/upload',
+            });
+            
+            blobResult = uploadResult;
+            contentType = file.type;
+            size = file.size;
+          }
 
           // Now submit metadata to server action
           const metaForm = new FormData();
           if (caption) metaForm.append('caption', caption);
           if (name) metaForm.append('name', name);
-          metaForm.append('blobs', JSON.stringify([{ url: blobResult.url, pathname: blobResult.pathname, contentType: file.type, size: file.size }]));
+          metaForm.append('blobs', JSON.stringify([{ url: blobResult.url, pathname: blobResult.pathname, contentType: contentType, size: size }]));
           const result = await submitPhoto(metaForm);
           if (!result?.success || !Array.isArray(result.photos) || result.photos.length === 0) {
             throw new Error('Server reported success but returned no photos');
@@ -142,6 +226,11 @@ export function PhotoForm() {
       // Show final results
       if (successCount > 0 && errorCount === 0) {
         setSubmitSuccess(`${successCount} photo(s) uploaded successfully!`);
+        
+        // Clean up thumbnail URLs
+        thumbnailUrls.forEach(url => URL.revokeObjectURL(url));
+        setThumbnailUrls(new Map());
+        
         form.reset();
         setSelectedFiles([]);
         setCurrentPage(1);
@@ -172,7 +261,7 @@ export function PhotoForm() {
           Upload Your Photos
         </CardTitle>
         <CardDescription className="text-xs sm:text-base">
-          Your photos will be added directly to the gallery
+          Your photos will be added directly to the gallery. HEIC/HEIF files are automatically converted.
         </CardDescription>
       </CardHeader>
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -248,7 +337,7 @@ export function PhotoForm() {
                 id="photo"
                 name="photo"
                 type="file"
-                accept="image/*"
+                accept="image/*,.heic,.heif"
                 multiple
                 required
                 disabled={isSubmitting}
@@ -304,15 +393,19 @@ export function PhotoForm() {
               <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-1.5 sm:gap-4">
                 {getCurrentPageFiles().map((file, index) => {
                   const globalIndex = (currentPage - 1) * filesPerPage + index;
+                  // Use converted thumbnail if available (for HEIC), otherwise create object URL
+                  const thumbnailUrl = thumbnailUrls.get(globalIndex) || URL.createObjectURL(file);
+                  
                   return (
                     <div key={globalIndex} className="relative group">
                       <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
                         <Image
-                          src={URL.createObjectURL(file)}
+                          src={thumbnailUrl}
                           alt={file.name}
                           width={200}
                           height={200}
                           className="w-full h-full object-cover"
+                          unoptimized={true}
                         />
                       </div>
                       <Button

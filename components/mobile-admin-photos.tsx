@@ -26,6 +26,7 @@ import { AdminProgressPopup } from "@/components/admin-progress-popup";
 import { Photo } from "@/lib/types";
 import { usePhotos } from "@/lib/hooks";
 import { useProgress } from "@/lib/use-progress";
+import { transformHeicUrl } from "@/lib/heic-utils";
 
 export function MobileAdminPhotos() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -415,7 +416,7 @@ export function MobileAdminPhotos() {
             {/* Photo Image */}
             <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-muted">
               <Image
-                src={photo.url}
+                src={transformHeicUrl(photo.url)}
                 alt={photo.caption || "Photo"}
                 fill
                 className="object-cover"

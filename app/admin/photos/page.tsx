@@ -28,6 +28,7 @@ import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } f
 import { usePhotos } from "@/lib/hooks";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { transformHeicUrl } from "@/lib/heic-utils";
 import Link from "next/link";
 import { AdminProgressPopup } from "@/components/admin-progress-popup";
 import { MobileAdminPhotos } from "@/components/mobile-admin-photos";
@@ -853,7 +854,7 @@ function AdminPhotosContent() {
                                 </button>
                                 <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-muted">
                                   <Image
-                                    src={photo.url}
+                                    src={transformHeicUrl(photo.url)}
                                     alt={photo.caption || "Photo"}
                                     fill
                                     className="object-cover"
@@ -919,7 +920,7 @@ function AdminPhotosContent() {
                       </button>
                       <div className="relative h-16 w-16 rounded-lg overflow-hidden bg-muted">
                         <Image
-                          src={photo.url}
+                          src={transformHeicUrl(photo.url)}
                           alt={photo.caption || "Photo"}
                           fill
                           className="object-cover"

@@ -12,6 +12,7 @@ import { MobileDownloadBar } from "@/components/mobile-download-bar";
 import { DownloadProgressPopup } from "@/components/download-progress-popup";
 import { Photo } from "@/lib/types";
 import { usePhotos } from "@/lib/hooks";
+import { transformHeicUrl } from "@/lib/heic-utils";
 
 // Global auto-play state - completely independent of React
 let playInterval: NodeJS.Timeout | null = null;
@@ -93,7 +94,7 @@ export default function GalleryPage() {
     inFlightRef.current.set(photo.id, controller);
     concurrencyRef.current += 1;
     try {
-      const res = await fetch(photo.url, { signal: controller.signal });
+      const res = await fetch(transformHeicUrl(photo.url), { signal: controller.signal });
       if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
       const blob = await res.blob();
       const objectUrl = URL.createObjectURL(blob);
@@ -278,7 +279,7 @@ export default function GalleryPage() {
         setDownloadProgress(50);
         
         const photo = selectedPhotoObjects[0];
-        const response = await fetch(photo.url);
+        const response = await fetch(transformHeicUrl(photo.url));
         const blob = await response.blob();
         
         setDownloadProgress(100);
@@ -307,7 +308,7 @@ export default function GalleryPage() {
           }
           
           const photo = selectedPhotoObjects[i];
-          const response = await fetch(photo.url);
+          const response = await fetch(transformHeicUrl(photo.url));
           const blob = await response.blob();
           zip.file(photo.fileName, blob);
           
@@ -397,7 +398,7 @@ export default function GalleryPage() {
     // Preload images using Image constructor
     photosToPreload.forEach(photo => {
       const img = new window.Image();
-      img.src = photo.url;
+      img.src = transformHeicUrl(photo.url);
     });
   }, []);
 
@@ -808,7 +809,7 @@ export default function GalleryPage() {
                       {/* Image Container */}
                       <div className="relative h-full overflow-hidden">
                         <Image
-                          src={(cacheRef.current.get(photo.id)?.url) || photo.url}
+                          src={(cacheRef.current.get(photo.id)?.url) || transformHeicUrl(photo.url)}
                           alt={photo.caption || "Photo of Rudy"}
                           fill
                           quality={100}
@@ -997,7 +998,7 @@ export default function GalleryPage() {
                 {photos.map((photo) => (
                   <div key={photo.id} className="w-full h-full flex-shrink-0 flex items-center justify-center bg-transparent" style={{ backgroundColor: 'transparent' }}>
                     <Image
-                      src={(cacheRef.current.get(photo.id)?.url) || photo.url}
+                      src={(cacheRef.current.get(photo.id)?.url) || transformHeicUrl(photo.url)}
                       alt={photo.caption || "Photo of Rudy"}
                       width={1000}
                       height={800}
