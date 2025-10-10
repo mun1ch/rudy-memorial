@@ -3,8 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Eye, Heart, Camera, Calendar, Video } from "lucide-react";
+import { useState } from "react";
+import { MemorialLivestreamModal } from "@/components/memorial-livestream-modal";
 
 export default function HomePage() {
+  const [showLivestreamModal, setShowLivestreamModal] = useState(false);
+  
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 sm:px-12 py-8 sm:py-12 relative">
       {/* Subtle texture overlay */}
@@ -57,17 +61,15 @@ export default function HomePage() {
               </span>
             </Link>
             
-            <a 
-              href="https://stmgaparish.org/livestream"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button 
+              onClick={() => setShowLivestreamModal(true)}
               className="group flex flex-col items-center gap-2 sm:gap-2.5 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 border border-stone-200 shadow-[0_0_16px_4px_rgba(210,180,140,0.22)] hover:shadow-[0_0_28px_10px_rgba(210,180,140,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 min-w-[120px] sm:min-w-[140px]"
             >
               <Video className="h-6 w-6 sm:h-7 sm:w-7 text-stone-700" />
               <span className="text-[10px] sm:text-xs font-semibold text-stone-700 text-center leading-tight">
                 Memorial<br/>Livestream
               </span>
-            </a>
+            </button>
           </div>
           <div className="flex items-center justify-center gap-8 sm:gap-12">
           <Link 
@@ -108,6 +110,12 @@ export default function HomePage() {
           </div>
         </nav>
       </div>
+      
+      {/* Memorial Livestream Modal */}
+      <MemorialLivestreamModal 
+        open={showLivestreamModal} 
+        onOpenChange={setShowLivestreamModal} 
+      />
     </div>
   );
 }
