@@ -160,9 +160,19 @@ export async function submitPhoto(formData: FormData) {
       // Don't fail the upload if email fails
     }
     
-    // Revalidate the gallery page
+    // Revalidate the gallery page and clear API cache
     revalidatePath("/gallery");
     revalidatePath("/memories");
+    
+    // Invalidate photos API cache
+    try {
+      const baseUrl = process.env.VERCEL_URL 
+        ? `https://${process.env.VERCEL_URL}` 
+        : 'http://localhost:6464';
+      await fetch(`${baseUrl}/api/photos`, { method: 'POST' });
+    } catch (error) {
+      console.error("Error invalidating photos cache:", error);
+    }
     
     // Return success response with uploaded photos for client-side verification
     return { success: true, message: `${newPhotos.length} photo(s) uploaded successfully!`, photos: newPhotos };

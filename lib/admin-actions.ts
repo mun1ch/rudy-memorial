@@ -7,6 +7,19 @@ import { Photo, Tribute } from "./types";
 
 
 
+// Helper to invalidate photos API cache
+async function invalidatePhotosCache() {
+  try {
+    // Call the POST endpoint to clear in-memory cache
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:6464';
+    await fetch(`${baseUrl}/api/photos`, { method: 'POST' });
+  } catch (error) {
+    console.error("Error invalidating photos cache:", error);
+  }
+}
+
 export async function hidePhoto(photoId: string, options?: { skipRevalidate?: boolean }) {
   try {
     // Hide photo using new individual file system
@@ -17,6 +30,7 @@ export async function hidePhoto(photoId: string, options?: { skipRevalidate?: bo
       revalidatePath("/gallery");
       revalidatePath("/admin/dashboard");
       revalidatePath("/admin/photos");
+      await invalidatePhotosCache();
     }
     
     return { success: true };
@@ -36,6 +50,7 @@ export async function unhidePhoto(photoId: string, options?: { skipRevalidate?: 
       revalidatePath("/gallery");
       revalidatePath("/admin/dashboard");
       revalidatePath("/admin/photos");
+      await invalidatePhotosCache();
     }
     
     return { success: true };
@@ -57,6 +72,7 @@ export async function deletePhoto(photoId: string, options?: { skipRevalidate?: 
       revalidatePath("/gallery");
       revalidatePath("/admin/dashboard");
       revalidatePath("/admin/photos");
+      await invalidatePhotosCache();
     }
     
     console.log(`🎉 Successfully deleted photo: ${photoId}`);
