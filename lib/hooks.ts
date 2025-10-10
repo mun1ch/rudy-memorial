@@ -66,7 +66,7 @@ export function usePhotos() {
       const result = await response.json();
       if (result.success && result.photos) {
         // Fisher-Yates shuffle for proper random distribution
-        const shuffled = shuffleArray(result.photos);
+        const shuffled = shuffleArray<Photo>(result.photos);
         setPhotos(shuffled);
       }
     } catch (error) {
