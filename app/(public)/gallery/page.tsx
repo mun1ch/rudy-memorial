@@ -42,7 +42,7 @@ export default function GalleryPage() {
   
   // Pagination state for infinite scroll
   const [displayCount, setDisplayCount] = useState(20);
-  const BATCH_SIZE = 12;
+  const BATCH_SIZE = 10;
   
   // CRITICAL: 'visiblePhotos' is the PAGINATED array for rendering only
   // Only this subset is rendered to the DOM for performance
