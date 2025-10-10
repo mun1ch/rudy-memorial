@@ -18,10 +18,10 @@ import { transformHeicUrl } from "@/lib/heic-utils";
 let playInterval: NodeJS.Timeout | null = null;
 
 // Sliding-window prefetch configuration
-const PREFETCH_WINDOW_BEHIND = 2;
-const PREFETCH_WINDOW_AHEAD = 4;
-const PREFETCH_MAX_CONCURRENCY = 2;
-const PREFETCH_MAX_BYTES = 120 * 1024 * 1024; // ~120MB cap
+const PREFETCH_WINDOW_BEHIND = 4;  // Cache last 4 photos
+const PREFETCH_WINDOW_AHEAD = 10;  // Cache next 10 photos
+const PREFETCH_MAX_CONCURRENCY = 3; // Increased concurrent fetches
+const PREFETCH_MAX_BYTES = 200 * 1024 * 1024; // ~200MB cap for larger window
 
 export default function GalleryPage() {
   const { photos, loading } = usePhotos();
