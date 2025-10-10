@@ -41,8 +41,8 @@ export default function GalleryPage() {
   const photos = useMemo(() => sortPhotos(rawPhotos, sortOrder), [rawPhotos, sortOrder]);
   
   // Pagination state for infinite scroll
-  const [displayCount, setDisplayCount] = useState(4);
-  const BATCH_SIZE = 4;
+  const [displayCount, setDisplayCount] = useState(20);
+  const BATCH_SIZE = 10;
   
   // CRITICAL: 'visiblePhotos' is the PAGINATED array for rendering only
   // Only this subset is rendered to the DOM for performance
@@ -168,7 +168,7 @@ export default function GalleryPage() {
         }
       },
       {
-        rootMargin: '200px', // Start loading 200px before reaching the bottom
+        rootMargin: '500px', // Start loading 500px before reaching the bottom (increased for smoother experience)
         threshold: 0.1
       }
     );
@@ -823,7 +823,7 @@ export default function GalleryPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ 
                     duration: 0.8, 
-                    delay: index * 0.1,
+                    delay: Math.min(index * 0.05, 1), // Cap delay at 1s to prevent slowdown
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
                   className={`group cursor-pointer ${getCardHeightClasses()}`}
@@ -869,7 +869,8 @@ export default function GalleryPage() {
                           src={(cacheRef.current.get(photo.id)?.url) || transformHeicUrl(photo.url)}
                           alt={photo.caption || "Photo of Rudy"}
                           fill
-                          quality={100}
+                          quality={85}
+                          loading="lazy"
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
