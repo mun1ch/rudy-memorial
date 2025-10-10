@@ -18,9 +18,9 @@ export function LogoutButton() {
       });
 
       if (response.ok) {
-        // Redirect to home page
-        router.push("/");
-        router.refresh();
+        // Force a full page reload to clear all client-side state
+        // This ensures middleware runs on next navigation
+        window.location.href = "/";
       } else {
         console.error("Logout failed");
       }

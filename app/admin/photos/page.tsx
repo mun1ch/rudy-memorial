@@ -26,6 +26,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
 import { usePhotos } from "@/lib/hooks";
+import { useAdminAuth } from "@/lib/use-admin-auth";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { transformHeicUrl } from "@/lib/heic-utils";
@@ -37,6 +38,7 @@ import { sortPhotos } from "@/lib/utils";
 
 function AdminPhotosContent() {
   const searchParams = useSearchParams();
+  const { isChecking: isCheckingAuth, isAuthenticated } = useAdminAuth();
   const { photos, loading, reload: reloadPhotos } = usePhotos();
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [showProgress, setShowProgress] = useState(false);
@@ -655,6 +657,23 @@ function AdminPhotosContent() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [expandedPhoto, goToNextPhoto, goToPreviousPhoto]);
+
+  // Show loading while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="container py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+          <p className="text-muted-foreground">Verifying authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render anything if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
 
   if (loading) {
     return (

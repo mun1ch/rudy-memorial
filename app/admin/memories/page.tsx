@@ -29,8 +29,10 @@ import { MobileAdminMemories } from "@/components/mobile-admin-memories";
 import { Tribute } from "@/lib/types";
 import { useTributes } from "@/lib/hooks";
 import { useProgress } from "@/lib/use-progress";
+import { useAdminAuth } from "@/lib/use-admin-auth";
 
 function AdminMemoriesContent() {
+  const { isChecking: isCheckingAuth, isAuthenticated } = useAdminAuth();
   const [memories, setMemories] = useState<Tribute[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
@@ -429,6 +431,23 @@ function AdminMemoriesContent() {
       setShowProgress(false);
     }, 2000);
   };
+
+  // Show loading while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="container py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+          <p className="text-muted-foreground">Verifying authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render anything if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
 
   if (loading) {
     return (

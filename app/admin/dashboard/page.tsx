@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { MobileAdminDashboard } from "@/components/mobile-admin-dashboard";
 import { useAdminData } from "@/lib/hooks";
+import { useAdminAuth } from "@/lib/use-admin-auth";
 import { Photo, Tribute } from "@/lib/types";
 
 function AdminDashboard({ photos, memories, duplicates }: { photos: Photo[]; memories: Tribute[]; duplicates: { hash: string; photos: Photo[] }[] }) {
@@ -103,7 +104,26 @@ function AdminDashboard({ photos, memories, duplicates }: { photos: Photo[]; mem
 }
 
 export default function AdminDashboardPage() {
+  // Client-side auth check - secondary protection layer
+  const { isChecking: isCheckingAuth, isAuthenticated } = useAdminAuth();
   const { photos, memories, duplicates, loading } = useAdminData();
+
+  // Show loading while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="container py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+          <p className="text-muted-foreground">Verifying authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render anything if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
 
   if (loading) {
     return (

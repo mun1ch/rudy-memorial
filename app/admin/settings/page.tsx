@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Mail, Plus, X, Save, Bell, BellOff } from "lucide-react";
 import { useState, useEffect } from "react";
 import { updateEmailSettings } from "@/lib/admin-actions";
+import { useAdminAuth } from "@/lib/use-admin-auth";
 
 interface EmailSettings {
   notificationEmails: string[];
@@ -13,6 +14,7 @@ interface EmailSettings {
 }
 
 export default function AdminSettings() {
+  const { isChecking: isCheckingAuth, isAuthenticated } = useAdminAuth();
   const [emailSettings, setEmailSettings] = useState<EmailSettings>({
     notificationEmails: [],
     notificationsEnabled: false
@@ -80,6 +82,23 @@ export default function AdminSettings() {
       handleAddEmail();
     }
   };
+
+  // Show loading while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="container py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+          <p className="text-muted-foreground">Verifying authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render anything if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
 
   if (loading) {
     return (
