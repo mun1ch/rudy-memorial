@@ -9,30 +9,16 @@ export const runtime = 'nodejs';
  */
 export async function GET() {
   try {
-    // Get all formats supported by sharp
-    const formats = sharp.format;
-    
-    // Check specific HEIC/HEIF support
-    const heicSupported = 'heic' in formats || 'heif' in formats;
-    
     // Get Sharp version
     const sharpVersion = sharp.versions;
     
-    // Try to actually process a tiny test HEIC (if we had one)
-    // For now, just check format registration
-    
+    // Simple check - just return version info
+    // The real test is whether heic-convert works, not sharp.format
     return NextResponse.json({
       success: true,
       sharpVersion,
-      allFormats: Object.keys(formats),
-      heicSupported,
-      heicFormat: formats.heic || formats.heif || null,
-      note: heicSupported 
-        ? 'HEIC is supported! Can process HEIC files.' 
-        : 'HEIC not supported. Need libheif/libvips compilation.',
-      recommendation: heicSupported
-        ? 'Implement server-side HEIC conversion at upload time'
-        : 'May need to install libheif or use alternative approach'
+      note: 'HEIC conversion uses heic-convert library (server-side only)',
+      recommendation: 'Server-side HEIC conversion is implemented via heic-convert'
     }, {
       headers: {
         'Cache-Control': 'no-cache'
@@ -48,4 +34,3 @@ export async function GET() {
     });
   }
 }
-

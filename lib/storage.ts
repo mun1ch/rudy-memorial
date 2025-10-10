@@ -291,7 +291,7 @@ export async function updateTribute(_tributeId: string, updates: Partial<Tribute
   }
 }
 
-export async function deleteTribute(tributeId: string): Promise<void> {
+export async function deleteTribute(): Promise<void> {
   // Note: This function is legacy and may not work properly with individual files
   // Individual tribute files should be deleted directly from blob storage
   await saveTributes();
