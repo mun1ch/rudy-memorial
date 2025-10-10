@@ -21,7 +21,7 @@ import {
   AlertTriangle,
   Loader2
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { hidePhoto, unhidePhoto, deletePhoto, editPhoto, findDuplicatePhotos } from "@/lib/admin-actions";
@@ -57,6 +57,7 @@ function AdminPhotosContent() {
   const [pageSize, setPageSize] = useState(10);
   const [duplicates, setDuplicates] = useState<{ hash: string; photos: Photo[] }[]>([]);
   const [duplicatesLoading, setDuplicatesLoading] = useState(false);
+  const [expandedPhoto, setExpandedPhoto] = useState<Photo | null>(null);
 
   useEffect(() => {
     loadDuplicates(); // Load duplicates on page load
@@ -609,6 +610,40 @@ function AdminPhotosContent() {
     }
   };
 
+  const goToNextPhoto = useCallback(() => {
+    if (!expandedPhoto) return;
+    const currentPhotos = getPaginatedPhotos();
+    const currentIndex = currentPhotos.findIndex(p => p.id === expandedPhoto.id);
+    const nextIndex = (currentIndex + 1) % currentPhotos.length;
+    setExpandedPhoto(currentPhotos[nextIndex]);
+  }, [expandedPhoto, getPaginatedPhotos]);
+
+  const goToPreviousPhoto = useCallback(() => {
+    if (!expandedPhoto) return;
+    const currentPhotos = getPaginatedPhotos();
+    const currentIndex = currentPhotos.findIndex(p => p.id === expandedPhoto.id);
+    const previousIndex = currentIndex === 0 ? currentPhotos.length - 1 : currentIndex - 1;
+    setExpandedPhoto(currentPhotos[previousIndex]);
+  }, [expandedPhoto, getPaginatedPhotos]);
+
+  // Keyboard navigation for expanded photo
+  useEffect(() => {
+    if (!expandedPhoto) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setExpandedPhoto(null);
+      } else if (e.key === 'ArrowRight') {
+        goToNextPhoto();
+      } else if (e.key === 'ArrowLeft') {
+        goToPreviousPhoto();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [expandedPhoto, goToNextPhoto, goToPreviousPhoto]);
+
   if (loading) {
     return (
       <div className="container py-8">
@@ -852,7 +887,10 @@ function AdminPhotosContent() {
                                     <Square className="h-5 w-5 text-muted-foreground" />
                                   )}
                                 </button>
-                                <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-muted">
+                                <div 
+                                  className="relative h-12 w-12 rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity"
+                                  onClick={() => setExpandedPhoto(photo)}
+                                >
                                   <Image
                                     src={transformHeicUrl(photo.url)}
                                     alt={photo.caption || "Photo"}
@@ -918,7 +956,10 @@ function AdminPhotosContent() {
                           <Square className="h-5 w-5 text-muted-foreground" />
                         )}
                       </button>
-                      <div className="relative h-16 w-16 rounded-lg overflow-hidden bg-muted">
+                      <div 
+                        className="relative h-16 w-16 rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity"
+                        onClick={() => setExpandedPhoto(photo)}
+                      >
                         <Image
                           src={transformHeicUrl(photo.url)}
                           alt={photo.caption || "Photo"}
@@ -1104,6 +1145,89 @@ function AdminPhotosContent() {
           </CardContent>
         </Card>
       </div>
+      
+      {/* Expanded Photo Modal */}
+      {expandedPhoto && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setExpandedPhoto(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setExpandedPhoto(null)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+          >
+            <X className="h-8 w-8" />
+          </button>
+
+          {/* Navigation Arrows */}
+          {getPaginatedPhotos().length > 1 && (
+            <>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPreviousPhoto();
+                }}
+                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10"
+              >
+                <ChevronLeft className="h-12 w-12" />
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNextPhoto();
+                }}
+                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10"
+              >
+                <ChevronRight className="h-12 w-12" />
+              </button>
+            </>
+          )}
+
+          {/* Image Container */}
+          <div 
+            className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={transformHeicUrl(expandedPhoto.url)}
+              alt={expandedPhoto.caption || "Photo"}
+              width={1200}
+              height={900}
+              className="object-contain max-w-full max-h-full"
+              priority
+            />
+            
+            {/* Photo Info */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+              {expandedPhoto.caption && (
+                <p className="text-white text-lg font-medium mb-2">
+                  {expandedPhoto.caption}
+                </p>
+              )}
+              <div className="flex items-center gap-4 text-white/80 text-sm">
+                {expandedPhoto.contributorName && (
+                  <div className="flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    <span>{expandedPhoto.contributorName}</span>
+                  </div>
+                )}
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{formatDate(expandedPhoto.uploadedAt)}</span>
+                </div>
+                <span>{formatFileSize(expandedPhoto.fileSize)}</span>
+                {expandedPhoto.hidden && (
+                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-orange-500/80">
+                    <EyeOff className="h-3 w-3 mr-1" />
+                    Hidden
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Progress Popup */}
       <AdminProgressPopup

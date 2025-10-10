@@ -36,7 +36,7 @@ export default function HomePage() {
         </div>
 
         {/* Hero Description - Wider than title */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-4xl mx-auto mb-6">
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
             A place to remember, share, and celebrate the life of someone special. Join us in celebrating Rudy&apos;s life by sharing your memories, photos, and moments that keep his spirit alive.
           </p>
