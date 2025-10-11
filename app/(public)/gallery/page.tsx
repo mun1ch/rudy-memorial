@@ -927,6 +927,19 @@ export default function GalleryPage() {
                           loading="lazy"
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          onError={() => {
+                            // If cached blob URL failed, remove it from cache and retry with real URL
+                            if (cacheRef.current.has(photo.id)) {
+                              console.warn(`[Cache] Blob URL expired for ${photo.id}, falling back to real URL`);
+                              const cached = cacheRef.current.get(photo.id);
+                              if (cached) {
+                                URL.revokeObjectURL(cached.url);
+                                totalBytesRef.current -= cached.size;
+                              }
+                              cacheRef.current.delete(photo.id);
+                              setCacheBump(v => v + 1); // Force re-render with real URL
+                            }
+                          }}
                         />
                         
                         {/* Overlay - Always visible on mobile, hover on desktop */}
@@ -1144,6 +1157,19 @@ export default function GalleryPage() {
                       onClick={handleSlideClick}
                       onLoad={() => {
                         setLoadedImages(prev => new Set(prev).add(photo.id));
+                      }}
+                      onError={() => {
+                        // If cached blob URL failed, remove it from cache and retry with real URL
+                        if (cacheRef.current.has(photo.id)) {
+                          console.warn(`[Cache] Blob URL expired for ${photo.id}, falling back to real URL`);
+                          const cached = cacheRef.current.get(photo.id);
+                          if (cached) {
+                            URL.revokeObjectURL(cached.url);
+                            totalBytesRef.current -= cached.size;
+                          }
+                          cacheRef.current.delete(photo.id);
+                          setCacheBump(v => v + 1); // Force re-render with real URL
+                        }
                       }}
                     />
                   </div>
