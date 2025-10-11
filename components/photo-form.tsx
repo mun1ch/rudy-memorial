@@ -23,6 +23,7 @@ export function PhotoForm() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [thumbnailUrls, setThumbnailUrls] = useState<Map<number, string>>(new Map());
+  const [fileInputKey, setFileInputKey] = useState(0);
   const filesPerPage = 6;
 
   // Handle file selection
@@ -257,6 +258,7 @@ export function PhotoForm() {
         form.reset();
         setSelectedFiles([]);
         setCurrentPage(1);
+        setFileInputKey(prev => prev + 1); // Force file input to re-render and clear
       } else if (successCount > 0 && errorCount > 0) {
         setSubmitError(`${successCount} photo(s) uploaded, ${errorCount} failed. Errors: ${errors.join(', ')}`);
       } else {
@@ -357,6 +359,7 @@ export function PhotoForm() {
             </label>
             <div className="flex gap-3">
               <Input
+                key={fileInputKey}
                 id="photo"
                 name="photo"
                 type="file"
