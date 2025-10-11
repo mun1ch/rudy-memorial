@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause, Grid3X3, Download, Check, Square } from "lucide-react";
+import { Camera, Upload, Heart, Calendar, User, ChevronLeft, ChevronRight, X, Maximize2, Minimize2, Play, Pause, Grid3X3, Download, Check, Square, Music } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
@@ -14,6 +14,7 @@ import { Photo } from "@/lib/types";
 import { usePhotos } from "@/lib/hooks";
 import { transformHeicUrl } from "@/lib/heic-utils";
 import { sortPhotos } from "@/lib/utils";
+import { SpotifyPlayer } from "@/components/spotify-player";
 
 // Global auto-play state - completely independent of React
 let playInterval: NodeJS.Timeout | null = null;
@@ -29,6 +30,7 @@ export default function GalleryPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const { isFullscreen, setIsFullscreen } = useFullscreen();
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const currentIndexRef = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
@@ -527,6 +529,21 @@ export default function GalleryPage() {
           setIsFullscreen(false);
         }
       }, [setIsFullscreen]);
+      
+      // Listen for browser fullscreen changes (e.g., from Spotify iframe or ESC key)
+      useEffect(() => {
+        const handleFullscreenChange = () => {
+          const isNowFullscreen = !!document.fullscreenElement;
+          console.log('[Fullscreen] Browser fullscreen changed:', isNowFullscreen);
+          setIsFullscreen(isNowFullscreen);
+        };
+        
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        
+        return () => {
+          document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        };
+      }, [setIsFullscreen]);
 
       const startSlideshow = () => {
         if (photos.length === 0) return;
@@ -1006,6 +1023,19 @@ export default function GalleryPage() {
                 </button>
               )}
               
+              {/* Music Toggle Button */}
+              <button
+                onClick={() => setIsMusicPlaying(!isMusicPlaying)}
+                className={`transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
+                  isMusicPlaying 
+                    ? 'text-green-400 hover:text-green-300' 
+                    : 'text-white/80 hover:text-white'
+                }`}
+                title={isMusicPlaying ? "Stop music" : "Play music"}
+              >
+                <Music className={`w-6 h-6 ${isMusicPlaying ? 'fill-current' : ''}`} />
+              </button>
+              
               {/* Fullscreen Button */}
               <button
                 onClick={toggleFullscreen}
@@ -1179,6 +1209,14 @@ export default function GalleryPage() {
           </Button>
         </div>
       )}
+      
+      {/* Spotify Player - plays AJ Ghent during slideshow */}
+      {/* Always mounted to prevent cookie consent re-prompts, just hidden when not needed */}
+      <div style={{ display: selectedPhoto && isMusicPlaying ? 'block' : 'none' }}>
+        <SpotifyPlayer 
+          artistId="6gLGK4HewZQk0009RLQ3nx"
+        />
+      </div>
     </div>
   );
 }

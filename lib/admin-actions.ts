@@ -5,7 +5,17 @@ import { Photo, Tribute } from "./types";
 
 // Admin actions for managing photos and memories
 
-
+// Helper to invalidate tributes API cache
+async function invalidateTributesCache() {
+  try {
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:6464';
+    await fetch(`${baseUrl}/api/tributes`, { method: 'POST' });
+  } catch (error) {
+    console.error("Error invalidating tributes cache:", error);
+  }
+}
 
 export async function hidePhoto(photoId: string, options?: { skipRevalidate?: boolean }) {
   try {
@@ -117,6 +127,7 @@ export async function hideMemory(memoryId: string) {
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
+    await invalidateTributesCache();
     
     return { success: true };
   } catch (error) {
@@ -163,6 +174,7 @@ export async function unhideMemory(memoryId: string) {
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
+    await invalidateTributesCache();
     
     return { success: true };
   } catch (error) {
@@ -193,6 +205,7 @@ export async function deleteMemory(memoryId: string) {
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
+    await invalidateTributesCache();
     
     return { success: true };
   } catch (error) {
@@ -273,6 +286,7 @@ export async function editMemory(memoryId: string, message: string, contributorN
     
     revalidatePath("/memorial-wall");
     revalidatePath("/admin/dashboard");
+    await invalidateTributesCache();
     
     return { success: true };
   } catch (error) {

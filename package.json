@@ -56,6 +56,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/spotify-web-playback-sdk": "^0.1.19",
     "@vitejs/plugin-react": "^4.3.0",
     "@vitest/coverage-v8": "^2.0.0",
     "autoprefixer": "^10.4.0",

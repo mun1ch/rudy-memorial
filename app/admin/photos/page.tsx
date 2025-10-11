@@ -308,10 +308,10 @@ function AdminPhotosContent() {
       clearSelection();
     }
     
-    // Auto-close popup after 2 seconds
+    // Auto-close progress popup after 1 second
     setTimeout(() => {
       setShowProgress(false);
-    }, 2000);
+    }, 1000);
   };
 
   const handleBulkUnhide = async () => {
@@ -412,10 +412,10 @@ function AdminPhotosContent() {
       clearSelection();
     }
     
-    // Auto-close popup after 2 seconds
+    // Auto-close progress popup after 1 second
     setTimeout(() => {
       setShowProgress(false);
-    }, 2000);
+    }, 1000);
   };
 
   const handleBulkDelete = async () => {
@@ -520,10 +520,10 @@ function AdminPhotosContent() {
       clearSelection();
     }
     
-    // Auto-close popup after 2 seconds
+    // Auto-close progress popup after 1 second
     setTimeout(() => {
       setShowProgress(false);
-    }, 2000);
+    }, 1000);
   };
 
   const formatDate = (dateString: string) => {
