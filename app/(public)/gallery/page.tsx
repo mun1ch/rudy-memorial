@@ -60,6 +60,8 @@ export default function GalleryPage() {
   const [showControls, setShowControls] = useState(false);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
   const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   
   // In-memory LRU cache of object URLs for prefetching
   const cacheRef = useRef(new Map<string, { url: string; size: number; lastUsed: number }>());
@@ -305,6 +307,26 @@ export default function GalleryPage() {
       return () => clearTimeout(timer);
     }
   }, [selectedPhoto]);
+  
+  // Preload background image when modal opens
+  useEffect(() => {
+    if (selectedPhoto) {
+      setBackgroundLoaded(false);
+      const img = new window.Image();
+      img.src = '/static/pexels-roseleon-4564366.jpg';
+      img.onload = () => {
+        console.log('[Background] Loaded successfully');
+        setBackgroundLoaded(true);
+      };
+      img.onerror = () => {
+        console.error('[Background] Failed to load');
+        // Allow slideshow to proceed even if background fails
+        setBackgroundLoaded(true);
+      };
+    } else {
+      setBackgroundLoaded(false);
+    }
+  }, [selectedPhoto]);
 
   // Download functions
   const downloadPhotos = async () => {
@@ -478,6 +500,12 @@ export default function GalleryPage() {
   const startAutoPlay = useCallback(() => {
     const currentPhotos = photos;
     if (currentPhotos.length <= 1) return;
+    
+    // Don't start slideshow until background is loaded
+    if (!backgroundLoaded) {
+      console.log('[Slideshow] Waiting for background to load...');
+      return;
+    }
 
     setIsPlaying(true);
 
@@ -503,14 +531,23 @@ export default function GalleryPage() {
     const intervalMs = autoPlayIntervalRef.current * 1000;
     playInterval = setInterval(() => {
       const currentPhotos = photos;
-      currentIndexRef.current = (currentIndexRef.current + 1) % currentPhotos.length;
-      setCurrentIndex(currentIndexRef.current);
-      setSelectedPhoto(currentPhotos[currentIndexRef.current]);
+      const nextIndex = (currentIndexRef.current + 1) % currentPhotos.length;
+      const nextPhoto = currentPhotos[nextIndex];
       
-      // Pre-fetch next photos during auto-play
-      schedulePrefetch(currentIndexRef.current);
+      // Wait for the next image to be loaded before advancing
+      const checkAndAdvance = () => {
+        // Always advance - if image isn't loaded yet, it will show a loading state
+        currentIndexRef.current = nextIndex;
+        setCurrentIndex(currentIndexRef.current);
+        setSelectedPhoto(nextPhoto);
+        
+        // Pre-fetch next photos during auto-play
+        schedulePrefetch(currentIndexRef.current);
+      };
+      
+      checkAndAdvance();
     }, intervalMs);
-  }, [selectedPhoto, photos, schedulePrefetch]);
+  }, [selectedPhoto, photos, schedulePrefetch, backgroundLoaded]);
 
   const toggleAutoPlay = useCallback(() => {
     if (isPlaying) {
@@ -986,7 +1023,7 @@ export default function GalleryPage() {
           >
           <div className={`relative z-10 bg-transparent ${isFullscreen ? 'w-full h-full' : 'w-full h-full sm:max-w-4xl sm:max-h-full'}`} style={{ backgroundColor: 'transparent' }}>
             {/* Control Buttons - Show/hide based on user interaction */}
-            <div className={`absolute top-2 right-2 sm:top-2 sm:right-2 flex items-center gap-1 sm:gap-2 z-20 transition-opacity duration-300 ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="absolute top-2 right-2 sm:top-2 sm:right-2 flex items-center gap-1 sm:gap-2 z-20 opacity-100">
                   {/* Auto-play Interval Selector - Only show when not fullscreen */}
                   {!isFullscreen && photos.length > 1 && (
                 <select
@@ -1066,7 +1103,7 @@ export default function GalleryPage() {
               <>
                     <button
                       onClick={goToPreviousPhotoManual}
-                      className={`absolute left-2 sm:-left-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}
+                      className="absolute left-2 sm:-left-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center opacity-100"
                       aria-label="Previous photo"
                     >
                       <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all duration-300" />
@@ -1074,7 +1111,7 @@ export default function GalleryPage() {
 
                     <button
                       onClick={goToNextPhotoManual}
-                      className={`absolute right-2 sm:-right-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center ${showControls || !isFullscreen ? 'opacity-100' : 'opacity-0'}`}
+                      className="absolute right-2 sm:-right-16 bottom-2 sm:top-1/2 sm:-translate-y-1/2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-out z-20 group min-h-[44px] min-w-[44px] flex items-center justify-center opacity-100"
                       aria-label="Next photo"
                     >
                       <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all duration-300" />
@@ -1101,10 +1138,13 @@ export default function GalleryPage() {
                       width={1000}
                       height={800}
                       quality={100}
-                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} ${isFullscreen ? 'rounded-lg' : ''} bg-transparent cursor-pointer`}
+                      className={`${isFullscreen ? 'max-w-full max-h-full object-contain' : 'max-h-[75vh] max-w-full object-contain'} ${isFullscreen ? 'rounded-lg' : ''} bg-transparent cursor-pointer ${!loadedImages.has(photo.id) ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
                       style={{ backgroundColor: 'transparent' }}
                       priority={photo.id === selectedPhoto?.id}
                       onClick={handleSlideClick}
+                      onLoad={() => {
+                        setLoadedImages(prev => new Set(prev).add(photo.id));
+                      }}
                     />
                   </div>
                 ))}
