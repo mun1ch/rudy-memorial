@@ -10,12 +10,25 @@ export async function getPhotos(): Promise<PhotosResponse> {
     if (!token) {
       throw new Error('BLOB_READ_WRITE_TOKEN environment variable is not set');
     }
-    const { blobs } = await list({ token });
+    console.log('[getPhotos] Fetching blobs from Vercel Blob Storage...');
+    
+    // Fetch ALL blobs across all pages (Vercel Blob uses pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date; size: number }> = [];
+    do {
+      const result = await list({ token, cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+      console.log(`[getPhotos] Fetched ${result.blobs.length} blobs, total so far: ${allBlobs.length}, cursor: ${cursor ? 'more' : 'done'}`);
+    } while (cursor);
+    
+    console.log(`[getPhotos] Total blobs found: ${allBlobs.length}`);
     
     // Filter for photo files (files that start with 'photo_' and are not metadata json)
-    const photoBlobs = blobs.filter(blob => 
+    const photoBlobs = allBlobs.filter(blob => 
       blob.pathname.startsWith('photo_') && !blob.pathname.endsWith('_meta.json')
     );
+    console.log(`[getPhotos] Photo blobs found: ${photoBlobs.length}`);
     
     // Load photos with their metadata
     const photos: Photo[] = await Promise.all(
@@ -37,7 +50,7 @@ export async function getPhotos(): Promise<PhotosResponse> {
         
         try {
           const metadataFilename = `${photoId}_meta.json`;
-          const metadataBlob = blobs.find(b => b.pathname === metadataFilename);
+          const metadataBlob = allBlobs.find(b => b.pathname === metadataFilename);
           if (metadataBlob) {
             const response = await fetch(metadataBlob.url);
             if (response.ok) {
@@ -88,6 +101,7 @@ export async function getPhotos(): Promise<PhotosResponse> {
     
     // Sort by upload time (newest first)
     const sortedPhotos = photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+    console.log(`[getPhotos] First 3 photos after sorting:`, sortedPhotos.slice(0, 3).map(p => ({ id: p.id, uploadedAt: p.uploadedAt })));
     return { success: true, photos: sortedPhotos };
   } catch (error) {
     console.error('Error reading photos from Vercel Blob:', error);
@@ -106,9 +120,17 @@ export async function deletePhoto(photoId: string): Promise<void> {
   try {
     const { del } = await import('@vercel/blob');
     
+    // Fetch ALL blobs (with pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
     // Find the photo file by ID
-    const { blobs } = await list();
-    const photoBlob = blobs.find(blob => 
+    const photoBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('photo_') && 
       blob.pathname.includes(photoId)
     );
@@ -123,7 +145,7 @@ export async function deletePhoto(photoId: string): Promise<void> {
     
     // Also delete the metadata JSON file
     const metadataFilename = `${photoId}_meta.json`;
-    const metadataBlob = blobs.find(blob => blob.pathname === metadataFilename);
+    const metadataBlob = allBlobs.find(blob => blob.pathname === metadataFilename);
     if (metadataBlob) {
       await del(metadataBlob.url);
       console.log(`Deleted metadata file: ${metadataFilename}`);
@@ -138,8 +160,16 @@ export async function deletePhoto(photoId: string): Promise<void> {
 
 export async function hidePhoto(photoId: string): Promise<void> {
   try {
-    const { blobs } = await list();
-    const photoBlob = blobs.find(blob => 
+    // Fetch ALL blobs (with pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
+    const photoBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('photo_') && 
       blob.pathname.includes(photoId) &&
       !blob.pathname.includes('_hidden')
@@ -176,8 +206,16 @@ export async function hidePhoto(photoId: string): Promise<void> {
 
 export async function unhidePhoto(photoId: string): Promise<void> {
   try {
-    const { blobs } = await list();
-    const photoBlob = blobs.find(blob => 
+    // Fetch ALL blobs (with pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
+    const photoBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('photo_') && 
       blob.pathname.includes(photoId) &&
       blob.pathname.includes('_hidden')

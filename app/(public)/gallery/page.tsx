@@ -36,7 +36,7 @@ export default function GalleryPage() {
   const [autoPlayInterval, setAutoPlayInterval] = useState(3); // seconds
   const autoPlayIntervalRef = useRef(3);
   const [gridSize, setGridSize] = useState<'small' | 'medium' | 'large'>('medium');
-  const [sortOrder, setSortOrder] = useState<'random' | 'newest' | 'oldest'>('random');
+  const [sortOrder, setSortOrder] = useState<'random' | 'newest' | 'oldest'>('newest');
   
   // CRITICAL: 'photos' is the FULL array (all photos after sorting)
   // This is used for counts, slideshow navigation, and multi-select
