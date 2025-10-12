@@ -63,21 +63,12 @@ export async function submitTribute(formData: FormData) {
       // Don't fail the submission if email fails
     }
     
-    // Revalidate the memories page
+    // Revalidate pages to show new tribute immediately
     revalidatePath("/memories");
-    
-    // Invalidate tributes API cache
-    try {
-      const baseUrl = process.env.VERCEL_URL 
-        ? `https://${process.env.VERCEL_URL}` 
-        : 'http://localhost:6464';
-      await fetch(`${baseUrl}/api/tributes`, { method: 'POST' });
-    } catch (error) {
-      console.error("Error invalidating tributes cache:", error);
-    }
+    revalidatePath("/memorial-wall");
     
     // Redirect to success page
-    redirect("/memories?success=tribute");
+    redirect("/memorial-wall");
   } catch (error) {
     console.error("Error submitting tribute:", error);
     throw error;
