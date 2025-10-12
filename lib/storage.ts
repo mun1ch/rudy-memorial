@@ -41,24 +41,52 @@ export async function getPhotos(): Promise<PhotosResponse> {
     
     console.log(`[getPhotos] Built metadata map with ${metadataMap.size} entries`);
     
-    // Load photos WITHOUT fetching metadata (too slow for 638 photos)
-    // Metadata will be fetched on-demand when photos are viewed
+    // Batch fetch metadata in parallel (much faster than sequential)
+    const BATCH_SIZE = 50;
+    const metadataCache = new Map<string, { caption: string | null; contributorName: string | null }>();
+    
+    for (let i = 0; i < photoBlobs.length; i += BATCH_SIZE) {
+      const batch = photoBlobs.slice(i, i + BATCH_SIZE);
+      await Promise.all(
+        batch.map(async (blob) => {
+          const photoId = blob.pathname.replace(/\.[^/.]+$/, "");
+          const metadataUrl = metadataMap.get(photoId);
+          
+          if (metadataUrl) {
+            try {
+              const response = await fetch(metadataUrl);
+              if (response.ok) {
+                const data = await response.json();
+                metadataCache.set(photoId, {
+                  caption: data.caption || null,
+                  contributorName: data.contributorName || null
+                });
+              }
+            } catch (error) {
+              // Silently fail for individual metadata files
+            }
+          }
+        })
+      );
+    }
+    
+    console.log(`[getPhotos] Loaded metadata for ${metadataCache.size} photos`);
+    
+    // Build photo objects with metadata
     const photos: Photo[] = photoBlobs.map((blob) => {
-      // Extract timestamp from filename (photo_1759272581990.jpg -> 1759272581990)
       const timestampMatch = blob.pathname.match(/photo_(\d+)/);
       const timestamp = timestampMatch ? parseInt(timestampMatch[1]) : Date.now();
       
-      const photoId = blob.pathname.replace(/\.[^/.]+$/, ""); // Remove file extension
-      
-      // Check if photo is hidden by looking at filename pattern
+      const photoId = blob.pathname.replace(/\.[^/.]+$/, "");
       const isHidden = blob.pathname.includes('_hidden');
+      const metadata = metadataCache.get(photoId) || { caption: null, contributorName: null };
       
       return {
         id: photoId,
         fileName: blob.pathname,
         url: blob.url,
-        caption: null, // Metadata not fetched to avoid slowness
-        contributorName: null, // Metadata not fetched to avoid slowness
+        caption: metadata.caption,
+        contributorName: metadata.contributorName,
         fileSize: blob.size,
         mimeType: (() => {
           const p = blob.pathname.toLowerCase();
@@ -79,7 +107,7 @@ export async function getPhotos(): Promise<PhotosResponse> {
           if (p.endsWith('.jpg') || p.endsWith('.jpeg')) return 'image/jpeg';
           return 'application/octet-stream';
         })(),
-        md5Hash: '', // We don't have this from blob metadata
+        md5Hash: '',
         uploadedAt: new Date(timestamp).toISOString(),
         approved: true,
         hidden: isHidden
