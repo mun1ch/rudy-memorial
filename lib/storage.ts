@@ -222,10 +222,10 @@ export async function getTributes(): Promise<TributesResponse> {
     
     // Fetch ALL blobs across all pages
     let cursor: string | undefined;
-    const allBlobs: any[] = [];
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
     do {
       const result = await list({ token, cursor });
-      allBlobs.push(...result.blobs);
+      allBlobs = [...allBlobs, ...result.blobs];
       cursor = result.cursor;
     } while (cursor);
     
