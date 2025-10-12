@@ -219,14 +219,25 @@ export async function getTributes(): Promise<TributesResponse> {
     if (!token) {
       throw new Error('BLOB_READ_WRITE_TOKEN environment variable is not set');
     }
-    const { blobs } = await list({ token });
+    
+    // Fetch ALL blobs across all pages
+    let cursor: string | undefined;
+    const allBlobs: any[] = [];
+    do {
+      const result = await list({ token, cursor });
+      allBlobs.push(...result.blobs);
+      cursor = result.cursor;
+    } while (cursor);
+    
+    console.log(`[getTributes] Total blobs found: ${allBlobs.length}`);
     
     // Filter for tribute files (files that start with 'tribute_' and are not hidden)
-    const tributeBlobs = blobs.filter(blob => 
+    const tributeBlobs = allBlobs.filter(blob => 
       blob.pathname.startsWith('tribute_') && 
-      !blob.pathname.includes('_hidden')
+      !blob.pathname.includes('_hidden') &&
+      blob.pathname !== 'tributes.json' // exclude legacy file
     );
-    
+    console.log(`[getTributes] Tribute blobs found: ${tributeBlobs.length}`);
     
     // Fetch each tribute file
     const tributes: Tribute[] = [];
@@ -242,6 +253,7 @@ export async function getTributes(): Promise<TributesResponse> {
       }
     }
     
+    console.log(`[getTributes] Total tributes loaded: ${tributes.length}`);
     // Sort by submission time (newest first)
     const sortedTributes = tributes.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
     return { success: true, tributes: sortedTributes };
