@@ -30,74 +30,61 @@ export async function getPhotos(): Promise<PhotosResponse> {
     );
     console.log(`[getPhotos] Photo blobs found: ${photoBlobs.length}`);
     
-    // Load photos with their metadata
-    const photos: Photo[] = await Promise.all(
-      photoBlobs.map(async (blob) => {
-        // Extract timestamp from filename (photo_1759272581990.jpg -> 1759272581990)
-        const timestampMatch = blob.pathname.match(/photo_(\d+)/);
-        const timestamp = timestampMatch ? parseInt(timestampMatch[1]) : Date.now();
-        
-        const photoId = blob.pathname.replace(/\.[^/.]+$/, ""); // Remove file extension
-        
-        // Check if photo is hidden by looking at filename pattern
-        const isHidden = blob.pathname.includes('_hidden');
-        
-        // Try to load metadata from corresponding JSON file
-        let metadata = {
-          caption: null,
-          contributorName: null
-        };
-        
-        try {
-          const metadataFilename = `${photoId}_meta.json`;
-          const metadataBlob = allBlobs.find(b => b.pathname === metadataFilename);
-          if (metadataBlob) {
-            const response = await fetch(metadataBlob.url);
-            if (response.ok) {
-              const metadataData = await response.json();
-              metadata = {
-                caption: metadataData.caption || null,
-                contributorName: metadataData.contributorName || null
-              };
-            }
-          }
-        } catch (error) {
-          console.warn(`Failed to load metadata for ${photoId}:`, error);
-        }
-        
-        return {
-          id: photoId,
-          fileName: blob.pathname,
-          url: blob.url,
-          caption: metadata.caption,
-          contributorName: metadata.contributorName,
-          fileSize: blob.size,
-          mimeType: (() => {
-            const p = blob.pathname.toLowerCase();
-            if (p.endsWith('.png')) return 'image/png';
-            if (p.endsWith('.gif')) return 'image/gif';
-            if (p.endsWith('.heic')) return 'image/heic';
-            if (p.endsWith('.heif')) return 'image/heif';
-            if (p.endsWith('.webp')) return 'image/webp';
-            if (p.endsWith('.tif') || p.endsWith('.tiff')) return 'image/tiff';
-            if (p.endsWith('.dng')) return 'image/x-adobe-dng';
-            if (p.endsWith('.cr2')) return 'image/x-canon-cr2';
-            if (p.endsWith('.nef')) return 'image/x-nikon-nef';
-            if (p.endsWith('.arw')) return 'image/x-sony-arw';
-            if (p.endsWith('.raf')) return 'image/x-fuji-raf';
-            if (p.endsWith('.orf')) return 'image/x-olympus-orf';
-            if (p.endsWith('.rw2')) return 'image/x-panasonic-rw2';
-            if (p.endsWith('.srw')) return 'image/x-samsung-srw';
-            if (p.endsWith('.jpg') || p.endsWith('.jpeg')) return 'image/jpeg';
-            return 'application/octet-stream';
-          })(),
-          md5Hash: '', // We don't have this from blob metadata
-          uploadedAt: new Date(timestamp).toISOString(),
-          approved: true,
-          hidden: isHidden
-        };
-      })
-    );
+    // Create a map of metadata blobs for faster lookup
+    const metadataMap = new Map<string, string>();
+    allBlobs
+      .filter(b => b.pathname.endsWith('_meta.json'))
+      .forEach(b => {
+        const photoId = b.pathname.replace('_meta.json', '');
+        metadataMap.set(photoId, b.url);
+      });
+    
+    console.log(`[getPhotos] Built metadata map with ${metadataMap.size} entries`);
+    
+    // Load photos WITHOUT fetching metadata (too slow for 638 photos)
+    // Metadata will be fetched on-demand when photos are viewed
+    const photos: Photo[] = photoBlobs.map((blob) => {
+      // Extract timestamp from filename (photo_1759272581990.jpg -> 1759272581990)
+      const timestampMatch = blob.pathname.match(/photo_(\d+)/);
+      const timestamp = timestampMatch ? parseInt(timestampMatch[1]) : Date.now();
+      
+      const photoId = blob.pathname.replace(/\.[^/.]+$/, ""); // Remove file extension
+      
+      // Check if photo is hidden by looking at filename pattern
+      const isHidden = blob.pathname.includes('_hidden');
+      
+      return {
+        id: photoId,
+        fileName: blob.pathname,
+        url: blob.url,
+        caption: null, // Metadata not fetched to avoid slowness
+        contributorName: null, // Metadata not fetched to avoid slowness
+        fileSize: blob.size,
+        mimeType: (() => {
+          const p = blob.pathname.toLowerCase();
+          if (p.endsWith('.png')) return 'image/png';
+          if (p.endsWith('.gif')) return 'image/gif';
+          if (p.endsWith('.heic')) return 'image/heic';
+          if (p.endsWith('.heif')) return 'image/heif';
+          if (p.endsWith('.webp')) return 'image/webp';
+          if (p.endsWith('.tif') || p.endsWith('.tiff')) return 'image/tiff';
+          if (p.endsWith('.dng')) return 'image/x-adobe-dng';
+          if (p.endsWith('.cr2')) return 'image/x-canon-cr2';
+          if (p.endsWith('.nef')) return 'image/x-nikon-nef';
+          if (p.endsWith('.arw')) return 'image/x-sony-arw';
+          if (p.endsWith('.raf')) return 'image/x-fuji-raf';
+          if (p.endsWith('.orf')) return 'image/x-olympus-orf';
+          if (p.endsWith('.rw2')) return 'image/x-panasonic-rw2';
+          if (p.endsWith('.srw')) return 'image/x-samsung-srw';
+          if (p.endsWith('.jpg') || p.endsWith('.jpeg')) return 'image/jpeg';
+          return 'application/octet-stream';
+        })(),
+        md5Hash: '', // We don't have this from blob metadata
+        uploadedAt: new Date(timestamp).toISOString(),
+        approved: true,
+        hidden: isHidden
+      };
+    });
     
     // Sort by upload time (newest first)
     const sortedPhotos = photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());

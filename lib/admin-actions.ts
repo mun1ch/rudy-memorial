@@ -94,9 +94,17 @@ export async function hideMemory(memoryId: string) {
     // Hide individual tribute file by renaming it to include "_hidden"
     const { put, del, list } = await import('@vercel/blob');
     
+    // Fetch ALL blobs across all pages (Vercel Blob uses pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
     // Find the tribute file by ID
-    const { blobs } = await list();
-    const tributeBlob = blobs.find(blob => 
+    const tributeBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('tribute_') && 
       blob.pathname.includes(memoryId) &&
       !blob.pathname.includes('_hidden')
@@ -141,9 +149,17 @@ export async function unhideMemory(memoryId: string) {
     // Unhide individual tribute file by removing "_hidden" from filename
     const { put, del, list } = await import('@vercel/blob');
     
+    // Fetch ALL blobs across all pages (Vercel Blob uses pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
     // Find the hidden tribute file by ID
-    const { blobs } = await list();
-    const tributeBlob = blobs.find(blob => 
+    const tributeBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('tribute_') && 
       blob.pathname.includes(memoryId) &&
       blob.pathname.includes('_hidden')
@@ -188,9 +204,17 @@ export async function deleteMemory(memoryId: string) {
     // Delete individual tribute file from Vercel Blob storage
     const { del, list } = await import('@vercel/blob');
     
+    // Fetch ALL blobs across all pages (Vercel Blob uses pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
     // Find the tribute file by ID
-    const { blobs } = await list();
-    const tributeBlob = blobs.find(blob => 
+    const tributeBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('tribute_') && 
       blob.pathname.includes(memoryId)
     );
@@ -252,9 +276,17 @@ export async function editMemory(memoryId: string, message: string, contributorN
     // Edit individual tribute file
     const { put, list } = await import('@vercel/blob');
     
+    // Fetch ALL blobs across all pages (Vercel Blob uses pagination)
+    let cursor: string | undefined;
+    let allBlobs: Array<{ pathname: string; url: string; uploadedAt: Date }> = [];
+    do {
+      const result = await list({ cursor });
+      allBlobs = [...allBlobs, ...result.blobs];
+      cursor = result.cursor;
+    } while (cursor);
+    
     // Find the tribute file by ID
-    const { blobs } = await list();
-    const tributeBlob = blobs.find(blob => 
+    const tributeBlob = allBlobs.find(blob => 
       blob.pathname.startsWith('tribute_') && 
       blob.pathname.includes(memoryId)
     );
