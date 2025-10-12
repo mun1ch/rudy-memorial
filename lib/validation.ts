@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // Tribute validation
 export const tributeSchema = z.object({
-  displayName: z.string().max(100).optional().transform(val => val === "" ? undefined : val),
+  displayName: z.string().min(1, "Name is required").max(100),
   message: z.string().min(10).max(2000),
   email: z.string().email().optional(),
 });
@@ -12,7 +12,7 @@ export type TributeInput = z.infer<typeof tributeSchema>;
 // Photo upload validation
 export const photoUploadSchema = z.object({
   caption: z.string().max(500).optional().transform(val => val === "" ? undefined : val),
-  name: z.string().max(100).optional().transform(val => val === "" ? undefined : val),
+  name: z.string().min(1, "Name is required").max(100),
   file: z.instanceof(File).refine(
     (file) => file.size <= 50 * 1024 * 1024, // 50MB max
     "File size must be less than 50MB"

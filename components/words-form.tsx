@@ -25,16 +25,17 @@ export function WordsForm() {
         <CardContent className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-              Your Name (Optional)
+              Your Name <span className="text-destructive">*</span>
             </label>
             <Input
               id="name"
               name="name"
               placeholder="Enter your name"
               className="w-full"
+              required
             />
             <p className="mt-2 text-sm text-muted-foreground">
-              Your name will be displayed with your memory if provided
+              Your name will be displayed with your memory
             </p>
           </div>
 

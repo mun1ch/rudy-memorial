@@ -39,7 +39,7 @@ export async function submitTribute(formData: FormData) {
     const newTribute = {
       id: uuidv4(),
       message: validatedData.message,
-      contributorName: validatedData.displayName || "Anonymous",
+      contributorName: validatedData.displayName,
       submittedAt: new Date().toISOString(),
       approved: true, // Direct to memorial wall as requested
       hidden: false,
@@ -54,7 +54,7 @@ export async function submitTribute(formData: FormData) {
     // Send email notification
     try {
       await sendMemorySubmissionNotification({
-        contributorName: validatedData.displayName || null,
+        contributorName: validatedData.displayName,
         message: validatedData.message,
         submittedAt: newTribute.submittedAt
       });
@@ -100,7 +100,12 @@ export async function submitPhoto(formData: FormData) {
     }
 
     const caption = formData.get("caption") as string | null;
-    const name = formData.get("name") as string | null;
+    const name = formData.get("name") as string;
+    
+    // Validate that name is provided
+    if (!name || name.trim() === "") {
+      throw new Error("Name is required");
+    }
     // Uploaded blobs from client (direct-to-blob) come as JSON array
     const blobsJson = formData.get("blobs") as string | null;
     if (!blobsJson) {
@@ -137,7 +142,7 @@ export async function submitPhoto(formData: FormData) {
       const metadataFilename = `${photoId}_meta.json`;
       const metadata = {
         caption: caption || null,
-        contributorName: name || null,
+        contributorName: name,
         uploadedAt: new Date().toISOString()
       };
       const metadataBlob = new Blob([JSON.stringify(metadata, null, 2)], { type: 'application/json' });
@@ -148,7 +153,7 @@ export async function submitPhoto(formData: FormData) {
         fileName: photoId,
         url: b.url,
         caption: caption || null,
-        contributorName: name || null,
+        contributorName: name,
         fileSize: b.size || 0,
         mimeType: b.contentType || 'application/octet-stream',
         md5Hash: '',
@@ -160,7 +165,7 @@ export async function submitPhoto(formData: FormData) {
     // Send email notification
     try {
       await sendPhotoUploadNotification({
-        contributorName: name || null,
+        contributorName: name,
         caption: caption || null,
         photoCount: newPhotos.length || 0,
         uploadedAt: new Date().toISOString()

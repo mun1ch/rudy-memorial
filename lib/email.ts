@@ -8,14 +8,14 @@ interface EmailSettings {
 }
 
 interface PhotoNotificationData {
-  contributorName: string | null;
+  contributorName: string;
   caption: string | null;
   photoCount: number;
   uploadedAt: string;
 }
 
 interface MemoryNotificationData {
-  contributorName: string | null;
+  contributorName: string;
   message: string;
   submittedAt: string;
 }

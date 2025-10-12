@@ -476,7 +476,7 @@ export function PhotoForm() {
 
           <div>
             <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
-              Your Name (Optional)
+              Your Name <span className="text-destructive">*</span>
             </label>
             <Input
               id="name"
@@ -484,10 +484,11 @@ export function PhotoForm() {
               type="text"
               placeholder="e.g., John Doe"
               disabled={isSubmitting}
+              required
               className="disabled:opacity-50 disabled:cursor-not-allowed text-sm h-10 sm:h-11"
             />
             <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">
-              Your name will be displayed with the photos if provided
+              Your name will be displayed with the photos
             </p>
           </div>
 
